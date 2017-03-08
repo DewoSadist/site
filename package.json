@@ -1,0 +1,23 @@
+{
+  "name": "dewo",
+  "version": "1.0.0",
+  "description": "angularjs web front",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DewoSadist/site.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DewoSadist/site/issues"
+  },
+  "homepage": "https://github.com/DewoSadist/site#readme",
+  "devDependencies": {
+    "bower": "^1.8.0",
+    "gulp": "^3.9.1"
+  }
+}
