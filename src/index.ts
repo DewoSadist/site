@@ -13,7 +13,7 @@ import { footer } from './app/components/layout/footer/footer';
 import { home } from './app/components/home/home';
 
 // ------------------ General ---------------------
-import routesConfig from './routes';
+import routesConfig from './config/routes';
 
 angular
   .module('app', ['ui.router'])
