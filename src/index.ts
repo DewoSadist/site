@@ -1,0 +1,21 @@
+import * as angular from 'angular';
+
+// ------------------  Libs & system --------------------
+import 'angular-ui-router';
+
+import './index.scss';
+
+// ------------------  Components --------------------
+import { header } from './app/components/layout/header/header';
+import { footer } from './app/components/layout/footer/footer';
+import { home } from './app/components/home/home'
+
+// ------------------ General ---------------------
+import routesConfig from './routes';
+
+angular
+  .module('app', ['ui.router','ngCookies','ui.bootstrap'])
+  .component('header', header)
+  .component('footer', footer)
+  .component('home', home)
+  .config(routesConfig);

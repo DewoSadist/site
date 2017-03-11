@@ -1,0 +1,216 @@
+@mixin icon-url($name){
+	background-image: url($name + '.svg');
+}
+@mixin icon-size($width: 35, $height:35){
+	width: $width + px;
+	height: $height + px;
+}
+.icon{
+	background-repeat: no-repeat;
+	display: inline-block;
+	text-align: center;
+	background-position: center;
+	vertical-align: middle;
+	@include icon-size();
+	&_chevron-left{
+		@include icon-url(chevron-left);
+	}	
+	&_chevron-right{
+		transform:rotateY(180deg);
+		@include icon-url(chevron-left);
+	}	
+	&_chevron-left-white{
+		@include icon-url(chevron-left-white);
+	}	
+	&_chevron-right-white{
+		transform:rotateY(180deg);
+		@include icon-url(chevron-left-white);
+	}	
+	&_chevron-left-small{
+		@include icon-size(15,15);
+		background-position: left center;
+		@include icon-url(chevron-left-small);
+	}
+	&_logo{
+		@include icon-size(101,24);
+		@include icon-url(logo);
+	}
+	&_modal-close{
+		@include icon-size(16,16);
+		@include icon-url(modal-close);
+    	@media (min-width: $screen-sm-min) {
+			@include icon-size(22,22);
+    	}
+	}
+	&_logo-inverse{
+		@include icon-size(101,24);
+		@include icon-url(logo-inverse);
+	}
+	&_more{
+		@include icon-size(22,4);
+		@include icon-url(more);
+	}
+	&_search{
+		@include icon-url(search);
+	}
+	&_id-card{
+		@include icon-size(40,40);
+		@include icon-url(id-card);
+		margin-bottom: 15px;
+        @media (min-width: $screen-md-min) {
+			margin-right: 25px;
+			margin-bottom: 0;
+		}
+	}
+	&_search-small{
+		position: relative;
+		top: -1px;
+		@include icon-url(search-small);
+	}
+	&_tenge{
+		@include icon-size(43,40);
+		@include icon-url(tenge);
+	}
+	&_calendar{
+		@include icon-size(40,40);
+		@include icon-url(calendar);
+	}
+	&_password-show{
+		@include icon-size(40,40);
+		@include icon-url(password-show);
+	}
+	&_app-store {
+		@include icon-size(136,39);
+		@include icon-url(app-store);
+	}
+	&_google-play {
+		@include icon-size(136,39);
+		@include icon-url(google-play);
+	}
+	&_skype {
+		@include icon-size(29,27);
+		@include icon-url(skype);
+	}
+	&_kkb-logo {
+		@include icon-size(44,43);
+		@include icon-url(kkb-logo);
+	}
+	// social icons
+	&_facebook {
+		@include icon-size(38,38);
+		@include icon-url(facebook);
+	}
+	&_vk {
+		@include icon-size(38,38);
+		@include icon-url(vk);
+	}
+	&_twitter {
+		@include icon-size(38,38);
+		@include icon-url(twitter);
+	}
+	&_instagram {
+		@include icon-size(38,38);
+		@include icon-url(instagram);
+	}
+	&_youtube {
+		@include icon-size(38,38);
+		@include icon-url(youtube);
+	}
+	
+	&_info{
+		@include icon-url(info);
+	}
+	&_play-button{
+		@include icon-url(play-button);
+	}
+	&_checkmark {
+		@include icon-url(checkmark);
+	}
+	&_successcheck {
+		background-color: $brand-success;
+		border-radius: 50%;
+		@include icon-url(successcheck);
+		@include icon-size(16, 16);
+	}
+	&_failuremark {
+		background-color: $brand-danger;
+		border-radius: 50%;
+		@include icon-size(16, 16);
+	}
+	&_virtual-service {
+		@include icon-size(60,60);
+		@include icon-url(virtual-service);
+	}
+	&_virtual-safety {
+		@include icon-size(60,60);
+		@include icon-url(virtual-safety);
+	}
+	&_restore-check{
+		@include icon-size(12,12);
+		@include icon-url(restore-check);
+		position: relative;
+	    top: -1px;
+	    left: -0.5px;
+	}
+	&_restore-arrow{
+		@include icon-size(12,12);
+		@include icon-url(restore-arrow);
+	}
+	&_collapse{
+		@include icon-size(18,18);
+		top: 4px;
+		position: relative;
+		z-index: 5;
+		&.collapsed {
+			&:after {
+				transform: rotateX(0);
+			}
+		}
+		&:before,&:after {
+			position: absolute;
+			display: block;
+			left: 0;
+			top: 8px;
+			background-color: $brand-primary;
+			content: '';
+			width: 100%;
+			height: 2px;
+			@include transition(all 0.3s);
+		}
+		&:after {
+			left: 8px;
+			top: 0;
+			height: 100%;
+			width: 2px;
+			transform: rotateX(90deg);
+		}
+	}
+}
+.glyphicon-spin {
+	top: 2px;
+    -ms-transform-origin: 45% 42%; /* IE 9 */
+    -webkit-transform-origin: 45% 42%; /* Chrome, Safari, Opera */
+    transform-origin: 45% 42%;
+    -webkit-animation: spin 1000ms infinite linear;
+    animation: spin 1000ms infinite linear;
+}
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}

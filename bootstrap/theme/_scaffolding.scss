@@ -1,0 +1,16 @@
+//
+// Scaffolding
+// --------------------------------------------------
+// Body
+body {
+    font-weight: 300;
+}
+
+a {
+    @include transition(all 0.3s);
+    &,
+    &:focus,
+    &:hover {
+        text-decoration: none;
+    }
+}

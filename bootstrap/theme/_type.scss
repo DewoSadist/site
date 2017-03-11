@@ -1,0 +1,138 @@
+//
+// Typography
+// --------------------------------------------------
+// Headings
+// -------------------------
+.h1,
+h1,
+.h2,
+h2,
+.h3,
+h3,
+.h4,
+h4,
+.h5,
+h5,
+.h6,
+h6 {
+    &.subtitle {
+        font-family: $font-family-sans-serif;
+        font-weight: 300;
+    }
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+// ~36px
+.h1,
+h1 {
+    line-height: 1.28;
+
+    &.subtitle {
+        // ~24px
+        font-size: ceil($font-size-h1 * 0.66);
+    }
+
+    @media (min-width: $screen-md-min) {
+        // ~45px
+        font-size: ceil($font-size-h1 * 1.25);
+        line-height: 1.11;
+    }
+}
+
+// ~30px
+.h2,
+h2 {
+    line-height: 1.2;
+
+    &.subtitle {
+        line-height: 1.27;
+
+        // ~22px
+        font-size: ceil($font-size-h2 * 0.73);
+    }
+
+    @media (min-width: $screen-md-min) {
+        line-height: 1.18;
+
+        // ~38px
+        font-size: ceil($font-size-h2 * 1.26);
+    }
+}
+
+.h3,
+h3 {
+    //
+    line-height: 1;
+
+    &.subtitle {
+        line-height: 1.2;
+
+        // ~20px
+        font-size: ceil($font-size-h3 * 0.76);
+    }
+
+    @media (min-width: $screen-md-min) {
+        line-height: 1.4;
+
+        // ~22px
+        font-size: ceil($font-size-h3 * 1.15);
+    }
+}
+
+.h4,
+h4 {
+    line-height: 1.18;
+
+    @media (min-width: $screen-md-min) {
+        // ~30px
+        font-size: ceil($font-size-h4 * 1.36);
+    }
+
+    &.subtitle {
+        line-height: 1.33;
+
+        // ~18px
+        font-size: ceil($font-size-h4 * 0.81);
+    }
+
+    .heading {
+        @media (min-width: $screen-sm-min) {
+            font-size: 30px;
+        }
+    }
+}
+
+.h5,
+h5 {
+    &.subtitle {
+        line-height: 1.5;
+
+        // ~16px
+        font-size: ceil($font-size-h5 * 0.88);
+    }
+
+    &.subheading {
+        font-size: 15px;
+
+        @media (min-width: $screen-sm-min) {
+            font-size: 20px;
+        }
+    }
+
+    line-height: 1.78;
+}
+
+p {
+    line-height: 1.33;
+}
+
+strong {
+    font-weight: normal;
+}
+
+.text-dark {
+    color: #5e6166;
+    font-weight: normal !important;
+}

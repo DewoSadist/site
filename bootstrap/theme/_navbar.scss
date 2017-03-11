@@ -1,0 +1,195 @@
+$navbar-font-size: 14px;
+
+.navbar {
+    border: 0;
+
+    &_hb {
+        float: left;
+        padding-left: 6px;
+        margin: 0;
+
+        > li {
+            display: inline-block;
+            padding: 0 11px;
+
+            > a {
+                padding: $navbar-padding-horizontal 0px;
+                min-height: 55px;
+
+                @media (min-width: $screen-md-min) {
+                    padding: ($navbar-padding-horizontal + 5) 0px;
+                }
+            }
+
+            @media (min-width: $screen-sm-min) {
+                &:first-child {
+                    padding-left: 0;
+                }
+            }
+        }
+
+        @media (min-width: $screen-sm-min) {
+            padding-left: 0;
+        }
+    }
+
+    &-inverse {
+        .navbar-link {
+            color: #fff;
+            &:hover{
+                color: $brand-primary
+            }
+        }
+
+        .navbar-toggle {
+            border: 0;
+            color: #fff;
+            font-size: $navbar-font-size;
+            padding: 8px 0;
+            margin-bottom: 0;
+            margin-right: 16px;
+            margin-top: 8.5px;
+
+            .icon_more {
+                margin-left: 2px;
+            }
+
+            &:hover,
+            &:focus {
+                background-color: transparent;
+            }
+        }
+
+        .navbar-nav {
+            > li > a {
+                position: relative;
+                font-size: $navbar-font-size;
+                color: #fff;
+                
+                @media (min-width: $screen-md-min) {
+                    font-size: $font-size-base;
+                }
+                &:hover,
+                &:focus {
+                    color: $brand-primary;
+                }
+            }
+    
+            > .active > a {
+                &,
+                &:hover,
+                &:focus {
+                    color: $navbar-inverse-link-active-color;
+                    background-color: $navbar-inverse-bg;
+                }
+
+                &:after {
+                    position: absolute;
+                    width: 100%;
+                    content: '';
+                    background-color: $brand-primary;
+                    height: 2px;
+                    bottom: 0;
+                    left: 0;
+                }
+            }
+        }
+    }
+
+    &-default {
+        .navbar-link {
+            color: $brand-primary;
+            margin-top: 16px;
+        }
+
+        .navbar-toggle {
+            border: 0;
+            color: #fff;
+            font-size: $navbar-font-size;
+            padding: 8px 0;
+            margin-bottom: 0;
+            margin-right: 16px;
+            margin-top: 8.5px;
+
+            .icon_more {
+                margin-left: 2px;
+            }
+
+            &:hover,
+            &:focus {
+                background-color: transparent;
+            }
+        }
+
+        .navbar-nav {
+            > li > a {
+                position: relative;
+                font-size: $navbar-font-size;
+                color: $brand-primary;
+                font-weight: normal;
+
+                @media (min-width: $screen-md-min) {
+                    font-size: $font-size-base;
+                }
+            }
+
+            > .active > a {
+                &,
+                &:hover,
+                &:focus {
+                    color: $brand-primary;
+                    background-color: $navbar-default-bg;
+                }
+
+                &:after {
+                    position: absolute;
+                    width: 100%;
+                    content: '';
+                    background-color: $brand-primary;
+                    height: 2px;
+                    bottom: 0;
+                    left: 0;
+                }
+            }
+        }
+    }
+}
+
+.navbar-nav {
+    > li > a {
+        line-height: 23px;
+
+        @media (min-width: $screen-md-min) {
+            line-height: $navbar-padding-horizontal * 2;
+        }
+    }
+}
+
+.navbar-brand {
+    padding: 13px $navbar-padding-horizontal;
+
+    @media (min-width: $screen-md-min) {
+        padding: 21px $navbar-padding-horizontal;
+    }
+
+    @media (min-width: $grid-float-breakpoint) {
+        .navbar > .container &,
+        .navbar > .container-fluid & {
+            margin-right: $navbar-padding-horizontal * 2;
+        }
+    }
+}
+
+.navbar-btn {
+    width: auto !important;
+    display: inline-block !important;
+    margin-right: 15px;
+}
+
+.navbar-link {
+    vertical-align: middle;
+
+    @media (min-width: $screen-sm-min) {
+        margin-right: 30px;
+    }
+}

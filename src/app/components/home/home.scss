@@ -1,0 +1,12 @@
+.home {
+  .intro {
+    @media (min-width: 768px) {
+      padding: 50px 0;
+    }
+
+    .title {
+      padding:40px 0;
+      position: relative;
+    }
+  }
+}

@@ -1,0 +1,186 @@
+//
+// Forms
+// --------------------------------------------------
+
+.form-control {
+    @include transition(all 0.3s);
+    
+    @include box-shadow(none);
+    font-size: 16px;
+    @media (min-width: $screen-md-min) {
+        font-size: 18px;
+        height: 55px;
+        padding: $padding-base-vertical+5 $padding-base-horizontal;
+    }
+    &:active,
+    &:focus {
+        @include box-shadow(0 0 4px 0 rgba(0, 168, 255, 0.19));
+    }
+
+    &.input-sm {
+        height: 35px;
+        font-size: $font-size-base;
+    }
+}
+
+.has-error {
+    .input-group.no-border {
+        .input-group-addon {
+            border-color: $state-danger-text;
+        }
+
+        .form-control:focus + .input-group-addon {
+            border-color: $state-danger-text;
+        }
+    }
+
+    .error {
+        color: $state-danger-text;
+    }
+}
+
+label {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+small {
+    font-size: 13px;
+    color: $description-gray;
+    font-weight: 300;
+
+    .black {
+        color: $brand-info;
+    }
+}
+
+// Checkboxes and radios
+//
+// Indent the labels to position radios/checkboxes as hanging controls.
+
+.radio,
+.checkbox {
+    position: relative;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    label {
+        min-height: $line-height-computed;
+
+        // Ensure the input doesn't jump when there is no text
+        padding-left: 25px;
+        margin-bottom: 0;
+        font-weight: normal;
+        cursor: pointer;
+        position: relative;
+
+        @include user-select(none);
+
+        &:before {
+            @extend .icon;
+
+            @include icon-size(16, 16);
+            @include icon-url(checkbox-unchecked);
+            @include transition(all 0.3s);
+            content: '';
+            left: 0;
+            top: 2px;
+            position: absolute;
+            background-position: center;
+            margin-right: 5px;
+            border-radius: $input-border-radius;
+            border: 0;
+        }
+    }
+}
+
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"] {
+    &:checked + label:before {
+        @include icon-url(checkbox-checked);
+    }
+}
+
+.radio input[type="radio"],
+.radio-inline input[type="radio"],
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"] {
+    display: none;
+}
+
+.radio + .radio,
+.checkbox + .checkbox {
+    margin-top: -5px;
+
+    // Move up sibling radios or checkboxes for tighter spacing
+}
+
+// Radios and checkboxes on same line
+.radio-inline,
+.checkbox-inline {
+    position: relative;
+    display: inline-block;
+    padding-left: 20px;
+    margin-bottom: 0;
+    vertical-align: middle;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.radio-inline + .radio-inline,
+.checkbox-inline + .checkbox-inline {
+    margin-top: 0;
+    margin-left: 10px;
+
+    // space out consecutive inline controls
+}
+
+// Apply same disabled cursor tweak as for inputs
+// Some special care is needed because <label>s don't inherit their parent's `cursor`.
+//
+// Note: Neither radios nor checkboxes can be readonly.
+input[type="radio"],
+input[type="checkbox"] {
+    &[disabled],
+    &.disabled,
+    fieldset[disabled] & {
+        cursor: $cursor-disabled;
+    }
+}
+
+// These classes are used directly on <label>s
+.radio-inline,
+.checkbox-inline {
+    &.disabled,
+    fieldset[disabled] & {
+        cursor: $cursor-disabled;
+    }
+}
+
+// These classes are used on elements with <label> descendants
+.radio,
+.checkbox {
+    &.disabled,
+    fieldset[disabled] & {
+        label {
+            cursor: $cursor-disabled;
+        }
+    }
+}
+
+// Form groups
+//
+// Designed to help with the organization and spacing of vertical forms. For
+// horizontal forms, use the predefined grid classes.
+
+.form-group + .form-group {
+    margin-top: $form-group-margin-bottom * 2;
+}
+
+form {
+    .btn {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}

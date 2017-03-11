@@ -1,0 +1,12 @@
+// Make variables and mixins available when using CSS modules.
+
+/* 
+	TODO: There is some errors occuring, we should find a way to deal without 
+ 	pre-customizations using only _variables and _mixins accepting our changes
+*/
+
+@import "src/bootstrap/pre-customizations.scss";
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables";
+@import "src/bootstrap/customizations.scss";
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_mixins";
+// @import "src/bootstrap/theme.scss";

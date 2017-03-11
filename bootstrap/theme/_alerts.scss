@@ -1,0 +1,15 @@
+//
+// Alerts
+// --------------------------------------------------
+// all other things are customized in pre-customizations
+.alert {
+	font-size: $font-size-small;
+	margin-bottom: 10px;
+	@media (min-width: $screen-sm-min) {
+		font-size: $font-size-base;
+	}
+	ul{
+		list-style: none;
+		padding: 0;
+	}
+}

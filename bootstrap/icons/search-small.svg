@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39 (31667) - http://www.bohemiancoding.com/sketch -->
+    <title>search small</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M12.5335169,12.5336748 C12.8230615,12.2441302 13.2873504,12.2389746 13.5835863,12.5352105 L16.2018488,15.1534731 C16.4922415,15.4438658 16.4949478,15.9119792 16.2033845,16.2035424 L16.2033845,16.2035424 C15.91384,16.493087 15.4495511,16.4982426 15.1533152,16.2020067 L12.5350526,13.5837441 C12.2446599,13.2933514 12.2419537,12.825238 12.5335169,12.5336748 L12.5335169,12.5336748" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-1" y="-1" width="6.10480466" height="6.10767145">
+            <rect x="11.3160484" y="11.3147729" width="6.10480466" height="6.10767145" fill="white"></rect>
+            <use xlink:href="#path-1" fill="black"></use>
+        </mask>
+    </defs>
+    <g id="Mobile-payment" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Payment-mobile--1-" transform="translate(-278.000000, -144.000000)">
+            <g id="City-select" transform="translate(17.000000, 135.000000)">
+                <g id="search" transform="translate(252.000000, 0.000000)">
+                    <g id="Group-2" transform="translate(9.000000, 9.000000)">
+                        <g id="search-small">
+                            <path d="M15.974951,8.30228182 C15.974951,4.06469644 12.5397093,0.629454749 8.30212393,0.629454749 C4.06453855,0.629454749 0.62929686,4.06469644 0.62929686,8.30228182 C0.62929686,12.5398672 4.06453855,15.9751089 8.30212393,15.9751089 C12.5397093,15.9751089 15.974951,12.5398672 15.974951,8.30228182 Z M2.62929686,8.30228182 C2.62929686,5.16926594 5.16910805,2.62945475 8.30212393,2.62945475 C11.4351398,2.62945475 13.974951,5.16926594 13.974951,8.30228182 C13.974951,11.4352977 11.4351398,13.9751089 8.30212393,13.9751089 C5.16910805,13.9751089 2.62929686,11.4352977 2.62929686,8.30228182 Z" id="Oval-16" fill="#00A9FF"></path>
+                            <g id="Rectangle-9">
+                                <use fill="#061122" fill-rule="evenodd" xlink:href="#path-1"></use>
+                                <use stroke="#FFFFFF" mask="url(#mask-2)" stroke-width="2" xlink:href="#path-1"></use>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

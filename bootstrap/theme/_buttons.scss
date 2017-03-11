@@ -1,0 +1,52 @@
+//
+// Buttons
+// --------------------------------------------------
+// Base styles
+// --------------------------------------------------
+.btn {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 100%;
+    display: block;
+    font-weight: 300;
+
+    @include box-shadow(none);
+
+    @include transition(all 0.3s);
+
+    &,
+    &:focus,
+    &.focus,
+    &:active:focus,
+    &:active.focus,
+    &.active:focus,
+    &.active.focus {
+        outline: 0;
+    }
+}
+
+a.btn {
+    &.disabled,
+    fieldset[disabled] & {
+        pointer-events: none;
+
+        // Future-proof disabling of clicks on `<a>` elements
+   
+    }
+}
+
+.btn-secondary {
+    @include button-variant($brand-primary, $transparent-white, rgba($brand-primary, 0.3));
+}
+.btn{
+    @media (min-width: $screen-md-min) {
+        @include button-size($padding-large-horizontal, $padding-large-horizontal, $font-size-base, $line-height-base, $btn-border-radius-base);
+    }
+}
+.btn-sm {
+    @include button-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $btn-border-radius-small);
+
+    @media (min-width: $screen-md-min) {
+        @include button-size($padding-large-vertical, $padding-large-horizontal*2, $font-size-base, $line-height-base, $btn-border-radius-small);
+    }
+}
