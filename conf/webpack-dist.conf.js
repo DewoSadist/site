@@ -14,19 +14,14 @@ module.exports = {
       {
         test: /\.json$/,
         loaders: [
-          // 'json'
           'json-loader'
         ]
       },
       {
         test: /\.ts$/,
         exclude: /node_modules/,
-        loaders: [
-          'ng-annotate',
-          'ts'
-        ]
-        // loader: 'tslint-loader',
-        // enforce: 'pre'
+        loader: 'tslint-loader',
+        enforce: 'pre'
       },
       {
         test: /\.(css|scss)$/,
@@ -77,8 +72,6 @@ module.exports = {
       }
     })
   ],
-  postcss: () => [autoprefixer],
-  sassResources: './conf/sass-resources.scss',
   output: {
     path: path.join(process.cwd(), conf.paths.dist),
     filename: '[name]-[hash].js'
@@ -92,10 +85,7 @@ module.exports = {
     ]
   },
   entry: {
-    app: [
-      `bootstrap-loader`,
-      `./${conf.path.src('index')}`
-    ],
+    app: `./${conf.path.src('index')}`,
     vendor: Object.keys(pkg.dependencies)
   }
 };

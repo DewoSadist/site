@@ -11,7 +11,6 @@ module.exports = {
     loaders: [
       {
         test: /\.json$/,
-        exclude: /node_modules/,
         loaders: [
           'json-loader'
         ]
@@ -28,8 +27,7 @@ module.exports = {
           'style-loader',
           'css-loader',
           'sass-loader',
-          'postcss-loader',
-          'sass-resources'
+          'postcss-loader'
         ]
       },
       {
@@ -45,9 +43,7 @@ module.exports = {
         loaders: [
           'html-loader'
         ]
-      },
-      { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' },
-      { test: /bootstrap-sass\/assets\/javascripts\//, loader: 'imports?jQuery=jquery' }
+      }
     ]
   },
   plugins: [
@@ -55,8 +51,7 @@ module.exports = {
     new webpack.NoEmitOnErrorsPlugin(),
     FailPlugin,
     new HtmlWebpackPlugin({
-      template: conf.path.src('index.html'),
-      inject: true
+      template: conf.path.src('index.html')
     }),
     new webpack.LoaderOptionsPlugin({
       options: {
@@ -85,6 +80,5 @@ module.exports = {
       '.ts'
     ]
   },
-  entry: ['bootstrap-loader', `./${conf.path.src('index')}`]
-  // entry: `./${conf.path.src('index')}`
+  entry: `./${conf.path.src('index')}`
 };

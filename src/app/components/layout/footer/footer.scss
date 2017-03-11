@@ -1,7 +1,12 @@
 /* resources.scss */
 
+$footer-vertical-margin: 5px;
+
+
 .footer {
+  padding-top: $footer-vertical-margin;
   border-top: 1px solid #ccc;
+  width: 100%;
   background-color: #fff;
   padding-bottom: 20px;
   line-height: 160%;
