@@ -1,0 +1,427 @@
+$kcell-bg: #fd5cf1, #9d4eb2;
+$activ-bg: #f7af00 50%, #ef2755, #382b87;
+$beeline-bg: #ffe300, #df9300;
+$tele2-bg: #717171, #000000;
+$altel-bg: #f10084, #950052;
+$mobile-bg: #ffffff, #f9faff;
+$mobile-bg-activ: #ffffff, #FCFCFF, #f9faff;
+$mobile-initial-position: 0% 83%;
+$mobile-final-position: 100% 83%;
+$mobile-final-position-activ: 88% 0%;
+
+@mixin icon-url($name) {
+    background-image: url("../icons/" + $name + ".svg");
+}
+
+@mixin normal-brand {
+    &, .subheading, .heading {
+        color: $brand-info;
+    }
+
+    .dropdown-toggle {
+        color: $brand-primary;
+    }
+
+    .submenu {
+        .button {
+            background-color: #f3f9ff;
+
+            .icon_search-small {
+                @include icon-url(search-small);
+            }
+
+            .icon_chevron-left {
+                @include icon-url(chevron-left);
+            }
+        }
+
+        .button-text {
+            color: $brand-primary;
+        }
+    }
+}
+
+@mixin inverse-brand($gradient) {
+    background-image: $gradient;
+
+    &, .subheading, .heading, .dropdown-toggle {
+        color: #fff;
+    }
+
+    .submenu {
+        .button {
+            background-color: rgba(243, 249, 255, 0.25);
+
+            .icon_search-small {
+                @include icon-url(search-small-white);
+            }
+
+            .icon_chevron-left {
+                @include icon-url(chevron-left-white);
+            }
+        }
+
+        .button-text {
+            color: $white;
+        }
+    }
+}
+
+@mixin payment-round($width: 70px, $gradient: none) {
+    display: inline-block;
+    width: $width;
+    height: $width;
+    border-radius: 50%;
+    background-image: $gradient;
+    margin: 10px;
+    text-align: center;
+
+    @include flex(center, center, column);
+}
+
+.top-section {
+    padding-bottom: 50px;
+    position: relative;
+    background-image: linear-gradient(288deg, #ffffff, #f9faff);
+    .cities-spacer{
+        height: 50px;
+    }
+    .info-wrap {
+        display: flex;
+        width: 100%;
+    }
+
+    .info {
+        width: 100%;
+        min-height: 125px;
+
+        @include flex(flex-start, center, column);
+
+        @media (min-width: $screen-md-min) {
+            min-height: 200px;
+        }
+
+        .title {
+            font-size: 22px;
+
+            @media (min-width: $screen-sm-min) {
+                font-size: 28px;
+            }
+        }
+
+        .subtitle {
+            font-size: 15px;
+
+            @media (min-width: $screen-sm-min) {
+                font-size: 18px;
+            }
+        }
+    }
+
+    .submenu {
+        margin: 25px 0;
+
+        // text-align: center;
+        position: relative;
+
+        .button {
+            // position: absolute;
+            display: inline-block;
+            background: none;
+            padding: 0;
+            margin: 0;
+            margin-right: 15px;
+            border: 0;
+            top: 0;
+            z-index: 1;
+            line-height: 1;
+            outline: 0;
+            width: 35px;
+            height: 35px;
+            text-align: center;
+            border-radius: 50%;
+            background-color: #f3f9ff;
+
+            &.pull-left {
+                left: 0;
+            }
+
+            &.pull-right {
+                right: 0;
+            }
+
+            @media (min-width: $screen-sm-min) {
+                position: relative;
+            }
+        }
+
+        .button-text {
+            color: $brand-primary;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .payments-dropdown {
+            line-height: 34px;
+            display: inline-block;
+            width: 100%;
+
+            @media (min-width: $screen-sm-min) {
+                width: auto;
+            }
+
+            .dropdown-menu {
+                width: 100%;
+            }
+
+            .dropdown-toggle {
+                font-size: 16px;
+                vertical-align: middle;
+            }
+
+            @media (min-width: $screen-sm-min) {
+                margin-left: 30px;
+            }
+        }
+
+        @media (min-width: $screen-sm-min) {
+            text-align: left;
+        }
+
+        @media (min-width: $screen-md-min) {}
+
+        @media (min-width: $screen-lg-min) {}
+    }
+}
+
+.top-section + .form-wrap {
+    position: relative;
+    top: -40px;
+}
+
+.top-section.main {
+    padding-bottom: 0;
+    background-image: none;
+
+    .submenu {
+        margin: 15px 0;
+        text-align: left;
+
+        @media (min-width: $screen-sm-min) {
+            margin: 40px 0;
+        }
+    }
+
+    .info {
+        display: block;
+
+        @media (min-width: $screen-sm-min) {
+            margin: 40px 0;
+        }
+
+        @media (min-width: $screen-md-min) {
+            margin-bottom: 0;
+            min-height: 150px;
+        }
+    }
+}
+.top-section.main.main_authorized {
+    .info {
+        margin-top: 100px;
+    }
+}
+
+// payments
+.top-section.mobile {
+    background-size: 400% 400%;
+    background-image: linear-gradient(103deg, $mobile-bg, $mobile-bg);
+    background-position: $mobile-initial-position;
+
+    @include transition(background-position 0.3s ease-in-out);
+}
+
+.top-section.mobile.mobile_end {
+    background-position: $mobile-initial-position;
+
+    @include normal-brand;
+}
+
+.top-section.kcell {
+    background-position: $mobile-final-position;
+
+    @include inverse-brand(linear-gradient(103deg, $mobile-bg, $kcell-bg));
+}
+
+.top-section.activ {
+    background-position: $mobile-final-position-activ;
+
+    @include inverse-brand(linear-gradient(103deg, $mobile-bg-activ, $activ-bg));
+}
+
+.top-section.beeline {
+    background-position: $mobile-final-position;
+
+    @include inverse-brand(linear-gradient(103deg, $mobile-bg, $beeline-bg));
+}
+
+.top-section.altel, .top-section.city {
+    background-position: $mobile-final-position;
+
+    @include inverse-brand(linear-gradient(103deg, $mobile-bg, $altel-bg));
+}
+
+.top-section.tele2 {
+    background-position: $mobile-final-position;
+
+    @include inverse-brand(linear-gradient(103deg, $mobile-bg, $tele2-bg));
+}
+
+.top-section.alseco {
+    @include inverse-brand(linear-gradient(309deg, #49ece5, #0062ce));
+    .info {
+        @media (min-width: $screen-sm-min) {
+            margin-top: 30px;
+        }
+    }
+}
+
+.top-section.pdd {
+    @include inverse-brand(linear-gradient(103deg, #2fad72, #248155));
+}
+
+.top-section.qiwi {
+    @include inverse-brand(linear-gradient(138deg, #0023a0, #3f64e8));
+}
+
+.top-section.onai {
+    @include inverse-brand(linear-gradient(127deg, #f76b1c, #f89838 50%, #fac655 79%, #fad961));
+}
+
+.top-section.astanaERC {
+    @include inverse-brand(linear-gradient(103deg, #0093ca, #005e8f));
+    .info {
+        @media (min-width: $screen-sm-min) {
+            margin-top: 30px;
+        }
+    }
+}
+
+.top-section.ivc {
+    @include inverse-brand(linear-gradient(103deg, #0093ca, #005e8f));
+    .info {
+        @media (min-width: $screen-sm-min) {
+            margin-top: 30px;
+        }
+    }
+}
+
+.top-section.pdd {
+    @include inverse-brand(linear-gradient(103deg, #2fad72, #248155));
+}
+
+.top-section.hcsbkPayLoan, .top-section.hcsbkMakeDeposit {
+    @include inverse-brand(linear-gradient(45deg, #22b1ec, #fee633));
+}
+
+.top-section.kazakhtelecom {
+    @include inverse-brand(linear-gradient(103deg, #10a9ff, #005a8b));
+}
+
+// transfers
+.top-section.transfers {
+    @include inverse-brand(linear-gradient(138deg, #00a9ff, #3f64e8));
+
+    .info {
+        margin-bottom: 25px;
+
+        @media (min-width: $screen-md-min) {
+            min-height: 250px;
+            margin-bottom: 0;
+        }
+    }
+}
+
+.top-section.transfers + .form-wrap {
+    @media (min-width: $screen-sm-min) {
+        top: -56px;
+    }
+}
+
+.top-section.transfers-cash {
+    .info {
+        min-height: 125px;
+
+        @media (min-width: $screen-md-min) {
+            min-height: 300px;
+        }
+    }
+}
+
+.top-section.transfers-new {
+    background-image: none;
+    padding-bottom: 30px;
+
+    @media (min-width: $screen-sm-min) {
+        padding-bottom: 50px;
+    }
+
+    .info {
+        .title {
+            margin-top: 40px;
+
+            @media (min-width: $screen-sm-min) {
+                margin-top: 90px;
+            }
+        }
+
+        .subtitle {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+    }
+}
+
+.payment-round-small {
+    @include payment-round(45px, linear-gradient(137deg, #f6faff, #dce3ea));
+    flex: 0 0 45px;
+    margin-left: 0;
+    @media (min-width: $screen-sm-min) {
+        flex: 0 0 50px;
+        width: 50px;
+        height: 50px;
+    }
+}
+
+.payment-round {
+    @include payment-round(70px, linear-gradient(137deg, #f6faff, #dce3ea));
+
+    &_alseco {
+        background-image: linear-gradient(137deg, #0fc5cc, #00665c);
+    }
+
+    &_beeline {
+        background-image: url("../icons/payments/beeline@2x.png");
+        background-size: 100% 100%;
+        .icon{
+            display: none;
+        }
+    }
+    &_altel {
+        background-image: linear-gradient(137deg, #ec0289, #990056);
+    }
+    &_activ {
+        background-image: linear-gradient(137deg, #f7af00, #ef2755 49%, #382b87);
+    }
+    &_kcell {
+        background-image: linear-gradient(150deg, #fd5cf1, #fc5cf1 1%, #b351c1 77%, #9d4eb2);
+    }
+    &_tele2 {
+        background-image: linear-gradient(137deg, #717171, #000000);
+    }
+    &_qiwi {
+        background-image: linear-gradient(135deg, #0023a0, #3f64e9);
+    }
+    &_onai {
+        background-image: linear-gradient(135deg, #fcbf26, #eb9300);
+    }
+}

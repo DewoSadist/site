@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="55" version="1.1"><rect id="backgroundrect" width="100%" height="100%" x="0" y="0" fill="none" stroke="none"/>
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>Wizard step</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M274.49255,41 L275.772668,41 C277.986253,41 280.441411,42.6594439 281.262822,44.7225599 L289.120921,64.4595376 C289.939464,66.5154507 289.950413,69.8595861 289.15471,71.9048789 L281.229033,92.2772187 C280.429151,94.333254 277.990708,96 275.778539,96 L274.822555,96" id="path-1"/>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="15.250723838806152" height="56" fill="white">
+            <use xlink:href="#path-1" id="svg_1"/>
+        </mask>
+    </defs>
+    
+<g class="currentLayer"><title>Layer 1</title><g id="Providers" stroke="#e0e6ef" stroke-width="1" fill="none" fill-rule="evenodd" class="" opacity="1" stroke-opacity="1">
+        <g id="Artboard" stroke="#e0e6ef" stroke-width="2" fill="none" opacity="1" stroke-opacity="1" fill-opacity="1">
+            <use id="Wizard-step" mask="url(#mask-2)" xlink:href="#path-1" y="-41" x="-274.81632651388645" transform="matrix(0.9683141112327576,0,0,1,-0.010258654599965666,0) "/>
+        </g>
+    </g></g></svg>

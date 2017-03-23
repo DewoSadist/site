@@ -17,6 +17,16 @@
         Paragraph
         <br /> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, qui!
     </p>
+    <!-- <legend>Receipt</legend> -->
+    <!-- <receipt-block></receipt-block> -->
+
+    <legend>Date</legend>
+    <form>
+        <div class="form-group">
+            <label for="exampleInputDate1">Date</label>
+            <input type="date" class="form-control" id="exampleInputDate1" placeholder="12.01.1991">
+        </div>
+    </form>
     <h1>Buttons</h1>
     <div>
         <button class="btn btn-primary">Primary button</button>
@@ -30,20 +40,7 @@
         <div class="form-group">
             <label for="exampleInputEmail3">Email address</label>
             <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputEmail3">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
             <small class="form-help">Hello there</small>
-        </div>
-        <div class="form-group">
-            <label for="exampleInputEmail3">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
-            <small class="form-help"></small>
-        </div>
-        <div class="form-group">
-            <label for="exampleInputEmail3">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
         </div>
         <div class="form-group">
             <label for="exampleInputPassword3">Amount</label>
@@ -58,16 +55,19 @@
         </div>
         <div class="form-group">
             <label for="exampleInputPassword3">Amount</label>
-            <div class="input-group">
+            <div class="input-group no-border">
                 <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
                 <div class="input-group-addon">$</div>
             </div>
         </div>
         <div class="form-group">
-            <label for="exampleInputPassword3">Amount</label>
+            <label for="exampleInputPassword3">Calendar</label>
             <div class="input-group no-border">
-                <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
-                <div class="input-group-addon">$</div>
+                <input ui-mask ng-model="$ctrl.today" ng-attr-ui-mask="99.99.9999"
+                   ui-mask-placeholder="" model-view-value="true" ui-mask-placeholder-char="" clear-on-blur="false"  format="DD.MM.YYYY" pikaday="$ctrl.today" type="text" class="form-control" id="exampleInputAmount" placeholder="Amount" trigger="datepicker-button">
+                <div id="datepicker-button" class="input-group-addon input-group-addon_button">
+                    <span class="icon icon_calendar"></span>
+                </div>
             </div>
         </div>
         <div class="form-group has-error">

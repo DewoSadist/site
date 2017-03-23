@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="39px" height="32px" viewBox="0 0 39 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41 (35326) - http://www.bohemiancoding.com/sketch -->
+    <title>towallet</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons/transfers/towallet" transform="translate(-4.000000, -5.000000)">
+            <g id="towallet">
+                <g id="bg">
+                    <rect id="Rectangle-4" x="0" y="0" width="45" height="45"></rect>
+                </g>
+                <rect id="Rectangle-Copy" stroke="#061122" stroke-width="1.4" fill="#FFFFFF" x="5" y="6" width="27" height="23" rx="2"></rect>
+                <path d="M5.01176834,8.79297157 C5.01176834,8.79297157 4.65477359,11.0496372 7.06266188,11.0243765 C9.08152175,11.0161368 37.0059483,11.0011033 37.0059483,11.0011033 C38.1072327,11.000494 39,11.8897632 39,13.0035949 L39,33.9964051 C39,35.10296 38.1080589,36 37.0000796,36 L6.9999204,36 C5.89539486,36 5.00039155,35.0947735 5.00086535,33.9994022 L5.01176834,8.79297157 Z" id="Rectangle" stroke="#00A9FF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="#FFFFFF"></path>
+                <path d="M33.0117805,23.0134109 L33.0127696,21.0034222 C33.0130423,20.4492474 33.4658092,20 34.0092141,20 L41.0046024,20 C41.5543453,20 42,20.4378814 42,21.0029293 L42,25.9970707 C42,26.5509732 41.5443356,27 41.0046024,27 L34.0079161,27.0291864 C33.4577656,27.0314814 33.0117805,26.5877795 33.0117805,26.0396508 L33.0117805,23.0134109 Z" id="Rectangle-2" stroke="#061122" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="#FFFFFF"></path>
+                <path d="M31.9940186,10.2688599 L31.9940186,16.0355225" id="Path-8" stroke="#061122" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+                <rect id="Rectangle-16" fill="#00A9FF" x="35" y="22.5166709" width="2" height="2" rx="1"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 41 (35326) - http://www.bohemiancoding.com/sketch -->
+    <title>EBA8EC6A-C2D6-4641-9BA8-FE8E0FC7B2B0</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <polyline id="path-1" points="5 17.3917502 5 4 15.8 4 19 7.02815773 19 20 5 20 5 17.1491843"></polyline>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="14" height="16" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icons/blank">
+            <g id="pdf">
+                <rect id="container" x="0" y="0" width="24" height="24"></rect>
+                <use id="Rectangle-14" stroke="#00A9FF" mask="url(#mask-2)" stroke-width="2" xlink:href="#path-1"></use>
+                <rect id="Rectangle-15" fill="#00A9FF" x="8" y="9" width="8" height="1"></rect>
+                <rect id="Rectangle-15-Copy" fill="#00A9FF" x="8" y="12" width="8" height="1"></rect>
+                <rect id="Rectangle-15-Copy-2" fill="#00A9FF" x="8" y="15" width="8" height="1"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

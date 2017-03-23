@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="45px" height="37px" viewBox="0 0 45 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41 (35326) - http://www.bohemiancoding.com/sketch -->
+    <title>tofacebook</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons/transfers/to-facebook" transform="translate(0.000000, -4.000000)">
+            <g id="tofacebook">
+                <rect id="Rectangle-4" x="0" y="0" width="45" height="45"></rect>
+                <rect id="Rectangle" stroke="#061122" stroke-width="1.4" x="1" y="5" width="34" height="23" rx="2"></rect>
+                <path d="M1,11 L34.5037311,11" id="Path-2" stroke="#061122" stroke-width="1.4" stroke-linecap="round"></path>
+                <rect id="Rectangle" stroke="#00A9FF" stroke-width="1.4" fill="#FFFFFF" x="10" y="17" width="34" height="23" rx="2"></rect>
+                <path d="M27.3248662,34 L25.1078372,34 L25.1078372,28.6421809 L24,28.6421809 L24,26.7960562 L25.1078372,26.7960562 L25.1078372,25.6877051 C25.1078372,24.1817272 25.7330488,23.2857143 27.5104654,23.2857143 L28.9898395,23.2857143 L28.9898395,25.1325152 L28.0652306,25.1325152 C27.3732981,25.1325152 27.3275757,25.3904993 27.3275757,25.8719795 L27.3245275,26.7960562 L29,26.7960562 L28.8039016,28.6421809 L27.3245275,28.6421809 L27.3245275,34 L27.3248662,34 Z" id="Facebook" fill="#00A9FF"></path>
+                <path d="M5,28 L14.5131488,28" id="Path-2" stroke="#061122" stroke-width="1.4" stroke-linecap="round"></path>
+            </g>
+        </g>
+    </g>
+</svg>

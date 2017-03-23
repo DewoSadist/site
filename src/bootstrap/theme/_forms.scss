@@ -1,17 +1,27 @@
 //
 // Forms
 // --------------------------------------------------
-
+input[type=text] {   
+    /* Remove First */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
 .form-control {
-    @include transition(all 0.3s);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-style:solid;
     
+    @include transition(all 0.3s);
+
     @include box-shadow(none);
-    font-size: 16px;
+
     @media (min-width: $screen-md-min) {
-        font-size: 18px;
-        height: 55px;
-        padding: $padding-base-vertical+5 $padding-base-horizontal;
+        height: $input-height-large;
+        padding: ($padding-base-vertical + 4) $padding-base-horizontal;
     }
+
     &:active,
     &:focus {
         @include box-shadow(0 0 4px 0 rgba(0, 168, 255, 0.19));
@@ -20,6 +30,7 @@
     &.input-sm {
         height: 35px;
         font-size: $font-size-base;
+        padding: 0 $padding-base-horizontal;
     }
 }
 
@@ -45,7 +56,7 @@ label {
 }
 
 small {
-    font-size: 13px;
+    font-size: $font-size-small;
     color: $description-gray;
     font-weight: 300;
 
@@ -57,7 +68,6 @@ small {
 // Checkboxes and radios
 //
 // Indent the labels to position radios/checkboxes as hanging controls.
-
 .radio,
 .checkbox {
     position: relative;
@@ -81,8 +91,11 @@ small {
             @extend .icon;
 
             @include icon-size(16, 16);
+
             @include icon-url(checkbox-unchecked);
+
             @include transition(all 0.3s);
+
             content: '';
             left: 0;
             top: 2px;
@@ -173,14 +186,21 @@ input[type="checkbox"] {
 //
 // Designed to help with the organization and spacing of vertical forms. For
 // horizontal forms, use the predefined grid classes.
+// .form-group + .form-group {
+//     margin-top: $form-group-margin-bottom * 2;
+// }
 
-.form-group + .form-group {
-    margin-top: $form-group-margin-bottom * 2;
+.form-group.no-margin {
+    margin: 0;
 }
 
 form {
     .btn {
         margin-top: 20px;
-        margin-bottom: 20px;
+        margin-bottom: 0px;
     }
+}
+
+small.error {
+    color: $brand-danger;
 }

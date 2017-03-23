@@ -1,12 +1,202 @@
 .home {
   .intro {
-    @media (min-width: 768px) {
+    @media (min-width: $screen-sm-min) {
       padding: 50px 0;
     }
 
     .title {
-      padding:40px 0;
+      padding: 40px 0;
       position: relative;
+      h1, p {
+        color: $brand-primary;
+      }
+
+      &:before {
+        z-index: -1;
+        content: '';
+        position: absolute;
+        display: block;
+        top: -288px;
+        left: -325px;
+        right: 0;
+        bottom: -140px;
+        background-image: url("./img/shape.svg");
+        background-repeat: no-repeat;
+
+        @media (min-width: $screen-md-min) {
+          left: -317px;
+          top: -282px;
+        }
+      }
+    }
+  }
+
+  .virtual {
+    background-image: $gray-gradient;
+
+    @media (min-width: $screen-sm-min) {
+      padding: 30px 0 100px 0;
+    }
+
+    .title {
+      margin-top: 50px;
+
+      h4 {
+        @media (min-width: $screen-sm-min) {
+          font-size: 32px;
+        }
+      }
+
+      .subtitle {
+        margin-top: 15px;
+
+        @media (min-width: $screen-sm-min) {
+          font-size: 20px;
+        }
+      }
+    }
+
+    &-item {
+      margin: 15px 0;
+
+      @include flex(center, flex-start);
+
+      .subtitle {
+        max-width: 250px;
+        padding-left: 20px;
+      }
+    }
+
+    &-ripple {
+      padding: 50px 0;
+      position: relative;
+
+      &:before {
+        content: '';
+        position: absolute;
+        background-repeat: no-repeat;
+        top: -50px;
+        bottom: -50px;
+        left: 0;
+        right: 0;
+        background-image: url("./img/virtual-card.svg");
+        background-position: center;
+      }
+    }
+
+    &-card {
+      max-width: 460px;
+      position: relative;
+      z-index: 1;
+      border-radius: $border-radius-base;
+      background-image: linear-gradient(127deg, #61faf4, #1c84f7);
+      padding: 10px 20px;
+      color: #fff;
+      margin: 0 auto;
+
+      @include box-shadow(0 8px 20px 0 rgba(0, 0, 0, 0.25));
+
+      @media (min-width: $screen-sm-min) {
+        padding: 15px 25px;
+      }
+
+      .name {
+        color: #fff;
+        margin-top: 0;
+        margin-bottom: 25px;
+
+        @media (min-width: $screen-sm-min) {
+          margin-bottom: 40px;
+          font-size: 20px;
+        }
+
+        @media (min-width: $screen-md-min) {
+          margin-bottom: 50px;
+          font-size: 24px;
+        }
+      }
+
+      .number {
+        @media (min-width: $screen-sm-min) {
+          font-size: 17px;
+        }
+
+        @media (min-width: $screen-md-min) {
+          font-size: 19px;
+        }
+      }
+
+      .about-button {
+        @include button-variant(#fff, rgba(255, 255, 255, 0.25), transparent);
+      }
+
+      .open-button {
+        @include button-variant($brand-info, #f3f9ff, transparent);
+      }
+    }
+  }
+
+  .video {
+    border-radius: $border-radius-base;
+    max-width: 750px;
+    margin: 0 auto 40px;
+    background-position: center;
+    height: 210px;
+    text-align: center;
+    padding: 15px;
+    position: relative;
+    z-index: 5;
+
+    @include retina-background-image("./img/video-bg", "png");
+
+    @include box-sizing(border-box);
+
+    @media (min-width: $screen-sm-min) {
+      margin: -40px auto 40px;
+      height: 300px;
+
+      @include box-shadow(0 20px 44px 0 rgba(0, 0, 0, 0.14));
+    }
+
+    @media (min-width: $screen-md-min) {
+      margin: -40px auto 40px;
+      height: 430px;
+    }
+
+    .title {
+      color: #fff;
+
+      @media (min-width: $screen-md-min) {
+        font-size: 35px;
+      }
+    }
+
+    .play-button {
+      position: relative;
+      top: 10px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 0;
+      padding: 0;
+      display: inline-block;
+
+      .icon_play-button {
+        @media (min-width: $screen-md-min) {
+          background-size: 40%;
+        }
+      }
+
+      @media (min-width: $screen-sm-min) {
+        top: 65px;
+      }
+
+      @media (min-width: $screen-md-min) {
+        top: 110px;
+        width: 80px;
+        height: 80px;
+      }
     }
   }
 }
+

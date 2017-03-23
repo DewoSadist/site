@@ -47,3 +47,12 @@ then install sass resourses
 ````
 npm install sass-resources-loader
 ````
+
+
+#install typings
+
+run
+````
+npm install -g typings
+npm install typings --global
+````

@@ -1,0 +1,147 @@
+.tile {
+    background-color: $white;
+    min-height: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    &-heading {
+        @include flex;
+
+        margin-bottom: 3px;
+
+        h6 {
+            font-weight: 600;
+            font-size: 14px;
+            margin-top: 0;
+
+            // margin-bottom: 0;
+       
+        }
+
+        .name-form {
+            flex-grow: 1;
+        }
+
+        .close-icon {
+            margin-left: 20px;
+        }
+    }
+
+    &-edit-menu {
+        @include flex;
+
+        @media (min-width: $screen-sm-min) {
+            @include flex(center, flex-end);
+        }
+
+        padding: 10px 0;
+
+        small {
+            font-weight: 400;
+        }
+
+        .tile-text {
+            @media (min-width: $screen-sm-min) {
+                margin-right: auto;
+            }
+        }
+
+        .link {
+            display: inline-block;
+            line-height: 1;
+
+            @media (min-width: $screen-sm-min) {
+                margin-left: 40px;
+            }
+        }
+    }
+
+    &-item {
+        @include flex(center, flex-start);
+
+        .payment-round-small {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+
+    &-text {
+        color: $brand-info;
+        font-weight: 400;
+    }
+
+    &-edit-input {
+        max-width: 230px;
+    }
+
+    &-right {
+        margin-left: auto !important;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    &-img {
+        border: 1px solid $border-gray;
+    }
+
+    &_dropdown {
+        border-top: 1px solid $border-gray;
+        padding-right: 10px;
+        padding-left: 10px;
+
+        @include transition(all 0.3s);
+
+        @media (min-width: $screen-md-min) {
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        .card-list & {
+            &:first-child {
+                border-top: 0;
+            }
+        }
+    }
+    &_account{
+        min-height: 90px;
+        padding-top: 15px;
+        .card-list_collapsed & {
+            &:first-child{
+                border-top: 1px solid $border-gray;
+            }
+        }
+    }
+    &_button {
+        cursor: pointer;
+
+        &:hover {
+            background-color: $dropdown-link-hover-bg;
+        }
+    }
+}
+
+.flex-truncated {
+    @include flex(center, flex-start);
+
+    .long-and-truncated {
+        flex: 1;
+        min-width: 0;
+
+        h6 {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: inline-block;
+            max-width: 100%;
+            vertical-align: middle;
+        }
+    }
+
+    .short-and-fixed {
+        white-space: nowrap;
+    }
+
+    .edit-input {
+        max-width: 500px;
+    }
+}

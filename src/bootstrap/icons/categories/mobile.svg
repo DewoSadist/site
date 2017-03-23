@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="45px" height="45px" viewBox="0 0 45 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41 (35326) - http://www.bohemiancoding.com/sketch -->
+    <title>Icons/payments/mobile payment true outline</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="9" y="0" width="21" height="37" rx="2"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="21" height="37" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+        <g id="Icons/payments/mobile-payment-true-outline">
+            <g id="phone" transform="translate(3.000000, 4.000000)">
+                <g id="wave" transform="translate(0.000000, 4.000000)" stroke="#061122" stroke-width="1.4">
+                    <g id="right" transform="translate(33.000000, 0.000000)">
+                        <path d="M4.03481259,0.106053302 C4.03481259,0.106053302 6.79760126,3.47001188 4.03481259,8.24670428" id="wave-1"></path>
+                        <path d="M0.221376645,1.2121066 C0.221376645,1.2121066 2.23341662,3.66195708 0.221376645,7.14065097" id="wave-2"></path>
+                    </g>
+                    <g id="left" transform="translate(3.000000, 4.500000) scale(-1, 1) translate(-3.000000, -4.500000) ">
+                        <path d="M4.03481259,0.106053302 C4.03481259,0.106053302 6.79760126,3.47001188 4.03481259,8.24670428" id="wave-1"></path>
+                        <path d="M0.221376645,1.2121066 C0.221376645,1.2121066 2.23341662,3.66195708 0.221376645,7.14065097" id="wave-2"></path>
+                    </g>
+                </g>
+                <path d="M10.4990476,30.7 L31.5,30.7" id="Line-Copy-3" stroke="#061122" stroke-width="1.4" stroke-linejoin="round"></path>
+                <use id="bg" stroke="#00A9FF" stroke-width="1.4" stroke-linejoin="round" xlink:href="#path-1"></use>
+                <path d="M10.4988889,6.7 L28.501111,6.7" id="Line" stroke="#061122" stroke-width="1.4" stroke-linejoin="round"></path>
+                <path d="M11.4990909,30.7 L33.5,30.7" id="Line-Copy" stroke="#061122" stroke-width="1.4" stroke-linejoin="round"></path>
+                <path d="M17.5,3.7 L21.5,3.7" id="Line" stroke="#00A9FF" stroke-width="1.4"></path>
+                <path d="M18.4901222,33.7 L20.5198039,33.7" id="Line-Copy-2" stroke="#00A9FF" stroke-width="1.4"></path>
+            </g>
+        </g>
+    </g>
+</svg>

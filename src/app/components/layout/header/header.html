@@ -1,0 +1,58 @@
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header pull-left">
+      <!--<a class="navbar-brand" ng-attr-ui-sref="{{$ctrl.isAuthorized ? 'profile.main' : 'home'}}"><span class="icon icon_logo"></span></a>-->
+      <a class="navbar-brand" ui-sref="restaurants">DEOS</span></a>
+    </div>
+    <div class="nav navbar navbar-right">
+      <!--<a ui-sref="users.login" class="btn btn-sm pull-right change-color btn-primary">Login</a>-->
+      <a ui-sref="users.register" class="btn btn-sm pull-right change-color btn-primary">Registration</a>
+      <a ui-sref="users.login" class="pull-right navbar-link change-color">Login</a>
+    </div>
+  </div>
+  <!-- /.container-fluid -->
+</nav>
+<nav class="navbar navbar-static-top navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <!--<div class="navbar-state visible-xs visible-sm pull-left">{{$ctrl.getStateTitle()}}</div>-->
+      <!-- TODO: Enable on see theme -->
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav" aria-expanded="false">
+        <div class="navbar-label">Меню</div>
+        <div class="icon-bar-wrap">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </div>
+      </button>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="nav navbar-nav navbar_hb">
+        <!-- <li  ng-class="{active: $ctrl.state.includes('theme')}"><a ui-sref="theme">Theme</a></li> -->
+        <!--<li ng-if="$ctrl.isAuthorized" ng-class="{active: $ctrl.state.includes('profile')}"><a ui-sref="profile.main">Мой Homebank</a></li>-->
+        <!--<li ng-class="{active: $ctrl.state.includes('payments')}"><a ui-sref="payments.main">Услуги и Платежи</a></li>-->
+        <!--<li ng-class="{active: $ctrl.state.includes('transfers')}"><a ui-sref="transfers.main">Переводы</a></li>-->
+        <!--<li ng-if="$ctrl.isAuthorized" ng-class="{active: $ctrl.state.includes('history')}"><a ui-sref="history">Архив платежей и переводов</a></li>-->
+         <li><a ui-sref="restaurants">Restaurants</a></li>
+         <li><a ui-sref="contacts">Contacts</a></li>
+         <li><a ui-sref="about">About Us</a></li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>
+
+<!--<div class="header">-->
+  <!--<p class="header-title">-->
+    <!--<a href="#" target="_blank" rel="noopener noreferrer">-->
+     <!--homebank-->
+    <!--</a>-->
+  <!--</p>-->
+  <!--<p class="header-date">-->
+   <!--Login-->
+  <!--</p>-->
+<!--</div>-->

@@ -1,12 +1,44 @@
 // Base class
 .panel {
-	margin-bottom: 20px;
-	border-radius: $border-radius-base;
+    margin-bottom: 20px;
+    border-radius: $border-radius-base;
+
+    @include hb-shadow();
+}
+    
+.panel-heading{
+    padding: 9px 10px;
+    @media (min-width: $screen-md-min) {
+        padding: 9px 15px;
+    }
+    &_dynamic{
+        h6{
+            font-size: $font-size-base;
+        }
+        @media (min-width: $screen-md-min) {
+            padding: 15.5px 15px;
+            h6{
+                font-size: 16px;
+            }
+        }
+    }
 }
 
-.panel-body{
-	padding: 15px 10px 10px;
+.panel-body {
+    padding: 15px ceil($grid-gutter-small-width / 2) 10px;
+
     @media (min-width: $screen-md-min) {
-		padding: 15px 20px 20px;
-	}
+        padding: 15px ceil($grid-gutter-width / 2) 20px;
+    }
+}
+
+.panel-heading_help-steps {
+    padding: 8.5px 10px;
+    border-color: $border-gray;
+    @media (min-width: $screen-md-min) {
+        padding: 0px 10px;
+    }
+}
+.panel-default > .panel-heading{
+    border-color: $border-gray;
 }

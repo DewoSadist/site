@@ -13,13 +13,17 @@
       "jquery",
       "node",
       "jasmine",
-      "es6-shim"
+      "es6-shim",
+      "angular-cookies",
+      "bootstrap",
+      "restangular"
     ]
   },
   "compileOnSave": false,
   "filesGlob": [
     "src/**/*.ts",
     "src/**/*.tsx",
+    "!typings/**",
     "!node_modules/**"
   ]
 }

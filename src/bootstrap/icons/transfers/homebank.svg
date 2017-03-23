@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="43px" height="41px" viewBox="0 0 43 41" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41 (35326) - http://www.bohemiancoding.com/sketch -->
+    <title>tohomebank</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="1.77635684e-15" width="21" height="31" rx="2"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="21" height="31" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons/tranfers/to-phone" transform="translate(0.000000, -4.000000)">
+            <g id="tohomebank">
+                <g id="p2p-icon">
+                    <rect id="Rectangle-4" x="0" y="0" width="45" height="45"></rect>
+                    <rect id="Rectangle" stroke="#061122" stroke-width="1.4" x="1" y="5" width="34" height="23" rx="2"></rect>
+                    <path d="M1,11 L34.5931541,11" id="Path-2" stroke="#061122" stroke-width="1.4" stroke-linecap="round"></path>
+                    <g id="Group-2" transform="translate(7.000000, 27.000000)" stroke="#061122" stroke-width="1.4" stroke-linecap="round">
+                        <path d="M0,1 L9.5131488,1" id="Path-2"></path>
+                    </g>
+                </g>
+                <g id="phone" transform="translate(22.000000, 14.000000)" stroke="#00A9FF" stroke-linecap="round">
+                    <use id="Rectangle" mask="url(#mask-2)" stroke-width="2.8" stroke-linejoin="round" fill="#FFFFFF" xlink:href="#path-1"></use>
+                    <path d="M1.49888892,5.7 L19.501111,5.7" id="Line" stroke-width="1.4" stroke-linejoin="round"></path>
+                    <path d="M1.49909093,24.7 L19.501111,24.7" id="Line-Copy" stroke-width="1.4" stroke-linejoin="round"></path>
+                    <path d="M9.4901222,27.7 L11.5198039,27.7" id="Line-Copy-2" stroke-width="1.4"></path>
+                </g>
+                <path d="M17,28 L26.5131488,28" id="Path-2" stroke="#061122" stroke-width="1.4" stroke-linecap="round"></path>
+            </g>
+        </g>
+    </g>
+</svg>

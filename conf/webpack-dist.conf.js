@@ -12,23 +12,31 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.json$/,
-        loaders: [
-          'json-loader'
-        ]
-      },
-      {
         test: /\.ts$/,
         exclude: /node_modules/,
         loader: 'tslint-loader',
         enforce: 'pre'
       },
       {
-        test: /\.(css|scss)$/,
-        loaders: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader?minimize!sass-loader!postcss-loader'
-        })
+        test: /\.json$/,
+        loaders: [
+          'json-loader'
+        ]
+      },
+      {
+        test: /\.scss$/,
+        loaders: [
+          'style-loader',
+          'css-loader',
+          'postcss-loader',
+          'sass-loader',
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: './conf/sass-resources.scss'
+            }
+          }
+        ]
       },
       {
         test: /\.ts$/,
@@ -38,16 +46,21 @@ module.exports = {
           'ts-loader'
         ]
       },
+      { test: /\.(png|woff|woff2|eot|ttf|svg|gif)$/,
+        loader: 'url-loader?limit=10000'
+      },
       {
-        test: /\.html$/,
-        loaders: [
-          'html-loader'
-        ]
-      }
+        test: /bootstrap-sass\/assets\/javascripts\//,
+        loader: 'imports?jQuery=jquery'
+      },
     ]
   },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery"
+    }),
     new webpack.NoEmitOnErrorsPlugin(),
     FailPlugin,
     new HtmlWebpackPlugin({
@@ -63,6 +76,8 @@ module.exports = {
       options: {
         postcss: () => [autoprefixer],
         resolve: {},
+        context: process.cwd(),
+        sassResources: './conf/sass-resources.scss',
         ts: {
           configFileName: 'tsconfig.json'
         },
@@ -85,7 +100,10 @@ module.exports = {
     ]
   },
   entry: {
-    app: `./${conf.path.src('index')}`,
+    app: [
+      `bootstrap-loader/extractStyles`,
+      `./${conf.path.src('index')}`
+      ],
     vendor: Object.keys(pkg.dependencies)
   }
 };

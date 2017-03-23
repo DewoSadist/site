@@ -1,0 +1,42 @@
+<div class="profile-cards account-list panel panel-default">
+  <div class="panel-heading panel-heading_account panel-heading_dynamic">
+    <h6 class="profile-heading">Restaurants {{$ctrl.list && $ctrl.list.length ? '(' + $ctrl.list.length + ')' : ''}}</h6>
+  </div>
+  <div class="panel-body">
+    <div class="page-list page-list_dynamic" ng-class="{'page-list_less-padding  visible-sm visible-md visible-lg': $ctrl.isAuthorized }">
+      <div class="container">
+        <div class="page-list-wrap" click-outside="$ctrl.closeMenus()">
+          <div class="page-list-item" ng-repeat="item in $ctrl.list" ng-class="page-list-item_bottom">
+            <div class="content" ng-click="$ctrl.selectItem(item)">
+              <span class="icon icon_category icon_category-{{item.slug}}"></span>
+              <span>{{item.title}}</span>
+              <span>{{item.tags}}</span>
+            </div>
+            <div class="menu">
+
+              <a class="menu-close" ng-click="$ctrl.closeMenu(item)" href="javascript:void(0);">
+                <span class="icon icon_chevron-left"></span>
+                <h5>{{item.title}}</h5>sdfs
+              </a>
+              <div class="page-list-wrap menu-list">sdf
+                <div ng-click="$ctrl.goToPayment(payment)" class="page-list-item menu-item"
+                     ng-repeat="payment in item.services | orderBy: 'shortName' track by $index"
+                     ng-class="{'page-list-item_bottom': ($index == item.services.length - 1) && (item.services.length % 2 == 1)}">
+                  <div class="content">
+                <span class="payment-round payment-round_{{payment.shortName}}">
+                  <span class="icon icon_payment icon_category-{{item.shortName}} icon_payment-{{payment.shortName}}"></span>
+                </span>
+                    <span>sdf{{item.title}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="profile-button" ng-if="$ctrl.list">
+            <button class="btn btn-primary" ng-click="$ctrl.toggleShowAll()">{{$ctrl.showAll? 'Hide' : 'Show all'}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

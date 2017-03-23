@@ -1,55 +1,137 @@
 $navbar-font-size: 14px;
+$navbar-padding-horizontal: 10px;
+
+.navbar-toggle {
+    color: $white;
+    margin-right: 16px;
+    min-height: $navbar-height;
+    margin-bottom: 0;
+    margin-top: 0;
+    border: 0;
+    font-size: $navbar-font-size;
+    padding: 8px 0;
+
+    &:hover,
+    &:focus {
+        background-color: transparent;
+    }
+
+    .navbar-label {
+        display: inline-block;
+        margin-right: 5px;
+        vertical-align: middle;
+    }
+
+    .icon-bar-wrap {
+        vertical-align: middle;
+        display: inline-block;
+    }
+
+    &.collapsed {
+        .icon-bar {
+            &:nth-of-type(1) {
+                transform: rotate(0deg);
+                top: 0;
+            }
+
+            &:nth-of-type(2) {
+                opacity: 1;
+                width: 100%;
+                margin-left: 0;
+            }
+
+            &:nth-of-type(3) {
+                transform: rotate(0deg);
+                bottom: 0;
+            }
+        }
+    }
+
+    .icon-bar {
+        position: relative;
+        transition: all 0.3s ease-in-out;
+        background-color: orangered;
+
+        &:nth-of-type(1) {
+            transform: rotate(45deg);
+            top: 6px;
+        }
+
+        &:nth-of-type(2) {
+            opacity: 0;
+            width: 0;
+            margin-left: 50%;
+        }
+
+        &:nth-of-type(3) {
+            transform: rotate(-45deg);
+            bottom: 6px;
+        }
+    }
+}
 
 .navbar {
     border: 0;
+    height: $navbar-height;
+    @media (min-width: $grid-float-breakpoint) {
+        height: $navbar-height-large;
+    }
+    .container {
+        position: relative;
+    }
 
     &_hb {
-        float: left;
-        padding-left: 6px;
         margin: 0;
+        position: static;
 
-        > li {
-            display: inline-block;
-            padding: 0 11px;
-
-            > a {
-                padding: $navbar-padding-horizontal 0px;
-                min-height: 55px;
-
-                @media (min-width: $screen-md-min) {
-                    padding: ($navbar-padding-horizontal + 5) 0px;
-                }
-            }
-
-            @media (min-width: $screen-sm-min) {
-                &:first-child {
-                    padding-left: 0;
-                }
-            }
+        @media (min-width: $grid-float-breakpoint) {
+            padding-left: 0;
         }
 
-        @media (min-width: $screen-sm-min) {
-            padding-left: 0;
+        > li {
+            @media (min-width: $grid-float-breakpoint) {
+                margin-right: $navbar-padding-base * 2;
+            }
+
+            > a,
+            > span {
+                padding: $navbar-padding-small 10px;
+
+                @media (min-width: $screen-sm-min) {
+                    padding: $navbar-padding-small 15px;
+                }
+                @media (min-width: $grid-float-breakpoint) {
+                    padding: 25px 0px;
+                    min-height: $navbar-height;
+                }
+            }
+
+            .contacts {
+                color: $description-gray;
+                display: inline-block;
+
+                @media (min-width: $grid-float-breakpoint) {
+                    display: none;
+                }
+            }
         }
     }
 
     &-inverse {
+        .navbar-collapse {
+            background-color: $navbar-inverse-bg;
+            color: $navbar-inverse-color;
+        }
+
         .navbar-link {
             color: #fff;
-            &:hover{
-                color: $brand-primary
+
+            &:hover {
+                color: $brand-primary;
             }
         }
 
         .navbar-toggle {
-            border: 0;
-            color: #fff;
-            font-size: $navbar-font-size;
-            padding: 8px 0;
-            margin-bottom: 0;
-            margin-right: 16px;
-            margin-top: 8.5px;
-
             .icon_more {
                 margin-left: 2px;
             }
@@ -65,52 +147,140 @@ $navbar-font-size: 14px;
                 position: relative;
                 font-size: $navbar-font-size;
                 color: #fff;
-                
+
                 @media (min-width: $screen-md-min) {
                     font-size: $font-size-base;
                 }
+
                 &:hover,
                 &:focus {
                     color: $brand-primary;
                 }
             }
-    
+
             > .active > a {
                 &,
                 &:hover,
                 &:focus {
-                    color: $navbar-inverse-link-active-color;
-                    background-color: $navbar-inverse-bg;
+                    background-color: rgba(#000, 0.3);
+
+                    @media (min-width: $grid-float-breakpoint) {
+                        background-color: transparent;
+                    }
                 }
 
                 &:after {
                     position: absolute;
-                    width: 100%;
-                    content: '';
                     background-color: $brand-primary;
-                    height: 2px;
+                    content: '';
+                    width: 2px;
+                    top: 0;
                     bottom: 0;
                     left: 0;
+
+                    @media (min-width: $grid-float-breakpoint) {
+                        width: 100%;
+                        top: auto;
+                        height: 2px;
+                        bottom: 0;
+                        left: 0;
+                    }
                 }
             }
         }
     }
 
     &-default {
+        z-index: 1001;
+
+        .dropdown {
+            .image {
+                width: 36px;
+                height: 36px;
+                overflow: hidden;
+                border-radius: 50%;
+                vertical-align: middle;
+                margin-right: 5px;
+                border: 1px solid $border-gray;
+
+                @include flex(center, center, row, nowrap, inline-flex);
+
+                img {
+                    max-width: 40px;
+                }
+            }
+
+            &-toggle {
+                display: block;
+                padding: 9.5px 0;
+                @media (min-width: $grid-float-breakpoint) {
+                    padding: 17px 0;
+                }
+                .link {
+                    display: inline-block;
+                    vertical-align: middle;
+                    font-weight: 400;
+                    margin-right: 5px;
+
+                    .btn {
+                        margin-bottom: 0;
+                    }
+
+                    &-item {
+                        display: block;
+                        font-size: 14px;
+                    }
+                    &-item_small {
+                        font-size: 12px;
+                    }
+                }
+            }
+
+            &-menu {
+                left: auto;
+                max-width: 400px;
+                // width: 100%;
+                right: 0px;
+                top: $navbar-height;
+                margin: 0;
+
+                .block {
+                    .btn {
+                        margin-bottom: 0;
+                    }
+
+                    .block-item + .block-item {
+                        margin-top: 5px;
+                    }
+
+                    &-item {
+                        display: block;
+
+                        small {
+                            display: block;
+                        }
+                    }
+                }
+
+                .divider {
+                    margin: 0;
+                }
+            }
+        }
+
         .navbar-link {
             color: $brand-primary;
-            margin-top: 16px;
+            margin-top: 19px;
+
+            @media (min-width: $screen-sm-min) {
+                margin-top: 18px;
+            }
+            @media (min-width: $screen-md-min) {
+                margin-top: 25px;
+            }
         }
 
         .navbar-toggle {
-            border: 0;
-            color: #fff;
-            font-size: $navbar-font-size;
-            padding: 8px 0;
-            margin-bottom: 0;
-            margin-right: 16px;
-            margin-top: 8.5px;
-
             .icon_more {
                 margin-left: 2px;
             }
@@ -166,16 +336,17 @@ $navbar-font-size: 14px;
 }
 
 .navbar-brand {
+    line-height: 27px;
     padding: 13px $navbar-padding-horizontal;
-
-    @media (min-width: $screen-md-min) {
-        padding: 21px $navbar-padding-horizontal;
-    }
+    position: relative;
+    z-index: 5;
 
     @media (min-width: $grid-float-breakpoint) {
         .navbar > .container &,
         .navbar > .container-fluid & {
-            margin-right: $navbar-padding-horizontal * 2;
+            margin-left: -$navbar-padding-horizontal;
+            padding: $navbar-padding-horizontal*2 $navbar-padding-horizontal;
+            height: $navbar-height-large;
         }
     }
 }
@@ -189,7 +360,98 @@ $navbar-font-size: 14px;
 .navbar-link {
     vertical-align: middle;
 
-    @media (min-width: $screen-sm-min) {
+    @media (min-width: $grid-float-breakpoint) {
         margin-right: 30px;
+    }
+}
+
+.navbar-state {
+    color: $white;
+    line-height: $navbar-height;
+    font-size: 14px;
+    padding-left: $navbar-padding-horizontal;
+}
+
+// Navbar collapse (body)
+//
+// Group your navbar content into this for easy collapsing and expanding across
+// various device sizes. By default, this content is collapsed when <768px, but
+// will expand past that for a horizontal display.
+//
+// To start (on mobile devices) the navbar links, forms, and buttons are stacked
+// vertically and include a `max-height` to overflow in case you have too much
+// content for the user's viewport.
+.navbar-collapse {
+    width: 100%;
+    right: $navbar-padding-horizontal;
+    position: absolute;
+    padding-right: 0;
+    padding-left: 0;
+    border-top: 0;
+    box-shadow: none;
+
+    @include clearfix;
+
+    -webkit-overflow-scrolling: touch;
+
+    &.in {
+        overflow-y: auto;
+    }
+
+    @media (min-width: $grid-float-breakpoint) {
+        width: auto;
+        border-top: 0;
+        right: auto;
+        position: initial;
+        box-shadow: none;
+
+        &.collapse {
+            display: block !important;
+            height: auto !important;
+            padding-bottom: 0;
+
+            // Override default setting
+            overflow: visible !important;
+        }
+
+        &.in {
+            overflow-y: visible;
+        }
+
+        // Undo the collapse side padding for navbars with containers to ensure
+        // alignment of right-aligned contents.
+        .navbar-fixed-top &,
+        .navbar-static-top &,
+        .navbar-fixed-bottom & {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}
+
+.navbar-fixed-top,
+.navbar-fixed-bottom {
+    .navbar-collapse {
+        max-height: $navbar-collapse-max-height;
+
+        @media (max-device-width: $screen-xs-min) and (orientation: landscape) {
+            max-height: 200px;
+        }
+    }
+}
+
+// Both navbar header and collapse
+//
+// When a container is present, change the behavior of the header and collapse.
+.container,
+.container-fluid {
+    > .navbar-header,
+    > .navbar-collapse {
+        margin-right: -$navbar-padding-horizontal;
+        margin-left: -$navbar-padding-horizontal;
+        @media (min-width: $grid-float-breakpoint) {
+            margin-right: 0;
+            margin-left: 0;
+        }
     }
 }

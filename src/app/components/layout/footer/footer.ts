@@ -10,6 +10,7 @@ class FooterController {
   constructor() {
     this.data = {};
     this.text = 'My brand new component!';
+    console.log('footer');
   }
 }
 

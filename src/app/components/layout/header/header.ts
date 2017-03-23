@@ -1,8 +1,17 @@
+import './header.scss';
+/**
+ * @ngdoc   object
+ * @name    HeaderController
+ */
 class HeaderController {
   public text: string;
+  public data;
 
-  constructor(public $scope) {
+  /** @ngInject */
+  constructor() {
+    this.data = {};
     this.text = 'My brand new component!';
+    console.log('header');
   }
 }
 

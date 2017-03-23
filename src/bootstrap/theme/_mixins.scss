@@ -1,0 +1,132 @@
+@mixin button-variant($color, $background, $border, $hover-color:$color, $hover-background:darken($background, 10%), $hover-border:darken($border, 10%)) {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    color: $color;
+    background-color: $background;
+    border-color: $border;
+
+    &:active,
+    &.active,
+    &:focus,
+    &.focus {
+        color: $color;
+        background-color: $background;
+        border-color: $border;
+
+        @include box-shadow(none);
+    }
+
+    &:hover {
+        color: $hover-color;
+        background-color: $hover-background;
+        border-color: $hover-border;
+    }
+
+    .open > &.dropdown-toggle {
+        color: $hover-color;
+        background-color: $hover-background;
+        border-color: $hover-border;
+
+        &:hover,
+        &:focus,
+        &.focus {
+            color: $hover-color;
+            background-color: $hover-background;
+            border-color: $hover-border;
+        }
+    }
+
+    &:active,
+    &.active,
+    .open > &.dropdown-toggle {
+        background-image: none;
+    }
+
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        &:hover,
+        &:focus,
+        &.focus {
+            background-color: $background;
+            border-color: $border;
+        }
+    }
+
+    .badge {
+        color: $background;
+        background-color: $color;
+    }
+    &.soon-label{
+        border-color: rgba($border, 0.3);
+    }
+}
+
+// Framework grid generation
+//
+// Used only by Bootstrap to generate the correct number of grid classes given
+// any value of `$grid-columns`.
+
+// [converter] This is defined recursively in LESS, but Sass supports real loops
+@mixin make-grid-columns($i: 1, $list: ".col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}") {
+    @for $i from 1 + 1 through $grid-columns {
+        $list: "#{$list}, .col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}";
+    }
+
+    #{$list} {
+        position: relative;
+
+        // Prevent columns from collapsing when empty
+        min-height: 1px;
+
+        // Inner gutter via padding
+        padding-left: ceil($grid-gutter-small-width / 2);
+        padding-right: floor($grid-gutter-small-width / 2);
+
+        @media (min-width: $screen-sm-min) {
+            padding-left: ceil($grid-gutter-width / 2);
+            padding-right: floor($grid-gutter-width / 2);
+        }
+    }
+}
+
+/* flexbox*/
+@mixin flex($align: center, $justify: space-between, $direction: row, $wrap: nowrap, $flex:flex) {
+    display: $flex;
+    align-items: $align;
+    justify-content: $justify;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    flex-flow: $direction $wrap;
+}
+
+@mixin transform($value) {
+    transform: $value;
+}
+
+@mixin rounded($color: white) {
+    border: 1px solid $color;
+    border-radius: $border-radius-base;
+}
+@mixin hb-shadow(){
+    box-shadow: 0 4px 8px 0 rgba(3, 37, 56, 0.08);
+}
+/* Retina screens setup*/
+$retina: "only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)";
+@mixin retina-background-image($file, $type, $width:100%, $height:100%) {
+    background-image: url($file + '.' + $type);
+    @media #{$retina} {
+        background-image: url($file + '@2x.' + $type);
+      background-size: $width $height;
+    }
+}
+@mixin icon-size($width, $height) {
+    background-repeat: no-repeat;
+    display: inline-block;
+    text-align: center;
+    background-position: center;
+    vertical-align: middle;
+    width: $width + px;
+    height: $height + px;
+}

@@ -1,0 +1,68 @@
+//
+// Breadcrumbs
+// --------------------------------------------------
+
+.breadcrumbs {
+    background-color: $breadcrumb-bg;
+    border-bottom: 1px solid transparent;
+
+    .breadcrumb {
+        background-color: transparent;
+        margin-bottom: 0;
+        padding-bottom: ceil($breadcrumb-padding-vertical - 3);
+
+        > li {
+            .crumb {
+                display: inline-block;
+                color: $breadcrumb-color;
+                font-size: $font-size-small;
+            }
+
+            + li {
+                margin-right: 4px;
+            }
+
+            + li:before {
+                content: "";
+                padding: 0;
+                vertical-align: middle;
+                display: inline-block;
+                width: 16px;
+                height: 16px;
+                background-repeat: no-repeat;
+                background-image: url("../icons/breadcrumbs-arrow.svg");
+
+                @include transition(all 0.3s);
+            }
+        }
+
+        > .active {
+            color: $breadcrumb-active-color;
+        }
+    }
+
+    &_colorless {
+        background-color: $body-bg;
+        border-color: $border-gray;
+
+        .icon_breadcrumbs-home {
+            background-image: url("../icons/breadcrumbs-home-colorless.svg");
+        }
+
+        .breadcrumb {
+            > li {
+                .crumb {
+                    color: $brand-primary;
+                }
+
+                + li:before {
+                    background-image: url("../icons/breadcrumbs-arrow-colorless.svg");
+                }
+            }
+
+            > .active {
+                color: $brand-primary;
+            }
+        }
+    }
+}

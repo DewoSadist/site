@@ -9,51 +9,18 @@ If you want to be sure your changes don't affect other derived values, place the
 If you are not sure, you can probably simply use preBootstrapCustomizations and, if you have issues, see _variables.scss for derived values.
 */
 
-// flexbox
-@mixin flex($align:center, $justify:space-between, $direction: row) {
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: flex;
-    align-items: $align;
-    justify-content: $justify;
-    flex-direction: $direction;
-}
-@mixin transform($value){
-  -webkit-transform: $value;
-  -moz-transform: $value;
-  -ms-transform: $value;
-  -o-transform: $value;
-  transform: $value;
-}
-@mixin rounded($color:white) {
-	border: 1px solid $color;
-	border-radius: $border-radius-base;
-}
-
-small.error {
-	color: $brand-danger;
-}
-
 $onai-background-color: #dfe9f5;
 
-// footer gray gradient
+/* footer gray gradient*/
 $gray-gradient: linear-gradient(to left, #fcfdff, #f6faff);
 
-// pdd yellow info background color
+/* pdd yellow info background color*/
 $pdd-yellow-background: rgba(254, 203, 0, 0.15);
 $pdd-dark-yellow-background: rgba(254, 203, 0, 0.3);
 $pdd-body-background: #fafbfc;
 $pdd-choosetickets-min-width: 433px;
 
-// Retina screens setup
-$retina: "only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)";
-@mixin retina-background-image($file, $type, $width:100%, $height:100%) {
-  	background-image: url($file + '.' + $type);
-  	@media #{$retina} {
-    	background-image: url($file + '@2x.' + $type);
-      background-size: $width $height;
-  	}
-}
-
+/* payment history variables*/
+$history-icon-width: 55;
+$history-status-badge-width: 10;
+$brand-success-pale: #d0fbed; //#d0fbed;

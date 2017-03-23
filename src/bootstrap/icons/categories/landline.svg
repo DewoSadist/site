@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="45px" height="45px" viewBox="0 0 45 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41 (35326) - http://www.bohemiancoding.com/sketch -->
+    <title>Icons/payments/Phone 1.4</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons/payments/Phone-1.4">
+            <rect id="Rectangle-4" x="0" y="0" width="45" height="45"></rect>
+            <g id="phone" transform="translate(7.000000, 4.000000)" stroke-width="1.4">
+                <path d="M2.08718571,9.81825 C5.82379286,21.14715 14.7695071,30.03625 26.1719714,33.74765" id="Stroke-1" stroke="#00A9FF"></path>
+                <path d="M7.91488886,15.2090447 C9.78461886,18.6940753 13.5526206,23.3612241 17.9682757,25.9934269" id="Stroke-1-Copy" stroke="#00A9FF"></path>
+                <path d="M27.8476321,25.05556 L23.1865607,23.06236 C21.1881679,22.20766 18.8709179,23.12396 18.0106679,25.10946 L18.0106679,25.10946 C16.9588821,27.53826 18.0870607,30.35536 20.5327393,31.40036 L22.9773107,32.54876 L26.792525,34.07886 C27.6162393,34.43086 28.5717036,34.05246 28.9270964,33.23406 L30.0685607,30.59846 C30.9963464,28.45896 30.001025,25.97736 27.8476321,25.05556 Z" id="Stroke-5" stroke="#00A9FF"></path>
+                <path d="M9.77839643,5.36886 L11.4634679,10.12416 C12.1864321,12.16356 11.108075,14.39766 9.05653929,15.11596 L9.05653929,15.11596 C6.54553929,15.99376 3.79318214,14.68366 2.90968214,12.18886 L0.646682143,5.80116 C0.347753571,4.96076 0.792825,4.04006 1.63868214,3.74416 L4.36336071,2.79046 C6.57543214,2.01716 9.000075,3.17106 9.77839643,5.36886 Z" id="Stroke-3" stroke="#00A9FF"></path>
+                <path d="M32.0343987,30.3521931 L21.6388857,25.77826" id="Stroke-9" stroke="#061122" stroke-linecap="round"></path>
+                <path d="M4.57263184,0.859375 L8.14702143,10.86226" id="Stroke-7" stroke="#061122" stroke-linecap="round"></path>
+            </g>
+        </g>
+    </g>
+</svg>

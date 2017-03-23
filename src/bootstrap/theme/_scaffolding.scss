@@ -4,6 +4,10 @@
 // Body
 body {
     font-weight: 300;
+    background-color: #f6faff;
+    &.no-scroll{
+    	overflow: hidden;
+    }
 }
 
 a {
