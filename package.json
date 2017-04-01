@@ -120,13 +120,13 @@
       "xo-space/esnext"
     ]
   },
-  "name": "homebank",
+  "name": "deos",
   "description": "This project is using [fountainjs](http://fountainjs.io/).",
   "version": "1.1.0",
   "main": "gulpfile.js",
   "repository": {
     "type": "git",
-    "url": "https://srcworld.homebank.kz/hb/web-front"
+    "url": "https://github.com/DewoSadist/site.git"
   },
   "author": "",
   "license": "ISC",
