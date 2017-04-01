@@ -4,7 +4,7 @@
 
 
 
-# Homebank Front-App
+# Deos Front-App
 
 This project is using [fountainjs](http://fountainjs.io/).
 
@@ -121,7 +121,7 @@ angular
 
 ## Build
 
-Homebank app can be built with different configurations. Configurations are stored in special `variables.json` file and placed in appropriate folder.
+Deos app can be built with different configurations. Configurations are stored in special `variables.json` file and placed in appropriate folder.
 
 - Go to `src/config/env` folder and create a new folder, which matches your environment name. Example, for `myprod` configuration create file `src/config/env/myprod/variables.json`
 - Copy contents from `src/config/default/variables.json` and modify as needed. **Example:**
@@ -169,50 +169,4 @@ Where `$date` is string generated in "DD.MM.YYYY" format.
 Also accepts `yearsFrom` and `yearsTo` values. 
 
 `<calendar ng-model="$date" years-from="1999" years-to="2000"></calendar>`.
-
-
-
-## How to deploy
-
-Our application is deployed using `git-flow` practices. 
-
-**Prerequisites:** in order to deploy to corporate environment, you need to have Docker engine installed. Please refer to [Docker website](https://www.docker.com/products/docker-toolbox) for instructions.
-
-**Preparations:** If there is a new release candidate, we create a new release branch from dev (or branch out from previous prelease branch and merge dev code into itself).
-We tune the dev code to satisfy release specifications (changing up configs, excluding some features), fix bugs if needed.
-
-**Testing**: Next step is to test release candidate on corporate **staging environment**, which is available at `staging.homebank.kz/open/`.
-There is a special deployment branch `kubernetes_deploy`, it contains the release candidate code + deployment file/folders *unignored*. Follow these steps:
-
-- checkout `kubernetes_deploy` and make sure to have the latest version;
-- merge the designated release candidate branch into `kubernetes_deploy` and resolve conflicts if necessary;
-- remove contents of `dist/` folder by running `rm -rf dist/*`
-- build the latest code by running `gulp build --env kubernetes` - this will build an optimized app version into dist folder;
-- push all changes to remote repo with new contents of `dist` along with it;
-- run `./install.sh DOCKER_IMAGE_VERSION`, where docker image ID is given by deploying person in format: YYYY-MM-DD.N, where N is a patch number from 0 to 9 (par example, first deploy of the day will have a number `2017-01-30.0`)
-- after successful docker image upload, ask Ospan, or other designated kubernetes administrator, to pull the docker image with specified image ID into **HB FRONT - STAGING ENVIRONMENT**. Keywords are `front` and `staging`, don't mess those up.
-
-
-
-## Alternative testing environment
-There is an EC2 instance for dev testings - `ec2-52-211-226-76.eu-west-1.compute.amazonaws.com`
-If you have an SSH key to access that machine, then do the following:
-    
-    `ssh -i "your PEM key" ubuntu@ec2-52-211-226-76.eu-west-1.compute.amazonaws.com`
-    `cd web-front`
-    `git status`  // to make sure we are at right deployment branch
-    `git pull origin YOUR_DEPLOYMENT_BRANCH`
-
-
-
-## Useful links
-
-- [API docs](http://ec2-52-211-226-76.eu-west-1.compute.amazonaws.com/swagger-ui.html)
-- [KKB API docs](docs.homebankapi.apiary.io)
-- [TargetProcess link](https://mashfrog.tpondemand.com)
-- [Desktop wireframe](https://fs39lf.axshare.com/#g=1&p=desktop_ver)
-- [Mobile wireframe](https://fs39lf.axshare.com/mobile.html)
-- [Docker](https://www.docker.com)
-- [Git Flow](http://nvie.com/posts/a-successful-git-branching-model/)
-- [Commitizen](https://github.com/commitizen)
 
