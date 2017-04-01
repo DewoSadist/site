@@ -1,0 +1,87 @@
+[
+  {
+    "shortName" : "mobile",
+    "payments" : [
+      {
+        "shortName": "mobile",
+        "isCustom": false,
+        "hasDetails": false
+      }
+    ]
+  },
+  {
+    "shortName" : "housingUtilityServices",
+    "payments" : [
+      {
+        "shortName": "alseco",
+        "isCustom": true,
+        "hasDetails": false
+      },
+      {
+        "shortName": "astanaERC",
+        "isCustom": true,
+        "hasDetails": false
+      },
+      {
+        "shortName": "IVC",
+        "isCustom": true,
+        "hasDetails": false
+      }
+    ]
+  },
+  {
+    "shortName" : "cityTransport",
+    "payments" : [
+      {
+        "shortName": "onai",
+        "isCustom": false,
+        "hasDetails": true
+      }
+    ]
+  },
+  {
+    "shortName" : "pdd",
+    "payments" : [
+      {
+        "shortName": "pdd",
+        "isCustom": true,
+        "hasDetails": false
+      }
+    ]
+  },
+  {
+    "shortName" : "qiwi",
+    "payments" : [
+      {
+        "shortName": "qiwi",
+        "isCustom": false,
+        "hasDetails": false
+      }
+    ]
+  },
+  {
+    "shortName" : "landlineTelephone",
+    "payments" : [
+      {
+        "shortName": "kazakhtelecom",
+        "isCustom": false,
+        "hasDetails": true
+      }
+    ]
+  },
+  {
+    "shortName" : "creditsAndDeposits",
+    "payments" : [
+      {
+        "shortName": "hcsbkPayLoan",
+        "isCustom": false,
+        "hasDetails": false
+      },
+      {
+        "shortName": "hcsbkMakeDeposit",
+        "isCustom": false,
+        "hasDetails": false
+      }
+    ]
+  }
+]

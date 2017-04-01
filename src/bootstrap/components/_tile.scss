@@ -1,23 +1,21 @@
 .tile {
-    background-color: $white;
-    min-height: 100px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-
+    background-color: $color-white;
+    // padding-top: 10px;
+    // padding-bottom: 10px;
+    @include flex();
+    min-height: 90px;
+    
+    @media (min-width: $screen-sm-min) {
+        min-height: 100px;
+    }
+    > *{
+        flex-grow: 1;
+    }
     &-heading {
         @include flex;
-
-        margin-bottom: 3px;
-
-        h6 {
-            font-weight: 600;
-            font-size: 14px;
-            margin-top: 0;
-
-            // margin-bottom: 0;
-       
-        }
-
+    
+        margin-bottom: 4px;
+        
         .name-form {
             flex-grow: 1;
         }
@@ -25,20 +23,23 @@
         .close-icon {
             margin-left: 20px;
         }
+        h4{
+            margin-top: 0;
+        }
     }
 
     &-edit-menu {
         @include flex;
 
+        padding-top: 5px;
+
         @media (min-width: $screen-sm-min) {
             @include flex(center, flex-end);
+
+            padding-top: 10px;
         }
 
-        padding: 10px 0;
-
-        small {
-            font-weight: 400;
-        }
+        // padding: 10px 0;
 
         .tile-text {
             @media (min-width: $screen-sm-min) {
@@ -51,7 +52,7 @@
             line-height: 1;
 
             @media (min-width: $screen-sm-min) {
-                margin-left: 40px;
+                margin-left: 30px;
             }
         }
     }
@@ -63,15 +64,23 @@
             margin-top: 0;
             margin-bottom: 0;
         }
-    }
 
-    &-text {
-        color: $brand-info;
-        font-weight: 400;
+        .payment-round-tiny {
+            &, & .icon_payment-small {
+                width: 30px;
+                height: 30px;
+
+                @media (min-width: $screen-sm-min) {
+                    width: 45px;
+                    height: 45px;
+                }
+            }
+        }
     }
 
     &-edit-input {
-        max-width: 230px;
+        // max-width: 230px;
+   
     }
 
     &-right {
@@ -81,11 +90,18 @@
     }
 
     &-img {
-        border: 1px solid $border-gray;
+        border: 1px solid $color-pale-gray;
+        width: 30px;
+        height: 30px;
+
+        @media (min-width: $screen-sm-min) {
+            width: 45px;
+            height: 45px;
+        }
     }
 
     &_dropdown {
-        border-top: 1px solid $border-gray;
+        // border-top: 1px solid $color-pale-gray;
         padding-right: 10px;
         padding-left: 10px;
 
@@ -96,21 +112,19 @@
             padding-left: 15px;
         }
 
-        .card-list & {
-            &:first-child {
-                border-top: 0;
-            }
-        }
+        // .card-list & {
+        //     &:first-child {
+        //         border-top: 0;
+        //     }
+        // }
     }
-    &_account{
-        min-height: 90px;
-        padding-top: 15px;
-        .card-list_collapsed & {
-            &:first-child{
-                border-top: 1px solid $border-gray;
-            }
-        }
+
+    &_account {
+        // min-height: 90px;
+        // padding-top: 15px;
+        border-bottom: 1px solid $color-pale-gray;
     }
+
     &_button {
         cursor: pointer;
 
@@ -118,30 +132,5 @@
             background-color: $dropdown-link-hover-bg;
         }
     }
-}
 
-.flex-truncated {
-    @include flex(center, flex-start);
-
-    .long-and-truncated {
-        flex: 1;
-        min-width: 0;
-
-        h6 {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: inline-block;
-            max-width: 100%;
-            vertical-align: middle;
-        }
-    }
-
-    .short-and-fixed {
-        white-space: nowrap;
-    }
-
-    .edit-input {
-        max-width: 500px;
-    }
 }

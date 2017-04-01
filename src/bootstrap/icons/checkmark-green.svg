@@ -1,13 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: sketchtool 41 (35326) - http://www.bohemiancoding.com/sketch -->
-    <title>56DD65CE-0C9F-491F-8D4B-4296AE54B416</title>
-    <desc>Created with sketchtool.</desc>
-    <defs></defs>
-    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="icons/checked">
-            <rect id="container" x="0" y="0" width="24" height="24"></rect>
-            <polygon id="Checked-white" fill="#11D392" points="8.56288004 18.9932011 9.92835941 20.1930861 11.0585568 18.7693896 22 6.08583397 19.291423 3.93563797 8.34997973 16.6191936 10.8456564 16.395382 4.2827764 10.6283956 2 13.2262147"></polygon>
-        </g>
-    </g>
-</svg>
+<svg width="20" height="18" viewBox="0 0 20 18" xmlns="http://www.w3.org/2000/svg"><title>64E0F36B-9453-4A32-A8A5-040DFF90B8DD</title><g fill="none" fill-rule="evenodd"><path d="M-2-3h24v24H-2z"/><path fill="#11D392" fill-rule="nonzero" d="M6.563 15.993l1.365 1.2 1.13-1.424L20 3.086 17.291.936 6.35 13.619l2.496-.224-6.563-5.767L0 10.226z"/></g></svg>

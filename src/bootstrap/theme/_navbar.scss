@@ -2,7 +2,7 @@ $navbar-font-size: 14px;
 $navbar-padding-horizontal: 10px;
 
 .navbar-toggle {
-    color: $white;
+    color: $color-white;
     margin-right: 16px;
     min-height: $navbar-height;
     margin-bottom: 0;
@@ -73,9 +73,13 @@ $navbar-padding-horizontal: 10px;
 .navbar {
     border: 0;
     height: $navbar-height;
+    font-size: $font-size-small;
+
     @media (min-width: $grid-float-breakpoint) {
         height: $navbar-height-large;
+        font-size: $font-size-base;
     }
+
     .container {
         position: relative;
     }
@@ -100,6 +104,7 @@ $navbar-padding-horizontal: 10px;
                 @media (min-width: $screen-sm-min) {
                     padding: $navbar-padding-small 15px;
                 }
+
                 @media (min-width: $grid-float-breakpoint) {
                     padding: 25px 0px;
                     min-height: $navbar-height;
@@ -124,7 +129,7 @@ $navbar-padding-horizontal: 10px;
         }
 
         .navbar-link {
-            color: #fff;
+            color: $color-white;
 
             &:hover {
                 color: $brand-primary;
@@ -145,12 +150,7 @@ $navbar-padding-horizontal: 10px;
         .navbar-nav {
             > li > a {
                 position: relative;
-                font-size: $navbar-font-size;
-                color: #fff;
-
-                @media (min-width: $screen-md-min) {
-                    font-size: $font-size-base;
-                }
+                color: $color-white;
 
                 &:hover,
                 &:focus {
@@ -181,9 +181,11 @@ $navbar-padding-horizontal: 10px;
                     @media (min-width: $grid-float-breakpoint) {
                         width: 100%;
                         top: auto;
-                        height: 2px;
+                        height: 4px;
                         bottom: 0;
                         left: 0;
+                        border-top-left-radius: $border-radius-base;
+                        border-top-right-radius: $border-radius-base;
                     }
                 }
             }
@@ -213,13 +215,14 @@ $navbar-padding-horizontal: 10px;
             &-toggle {
                 display: block;
                 padding: 9.5px 0;
+
                 @media (min-width: $grid-float-breakpoint) {
                     padding: 17px 0;
                 }
+
                 .link {
                     display: inline-block;
                     vertical-align: middle;
-                    font-weight: 400;
                     margin-right: 5px;
 
                     .btn {
@@ -228,10 +231,6 @@ $navbar-padding-horizontal: 10px;
 
                     &-item {
                         display: block;
-                        font-size: 14px;
-                    }
-                    &-item_small {
-                        font-size: 12px;
                     }
                 }
             }
@@ -239,7 +238,6 @@ $navbar-padding-horizontal: 10px;
             &-menu {
                 left: auto;
                 max-width: 400px;
-                // width: 100%;
                 right: 0px;
                 top: $navbar-height;
                 margin: 0;
@@ -275,6 +273,7 @@ $navbar-padding-horizontal: 10px;
             @media (min-width: $screen-sm-min) {
                 margin-top: 18px;
             }
+
             @media (min-width: $screen-md-min) {
                 margin-top: 25px;
             }
@@ -294,12 +293,12 @@ $navbar-padding-horizontal: 10px;
         .navbar-nav {
             > li > a {
                 position: relative;
-                font-size: $navbar-font-size;
+
+                // font-size: $navbar-font-size;
                 color: $brand-primary;
-                font-weight: normal;
 
                 @media (min-width: $screen-md-min) {
-                    font-size: $font-size-base;
+                    // font-size: $font-size-base;
                 }
             }
 
@@ -345,7 +344,7 @@ $navbar-padding-horizontal: 10px;
         .navbar > .container &,
         .navbar > .container-fluid & {
             margin-left: -$navbar-padding-horizontal;
-            padding: $navbar-padding-horizontal*2 $navbar-padding-horizontal;
+            padding: ($navbar-padding-horizontal * 2) $navbar-padding-horizontal;
             height: $navbar-height-large;
         }
     }
@@ -366,9 +365,8 @@ $navbar-padding-horizontal: 10px;
 }
 
 .navbar-state {
-    color: $white;
+    color: $color-white;
     line-height: $navbar-height;
-    font-size: 14px;
     padding-left: $navbar-padding-horizontal;
 }
 
@@ -449,6 +447,7 @@ $navbar-padding-horizontal: 10px;
     > .navbar-collapse {
         margin-right: -$navbar-padding-horizontal;
         margin-left: -$navbar-padding-horizontal;
+
         @media (min-width: $grid-float-breakpoint) {
             margin-right: 0;
             margin-left: 0;

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="45px" height="45px" viewBox="0 0 45 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>E8EA7495-EE4A-408E-B31D-6DD098B4CA25</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons/tranfers/2nd-card">
+            <g id="p2p-icon">
+                <rect id="Rectangle-4" x="0" y="0" width="45" height="45"></rect>
+                <rect id="Rectangle" stroke="#00A9FF" stroke-width="1.4" x="1" y="5" width="34" height="23" rx="2"></rect>
+                <g id="Group-2" transform="translate(5.000000, 9.000000)">
+                    <path d="M0,14.5 L6.51920241,14.5" id="Path-2-Copy-2" stroke="#061122" stroke-linecap="round"></path>
+                    <path d="M0,11.5 L13.5092561,11.5" id="Path-2-Copy-3" stroke="#061122" stroke-linecap="round"></path>
+                    <rect id="Rectangle" stroke="#00A9FF" stroke-width="1.4" fill="#FFFFFF" x="5" y="8" width="34" height="23" rx="2"></rect>
+                    <path d="M9,26.5 L15.5192024,26.5" id="Path-2" stroke="#061122" stroke-linecap="round"></path>
+                    <path d="M9,23.5 L22.5092561,23.5" id="Path-2-Copy" stroke="#061122" stroke-linecap="round"></path>
+                    <path d="M30.4972567,16.4479209 C30.1605374,16.6330106 29.7739469,16.738268 29.3628156,16.738268 C28.0578948,16.738268 27,15.6773646 27,14.369134 C27,13.0609034 28.0578948,12 29.3628156,12 C29.8185051,12 30.2440461,12.1293093 30.6049474,12.3533077" id="Stroke-210" stroke="#00A9FF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M21.4972567,4.44792089 C21.1605374,4.63301058 20.7739469,4.73826801 20.3628156,4.73826801 C19.0578948,4.73826801 18,3.67736459 18,2.369134 C18,1.06090341 19.0578948,0 20.3628156,0 C20.8185051,0 21.2440461,0.129309271 21.6049474,0.353307661" id="Stroke-210-Copy" stroke="#00A9FF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M34.7259557,14.369134 C34.7259557,15.6773646 33.668061,16.738268 32.3628156,16.738268 C31.0578948,16.738268 30,15.6773646 30,14.369134 C30,13.0609034 31.0578948,12 32.3628156,12 C33.668061,12 34.7259557,13.0609034 34.7259557,14.369134 L34.7259557,14.369134 Z" id="Stroke-208" stroke="#00A9FF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M25.7259557,2.369134 C25.7259557,3.67736459 24.668061,4.73826801 23.3628156,4.73826801 C22.0578948,4.73826801 21,3.67736459 21,2.369134 C21,1.06090341 22.0578948,0 23.3628156,0 C24.668061,0 25.7259557,1.06090341 25.7259557,2.369134 L25.7259557,2.369134 Z" id="Stroke-208-Copy" stroke="#00A9FF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

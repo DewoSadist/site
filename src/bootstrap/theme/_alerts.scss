@@ -5,7 +5,8 @@
 .alert {
 	font-size: $font-size-small;
 	margin-bottom: 10px;
-	@media (min-width: $screen-sm-min) {
+	border: 0;
+	@media (min-width: $screen-md-min) {
 		font-size: $font-size-base;
 	}
 	ul{

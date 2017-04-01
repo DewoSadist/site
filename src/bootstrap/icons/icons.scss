@@ -1,380 +1,621 @@
 @mixin icon-url($name) {
-	background-image: url($name + '.svg');
+    background-image: url($name + ".svg");
 }
 
 // mixin for generating icon classes
 $categoryList: transport creditsAndDeposits utilities landline tv mobile pdd qiwi;
 $paymentList: alseco astanaERC hcsbkMakeDeposit hcsbkPayLoan kazakhtelecom tele2 kcell activ altel qiwi onai;
 $transferList: default default-small own cash cash-small international international-small homebank facebook paypal whatsapp;
+$productList: all booking credit debet extra go insurance internet limit multi nominal partners paypass period secure shopping travel zero-percent zero-tenge;
+$homeIcons: virtual-currency virtual-safety virtual-speed virtual-usage;
 
+@mixin home-url($name) {
+    @include icon-size(45, 45);
+    background-image: url("../icons/home/" + $name + ".svg");
+}
 @mixin transfer-url($name) {
-	background-image: url("../icons/transfers/" + $name + ".svg");
+    background-image: url("../icons/transfers/" + $name + ".svg");
+}
+
+@mixin product-url($name) {
+    background-image: url("../icons/products/" + $name + ".svg");
 }
 
 @mixin category-url($name) {
-	background-image: url("../icons/categories/" + $name + ".svg");
+    background-image: url("../icons/categories/" + $name + ".svg");
 }
 
 @mixin payment-url($name) {
-	@include icon-size(45, 45);
-	@include retina-background-image("../icons/payments/" + $name, "png", $width: 100%, $height: 100%);
-	@media (min-width: $screen-sm-min) {
-		@include icon-size(50, 50);
-	}
+    @include icon-size(45, 45);
+
+    @include retina-background-image("../icons/payments/" + $name, "png", 100% 100%);
+
+    @media (min-width: $screen-sm-min) {
+        @include icon-size(50, 50);
+    }
 }
 
 .icon {
-	@include icon-size(35, 35);
-	@each $transfer in $transferList {
-		&_transfer-#{$transfer} {
-			@include transfer-url(#{$transfer});
-		}
-	}
-	@each $category in $categoryList {
-		&_category-#{$category} {
-			@include category-url(#{$category});
-		}
-	}
-	@each $payment in $paymentList {
-		&_payment-#{$payment} {
-			@include payment-url(#{$payment});
+    flex-shrink: 0;
 
-			position: relative;
-			top: auto !important;
-			right: auto !important;
-			bottom: auto !important;
-			left: auto !important;
-		}
-	}
-	&_category, &_transfer {
-		@include icon-size(45, 45);
-		flex: 0 0 45px;
-		margin-bottom: 10px;
-	}
-	&_transfer-small{
-		@include icon-size(25, 25);
-	    flex: 0 0 25px;
-	    background-size: 100% 100%;
-	}
-	&_payment {
-		@include icon-size(70, 70);
-	}
-	&_payment-default {
-		background-image: url("../icons/payments/default.svg");
-	}
-	&_payment-small {
-		background-size: 100% 100%;
-		// @include icon-size(35,35);
-	}
-	&_breadcrumbs-home{
-		position: relative;
-		top: -1px;
-		@include transition(all 0.3s);
-		@include icon-size(24,24);
-		@include icon-url(breadcrumbs-home);
-	}
-	&_hamburger-blue{
-		margin-right: 10px;
-		@include icon-size(24,24);
-		@include icon-url(hamburger-blue);
-	}
-	&_chevron-left {
-		@include icon-url(chevron-left);
-	}
-	&_details {
-		@include icon-size(24, 24);
-		@include icon-url(details);
-	}
-	&_pdf {
-		@include icon-size(30,30);
-		@include icon-url(pdf);
-	}
-	&_excel {
-		@include icon-size(30,30);
-		@include icon-url(excel);
-	}
-	&_chevron-right {
-		@include icon-size(24, 24);
-		transform: rotateY(180deg);
-		@include icon-url(chevron-left);
-	}
-	&_trigger {
-		transform: rotateZ(90deg);
-		@include icon-size(24, 24);
-		@include icon-url(chevron-left);
-		@include transition(all 0.3s);
-	}
-	&_chevron-left-white {
-		@include icon-url(chevron-left-white);
-	}
-	&_chevron-right-white {
-		transform: rotateY(180deg);
-		@include icon-url(chevron-left-white);
-	}
-	&_chevron-left-small {
-		@include icon-size(15, 15);
-		background-position: left center;
-		@include icon-url(chevron-left-small);
-	}
-	&_logo {
-		@include icon-size(101, 24);
-		@include icon-url(logo);
-	}
-	&_modal-close {
-		@include icon-size(16, 16);
-		@include icon-url(modal-close);
-		@media (min-width: $screen-sm-min) {
-			@include icon-size(22, 22);
-		}
-	}
-	&_logo-inverse {
-		@include icon-size(101, 24);
-		@include icon-url(logo-inverse);
-	}
-	&_more {
-		margin-left: 5px;
-		@include icon-size(22, 4);
-		@include icon-url(more);
-	}
-	&_search {
-		@include icon-url(search);
-	}
-	&_id-card {
-		@include icon-size(40, 40);
-		@include icon-url(id-card);
-		margin-bottom: 15px;
-		@media (min-width: $screen-md-min) {
-			margin-right: 25px;
-			margin-bottom: 0;
-		}
-	}
-	&_search-small {
-		position: relative;
-		top: -1px;
-		@include icon-url(search-small);
-	}
-	&_tenge {
-		@include icon-size(43, 40);
-		@include icon-url(tenge);
-	}
-	&_checked-white {
-		margin-left: 5px;
-		@include icon-size(24, 24);
-		@include icon-url(checked-white);
-		@include transition(none);
-	}
-	&_pencil-white {
-		margin-left: 5px;
-		@include icon-size(24, 24);
-		@include icon-url(pencil-white);
-		@include transition(none);
-	}
-	&_calendar {
-		@include icon-size(40, 40);
-		@include icon-url(calendar);
-	}
-	&_password-show {
-		@include icon-size(40, 40);
-		@include icon-url(password-show);
-	}
-	&_app-store {
-		@include icon-size(136, 39);
-		@include icon-url(app-store);
-	}
-	&_google-play {
-		@include icon-size(136, 39);
-		@include icon-url(google-play);
-	}
-	&_skype {
-		@include icon-size(29, 27);
-		@include icon-url(skype);
-	}
-	&_kkb-logo {
-		@include icon-size(45, 45);
-	}
-	// social icons
-	&_facebook {
-		@include icon-size(38, 38);
-		@include icon-url(facebook);
-	}
-	&_vk {
-		@include icon-size(38, 38);
-		@include icon-url(vk);
-	}
-	&_twitter {
-		@include icon-size(38, 38);
-		@include icon-url(twitter);
-	}
-	&_instagram {
-		@include icon-size(38, 38);
-		@include icon-url(instagram);
-	}
-	&_youtube {
-		@include icon-size(38, 38);
-		@include icon-url(youtube);
-	}
-	&_tile-menu {
-		@include icon-size(24,24);
-		@include icon-url(tile-menu);
-	}
-	&_tile-close {
-		@include icon-size(24,24);
-		@include icon-url(tile-close);
-	}
-	&_message-checkmark {
-		@include icon-size(24, 24);
-		@include icon-url(message-checkmark);
-		margin-right: 5px;
-	}
-	&_plus {
-		@include icon-size(24, 24);
-		@include icon-url(plus);
-	}
+    @include icon-size(35, 35);
 
-	&_info {
-		@include icon-url(info);
-	}
-	&_play-button {
-		@include icon-url(play-button);
-	}
-	&_checkmark {
-		@include icon-url(checkmark);
-	}
-	&_checkmark-green {
-		@include icon-url(checkmark-green);
-	}
-	&_successcheck {
-		background-color: $brand-success;
-		border-radius: 50%;
-		@include icon-url(successcheck);
-		@include icon-size(16, 16);
-	}
-	&_failuremark {
-		background-color: $brand-danger;
-		border-radius: 50%;
-		@include icon-size(16, 16);
-	}
-	&_virtual-service {
-		@include icon-size(60, 60);
-		@include icon-url(virtual-service);
-	}
-	&_virtual-safety {
-		@include icon-size(60, 60);
-		@include icon-url(virtual-safety);
-	}
-	&_restore-check {
-		// todo: create animation as in password requirements
-		@include icon-size(13, 12);
-		@include icon-url(restore-check);
-		@include transition(all 0.3s);
-		position: absolute;
-		top: 3.5px;
-		left: 4px;
-	}
-	&_restore-arrow {
-		@include icon-size(12, 12);
-		@include icon-url(restore-arrow);
-		@media (min-width: $screen-md-min) {
-			@include icon-size(16, 57);
-			@include icon-url(restore-arrow_desktop);
-		}
-	}
-	&_transfers {
-		@include icon-size(55, 40);
-		@include icon-url(payments/default);
-		margin-right: 10px;
-	}
-	&_pencil {
-		@include icon-size(24, 24);
-		@include icon-url(pencil);
-	}
-	&_pencil-small {
-		@include icon-size(16, 16);
-		background-size: 100% 100%;
-		@include icon-url(pencil);
-	}
-	&_banking {
-		@include icon-size(60, 60);
-		margin-right: 10px;
-	}
-	&_banking-limits {
-		@include icon-url(banking-limits);
-	}
-	&_banking-3dsecure {
-		@include icon-url(banking-3dsecure);
-	}
-	&_banking-restrict {
-		@include icon-url(banking-restrict);
-	}
-	&_collapse{
-		@include icon-size(18,18);
-		z-index: 5;
-		position: relative;
-		&.collapsed {
-			&:after {
-				transform: rotateX(0);
-			}
-		}
-		&:before, &:after {
-			position: absolute;
-			display: block;
-			left: 0;
-			top: 8px;
-			background-color: $brand-primary;
-			content: '';
-			width: 100%;
-			height: 2px;
-			@include transition(all 0.3s);
-		}
-		&:after {
-			left: 8px;
-			top: 0;
-			height: 100%;
-			width: 2px;
-			transform: rotateX(90deg);
-		}
-	}
-	&_collapse-margin{
-		top: 4px;
-	}
+    @each $homeIcon in $homeIcons {
+        &_home-#{$homeIcon} {
+            @include home-url(#{$homeIcon});
+        }
+    }
+    @each $transfer in $transferList {
+        &_transfer-#{$transfer} {
+            @include transfer-url(#{$transfer});
+        }
+    }
 
+    @each $category in $categoryList {
+        &_category-#{$category} {
+            @include category-url(#{$category});
+        }
+    }
+
+    @each $product in $productList {
+        &_product-#{$product} {
+            @include product-url(#{$product});
+        }
+    }
+
+    @each $payment in $paymentList {
+        &_payment-#{$payment} {
+            @include payment-url(#{$payment});
+
+            position: relative;
+            top: auto !important;
+            right: auto !important;
+            bottom: auto !important;
+            left: auto !important;
+        }
+    }
+
+    &_category, &_transfer , &_product{
+        @include icon-size(45, 45);
+
+        margin-bottom: 10px;
+    }
+    
+    &_transfer-small {
+        @include icon-size(25, 25);
+
+        background-size: 100% 100%;
+    }
+
+    &_payment {
+        @include icon-size(70, 70);
+    }
+
+    &_payment-default {
+        background-image: url("../icons/payments/default.svg");
+    }
+
+    &_payment-small {
+        background-size: 100% 100%;
+
+        // @include icon-size(35,35);
+
+    }
+
+    &_breadcrumbs-home {
+        position: relative;
+        top: -1px;
+
+        @include transition(all 0.3s);
+
+        @include icon-size(24, 24);
+
+        @include icon-url(breadcrumbs-home);
+    }
+
+    &_hamburger-blue {
+        margin-right: 10px;
+
+        @include icon-size(24, 24);
+
+        @include icon-url(hamburger-blue);
+    }
+
+    &_chevron-left {
+        @include icon-url(chevron-left);
+    }
+
+    &_details {
+        @include icon-size(24, 24);
+
+        @include icon-url(details);
+    }
+
+    &_pdf {
+        @include icon-size(30, 30);
+
+        @include icon-url(pdf);
+    }
+
+    &_excel {
+        @include icon-size(30, 30);
+
+        @include icon-url(excel);
+    }
+
+    &_chevron-right {
+        @include icon-size(24, 24);
+
+        transform: rotateY(180deg);
+
+        @include icon-url(chevron-left);
+    }
+
+    &_chevron-up {
+        @include icon-size(24, 24);
+
+        transform: rotate(90deg);
+
+        @include icon-url(chevron-left);
+        @include transition(all 0.3s);
+        &.down{
+            transform: rotate(-90deg);
+        }
+    }
+
+    &_trigger {
+        transform: rotateZ(90deg);
+
+        @include icon-size(24, 24);
+
+        @include icon-url(chevron-left);
+
+        @include transition(all 0.3s);
+    }
+
+    &_chevron-left-white {
+        @include icon-url(chevron-left-white);
+    }
+
+    &_chevron-right-white {
+        transform: rotateY(180deg);
+
+        @include icon-url(chevron-left-white);
+    }
+
+    &_chevron-left-small {
+        @include icon-size(15, 15);
+
+        background-position: left center;
+
+        @include icon-url(chevron-left-small);
+    }
+
+    &_logo {
+        @include icon-size(101, 24);
+
+        @include icon-url(logo);
+    }
+
+    &_modal-close {
+        @include icon-size(16, 16);
+
+        @include icon-url(modal-close);
+
+        @media (min-width: $screen-sm-min) {
+            @include icon-size(22, 22);
+        }
+    }
+
+    &_logo-inverse {
+        @include icon-size(101, 24);
+
+        @include icon-url(logo-inverse);
+    }
+
+    &_more {
+        margin-left: 5px;
+
+        @include icon-size(22, 4);
+
+        @include icon-url(more);
+    }
+
+    &_search {
+        @include icon-url(search);
+    }
+
+    &_id-card {
+        @include icon-size(40, 40);
+
+        @include icon-url(id-card);
+
+        margin-bottom: 15px;
+
+        @media (min-width: $screen-md-min) {
+            margin-right: 25px;
+            margin-bottom: 0;
+        }
+    }
+
+    &_search-small {
+        position: relative;
+        top: -1px;
+
+        @include icon-url(search-small);
+    }
+
+    &_tenge {
+        @include icon-size(43, 40);
+
+        @include icon-url(tenge);
+    }
+
+    &_checked-white {
+        margin-left: 5px;
+
+        @include icon-size(24, 24);
+
+        @include icon-url(checked-white);
+
+        @include transition(none);
+    }
+
+    &_pencil-white {
+        margin-left: 5px;
+
+        @include icon-size(24, 24);
+
+        @include icon-url(pencil-white);
+
+        @include transition(none);
+    }
+
+    &_calendar {
+        @include icon-size(40, 40);
+
+        @include icon-url(calendar);
+    }
+
+    &_password-show {
+        @include icon-size(40, 40);
+
+        @include icon-url(password-show);
+    }
+    &_password-hide {
+      @include icon-size(40, 40);
+      @include icon-url(password-hide);
+    }
+    &_app-store {
+        @include icon-size(136, 39);
+
+        @include icon-url(app-store);
+    }
+
+    &_google-play {
+        @include icon-size(136, 39);
+
+        @include icon-url(google-play);
+    }
+
+    &_app-store-small {
+        @include icon-size(22, 26);
+
+        @include icon-url(app-store-small);
+    }
+
+    &_google-play-small {
+        @include icon-size(23, 25);
+
+        @include icon-url(google-play-small);
+    }
+
+    &_skype {
+        @include icon-size(29, 27);
+
+        @include icon-url(skype);
+    }
+
+    &_kkb-logo {
+        @include icon-size(45, 45);
+    }
+
+    // social icons
+    &_facebook {
+        @include icon-size(38, 38);
+
+        @include icon-url(facebook);
+    }
+
+    &_vk {
+        @include icon-size(38, 38);
+
+        @include icon-url(vk);
+    }
+
+    &_twitter {
+        @include icon-size(38, 38);
+
+        @include icon-url(twitter);
+    }
+
+    &_instagram {
+        @include icon-size(38, 38);
+
+        @include icon-url(instagram);
+    }
+
+    &_youtube {
+        @include icon-size(38, 38);
+
+        @include icon-url(youtube);
+    }
+
+    &_tile-menu {
+        @include icon-size(24, 24);
+
+        @include icon-url(tile-menu);
+    }
+
+    &_tile-close {
+        @include icon-size(24, 24);
+
+        @include icon-url(tile-close);
+    }
+
+    &_message-checkmark {
+        @include icon-size(24, 24);
+
+        @include icon-url(message-checkmark);
+
+        margin-right: 5px;
+    }
+
+    &_plus {
+        @include icon-size(24, 24);
+
+        @include icon-url(plus);
+    }
+
+    &_info {
+        @include icon-url(info);
+    }
+
+    &_play-button {
+        @include icon-url(play-button);
+    }
+
+    &_checkmark {
+        @include icon-url(checkmark);
+    }
+
+    &_checkmark-green {
+        @include icon-url(checkmark-green);
+    }
+
+    &_successcheck {
+        background-color: $brand-success;
+        border-radius: 50%;
+
+        @include icon-url(successcheck);
+
+        @include icon-size(16, 16);
+    }
+
+    &_failuremark {
+        position: relative;
+        background-color: $brand-danger;
+        border-radius: 50%;
+
+        @include icon-size(16, 16);
+
+        &:after {
+            content: '';
+            display: inline-block;
+            position: absolute;
+			background-color: $color-white;
+            width: 10px;
+            height: 2px;
+            top: 7px;
+            left: 3px;
+        }
+    }
+
+    &_virtual-service {
+        @include icon-size(60, 60);
+
+        @include icon-url(virtual-service);
+    }
+
+    &_virtual-safety {
+        @include icon-size(60, 60);
+
+        @include icon-url(virtual-safety);
+    }
+
+    &_restore-check {
+        // todo: create animation as in password requirements
+        @include icon-size(13, 12);
+
+        @include icon-url(restore-check);
+
+        @include transition(all 0.3s);
+
+        position: absolute;
+        top: 3.5px;
+        left: 4px;
+    }
+
+    &_restore-arrow {
+        @include icon-size(12, 12);
+
+        @include icon-url(restore-arrow);
+
+        @media (min-width: $screen-md-min) {
+            @include icon-size(16, 54);
+
+            @include icon-url(restore-arrow_desktop);
+        }
+    }
+
+    &_transfers {
+        @include icon-size(55, 40);
+
+        @include icon-url(payments/default);
+
+        margin-right: 10px;
+    }
+
+    &_pencil {
+        @include icon-size(24, 24);
+
+        @include icon-url(pencil);
+    }
+
+    &_pencil-small {
+        @include icon-size(16, 16);
+
+        background-size: 100% 100%;
+
+        @include icon-url(pencil);
+    }
+
+    &_zero-tenge {
+        @include icon-url(zero-tenge);
+    }
+
+    &_gift-large {
+        @include icon-size(170, 170);
+
+        @include icon-url(gift-large);
+    }
+
+    &_banking {
+        @include icon-size(60, 60);
+
+        margin-right: 10px;
+    }
+
+    &_zoom-in {
+        @include icon-size(24, 24);
+
+        @include icon-url(zoom-in);
+    }
+
+    &_zoom-out {
+        @include icon-size(24, 24);
+
+        @include icon-url(zoom-out);
+    }
+
+    &_rotate-left {
+        @include icon-size(24, 24);
+
+        @include icon-url(rotate-left);
+    }
+
+    &_rotate-right {
+        transform: rotateY(180deg);
+
+        @include icon-size(24, 24);
+
+        @include icon-url(rotate-left);
+    }
+
+    &_banking-limits {
+        @include icon-url(banking-limits);
+    }
+
+    &_banking-3dsecure {
+        @include icon-url(banking-3dsecure);
+    }
+
+    &_banking-restrict {
+        @include icon-url(banking-restrict);
+    }
+
+    &_collapse {
+        @include icon-size(18, 18);
+
+        z-index: 5;
+        position: relative;
+
+        &.collapsed {
+            &:after {
+                transform: rotateX(0);
+            }
+        }
+
+        &:before, &:after {
+            position: absolute;
+            display: block;
+            left: 0;
+            top: 8px;
+            background-color: $brand-primary;
+            content: '';
+            width: 100%;
+            height: 2px;
+
+            @include transition(all 0.3s);
+        }
+
+        &:after {
+            left: 8px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            transform: rotateX(90deg);
+        }
+    }
+
+    &_collapse-margin {
+        margin-left: auto;
+    }
 }
-
+.icon-text{
+    vertical-align: middle;
+}
 .collapsed {
-	.icon_collapse {
-		&:after {
-			transform: rotateX(0);
-		}
-	}
+    .icon_collapse {
+        &:after {
+            transform: rotateX(0);
+        }
+    }
 }
 
 .glyphicon-spin {
-	top: 2px;
-	-ms-transform-origin: 45% 42%; /* IE 9 */
-	-webkit-transform-origin: 45% 42%; /* Chrome, Safari, Opera */
-	transform-origin: 45% 42%;
-	-webkit-animation: spin 1000ms infinite linear;
-	animation: spin 1000ms infinite linear;
+    top: 2px;
+    -ms-transform-origin: 45% 42%;
+
+    /* IE 9 */
+    -webkit-transform-origin: 45% 42%;
+
+    /* Chrome, Safari, Opera */
+    transform-origin: 45% 42%;
+    -webkit-animation: spin 1000ms infinite linear;
+    animation: spin 1000ms infinite linear;
 }
 
 @-webkit-keyframes spin {
-	0% {
-		-webkit-transform: rotate(0deg);
-		transform: rotate(0deg);
-	}
-	100% {
-		-webkit-transform: rotate(359deg);
-		transform: rotate(359deg);
-	}
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
 }
 
 @keyframes spin {
-	0% {
-		-webkit-transform: rotate(0deg);
-		transform: rotate(0deg);
-	}
-	100% {
-		-webkit-transform: rotate(359deg);
-		transform: rotate(359deg);
-	}
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
 }

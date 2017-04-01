@@ -1,25 +1,30 @@
 //
 // Forms
 // --------------------------------------------------
-input[type=text] {   
+input[type=text] {
     /* Remove First */
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
 }
+
 .form-control {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    border-style:solid;
-    
+    border-style: solid;
+    font-weight: 300;
+    font-size: $font-size-small;
+    padding: $input-padding;
+
     @include transition(all 0.3s);
 
     @include box-shadow(none);
 
     @media (min-width: $screen-md-min) {
         height: $input-height-large;
-        padding: ($padding-base-vertical + 4) $padding-base-horizontal;
+        font-size: $font-size-base;
+        padding: $input-padding-large;
     }
 
     &:active,
@@ -29,8 +34,12 @@ input[type=text] {
 
     &.input-sm {
         height: 35px;
-        font-size: $font-size-base;
-        padding: 0 $padding-base-horizontal;
+        font-size: $font-size-small;
+        padding: 10px $padding-base-horizontal;
+        @media (min-width: $screen-md-min) {
+            height: 45px;
+            font-size: $font-size-base;
+        }
     }
 }
 
@@ -51,17 +60,10 @@ input[type=text] {
 }
 
 label {
-    font-size: 14px;
-    font-weight: normal;
-}
-
-small {
     font-size: $font-size-small;
-    color: $description-gray;
-    font-weight: 300;
-
-    .black {
-        color: $brand-info;
+    font-weight: 500;
+    @media (min-width: $screen-md-min) {
+        font-size: $font-size-base;
     }
 }
 
@@ -189,18 +191,84 @@ input[type="checkbox"] {
 // .form-group + .form-group {
 //     margin-top: $form-group-margin-bottom * 2;
 // }
-
 .form-group.no-margin {
     margin: 0;
 }
-
-form {
-    .btn {
-        margin-top: 20px;
-        margin-bottom: 0px;
-    }
+// form {
+//     .btn {
+//         margin-top: 20px;
+//         margin-bottom: 0px;
+//     }
+// }
+.form-description{
+    display: inline-block;
+    margin-top: 3px;
 }
-
+.form-submit{
+    margin-top: $form-submit-margin-top;
+    margin-bottom: 0;
+}
 small.error {
     color: $brand-danger;
+}
+.checkbox-switch{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    label {
+        margin-bottom: 0 !important;
+    }
+
+    input.ios-switch {
+        max-height: 0;
+        max-width: 0;
+        opacity: 0;
+        display: none;
+    }
+    input.ios-switch + label {
+        cursor: pointer;
+        display: block;
+        position: relative;
+        // box-shadow: inset 0 0 0px 1px #d5d5d5;
+        text-indent: -5000px;
+        height: 18px;
+        width: 40px;
+        border-radius: 9px;
+        background-color: $border-gray;
+    }
+
+    input.ios-switch + label:before {
+        content: "";
+        position: absolute;
+        display: block;
+        height: 18px;
+        width: 40px;
+        top: 0;
+        left: 0;
+        border-radius: 9px;
+        background-image: linear-gradient(to left, #00d4ff, #00a9ff);
+        @include transition(all 0.3s);
+        opacity: 0;
+    }
+
+    input.ios-switch + label:after {
+        content: "";
+        position: absolute;
+        display: block;
+        height: 24px;
+        width: 24px;
+        top: -3px;
+        left: 0;
+        border-radius: 12px;
+        border: solid 0.5px $border-gray;
+        background: $color-white;
+        box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.15), 0 1px 1px 0 rgba(0, 0, 0, 0.15);
+        @include transition(all 0.2s)
+    }
+    input.ios-switch:checked + label:before {
+        opacity: 1;
+    }
+
+    input.ios-switch:checked + label:after {
+        left: 17px;
+    }
 }

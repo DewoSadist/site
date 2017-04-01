@@ -1,0 +1,1906 @@
+[
+   {
+      "id":3,
+      "shortName":"kcell",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":"sms",
+      "name":{
+         "ru":"Kcell",
+         "en":"Kcell",
+         "kk":"Kcell"
+      },
+      "categoryId":[
+         6
+      ],
+      "cityId":[
+         1,
+         2,
+         3,
+         5,
+         6,
+         7,
+         14,
+         15,
+         16,
+         17,
+         8,
+         9,
+         10,
+         11,
+         12,
+         13
+      ]
+   },
+   {
+      "id":11,
+      "shortName":null,
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Алматытелеком",
+         "en":"Almatytelecom",
+         "kk":"Алматытелеком"
+      },
+      "categoryId":[
+         32
+      ],
+      "cityId":[
+         1
+      ]
+   },
+   {
+      "id":40,
+      "shortName":null,
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Южно-Казахстанская ОДТ",
+         "en":"South Kazakhstan CCT",
+         "kk":"Оңтүстік Қазақстан ОТД"
+      },
+      "categoryId":[
+         32
+      ],
+      "cityId":[
+         17
+      ]
+   },
+   {
+      "id":42,
+      "shortName":null,
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Астанателеком",
+         "en":"Astanatelecom",
+         "kk":"Астанателеком"
+      },
+      "categoryId":[
+         32
+      ],
+      "cityId":[
+         2
+      ]
+   },
+   {
+      "id":48,
+      "shortName":null,
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Карагандинская ОДТ",
+         "en":"Karagandy CCT",
+         "kk":"Қарағанды ОТД"
+      },
+      "categoryId":[
+         32
+      ],
+      "cityId":[
+         11
+      ]
+   },
+   {
+      "id":55,
+      "shortName":null,
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Атырауская ОДТ",
+         "en":"Atyrau CCT",
+         "kk":"Атырау ОТД"
+      },
+      "categoryId":[
+         32
+      ],
+      "cityId":[
+         7
+      ]
+   },
+   {
+      "id":56,
+      "shortName":null,
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Алматинская ОДТ",
+         "en":"Almaty CCT",
+         "kk":"Алматы ОТД"
+      },
+      "categoryId":[
+         32
+      ],
+      "cityId":[
+         3
+      ]
+   },
+   {
+      "id":57,
+      "shortName":null,
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Жамбылская ОДТ",
+         "en":"Zhambyl CCT",
+         "kk":"Жамбыл ОТД"
+      },
+      "categoryId":[
+         32
+      ],
+      "cityId":[
+         9
+      ]
+   },
+   {
+      "id":58,
+      "shortName":null,
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Мангистауская ОДТ",
+         "en":"Mangistau CCT",
+         "kk":"Маңғыстау ОТД"
+      },
+      "categoryId":[
+         32
+      ],
+      "cityId":[
+         14
+      ]
+   },
+   {
+      "id":61,
+      "shortName":null,
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Северо-Казахстанская ОДТ",
+         "en":"North Kazakhstan CCT",
+         "kk":"Солтүстік Қазақстан ОТД"
+      },
+      "categoryId":[
+         32
+      ],
+      "cityId":[
+         16
+      ]
+   },
+   {
+      "id":62,
+      "shortName":null,
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Кызылординская ОДТ",
+         "en":"Kyzylorda CCT",
+         "kk":"Қызылорда ОТД"
+      },
+      "categoryId":[
+         32
+      ],
+      "cityId":[
+         13
+      ]
+   },
+   {
+      "id":64,
+      "shortName":null,
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Акмолинская ОДТ",
+         "en":"Akmola CCT",
+         "kk":"Ақмола ОТД"
+      },
+      "categoryId":[
+         32
+      ],
+      "cityId":[
+         5
+      ]
+   },
+   {
+      "id":65,
+      "shortName":null,
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Павлодарская ОДТ",
+         "en":"Pavlodar CCT",
+         "kk":"Павлодар ОТД"
+      },
+      "categoryId":[
+         32
+      ],
+      "cityId":[
+         15
+      ]
+   },
+   {
+      "id":66,
+      "shortName":null,
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Актюбинская ОДТ",
+         "en":"Aktobe CCT",
+         "kk":"Ақтөбе ОТД"
+      },
+      "categoryId":[
+         32
+      ],
+      "cityId":[
+         6
+      ]
+   },
+   {
+      "id":68,
+      "shortName":null,
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Боливия",
+         "en":"Боливия",
+         "kk":"Боливия"
+      },
+      "categoryId":[
+         32
+      ],
+      "cityId":[
+         8
+      ]
+   },
+   {
+      "id":69,
+      "shortName":null,
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Костанайская ОДТ",
+         "en":"Kostanay CCT",
+         "kk":"Қостанай ОТД"
+      },
+      "categoryId":[
+         32
+      ],
+      "cityId":[
+         12
+      ]
+   },
+   {
+      "id":72,
+      "shortName":null,
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Западно-Казахстанская ОДТ",
+         "en":"West Kazakhstan CCT",
+         "kk":"Батыс Қазақстан ОТД"
+      },
+      "categoryId":[
+         32
+      ],
+      "cityId":[
+         10
+      ]
+   },
+   {
+      "id":75,
+      "shortName":null,
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"ГДТ Семей",
+         "en":"Semey Telecom",
+         "kk":"Семей ҚТД"
+      },
+      "categoryId":[
+         32
+      ],
+      "cityId":[
+         8
+      ]
+   },
+   {
+      "id":87,
+      "shortName":"icon",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"ICON",
+         "en":"ICON",
+         "kk":"ICON"
+      },
+      "categoryId":[
+         5
+      ],
+      "cityId":[
+         1,
+         2,
+         3,
+         5,
+         6,
+         7,
+         14,
+         15,
+         16,
+         17,
+         8,
+         9,
+         10,
+         11,
+         12,
+         13
+      ]
+   },
+   {
+      "id":90,
+      "shortName":"beeline",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Beeline",
+         "en":"Beeline",
+         "kk":"Beeline"
+      },
+      "categoryId":[
+         6
+      ],
+      "cityId":[
+         1,
+         2,
+         3,
+         5,
+         6,
+         7,
+         14,
+         15,
+         16,
+         17,
+         8,
+         9,
+         10,
+         11,
+         12,
+         13
+      ]
+   },
+   {
+      "id":125,
+      "shortName":"tele2",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Tele2",
+         "en":"Tele2",
+         "kk":"Tele2"
+      },
+      "categoryId":[
+         6
+      ],
+      "cityId":[
+         1,
+         2,
+         3,
+         5,
+         6,
+         7,
+         14,
+         15,
+         16,
+         17,
+         8,
+         9,
+         10,
+         11,
+         12,
+         13
+      ]
+   },
+   {
+      "id":134,
+      "shortName":"city",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"City",
+         "en":"City",
+         "kk":"City"
+      },
+      "categoryId":[
+         6
+      ],
+      "cityId":[
+         1,
+         2,
+         3,
+         5,
+         6,
+         7,
+         14,
+         15,
+         16,
+         17,
+         8,
+         9,
+         10,
+         11,
+         12,
+         13
+      ]
+   },
+   {
+      "id":391,
+      "shortName":"activ",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Activ",
+         "en":"Activ",
+         "kk":"Activ"
+      },
+      "categoryId":[
+         6
+      ],
+      "cityId":[
+         1,
+         2,
+         3,
+         5,
+         6,
+         7,
+         14,
+         15,
+         16,
+         17,
+         8,
+         9,
+         10,
+         11,
+         12,
+         13
+      ]
+   },
+   {
+      "id":660,
+      "shortName":"kazakhtelecom",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Оплата услуг Казахтелеком",
+         "en":"Казахтелеком",
+         "kk":"Оплата услуг Казахтелеком"
+      },
+      "categoryId":[
+
+      ],
+      "cityId":[
+
+      ]
+   },
+   {
+      "id":665,
+      "shortName":"hcsbkMakeDeposit",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":"sms",
+      "name":{
+         "ru":"Кредиты ЖССБК",
+         "en":"Loans in ZSSBK",
+         "kk":"ҚТҚЖБ-дағы займдар"
+      },
+      "categoryId":[
+         18
+      ],
+      "cityId":[
+         1,
+         2,
+         3,
+         5,
+         6,
+         7,
+         14,
+         15,
+         16,
+         17,
+         8,
+         9,
+         10,
+         11,
+         12,
+         13
+      ]
+   },
+   {
+      "id":666,
+      "shortName":"hcsbkPayLoan",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":"sms",
+      "name":{
+         "ru":"Депозиты ЖССБК",
+         "en":"Accumulations in ZSSBK",
+         "kk":"ҚТҚЖБ-дағы қорлар"
+      },
+      "categoryId":[
+         18
+      ],
+      "cityId":[
+         1,
+         2,
+         3,
+         5,
+         6,
+         7,
+         14,
+         15,
+         16,
+         17,
+         8,
+         9,
+         10,
+         11,
+         12,
+         13
+      ]
+   },
+   {
+      "id":693,
+      "shortName":"penaltyDriverLicense",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Получение списка протокольных штрафов ГАИ по номеру водительского удостоверения (ВУ)",
+         "en":"Получение списка протокольных штрафов ГАИ по номеру водительского удостоверения (ВУ)",
+         "kk":"Получение списка протокольных штрафов ГАИ по номеру водительского удостоверения (ВУ)"
+      },
+      "categoryId":[
+         3
+      ],
+      "cityId":[
+
+      ]
+   },
+   {
+      "id":695,
+      "shortName":"penaltyPlateAndCarTitle",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Получение списка протокольных штрафов ГАИ по гос. номеру и тех. паспорту",
+         "en":"Получение списка протокольных штрафов ГАИ по гос. номеру и тех. паспорту",
+         "kk":"Получение списка протокольных штрафов ГАИ по гос. номеру и тех. паспорту"
+      },
+      "categoryId":[
+         3
+      ],
+      "cityId":[
+
+      ]
+   },
+   {
+      "id":696,
+      "shortName":"penaltyBlank",
+      "isSuspended":true,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Получение списка протокольных штрафов ГАИ по номеру бланка",
+         "en":"Получение списка протокольных штрафов ГАИ по номеру бланка",
+         "kk":"Получение списка протокольных штрафов ГАИ по номеру бланка"
+      },
+      "categoryId":[
+         3
+      ],
+      "cityId":[
+
+      ]
+   },
+   {
+      "id":711,
+      "shortName":"payPenalty",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":"sms",
+      "name":{
+         "ru":"Оплата протокольных штрафов нарушения ПДД (КБК 204106)",
+         "en":"Оплата протокольных штрафов нарушения ПДД (КБК 204106)",
+         "kk":"Оплата протокольных штрафов нарушения ПДД (КБК 204106)"
+      },
+      "categoryId":[
+
+      ],
+      "cityId":[
+
+      ]
+   },
+   {
+      "id":716,
+      "shortName":"altel",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"ALTEL 4G",
+         "en":"ALTEL 4G",
+         "kk":"ALTEL 4G"
+      },
+      "categoryId":[
+         8
+      ],
+      "cityId":[
+         1,
+         2,
+         3,
+         5,
+         6,
+         7,
+         14,
+         15,
+         16,
+         17,
+         8,
+         9,
+         10,
+         11,
+         12,
+         13
+      ]
+   },
+   {
+      "id":723,
+      "shortName":"penaltyPrescription",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Получение списка штрафов видеофиксации ГАИ по номеру предписания",
+         "en":"Получение списка штрафов видеофиксации ГАИ по номеру предписания",
+         "kk":"Получение списка штрафов видеофиксации ГАИ по номеру предписания"
+      },
+      "categoryId":[
+         3
+      ],
+      "cityId":[
+
+      ]
+   },
+   {
+      "id":807,
+      "shortName":"taxTransport",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":"sms",
+      "name":{
+         "ru":"Оплата налога на транспортные средства с физических лиц и регистрацией оплаты в АИС (КБК 104402)",
+         "en":"104402",
+         "kk":"104402"
+      },
+      "categoryId":[
+
+      ],
+      "cityId":[
+
+      ]
+   },
+   {
+      "id":987,
+      "shortName":"qiwi",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":"sms",
+      "name":{
+         "ru":"Qiwi",
+         "en":"Qiwi",
+         "kk":"Qiwi"
+      },
+      "categoryId":[
+         50
+      ],
+      "cityId":[
+         1,
+         2,
+         3,
+         5,
+         6,
+         7,
+         14,
+         15,
+         16,
+         17,
+         8,
+         9,
+         10,
+         11,
+         12,
+         13,
+         1,
+         2,
+         3,
+         5,
+         6,
+         7,
+         14,
+         15,
+         16,
+         17,
+         8,
+         9,
+         10,
+         11,
+         12,
+         13
+      ]
+   },
+   {
+      "id":1016,
+      "shortName":"alseco",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Алсеко",
+         "en":"Alseco",
+         "kk":"Алсеко"
+      },
+      "categoryId":[
+         30
+      ],
+      "cityId":[
+         1
+      ]
+   },
+   {
+      "id":1017,
+      "shortName":"ivc",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"ИВЦ",
+         "en":"IVC",
+         "kk":"ИВЦ"
+      },
+      "categoryId":[
+         30
+      ],
+      "cityId":[
+         1
+      ]
+   },
+   {
+      "id":1018,
+      "shortName":"astanaERC",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"ЕРЦ",
+         "en":"ERC",
+         "kk":"ЕРЦ"
+      },
+      "categoryId":[
+         30
+      ],
+      "cityId":[
+         2
+      ]
+   },
+   {
+      "id":1023,
+      "shortName":"penaltyIIN",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Получение списка штрафов ГАИ по ИИН",
+         "en":"Получение списка штрафов ГАИ по ИИН",
+         "kk":"Получение списка штрафов ГАИ по ИИН"
+      },
+      "categoryId":[
+         3
+      ],
+      "cityId":[
+
+      ]
+   },
+   {
+      "id":1024,
+      "shortName":"onai",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Оңай",
+         "en":"Onay",
+         "kk":"Оңай"
+      },
+      "categoryId":[
+         60
+      ],
+      "cityId":[
+         1,
+         2,
+         3,
+         5,
+         6,
+         7,
+         14,
+         15,
+         16,
+         17,
+         8,
+         9,
+         10,
+         11,
+         12,
+         13
+      ]
+   },
+   {
+      "id":1078,
+      "shortName":"caspiohd",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Caspio HD",
+         "en":"Caspio HD",
+         "kk":"Caspio HD"
+      },
+      "categoryId":[
+         5
+      ],
+      "cityId":[
+         1,
+         2,
+         3,
+         5,
+         6,
+         7,
+         14,
+         15,
+         16,
+         17,
+         8,
+         9,
+         10,
+         11,
+         12,
+         13
+      ]
+   },
+   {
+      "id":1159,
+      "shortName":"hbWallet",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Выпуск анонимной виртуальной карты",
+         "en":"Выпуск анонимной виртуальной карты",
+         "kk":"Выпуск анонимной виртуальной карты"
+      },
+      "categoryId":[
+
+      ],
+      "cityId":[
+
+      ]
+   },
+   {
+      "id":1208,
+      "shortName":"hbWalletId",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Получение данных анонимной виртуальной карты",
+         "en":"Получение данных анонимной виртуальной карты",
+         "kk":"Получение данных анонимной виртуальной карты"
+      },
+      "categoryId":[
+
+      ],
+      "cityId":[
+
+      ]
+   },
+   {
+      "id":3,
+      "shortName":"kcell",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":"sms",
+      "name":{
+         "ru":"Kcell",
+         "en":"Kcell",
+         "kk":"Kcell"
+      },
+      "categoryId":[
+         6
+      ],
+      "cityId":[
+         1,
+         2,
+         3,
+         5,
+         6,
+         7,
+         14,
+         15,
+         16,
+         17,
+         8,
+         9,
+         10,
+         11,
+         12,
+         13
+      ]
+   },
+   {
+      "id":11,
+      "shortName":null,
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Алматытелеком",
+         "en":"Almatytelecom",
+         "kk":"Алматытелеком"
+      },
+      "categoryId":[
+         32
+      ],
+      "cityId":[
+         1
+      ]
+   },
+   {
+      "id":40,
+      "shortName":null,
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Южно-Казахстанская ОДТ",
+         "en":"South Kazakhstan CCT",
+         "kk":"Оңтүстік Қазақстан ОТД"
+      },
+      "categoryId":[
+         32
+      ],
+      "cityId":[
+         17
+      ]
+   },
+   {
+      "id":42,
+      "shortName":null,
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Астанателеком",
+         "en":"Astanatelecom",
+         "kk":"Астанателеком"
+      },
+      "categoryId":[
+         32
+      ],
+      "cityId":[
+         2
+      ]
+   },
+   {
+      "id":48,
+      "shortName":null,
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Карагандинская ОДТ",
+         "en":"Karagandy CCT",
+         "kk":"Қарағанды ОТД"
+      },
+      "categoryId":[
+         32
+      ],
+      "cityId":[
+         11
+      ]
+   },
+   {
+      "id":55,
+      "shortName":null,
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Атырауская ОДТ",
+         "en":"Atyrau CCT",
+         "kk":"Атырау ОТД"
+      },
+      "categoryId":[
+         32
+      ],
+      "cityId":[
+         7
+      ]
+   },
+   {
+      "id":56,
+      "shortName":null,
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Алматинская ОДТ",
+         "en":"Almaty CCT",
+         "kk":"Алматы ОТД"
+      },
+      "categoryId":[
+         32
+      ],
+      "cityId":[
+         3
+      ]
+   },
+   {
+      "id":57,
+      "shortName":null,
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Жамбылская ОДТ",
+         "en":"Zhambyl CCT",
+         "kk":"Жамбыл ОТД"
+      },
+      "categoryId":[
+         32
+      ],
+      "cityId":[
+         9
+      ]
+   },
+   {
+      "id":58,
+      "shortName":null,
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Мангистауская ОДТ",
+         "en":"Mangistau CCT",
+         "kk":"Маңғыстау ОТД"
+      },
+      "categoryId":[
+         32
+      ],
+      "cityId":[
+         14
+      ]
+   },
+   {
+      "id":61,
+      "shortName":null,
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Северо-Казахстанская ОДТ",
+         "en":"North Kazakhstan CCT",
+         "kk":"Солтүстік Қазақстан ОТД"
+      },
+      "categoryId":[
+         32
+      ],
+      "cityId":[
+         16
+      ]
+   },
+   {
+      "id":62,
+      "shortName":null,
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Кызылординская ОДТ",
+         "en":"Kyzylorda CCT",
+         "kk":"Қызылорда ОТД"
+      },
+      "categoryId":[
+         32
+      ],
+      "cityId":[
+         13
+      ]
+   },
+   {
+      "id":64,
+      "shortName":null,
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Акмолинская ОДТ",
+         "en":"Akmola CCT",
+         "kk":"Ақмола ОТД"
+      },
+      "categoryId":[
+         32
+      ],
+      "cityId":[
+         5
+      ]
+   },
+   {
+      "id":65,
+      "shortName":null,
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Павлодарская ОДТ",
+         "en":"Pavlodar CCT",
+         "kk":"Павлодар ОТД"
+      },
+      "categoryId":[
+         32
+      ],
+      "cityId":[
+         15
+      ]
+   },
+   {
+      "id":66,
+      "shortName":null,
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Актюбинская ОДТ",
+         "en":"Aktobe CCT",
+         "kk":"Ақтөбе ОТД"
+      },
+      "categoryId":[
+         32
+      ],
+      "cityId":[
+         6
+      ]
+   },
+   {
+      "id":68,
+      "shortName":null,
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Боливия",
+         "en":"Боливия",
+         "kk":"Боливия"
+      },
+      "categoryId":[
+         32
+      ],
+      "cityId":[
+         8
+      ]
+   },
+   {
+      "id":69,
+      "shortName":null,
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Костанайская ОДТ",
+         "en":"Kostanay CCT",
+         "kk":"Қостанай ОТД"
+      },
+      "categoryId":[
+         32
+      ],
+      "cityId":[
+         12
+      ]
+   },
+   {
+      "id":72,
+      "shortName":null,
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Западно-Казахстанская ОДТ",
+         "en":"West Kazakhstan CCT",
+         "kk":"Батыс Қазақстан ОТД"
+      },
+      "categoryId":[
+         32
+      ],
+      "cityId":[
+         10
+      ]
+   },
+   {
+      "id":75,
+      "shortName":null,
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"ГДТ Семей",
+         "en":"Semey Telecom",
+         "kk":"Семей ҚТД"
+      },
+      "categoryId":[
+         32
+      ],
+      "cityId":[
+         8
+      ]
+   },
+   {
+      "id":87,
+      "shortName":"icon",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"ICON",
+         "en":"ICON",
+         "kk":"ICON"
+      },
+      "categoryId":[
+         5
+      ],
+      "cityId":[
+         1,
+         2,
+         3,
+         5,
+         6,
+         7,
+         14,
+         15,
+         16,
+         17,
+         8,
+         9,
+         10,
+         11,
+         12,
+         13
+      ]
+   },
+   {
+      "id":90,
+      "shortName":"beeline",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Beeline",
+         "en":"Beeline",
+         "kk":"Beeline"
+      },
+      "categoryId":[
+         6
+      ],
+      "cityId":[
+         1,
+         2,
+         3,
+         5,
+         6,
+         7,
+         14,
+         15,
+         16,
+         17,
+         8,
+         9,
+         10,
+         11,
+         12,
+         13
+      ]
+   },
+   {
+      "id":125,
+      "shortName":"tele2",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Tele2",
+         "en":"Tele2",
+         "kk":"Tele2"
+      },
+      "categoryId":[
+         6
+      ],
+      "cityId":[
+         1,
+         2,
+         3,
+         5,
+         6,
+         7,
+         14,
+         15,
+         16,
+         17,
+         8,
+         9,
+         10,
+         11,
+         12,
+         13
+      ]
+   },
+   {
+      "id":134,
+      "shortName":"city",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"City",
+         "en":"City",
+         "kk":"City"
+      },
+      "categoryId":[
+         6
+      ],
+      "cityId":[
+         1,
+         2,
+         3,
+         5,
+         6,
+         7,
+         14,
+         15,
+         16,
+         17,
+         8,
+         9,
+         10,
+         11,
+         12,
+         13
+      ]
+   },
+   {
+      "id":391,
+      "shortName":"activ",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Activ",
+         "en":"Activ",
+         "kk":"Activ"
+      },
+      "categoryId":[
+         6
+      ],
+      "cityId":[
+         1,
+         2,
+         3,
+         5,
+         6,
+         7,
+         14,
+         15,
+         16,
+         17,
+         8,
+         9,
+         10,
+         11,
+         12,
+         13
+      ]
+   },
+   {
+      "id":660,
+      "shortName":"kazakhtelecom",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Оплата услуг Казахтелеком",
+         "en":"Казахтелеком",
+         "kk":"Оплата услуг Казахтелеком"
+      },
+      "categoryId":[
+
+      ],
+      "cityId":[
+
+      ]
+   },
+   {
+      "id":665,
+      "shortName":"hcsbkMakeDeposit",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":"sms",
+      "name":{
+         "ru":"Кредиты ЖССБК",
+         "en":"Loans in ZSSBK",
+         "kk":"ҚТҚЖБ-дағы займдар"
+      },
+      "categoryId":[
+         18
+      ],
+      "cityId":[
+         1,
+         2,
+         3,
+         5,
+         6,
+         7,
+         14,
+         15,
+         16,
+         17,
+         8,
+         9,
+         10,
+         11,
+         12,
+         13
+      ]
+   },
+   {
+      "id":666,
+      "shortName":"hcsbkPayLoan",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":"sms",
+      "name":{
+         "ru":"Депозиты ЖССБК",
+         "en":"Accumulations in ZSSBK",
+         "kk":"ҚТҚЖБ-дағы қорлар"
+      },
+      "categoryId":[
+         18
+      ],
+      "cityId":[
+         1,
+         2,
+         3,
+         5,
+         6,
+         7,
+         14,
+         15,
+         16,
+         17,
+         8,
+         9,
+         10,
+         11,
+         12,
+         13
+      ]
+   },
+   {
+      "id":693,
+      "shortName":"penaltyDriverLicense",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Получение списка протокольных штрафов ГАИ по номеру водительского удостоверения (ВУ)",
+         "en":"Получение списка протокольных штрафов ГАИ по номеру водительского удостоверения (ВУ)",
+         "kk":"Получение списка протокольных штрафов ГАИ по номеру водительского удостоверения (ВУ)"
+      },
+      "categoryId":[
+         3
+      ],
+      "cityId":[
+
+      ]
+   },
+   {
+      "id":695,
+      "shortName":"penaltyPlateAndCarTitle",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Получение списка протокольных штрафов ГАИ по гос. номеру и тех. паспорту",
+         "en":"Получение списка протокольных штрафов ГАИ по гос. номеру и тех. паспорту",
+         "kk":"Получение списка протокольных штрафов ГАИ по гос. номеру и тех. паспорту"
+      },
+      "categoryId":[
+         3
+      ],
+      "cityId":[
+
+      ]
+   },
+   {
+      "id":696,
+      "shortName":"penaltyBlank",
+      "isSuspended":true,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Получение списка протокольных штрафов ГАИ по номеру бланка",
+         "en":"Получение списка протокольных штрафов ГАИ по номеру бланка",
+         "kk":"Получение списка протокольных штрафов ГАИ по номеру бланка"
+      },
+      "categoryId":[
+         3
+      ],
+      "cityId":[
+
+      ]
+   },
+   {
+      "id":711,
+      "shortName":"payPenalty",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":"sms",
+      "name":{
+         "ru":"Оплата протокольных штрафов нарушения ПДД (КБК 204106)",
+         "en":"Оплата протокольных штрафов нарушения ПДД (КБК 204106)",
+         "kk":"Оплата протокольных штрафов нарушения ПДД (КБК 204106)"
+      },
+      "categoryId":[
+
+      ],
+      "cityId":[
+
+      ]
+   },
+   {
+      "id":716,
+      "shortName":"altel",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"ALTEL 4G",
+         "en":"ALTEL 4G",
+         "kk":"ALTEL 4G"
+      },
+      "categoryId":[
+         8
+      ],
+      "cityId":[
+         1,
+         2,
+         3,
+         5,
+         6,
+         7,
+         14,
+         15,
+         16,
+         17,
+         8,
+         9,
+         10,
+         11,
+         12,
+         13
+      ]
+   },
+   {
+      "id":723,
+      "shortName":"penaltyPrescription",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Получение списка штрафов видеофиксации ГАИ по номеру предписания",
+         "en":"Получение списка штрафов видеофиксации ГАИ по номеру предписания",
+         "kk":"Получение списка штрафов видеофиксации ГАИ по номеру предписания"
+      },
+      "categoryId":[
+         3
+      ],
+      "cityId":[
+
+      ]
+   },
+   {
+      "id":807,
+      "shortName":"taxTransport",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":"sms",
+      "name":{
+         "ru":"Оплата налога на транспортные средства с физических лиц и регистрацией оплаты в АИС (КБК 104402)",
+         "en":"104402",
+         "kk":"104402"
+      },
+      "categoryId":[
+
+      ],
+      "cityId":[
+
+      ]
+   },
+   {
+      "id":987,
+      "shortName":"qiwi",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":"sms",
+      "name":{
+         "ru":"Qiwi",
+         "en":"Qiwi",
+         "kk":"Qiwi"
+      },
+      "categoryId":[
+         50
+      ],
+      "cityId":[
+         1,
+         2,
+         3,
+         5,
+         6,
+         7,
+         14,
+         15,
+         16,
+         17,
+         8,
+         9,
+         10,
+         11,
+         12,
+         13,
+         1,
+         2,
+         3,
+         5,
+         6,
+         7,
+         14,
+         15,
+         16,
+         17,
+         8,
+         9,
+         10,
+         11,
+         12,
+         13
+      ]
+   },
+   {
+      "id":1016,
+      "shortName":"alseco",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Алсеко",
+         "en":"Alseco",
+         "kk":"Алсеко"
+      },
+      "categoryId":[
+         30
+      ],
+      "cityId":[
+         1
+      ]
+   },
+   {
+      "id":1017,
+      "shortName":"ivc",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"ИВЦ",
+         "en":"IVC",
+         "kk":"ИВЦ"
+      },
+      "categoryId":[
+         30
+      ],
+      "cityId":[
+         1
+      ]
+   },
+   {
+      "id":1018,
+      "shortName":"astanaERC",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"ЕРЦ",
+         "en":"ERC",
+         "kk":"ЕРЦ"
+      },
+      "categoryId":[
+         30
+      ],
+      "cityId":[
+         2
+      ]
+   },
+   {
+      "id":1023,
+      "shortName":"penaltyIIN",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Получение списка штрафов ГАИ по ИИН",
+         "en":"Получение списка штрафов ГАИ по ИИН",
+         "kk":"Получение списка штрафов ГАИ по ИИН"
+      },
+      "categoryId":[
+         3
+      ],
+      "cityId":[
+
+      ]
+   },
+   {
+      "id":1024,
+      "shortName":"onai",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Оңай",
+         "en":"Onay",
+         "kk":"Оңай"
+      },
+      "categoryId":[
+         60
+      ],
+      "cityId":[
+         1,
+         2,
+         3,
+         5,
+         6,
+         7,
+         14,
+         15,
+         16,
+         17,
+         8,
+         9,
+         10,
+         11,
+         12,
+         13
+      ]
+   },
+   {
+      "id":1078,
+      "shortName":"caspiohd",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Caspio HD",
+         "en":"Caspio HD",
+         "kk":"Caspio HD"
+      },
+      "categoryId":[
+         5
+      ],
+      "cityId":[
+         1,
+         2,
+         3,
+         5,
+         6,
+         7,
+         14,
+         15,
+         16,
+         17,
+         8,
+         9,
+         10,
+         11,
+         12,
+         13
+      ]
+   },
+   {
+      "id":1159,
+      "shortName":"hbWallet",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Выпуск анонимной виртуальной карты",
+         "en":"Выпуск анонимной виртуальной карты",
+         "kk":"Выпуск анонимной виртуальной карты"
+      },
+      "categoryId":[
+
+      ],
+      "cityId":[
+
+      ]
+   },
+   {
+      "id":1208,
+      "shortName":"hbWalletId",
+      "isSuspended":false,
+      "authorizeOldContracts":null,
+      "authorizeNewContracts":null,
+      "name":{
+         "ru":"Получение данных анонимной виртуальной карты",
+         "en":"Получение данных анонимной виртуальной карты",
+         "kk":"Получение данных анонимной виртуальной карты"
+      },
+      "categoryId":[
+
+      ],
+      "cityId":[
+
+      ]
+   }
+]

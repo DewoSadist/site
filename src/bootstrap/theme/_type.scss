@@ -15,88 +15,46 @@ h4,
 h5,
 .h6,
 h6 {
-    &.subtitle {
-        font-family: $font-family-sans-serif;
-        font-weight: 300;
-    }
-
     margin-top: 5px;
     margin-bottom: 5px;
 }
 
-// ~36px
 .h1,
 h1 {
-    line-height: 1.28;
-
-    &.subtitle {
-        // ~24px
-        font-size: ceil($font-size-h1 * 0.66);
-    }
-
     @media (min-width: $screen-md-min) {
-        // ~45px
-        font-size: ceil($font-size-h1 * 1.25);
-        line-height: 1.11;
+        font-size: $font-size-h1-large;
+    }
+    &.title_home{
+        font-size: 22px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+        @media (min-width: $screen-md-min) {
+            font-size: 34px;
+        }
     }
 }
 
-// ~30px
 .h2,
 h2 {
-    line-height: 1.2;
-
-    &.subtitle {
-        line-height: 1.27;
-
-        // ~22px
-        font-size: ceil($font-size-h2 * 0.73);
-    }
-
     @media (min-width: $screen-md-min) {
-        line-height: 1.18;
-
-        // ~38px
-        font-size: ceil($font-size-h2 * 1.26);
+        font-size: $font-size-h2-large;
     }
 }
 
 .h3,
 h3 {
-    //
-    line-height: 1;
-
-    &.subtitle {
-        line-height: 1.2;
-
-        // ~20px
-        font-size: ceil($font-size-h3 * 0.76);
-    }
-
     @media (min-width: $screen-md-min) {
-        line-height: 1.4;
-
-        // ~22px
-        font-size: ceil($font-size-h3 * 1.15);
+        font-size: $font-size-h3-large;
     }
 }
 
 .h4,
 h4 {
-    line-height: 1.18;
-
     @media (min-width: $screen-md-min) {
-        // ~30px
-        font-size: ceil($font-size-h4 * 1.36);
+        font-size: $font-size-h4-large;
     }
-
-    &.subtitle {
-        line-height: 1.33;
-
-        // ~18px
-        font-size: ceil($font-size-h4 * 0.81);
-    }
-
+    // todo: remove
     .heading {
         @media (min-width: $screen-sm-min) {
             font-size: 30px;
@@ -106,13 +64,7 @@ h4 {
 
 .h5,
 h5 {
-    &.subtitle {
-        line-height: 1.5;
-
-        // ~16px
-        font-size: ceil($font-size-h5 * 0.88);
-    }
-
+    // todo: remove
     &.subheading {
         font-size: 15px;
 
@@ -121,7 +73,20 @@ h5 {
         }
     }
 
-    line-height: 1.78;
+}
+
+.subtitle{
+    font-size: $font-size-subtitle; 
+    font-weight: 300;
+    @media (min-width: $screen-md-min) {
+        font-size: $font-size-subtitle-large;
+    }
+    &_home{
+        font-size: 16px;
+        @media (min-width: $screen-md-min) {
+            font-size: 22px;
+        }
+    }
 }
 
 p {
@@ -131,19 +96,44 @@ p {
 strong {
     font-weight: normal;
 }
-
-.text-dark{
-    font-weight: normal !important;
+.description, small{
+    color: $color-battleship-gray;
+    font-weight: 300;
+}
+small {
+    line-height: initial;
+    font-size: $font-size-extra-small;
+    @media (min-width: $screen-md-min) {
+        font-size: $font-size-small;
+    }
+    .black {
+        color: $color-indigo;
+    }
+}
+.description{
+    line-height: 18px;
+    font-size: $font-size-small;
 }
 
-@include text-emphasis-variant('.text-dark', #5e6166);
+.text-uppercase{
+    text-transform: uppercase;
+}
+body {
+    font-size: $font-size-small;
+    @media (min-width: $screen-md-min) {
+        font-size: $font-size-base;
+    }
+}
+
+@include text-emphasis-variant('.text-info', $color-battleship-gray);
 
 @include text-emphasis-variant('.text-success', $brand-success);
 
-@include text-emphasis-variant('.text-info', $brand-info);
+@include text-emphasis-variant('.text-default', $text-color);
 
 @include text-emphasis-variant('.text-warning', $brand-warning);
 
 @include text-emphasis-variant('.text-danger', $brand-danger);
 
-@include text-emphasis-variant('.text-white', $white);
+@include text-emphasis-variant('.text-white', $color-white);
+

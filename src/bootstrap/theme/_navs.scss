@@ -1,0 +1,161 @@
+//
+// Navs
+// --------------------------------------------------
+
+// Tabs
+// -------------------------
+.hb-tabset {
+    .nav-wrap {
+        background-color: $color-white;
+
+        @include hb-shadow;
+
+        margin-bottom: 10px;
+    }
+
+    .nav-wrap {
+        .nav-tabs {
+            border-bottom: 0;
+        }
+    }
+
+    .nav-tabs {
+        @include flex(stretch, flex-start);
+
+        background-color: $color-white;
+        border-bottom: 1px solid $nav-tabs-border-color;
+
+        > li {
+            margin-bottom: 0px;
+            float: none;
+            width: 100%;
+
+            @media (min-width: $screen-md-min) {
+                width: auto;
+            }
+
+            text-align: center;
+
+            // Actual tabs (as links)
+            > a {
+                @include flex(center, center);
+
+                width: 100%;
+                height: 100%;
+                font-weight: 400;
+                margin-right: 0;
+                border: 0;
+                position: relative;
+                padding: $padding-large-vertical 15px;
+
+                @media (min-width: $screen-md-min) {
+                    padding: 19px 40px;
+                }
+
+                &:after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    height: 0;
+                    background-color: $brand-primary;
+
+                    @include transition(all 0.3s);
+                }
+            }
+
+            // Active state, and its :hover to override normal :hover
+            &.active > a {
+                &,
+                &:hover,
+                &:focus {
+                    color: $brand-primary;
+                    background-color: $color-white;
+                    border: 0;
+                    cursor: default;
+                    font-weight: 600;
+
+                    &:after {
+                        height: 3px;
+                    }
+                }
+            }
+
+            & + li {
+                border-left: 1px solid $border-gray;
+            }
+        }
+    }
+}
+
+// Pills
+// -------------------------
+.nav-pills {
+    > li {
+        // Links rendered as pills
+        > a {
+            border-radius: 0;
+            border: 1px solid $btn-default-border;
+            height: $input-height-base;
+            padding: $padding-base-vertical 0;
+
+            @media (min-width: $screen-md-min) {
+                height: $input-height-large;
+                padding: $padding-large-vertical 0;
+            }
+
+            &:hover,
+            &:focus {
+                color: $color-azure;
+            }
+        }
+
+        + li {}
+        &:first-child{
+            a{
+                border-top-left-radius: $border-radius-base;
+                border-bottom-left-radius: $border-radius-base;
+            }    
+        }
+        &:last-child{
+            a{
+                border-top-right-radius: $border-radius-base;
+                border-bottom-right-radius: $border-radius-base;
+            }    
+        }
+        // Active state
+        &.active > a {
+            &,
+            &:hover,
+            &:focus {
+                color: $color-white;
+            }
+        }
+    }
+}
+
+// Nav variations
+// --------------------------------------------------
+
+// Justified nav links
+// -------------------------
+
+.nav-justified {
+    width: 100%;
+
+    > li {
+        display: table-cell;
+        width: 1%;
+
+        > a {
+            margin-bottom: 0;
+        }
+    }
+
+    > .dropdown .dropdown-menu {
+        top: auto;
+        left: auto;
+    }
+}

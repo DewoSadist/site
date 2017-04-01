@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="45px" height="45px" viewBox="0 0 45 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>4200C9CF-5BA1-4E03-96D5-29E7B2EC2F71</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons/marketing/cashback">
+            <g id="towallet" transform="translate(4.000000, 4.000000)">
+                <rect id="Rectangle-Copy" stroke="#061122" stroke-width="1.4" fill="#FFFFFF" x="1" y="5" width="27" height="23" rx="2"></rect>
+                <path d="M1.01176834,7.79297157 C1.01176834,7.79297157 0.654773587,10.0496372 3.06266188,10.0243765 C5.08152175,10.0161368 33.0059483,10.0011033 33.0059483,10.0011033 C34.1072327,10.000494 35,10.8897632 35,12.0035949 L35,32.9964051 C35,34.10296 34.1080589,35 33.0000796,35 L2.9999204,35 C1.89539486,35 1.00039155,34.0947735 1.00086535,32.9994022 L1.01176834,7.79297157 Z" id="Rectangle" stroke="#00A9FF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="#FFFFFF"></path>
+                <path d="M29.0117805,22.0134109 L29.0127696,20.0034222 C29.0130423,19.4492474 29.4658092,19 30.0092141,19 L37.0046024,19 C37.5543453,19 38,19.4378814 38,20.0029293 L38,24.9970707 C38,25.5509732 37.5443356,26 37.0046024,26 L30.0079161,26.0291864 C29.4577656,26.0314814 29.0117805,25.5877795 29.0117805,25.0396508 L29.0117805,22.0134109 Z" id="Rectangle-2" stroke="#061122" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="#FFFFFF"></path>
+                <path d="M27.9940186,9.26885986 L27.9940186,15.0355225" id="Path-8" stroke="#061122" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+                <rect id="Rectangle-16" fill="#00A9FF" x="31" y="21.5166709" width="2" height="2" rx="1"></rect>
+                <g id="Group-3" transform="translate(7.000000, 2.000000)" fill="#FFCC01">
+                    <path d="M0.481165117,7.44285733 C0.172636461,6.7933892 0,6.0668554 0,5.30000019 C0,2.53857644 2.23857625,0.300000191 5,0.300000191 C7.76142375,0.300000191 10,2.53857644 10,5.30000019 C10,6.0668554 9.82736354,6.7933892 9.51883488,7.44285733 L0.481165117,7.44285733 Z" id="coin"></path>
+                </g>
+                <circle id="Oval-11" fill="#FFCC01" cx="22.5" cy="2.5" r="2.5"></circle>
+            </g>
+            <rect id="container" x="0" y="0" width="45" height="45"></rect>
+        </g>
+    </g>
+</svg>

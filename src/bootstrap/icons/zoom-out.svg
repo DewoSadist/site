@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="10px" viewBox="0 0 14 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>icons/image large copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="14" height="10" rx="1"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="14" height="10" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="bank-cards_order/overview" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="m_clm-order_non-register_1" transform="translate(-103.000000, -530.000000)">
+            <g id="card-order" transform="translate(10.000000, 10.000000)">
+                <g id="title" transform="translate(10.000000, 80.000000)">
+                    <g id="сard-visual" transform="translate(0.000000, 164.000000)">
+                        <g id="panel-with-actions" transform="translate(0.000000, 269.000000)">
+                            <g id="icons/image-small" transform="translate(78.000000, 0.000000)">
+                                <g id="image" transform="translate(5.000000, 7.000000)">
+                                    <use id="Rectangle-21" stroke="#00A9FF" mask="url(#mask-2)" stroke-width="2.8" xlink:href="#path-1"></use>
+                                    <circle id="Oval" fill="#00A9FF" cx="10" cy="4" r="1"></circle>
+                                    <path d="M4,9.09491203 L5.63572447,5.80552786 C6.12766392,4.81625501 6.92387668,4.82187861 7.40550213,5.80058544 L9,9.04075054" id="Path-15-Copy" fill="#00A9FF"></path>
+                                    <path d="M0,9.09491203 L2.13788072,4.79570936 C2.63104846,3.80396647 3.42488184,3.80072918 3.9131104,4.79285413 L5.99819578,9.02993778" id="Path-15" fill="#00A9FF"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

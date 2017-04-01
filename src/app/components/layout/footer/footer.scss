@@ -1,114 +1,141 @@
 /* resources.scss */
+
 $footer-vertical-margin: 25px;
 
-
 .footer {
-  padding-top: $footer-vertical-margin;
-  padding-bottom: 10px;
-  // background-image: $gray-gradient;
-  background-color: $white;
-  box-shadow: 0 2px 0 0 #e1ecf6;
-  text-align: center;
-  @media (min-width: $screen-sm-min) {
-    text-align: left;
-  }
-  &-item {
-    margin-bottom: $footer-vertical-margin;
-    h4{
-      @media (min-width: $screen-md-min) {
-        font-size: 22px;
-      }
-    }
-  }
-  .contact-item{
-    @media (min-width: $screen-sm-min) {
-      border-left: 1px solid #d2deed;
-      padding-left: 25px;
-    }
-    @media (min-width: $screen-md-min) {
-      margin-top: 43px;
-    }
-    .contact-icon{
-      margin-bottom: 3px;
-      display: block;
-    }
-  }
-  .download {
-    .button {
-      display: inline-block;
-      margin: 10px 0 5px 0;
-      &+.button {
-        margin-left: 15px;
-      }
-    }
-  }
-  .footer-links {
-    .link {
-      display: block;
-      margin: 5px 0;
-    }
-  }
-  .footer-bottom{
-    // border-top: 1px solid $body-bg;
-  }
-  .copyright {
-    text-align: left;
-    @include flex(flex-start, flex-start);
-    .logo {
-      width: 60px;
-      .icon_kkb-logo {
-        @include retina-background-image('./img/kkb-logo', png, 45px, 45px);
-      }
-    }
-    .text {
-      width: 80%;
-      display: inline-block;
-      font-size: 14px;
-    }
-  }
+    margin-top: 50px;
+    padding-top: $footer-vertical-margin;
+    padding-bottom: 10px;
+    background-color: $color-white;
+    text-align: center;
 
-  .social{
     @media (min-width: $screen-sm-min) {
-      text-align: right;
+        text-align: left;
     }
-    .link{
-      text-align: center;
-      display: inline-block;
-      margin: 0 10px;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: 1px solid $brand-primary;
+
+    &-item {
+        margin-bottom: $footer-vertical-margin;
     }
-  }
+
+    .contact-item {
+        @media (min-width: $screen-md-min) {
+            border-left: 1px solid #d2deed;
+            padding-left: 15px;
+        }
+        @media (min-width: $screen-lg-min) {
+            padding-left: 30px;
+        }
+        .contact-icon {
+            margin-bottom: 3px;
+            display: block;
+        }
+    }
+
+    .download {
+        @media (min-width: $screen-sm-min) {
+            margin-right: 25px;
+        }
+        @media (min-width: $screen-lg-min) {
+            margin-right: 50px;
+        }
+        .button {
+            display: inline-block;
+            margin: 10px 0 5px 0;
+
+            & + .button {
+                margin-left: 15px;
+            }
+        }
+    }
+
+    &-category {
+        margin-bottom: 20px;
+        margin-top: 10px;
+        .category-link {
+            display: block;
+            margin: 10px 0;
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    &-contacts{
+        flex-grow: 1;
+        @media (min-width: $screen-sm-min) {
+            @include flex(flex-end);
+        }
+    }
+    &-top{
+        @media (min-width: $screen-md-min) {
+            @include flex(flex-end);
+        }
+    }
+    &-left{
+        @media (min-width: $screen-sm-min) {
+            @include flex(flex-end);
+        }
+        @media (min-width: $screen-md-min) {
+        }
+        @media (min-width: $screen-lg-min) {
+            flex-grow: 1;
+            @include flex(flex-end, flex-start);
+        }
+    }
+    &-right{
+        flex-grow: 1;
+        @media (min-width: $screen-md-min) {
+            padding-left: 15px;
+            @include flex(flex-end);
+        }
+    }
+    &-bottom {
+        border-top: 1px solid $color-pale-gray;
+        margin-top: 20px;
+        padding-top: 30px;
+    }
+
+    .copyright {
+        text-align: left;
+
+        @include flex(flex-start, flex-start);
+
+        .logo {
+            width: 60px;
+            flex-shrink: 0;
+
+            .icon_kkb-logo {
+                @include retina-background-image("./img/kkb-logo", png, 45px 45px);
+            }
+        }
+
+        .text {
+            display: inline-block;
+        }
+    }
+
+    .social {
+        @include flex(center, center);
+
+        @media (min-width: $screen-sm-min) {
+            text-align: right;
+
+            @include flex(center, flex-end);
+        }
+
+        .link {
+            text-align: center;
+            display: inline-block;
+            margin: 0 10px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid $brand-primary;
+        }
+    }
 }
-
-
-//
-//$footer-vertical-margin: 5px;
-//
-//
-//.footer {
-//  padding-top: $footer-vertical-margin;
-//  border-top: 1px solid #ccc;
-//  width: 100%;
-//  color:#9293a0;
-//  background-color: #222434;
-//  padding-bottom: 20px;
-//  line-height: 160%;
-//  position: relative;
-//  overflow: hidden;
-//  -ms-flex-negative: 0;
-//  flex-shrink: 0;
-//  font-family: DD-ProximaNova,ProximaNova,Helvetica Neue,Helvetica,Arial,sans-serif;
-//  font-size: 1rem;
-//  margin: 0;
-//  a {
-//    color: white;
-//    text-decoration: none;
-//
-//    &:hover {
-//      color: #5aadbb;
-//    }
-//  }
-//}

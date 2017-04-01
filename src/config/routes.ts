@@ -1,52 +1,52 @@
+/// <reference path="../../typings/index.d.ts" />
+import {IShopServices, default as ShopServices} from '../app/services/shopServices/shop.services';
 export default routesConfig;
 
 /** @ngInject */
 function routesConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvider: angular.ui.IUrlRouterProvider, $locationProvider: angular.ILocationProvider) {
-  // $locationProvider.html5Mode(true).hashPrefix('!');
-  $urlRouterProvider.otherwise('/');
+	// $locationProvider.html5Mode(true).hashPrefix('!');
+	$urlRouterProvider.otherwise('/');
 
-  $stateProvider
-    .state('root', {
-      abstract: true,
-      template: '<div ui-view=""></div>',
-      // resolve: {
-      //   user: (UserService: IUserService, AuthService: AuthService, $q: ng.IQService, $state: ng.ui.IStateService) => {
-      //     if (UserService.user) {
-      //       return UserService.user
-      //     } else {
-      //       let deferred = $q.defer();
-      //       AuthService.initiateUser()
-      //         .then((response) => {
-      //           deferred.resolve(response);
-      //         })
-      //         .catch((error) => {
-      //           AuthService.logoutEventBroadcast();
-      //           $state.go('users.login');
-      //         });
-      //       return deferred.promise;
-      //     }
-      //   }
-      // }
-    })
-    .state('home', {
-      url: '/',
-      parent: 'root',
-      // redirectTo: 'restaurants',
-      component: 'home'
-    })
-    .state('restaurants', {
-      url: '/restaurants',
-      parent: 'root',
-      template: '<restaurant-list></restaurant-list>',
-    })
-    .state('contacts', {
-      url: '/contacts',
-      parent: 'root',
-      template: '<contacts></contacts>',
-    })
-    .state('about', {
-      url: '/about',
-      parent: 'root',
-      template: '<about></about>',
-    });
+	$stateProvider
+	.state('root', {
+		abstract: true,
+		template: '<div ui-view=""></div>'
+	})
+	.state('home', {
+		url: '/',
+		parent: 'root',
+		template: '<home></home>'
+	})
+	.state('store', {
+		url: '/store',
+		redirectTo: 'store.restaurants',
+		parent: 'root',
+		template: '<store></store>'
+	})
+	.state('store.restaurants',{
+		url: '/restaurants',
+		template: '<store-restaurants></store-restaurants>',
+	})
+	.state('store.restaurant', {
+		url: '/restaurants/:restaurantId',
+		template: '<store-restaurant data-restaurant-id="$resolve.restaurantId" data-restaurant="$resolve.restaurant" data-products-list="$resolve.productsList" data-categories="$resolve.categories"></store-restaurant>',
+		resolve: {
+			restaurantId: ($stateParams: ng.ui.IStateParamsService) => {
+				return $stateParams['restaurantId'];
+			},
+			restaurant: (ShopServices: IShopServices, $stateParams: ng.ui.IStateParamsService) => {
+				return ShopServices.getRestaurant($stateParams['restaurantId']);
+			},
+			categories: (ShopServices: IShopServices, $stateParams: ng.ui.IStateParamsService) => {
+				return ShopServices.getRestaurantCategories($stateParams['restaurantId']);
+			},
+			productsList: (ShopServices: IShopServices) => {
+				return ShopServices.getAllProducts();
+			},
+		}
+	})
+	.state('theme', {
+		url: '/theme',
+		templateUrl: 'bootstrap/demo.html'
+	});
 }

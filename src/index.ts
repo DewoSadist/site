@@ -1,81 +1,128 @@
+/// <reference path="../typings/index.d.ts" />
 
 import * as angular from 'angular';
+import * as moment from 'moment';
 
 // ------------------  Libs & system --------------------
+import 'angular-sticky-plugin';
+import 'angular-swing';
+import 'angular-hammer';
+import 'restangular-umd';
+import 'angular-cookies';
+import 'humanize-duration';
+import 'angular-timer';
 import 'angular-ui-router';
 import 'angular-ui-bootstrap';
-import 'angular-cookies';
-import 'restangular-umd';
+import 'angular-animate';
+import 'angular-touch';
+import 'angular-ui-mask';
+import 'angular-credit-cards';
+import 'creditcards/card';
+import 'angular-filter';
+import 'angular-loading-bar';
+
+import 'jquery-migrate';
 
 import './index.scss';
+import '@iamadamjowett/angular-click-outside';
 
 // ------------------  Components --------------------
-import { about } from './app/components/pages/about/about';
-import { contacts } from './app/components/pages/contacts/contacts';
 import { header } from './app/components/layout/header/header';
 import { footer } from './app/components/layout/footer/footer';
-import { home } from './app/components/home/home';
 
-import { restaurantList } from './app/components/common/list/restaurant/restaurant.list';
+import { home } from './app/components/home/home';
+import { homeSlider } from './app/components/home/slider/home.slider';
+
+import { store } from './app/components/store/store';
+import { storeRestaurants } from './app/components/store/restaurants/store.restaurants';
+import { storeRestaurant} from './app/components/store/restaurants/restaurant/store.restaurant';
+import { productsCollection } from './app/components/products/collection/products.collection';
+import { productsFilter } from './app/components/products/filter/products.filter';
+import { productsInfo } from './app/components/products/info/products.info';
 // ------------------  Services --------------------
-import ShopService from './app/services/shopService/shop.service';
+import ShopServices from './app/services/shopServices/shop.services';
 // ------------------ General ---------------------
 import routesConfig from './config/routes';
 import restangularConfig from './config/restangular';
+import maskConfig from './config/mask';
+import runConfig from './config/run';
+import loadingBarConfig from './config/loadingBar';
 
-
+const highcharts = require('highcharts');
+const tinycolor = require('tinycolor2');
 
 var variables = {
-  apiUrl: '',
-  frontUrl: '',
+	apiUrl: '',
+	frontUrl: '',
 };
 
 function fetchJSONFile(path, callback) {
-  var httpRequest = new XMLHttpRequest();
-  httpRequest.onreadystatechange = function () {
-    if (httpRequest.readyState === 4) {
-      if (httpRequest.status === 200) {
-        var data = JSON.parse(httpRequest.responseText);
-        if (callback) {
-          callback(data);
-        }
-      }
-    }
-  };
-  httpRequest.open('GET', path);
-  httpRequest.send();
+	var httpRequest = new XMLHttpRequest();
+	httpRequest.onreadystatechange = function () {
+		if (httpRequest.readyState === 4) {
+			if (httpRequest.status === 200) {
+				var data = JSON.parse(httpRequest.responseText);
+				if (callback) callback(data);
+			}
+		}
+	};
+	httpRequest.open('GET', path);
+	httpRequest.send();
 }
-
 
 // this requests the file and executes a callback with the parsed result once
 // it is available
 fetchJSONFile('variables.json', (data) => {
-  variables.apiUrl = data.apiUrl;
-  variables.frontUrl = data.frontUrl;
-  // bootstrapping an angular app without the need for ng-app or ng-controller
-  // you should not use the ng-app directive when manually bootstrapping your app
-  angular.bootstrap(document.getElementsByTagName('BODY')[0], ['app']);
+	variables.apiUrl = data.apiUrl;
+	variables.frontUrl = data.frontUrl;
+
+	angular.bootstrap(document.getElementsByTagName("BODY")[0], ['app']);
 });
+
 
 const appConfig = variables;
 
 angular.module('app', [
-    'ui.router',
-    'ngCookies',
-    'restangular',
-    'ui.bootstrap'
+	'ui.router',
+	'restangular',
+	'ngCookies',
+	'ui.bootstrap',
+	'ui.bootstrap.tpls',
+	'ngAnimate',
+	'ngTouch',
+	'ui.mask',
+	'timer',
+	'credit-cards',
+	'hl.sticky',
+	'gajus.swing',
+	'hmTouchEvents',
+	'angular.filter',
+	'angular-loading-bar',
+	'angular-click-outside',
 ])
-  .constant('appConfig', appConfig)
+.constant('appConfig', appConfig)
+.constant('moment', moment)
+.constant('tinycolor', tinycolor)
+.constant('highcharts', highcharts)
 
-  .service('ShopService', ShopService)
 
-  .component('header', header)
-  .component('footer', footer)
-  .component('home', home)
-  .component('restaurantList', restaurantList)
-  .component('about', about)
-  .component('contacts', contacts)
+.service('ShopServices', ShopServices)
 
-  .config(restangularConfig)
-  .config(routesConfig);
+.component('header', header)
+.component('footer', footer)
+.component('home', home)
+.component('homeSlider', homeSlider)
 
+.component('store', store)
+.component('storeRestaurants', storeRestaurants)
+.component('storeRestaurant', storeRestaurant)
+.component('productsCollection',productsCollection)
+.component('productsFilter', productsFilter)
+.component('productsInfo', productsInfo)
+
+.config(restangularConfig)
+.config(routesConfig)
+.config(['uiMask.ConfigProvider', maskConfig])
+.config(['cfpLoadingBarProvider', loadingBarConfig])
+
+.run(runConfig);

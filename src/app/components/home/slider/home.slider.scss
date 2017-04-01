@@ -1,0 +1,12 @@
+.home-slider{
+	overflow: hidden;
+	.slide_register{
+        @include retina-background-image('../img/index-hero', jpg, cover);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+	}	
+	.slide_login{
+		background-image: linear-gradient(67deg, #0b1c37, #0a295a);
+	}
+}

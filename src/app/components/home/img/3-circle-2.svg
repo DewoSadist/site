@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>3-circle-2</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="index✅" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="d_index" transform="translate(-253.000000, -1640.000000)">
+            <g id="transfers-copy" transform="translate(-1.000000, 1420.000000)">
+                <g id="circular-shapes-virtual-card">
+                    <g id="transfers-art" transform="translate(254.000000, -15.000000)">
+                        <g id="3" transform="translate(0.000000, 235.000000)">
+                            <g id="Group-11" transform="translate(0.000000, -0.000000)">
+                                <g id="3-circle-2">
+                                    <circle id="Oval-5-Copy-2" fill="#FFFFFF" cx="30" cy="30" r="30"></circle>
+                                    <g id="Icons/tranfers/transfer-card-2-card-1px" transform="translate(29.500000, 30.500000) rotate(-360.000000) translate(-29.500000, -30.500000) translate(12.000000, 13.000000)">
+                                        <g id="p2p-icon">
+                                            <rect id="Rectangle-4" x="0" y="0" width="35" height="35"></rect>
+                                            <path d="M7.78388458,21.7777778 L2.33265995,21.7777778 C1.47392224,21.7777778 0.777777778,21.0765121 0.777777778,20.22155 L0.777777778,5.44511662 L0.777777778,5.44511662 C0.777777778,4.58563578 1.47150978,3.88888889 2.33327142,3.88888889 L25.6667286,3.88888889 C26.525804,3.88888889 27.2222222,4.58945415 27.2222222,5.44895976 L27.2222222,13.2095605" id="Rectangle" stroke="#061122"></path>
+                                            <path d="M0.777777778,8.16666667 L26.9057865,8.16666667" id="Path-2" stroke="#061122" stroke-linecap="round"></path>
+                                            <g id="Group-2" transform="translate(5.444444, 13.222222)">
+                                                <rect id="Rectangle" stroke="#00A9FF" x="2.33333333" y="0" width="26.4444444" height="17.8888889" rx="2"></rect>
+                                                <path d="M22.1837576,6.7426658 C21.9218649,6.88662445 21.6211834,6.96849134 21.3014146,6.96849134 C20.2864761,6.96849134 19.4636691,6.14334424 19.4636691,5.12583156 C19.4636691,4.10831887 20.2864761,3.28317178 21.3014146,3.28317178 C21.6558398,3.28317178 21.9868161,3.38374565 22.2675171,3.55796662" id="Stroke-210" stroke="#00A9FF" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                <path d="M25.5378988,5.12583156 C25.5378988,6.14334424 24.7150917,6.96849134 23.6999008,6.96849134 C22.6849624,6.96849134 21.8621554,6.14334424 21.8621554,5.12583156 C21.8621554,4.10831887 22.6849624,3.28317178 23.6999008,3.28317178 C24.7150917,3.28317178 25.5378988,4.10831887 25.5378988,5.12583156 L25.5378988,5.12583156 Z" id="Stroke-208" stroke="#00A9FF" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                <path d="M0,8.55555556 L7,8.55555556" id="Path-2" stroke="#061122" stroke-linecap="round"></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

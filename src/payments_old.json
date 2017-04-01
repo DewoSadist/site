@@ -1,0 +1,660 @@
+[
+  {
+    "id": 3,
+    "shortName": "kcell",
+    "name": {
+      "ru": "Kcell",
+      "en": "Kcell",
+      "kk": "Kcell"
+    },
+    "categoryId": [
+      6
+    ],
+    "cityId": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      14,
+      15,
+      16,
+      17,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      5
+    ]
+  },
+  {
+    "id": 11,
+    "shortName": "almatytelecom",
+    "name": {
+      "ru": "Алматытелеком",
+      "en": "Almatytelecom",
+      "kk": "Алматытелеком"
+    },
+    "categoryId": [
+      32
+    ],
+    "cityId": [
+      1
+    ]
+  },
+  {
+    "id": 40,
+    "shortName": "southkzregiontelecom",
+    "name": {
+      "ru": "Южно-Казахстанская ОДТ",
+      "en": "South Kazakhstan CCT",
+      "kk": "Оңтүстік Қазақстан ОТД"
+    },
+    "categoryId": [
+      32
+    ],
+    "cityId": [
+      17
+    ]
+  },
+  {
+    "id": 42,
+    "shortName": "astanatelecom",
+    "name": {
+      "ru": "Астанателеком",
+      "en": "Astanatelecom",
+      "kk": "Астанателеком"
+    },
+    "categoryId": [
+      32
+    ],
+    "cityId": [
+      2
+    ]
+  },
+  {
+    "id": 48,
+    "shortName": "karagandaregiontelecom",
+    "name": {
+      "ru": "Карагандинская ОДТ",
+      "en": "Karagandy CCT",
+      "kk": "Қарағанды ОТД"
+    },
+    "categoryId": [
+      32
+    ],
+    "cityId": [
+      11
+    ]
+  },
+  {
+    "id": 55,
+    "shortName": "atyrauregiontelecom",
+    "name": {
+      "ru": "Атырауская ОДТ",
+      "en": "Atyrau CCT",
+      "kk": "Атырау ОТД"
+    },
+    "categoryId": [
+      32
+    ],
+    "cityId": [
+      7
+    ]
+  },
+  {
+    "id": 56,
+    "shortName": "almatyregiontelecom",
+    "name": {
+      "ru": "Алматинская ОДТ",
+      "en": "Almaty CCT",
+      "kk": "Алматы ОТД"
+    },
+    "categoryId": [
+      32
+    ],
+    "cityId": [
+      3
+    ]
+  },
+  {
+    "id": 57,
+    "shortName": "zhambylregiontelecom",
+    "name": {
+      "ru": "Жамбылская ОДТ",
+      "en": "Zhambyl CCT",
+      "kk": "Жамбыл ОТД"
+    },
+    "categoryId": [
+      32
+    ],
+    "cityId": [
+      9
+    ]
+  },
+  {
+    "id": 58,
+    "shortName": "mangystauregiontelecom",
+    "name": {
+      "ru": "Мангистауская ОДТ",
+      "en": "Mangistau CCT",
+      "kk": "Маңғыстау ОТД"
+    },
+    "categoryId": [
+      32
+    ],
+    "cityId": [
+      14
+    ]
+  },
+  {
+    "id": 61,
+    "shortName": "northkzregiontelecom",
+    "name": {
+      "ru": "Северо-Казахстанская ОДТ",
+      "en": "North Kazakhstan CCT",
+      "kk": "Солтүстік Қазақстан ОТД"
+    },
+    "categoryId": [
+      32
+    ],
+    "cityId": [
+      16
+    ]
+  },
+  {
+    "id": 62,
+    "shortName": "kyzylordaregiontelecom",
+    "name": {
+      "ru": "Кызылординская ОДТ",
+      "en": "Kyzylorda CCT",
+      "kk": "Қызылорда ОТД"
+    },
+    "categoryId": [
+      32
+    ],
+    "cityId": [
+      13
+    ]
+  },
+  {
+    "id": 64,
+    "shortName": "akmolaregiontelecom",
+    "name": {
+      "ru": "Акмолинская ОДТ",
+      "en": "Akmola CCT",
+      "kk": "Ақмола ОТД"
+    },
+    "categoryId": [
+      32
+    ],
+    "cityId": [
+      5
+    ]
+  },
+  {
+    "id": 65,
+    "shortName": "pavlodarregiontelecom",
+    "name": {
+      "ru": "Павлодарская ОДТ",
+      "en": "Pavlodar CCT",
+      "kk": "Павлодар ОТД"
+    },
+    "categoryId": [
+      32
+    ],
+    "cityId": [
+      15
+    ]
+  },
+  {
+    "id": 66,
+    "shortName": "aktoberegiontelecom",
+    "name": {
+      "ru": "Актюбинская ОДТ",
+      "en": "Aktobe CCT",
+      "kk": "Ақтөбе ОТД"
+    },
+    "categoryId": [
+      32
+    ],
+    "cityId": [
+      6
+    ]
+  },
+  {
+    "id": 68,
+    "shortName": "eastkzregiontelecom",
+    "name": {
+      "ru": "Боливия",
+      "en": "Боливия",
+      "kk": "Боливия"
+    },
+    "categoryId": [
+      32
+    ],
+    "cityId": [
+      8
+    ]
+  },
+  {
+    "id": 69,
+    "shortName": "kostanairegiontelecom",
+    "name": {
+      "ru": "Костанайская ОДТ",
+      "en": "Kostanay CCT",
+      "kk": "Қостанай ОТД"
+    },
+    "categoryId": [
+      32
+    ],
+    "cityId": [
+      12
+    ]
+  },
+  {
+    "id": 72,
+    "shortName": "westkzregiontelecom",
+    "name": {
+      "ru": "Западно-Казахстанская ОДТ",
+      "en": "West Kazakhstan CCT",
+      "kk": "Батыс Қазақстан ОТД"
+    },
+    "categoryId": [
+      32
+    ],
+    "cityId": [
+      10
+    ]
+  },
+  {
+    "id": 75,
+    "shortName": "semeitelecom",
+    "name": {
+      "ru": "ГДТ Семей",
+      "en": "Semey Telecom",
+      "kk": "Семей ҚТД"
+    },
+    "categoryId": [
+      32
+    ],
+    "cityId": [
+      8
+    ]
+  },
+  {
+    "id": 87,
+    "shortName": "icon",
+    "name": {
+      "ru": "ICON",
+      "en": "ICON",
+      "kk": "ICON"
+    },
+    "categoryId": [
+      5
+    ],
+    "cityId": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      14,
+      15,
+      16,
+      17,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ]
+  },
+  {
+    "id": 90,
+    "shortName": "beeline",
+    "name": {
+      "ru": "Beeline",
+      "en": "Beeline",
+      "kk": "Beeline"
+    },
+    "categoryId": [
+      6,
+      61
+    ],
+    "cityId": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      14,
+      15,
+      16,
+      17,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ]
+  },
+  {
+    "id": 125,
+    "shortName": "tele2",
+    "name": {
+      "ru": "Tele2",
+      "en": "Tele2",
+      "kk": "Tele2"
+    },
+    "categoryId": [
+      6
+    ],
+    "cityId": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      14,
+      15,
+      16,
+      17,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ]
+  },
+  {
+    "id": 391,
+    "shortName": "activ",
+    "name": {
+      "ru": "ActiV",
+      "en": "Activ",
+      "kk": "ActiV"
+    },
+    "categoryId": [
+      6
+    ],
+    "cityId": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      14,
+      15,
+      16,
+      17,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ]
+  },
+  {
+    "id": 660,
+    "shortName": "kazakhtelecom",
+    "name": {
+      "ru": "Оплата услуг Казахтелеком",
+      "en": "Казахтелеком",
+      "kk": "Оплата услуг Казахтелеком"
+    },
+    "categoryId": [],
+    "cityId": []
+  },
+  {
+    "id": 665,
+    "shortName": "hcsbk-loan",
+    "name": {
+      "ru": "Кредиты ЖССБК",
+      "en": "Loans in ZSSBK",
+      "kk": "ҚТҚЖБ-дағы займдар"
+    },
+    "categoryId": [
+      18
+    ],
+    "cityId": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      14,
+      15,
+      16,
+      17,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ]
+  },
+  {
+    "id": 666,
+    "shortName": "hcsbk-deposit",
+    "name": {
+      "ru": "Депозиты ЖССБК",
+      "en": "Accumulations in ZSSBK",
+      "kk": "ҚТҚЖБ-дағы қорлар"
+    },
+    "categoryId": [
+      18
+    ],
+    "cityId": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      14,
+      15,
+      16,
+      17,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ]
+  },
+  {
+    "id": 695,
+    "shortName": "pddList",
+    "name": {
+      "ru": "Получение списка протокольных штрафов ГАИ по гос. номеру и тех. паспорту",
+      "en": "Получение списка протокольных штрафов ГАИ по гос. номеру и тех. паспорту",
+      "kk": "Получение списка протокольных штрафов ГАИ по гос. номеру и тех. паспорту"
+    },
+    "isCustom":true,
+    "categoryId": [1, 3],
+    "cityId": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      14,
+      15,
+      16,
+      17,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ]
+  },
+  {
+    "id": 711,
+    "shortName": "pdd",
+    "isCustom": true,
+    "name": {
+      "ru": "Оплата протокольных штрафов нарушения ПДД (КБК 204106)",
+      "en": "Оплата протокольных штрафов нарушения ПДД (КБК 204106)",
+      "kk": "Оплата протокольных штрафов нарушения ПДД (КБК 204106)"
+    },
+    "categoryId": [1, 3],
+    "cityId": []
+  },
+  {
+    "id": 987,
+    "shortName": "qiwi",
+    "hasDetails": true,
+    "name": {
+      "ru": "Qiwi",
+      "en": "Пополнение Qiwi кошелька",
+      "kk": "Пополнение Qiwi кошелька"
+    },
+    "categoryId": [
+      50
+    ],
+    "cityId": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      14,
+      15,
+      16,
+      17,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      14,
+      15,
+      16,
+      17,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ]
+  },
+  {
+    "id": 1016,
+    "shortName": "alseco",
+    "name": {
+      "ru": "Алсеко",
+      "en": "Alseco",
+      "kk": "Алсеко"
+    },
+    "isCustom":true,
+    "categoryId": [
+      30
+    ],
+    "cityId": [
+      1
+    ]
+  },
+  {
+    "id": 1017,
+    "shortName": "ivc",
+    "name": {
+      "ru": "ИВЦ",
+      "en": "IVC",
+      "kk": "ИВЦ"
+    },
+    "categoryId": [
+      30
+    ],
+    "cityId": [
+      1
+    ]
+  },
+  {
+    "id": 1018,
+    "shortName": "astana-erc",
+    "name": {
+      "ru": "ЕРЦ",
+      "en": "ERC",
+      "kk": "ЕРЦ"
+    },
+    "categoryId": [
+      30
+    ],
+    "cityId": [
+      2
+    ]
+  },
+  {
+    "id": 1024,
+    "shortName": "onai",
+    "hasDetails": true,
+    "name": {
+      "ru": "Оңай",
+      "en": "Onay",
+      "kk": "Оңай"
+    },
+    "categoryId": [
+      54
+    ],
+    "cityId": [
+      1
+    ]
+  },
+  {
+    "id": 1078,
+    "shortName": "caspiohd",
+    "name": {
+      "ru": "Оплата услуг \"Caspio HD\"",
+      "en": "Оплата услуг \"Caspio HD\"",
+      "kk": "Оплата услуг \"Caspio HD\""
+    },
+    "categoryId": [
+      5
+    ],
+    "cityId": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      14,
+      15,
+      16,
+      17,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ]
+  }
+]

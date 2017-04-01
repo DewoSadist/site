@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="61px" height="61px" viewBox="0 0 61 61" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>2-circle-2</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="index✅" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="d_index" transform="translate(-318.000000, -1639.000000)">
+            <g id="transfers-copy" transform="translate(-1.000000, 1420.000000)">
+                <g id="circular-shapes-virtual-card">
+                    <g id="transfers-art" transform="translate(254.000000, -15.000000)">
+                        <g id="2" transform="translate(54.899318, 222.699092)">
+                            <g id="2-circle-2" transform="translate(0.000000, 1.000000)">
+                                <circle id="Oval-5-Copy-2" fill="#FFFFFF" transform="translate(41.000000, 41.000000) rotate(-330.000000) translate(-41.000000, -41.000000) " cx="41" cy="41" r="30"></circle>
+                                <g id="Icons/transfers/p2cash-1px" transform="translate(41.500000, 39.500000) rotate(-360.000000) translate(-41.500000, -39.500000) translate(24.000000, 22.000000)">
+                                    <g id="p2cash">
+                                        <rect id="Rectangle-4" x="0" y="0" width="35" height="35"></rect>
+                                        <g id="card" transform="translate(0.777778, 3.888889)" stroke="#061122">
+                                            <path d="M14.0166824,17.8888889 L1.55358517,17.8888889 C0.695563772,17.8888889 0,17.1876232 0,16.3326612 L0,1.55622773 L0,1.55622773 C0,0.696746887 0.693732005,0 1.55549365,0 L24.8889508,0 C25.7480262,0 26.4444444,0.702137316 26.4444444,1.5580217 L26.4444444,7.6083451" id="Rectangle"></path>
+                                            <path d="M0,4.27777778 L26.0584575,4.27777778" id="Path-2" stroke-linecap="round"></path>
+                                        </g>
+                                        <g id="atm" transform="translate(14.777778, 11.666667)">
+                                            <path d="M15.6121429,1.55555556 L17.8883486,1.55555556 C18.3182018,1.55555556 18.6666667,1.88967806 18.6666667,2.29925807 L18.6666667,21.0340753 C18.6666667,21.4448108 18.3186351,21.7777778 17.8883486,21.7777778 L0.778318048,21.7777778 C0.348464859,21.7777778 0,21.4367108 0,21.0360272 L0,15.0855911 L0.0621188844,8.38072331 L0.0621188844,8.38072331 L0.00676606066,2.29896071 C0.00302926854,1.88838938 0.348031615,1.55555556 0.778318048,1.55555556 L3.04639845,1.55555556" id="Rectangle-9" stroke="#00A9FF"></path>
+                                            <path d="M3.11111111,7.06370061 L3.11111111,6.21613357 L3.11111111,6.21613357 C3.11111111,5.78994143 3.45693511,5.44444444 3.88956685,5.44444444 L14.7770998,5.44444444 C15.2070291,5.44444444 15.5555556,5.79892519 15.5555556,6.2241459 L15.5555556,13.9980763 C15.5555556,14.4286935 15.2097316,14.7777778 14.7770998,14.7777778 L3.88956685,14.7777778 C3.45963761,14.7777778 3.11111111,14.4242831 3.11111111,13.9978583 L3.11111111,13.2536575" id="Rectangle-9-Copy-2" stroke="#00A9FF" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            <polyline id="Path-2" stroke="#00A9FF" stroke-linecap="round" points="3.11111111 18.6666667 5.788177 18.6666667 10.1111111 18.6666667"></polyline>
+                                            <polyline id="Path-2-Copy" stroke="#061122" stroke-linecap="round" points="13.2222222 18.6666667 14.1164898 18.6666667 15.5605557 18.6666667"></polyline>
+                                            <rect id="Rectangle-9-Copy" stroke="#00A9FF" x="3.11111111" y="0" width="12.4444444" height="3.11111111" rx="1"></rect>
+                                        </g>
+                                        <path d="M11.6666667,21.7777778 L19.0657824,21.7777778" id="Path-2" stroke="#061122" stroke-linecap="round"></path>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

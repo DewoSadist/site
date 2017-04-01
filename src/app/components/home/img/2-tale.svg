@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="402px" height="402px" viewBox="0 0 402 402" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>2-tale</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="100%" y1="4.15307364%" x2="0%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="index✅" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="d_index" transform="translate(-346.000000, -1469.000000)">
+            <g id="transfers-copy" transform="translate(-1.000000, 1420.000000)">
+                <g id="circular-shapes-virtual-card">
+                    <g id="transfers-art" transform="translate(278.000000, -15.000000)">
+                        <g id="bg" transform="translate(5.000000, 0.000000)">
+                            <g id="2-tale" transform="translate(65.000000, 65.000000)">
+                                <path d="M400,200 C400,310.456828 310.456828,400 200,400 C89.5431723,400 0,310.456828 0,200 C0,89.5431723 89.5431723,0 200,0 C310.456828,0 400,89.5431723 400,200 Z" id="Stroke-1-Copy" stroke="#FFFFFF" stroke-width="1.4" opacity="0.5"></path>
+                                <path d="M349.631743,271.984856 C350.047362,277.24953 350.259118,282.571554 350.259118,287.943035 L350.259118,287.943035 C350.259118,327.814073 338.592031,364.960152 318.485653,396.153478" id="Stroke-1-Copy-2" stroke="url(#linearGradient-1)" stroke-width="3" transform="translate(334.372385, 334.069167) rotate(31.000000) translate(-334.372385, -334.069167) "></path>
+                                <g id="dot-tail-3" transform="translate(381.060352, 283.778494) rotate(39.000000) translate(-381.060352, -283.778494) translate(373.560352, 276.278494)" stroke="#FFFFFF" stroke-width="3" fill="#00A9FF">
+                                    <circle id="Oval-6" cx="7.5" cy="7.5" r="7.5"></circle>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

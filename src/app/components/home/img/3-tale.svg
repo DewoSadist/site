@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="534px" height="500px" viewBox="0 0 534 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>3-tale</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="6.50747666%" y1="100%" x2="0%" y2="10.5774907%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="index✅" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="d_index" transform="translate(-281.000000, -1420.000000)">
+            <g id="transfers-copy" transform="translate(-1.000000, 1420.000000)">
+                <g id="circular-shapes-virtual-card">
+                    <g id="transfers-art" transform="translate(278.000000, -15.000000)">
+                        <g id="bg" transform="translate(5.000000, 0.000000)">
+                            <g id="3-tale">
+                                <path d="M532,266 C532,412.907581 412.907581,532 266,532 C119.092419,532 0,412.907581 0,266 C0,119.092419 119.092419,0 266,0 C412.907581,0 532,119.092419 532,266 Z" id="Stroke-1" stroke="#FFFFFF" stroke-width="1.4" opacity="0.300000012"></path>
+                                <g id="dot-tail-1" transform="translate(0.000000, 277.000000)" stroke-width="3">
+                                    <path d="M35.5475183,121.93321 C14.7415521,85.941847 2.124945,44.6230559 0.24515175,0.524291386" id="Stroke-1-Copy-3" stroke="url(#linearGradient-1)"></path>
+                                    <circle id="Oval-6-Copy" stroke="#FFFFFF" fill="#00A9FF" cx="37.5" cy="125.5" r="7.5"></circle>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

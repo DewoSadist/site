@@ -9,15 +9,16 @@
 @import "theme/type";
 @import "theme/buttons";
 @import "theme/forms";
+@import "theme/labels";
 @import "theme/input-groups";
 @import "theme/panels";
 @import "theme/alerts";
 @import "theme/dropdowns";
 @import "theme/modals";
 @import "theme/carousel";
+@import "theme/navs";
 
 // libraries
-@import "libraries/pickaday";
 @import "libraries/loading-bar";
 @import "libraries/row-height";
 @import "libraries/auto-clear";
@@ -28,3 +29,4 @@
 @import "components/tile";
 @import "components/brands";
 @import "components/page";
+@import "components/range";

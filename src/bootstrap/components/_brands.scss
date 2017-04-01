@@ -14,8 +14,8 @@ $mobile-final-position-activ: 88% 0%;
 }
 
 @mixin normal-brand {
-    &, .subheading, .heading {
-        color: $brand-info;
+    &, .title, .subtitle {
+        color: $color-indigo;
     }
 
     .dropdown-toggle {
@@ -44,8 +44,8 @@ $mobile-final-position-activ: 88% 0%;
 @mixin inverse-brand($gradient) {
     background-image: $gradient;
 
-    &, .subheading, .heading, .dropdown-toggle {
-        color: #fff;
+    &, .title, .subtitle, .dropdown-toggle {
+        color: $color-white;
     }
 
     .submenu {
@@ -62,7 +62,7 @@ $mobile-final-position-activ: 88% 0%;
         }
 
         .button-text {
-            color: $white;
+            color: $color-white;
         }
     }
 }
@@ -83,9 +83,11 @@ $mobile-final-position-activ: 88% 0%;
     padding-bottom: 50px;
     position: relative;
     background-image: linear-gradient(288deg, #ffffff, #f9faff);
-    .cities-spacer{
+
+    .cities-spacer {
         height: 50px;
     }
+
     .info-wrap {
         display: flex;
         width: 100%;
@@ -99,22 +101,6 @@ $mobile-final-position-activ: 88% 0%;
 
         @media (min-width: $screen-md-min) {
             min-height: 200px;
-        }
-
-        .title {
-            font-size: 22px;
-
-            @media (min-width: $screen-sm-min) {
-                font-size: 28px;
-            }
-        }
-
-        .subtitle {
-            font-size: 15px;
-
-            @media (min-width: $screen-sm-min) {
-                font-size: 18px;
-            }
         }
     }
 
@@ -200,9 +186,13 @@ $mobile-final-position-activ: 88% 0%;
 }
 
 .top-section.main {
-    padding-bottom: 0;
+    padding-top: 25px;
+    padding-bottom: 40px;
     background-image: none;
-
+    @media (min-width: $screen-md-min) {
+        padding-top: 65px;
+        padding-bottom: 65px;
+    }
     .submenu {
         margin: 15px 0;
         text-align: left;
@@ -213,21 +203,17 @@ $mobile-final-position-activ: 88% 0%;
     }
 
     .info {
+        min-height: 0;
         display: block;
-
-        @media (min-width: $screen-sm-min) {
-            margin: 40px 0;
-        }
-
-        @media (min-width: $screen-md-min) {
-            margin-bottom: 0;
-            min-height: 150px;
-        }
     }
 }
-.top-section.main.main_authorized {
-    .info {
-        margin-top: 100px;
+
+.top-section.users {
+    padding-top: 25px;
+    padding-bottom: 40px;
+    background-image: none;
+    @media (min-width: $screen-md-min) {
+        padding-top: 65px;
     }
 }
 
@@ -278,6 +264,7 @@ $mobile-final-position-activ: 88% 0%;
 
 .top-section.alseco {
     @include inverse-brand(linear-gradient(309deg, #49ece5, #0062ce));
+
     .info {
         @media (min-width: $screen-sm-min) {
             margin-top: 30px;
@@ -299,6 +286,7 @@ $mobile-final-position-activ: 88% 0%;
 
 .top-section.astanaERC {
     @include inverse-brand(linear-gradient(103deg, #0093ca, #005e8f));
+
     .info {
         @media (min-width: $screen-sm-min) {
             margin-top: 30px;
@@ -308,6 +296,7 @@ $mobile-final-position-activ: 88% 0%;
 
 .top-section.ivc {
     @include inverse-brand(linear-gradient(103deg, #0093ca, #005e8f));
+
     .info {
         @media (min-width: $screen-sm-min) {
             margin-top: 30px;
@@ -365,28 +354,115 @@ $mobile-final-position-activ: 88% 0%;
         padding-bottom: 50px;
     }
 
-    .info {
-        .title {
-            margin-top: 40px;
+    // .info {
+    //     .title {
+    //         margin-top: 40px;
+
+    //         @media (min-width: $screen-sm-min) {
+    //             margin-top: 90px;
+    //         }
+    //     }
+
+    //     .subtitle {
+    //         margin-top: 15px;
+    //         margin-bottom: 15px;
+    //     }
+    // }
+}
+
+.top-section.products {
+    @include inverse-brand(linear-gradient(138deg, #00a9ff, #3f64e8));
+
+    .info-wrap {
+        display: block;
+
+        @media (min-width: $screen-sm-min) {
+            @include flex;
+        }
+
+        @media (min-width: $screen-md-min) {
+            margin-top: 35px;
+        }
+
+        .info {
+            max-width: 200px;
+            margin: 0px auto 15px;
+            text-align: center;
 
             @media (min-width: $screen-sm-min) {
-                margin-top: 90px;
+                margin: 0;
+                text-align: left;
+                padding-right: 50px;
+                max-width: 500px;
             }
         }
 
-        .subtitle {
-            margin-top: 15px;
-            margin-bottom: 15px;
+        .button {
+            margin-bottom: 0;
+
+            @media (min-width: $screen-sm-min) {
+                min-width: 300px;
+            }
+        }
+
+        .image {
+            margin: 0px auto;
+            max-width: 402px;
+
+            @media (min-width: $screen-sm-min) {
+                margin: 0;
+            }
+
+            img {
+                @include box-shadow(0 8px 16px 0 rgba(0, 0, 0, 0.16));
+
+                border-radius: $border-radius-base;
+                margin-bottom: 20px;
+                max-width: 100%;
+
+                @media (min-width: $screen-sm-min) {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+.top-section.products-mycard {
+    @include inverse-brand(linear-gradient(77deg, #b5b2d5, #4d46d3));
+}
+
+.top-section.products-likeme {
+    .breadcrumbs{
+        z-index: 5;
+        position: relative;
+    }
+    .submenu{
+        z-index: 5;
+    }
+    .info-wrap {
+        .info{
+            position: relative;
+            z-index: 5;
+        }
+        .image{
+            img{
+                margin: 0;
+            }
+        }
+        .button{
+            z-index: 5;
+            position: relative;
         }
     }
 }
 
 .payment-round-small {
     @include payment-round(45px, linear-gradient(137deg, #f6faff, #dce3ea));
-    flex: 0 0 45px;
+    flex-shrink:0;
     margin-left: 0;
+
     @media (min-width: $screen-sm-min) {
-        flex: 0 0 50px;
         width: 50px;
         height: 50px;
     }
@@ -394,7 +470,8 @@ $mobile-final-position-activ: 88% 0%;
 
 .payment-round {
     @include payment-round(70px, linear-gradient(137deg, #f6faff, #dce3ea));
-
+    flex-shrink:0;
+    
     &_alseco {
         background-image: linear-gradient(137deg, #0fc5cc, #00665c);
     }
@@ -402,25 +479,32 @@ $mobile-final-position-activ: 88% 0%;
     &_beeline {
         background-image: url("../icons/payments/beeline@2x.png");
         background-size: 100% 100%;
-        .icon{
+
+        .icon {
             display: none;
         }
     }
+
     &_altel {
         background-image: linear-gradient(137deg, #ec0289, #990056);
     }
+
     &_activ {
         background-image: linear-gradient(137deg, #f7af00, #ef2755 49%, #382b87);
     }
+
     &_kcell {
         background-image: linear-gradient(150deg, #fd5cf1, #fc5cf1 1%, #b351c1 77%, #9d4eb2);
     }
+
     &_tele2 {
         background-image: linear-gradient(137deg, #717171, #000000);
     }
+
     &_qiwi {
         background-image: linear-gradient(135deg, #0023a0, #3f64e9);
     }
+
     &_onai {
         background-image: linear-gradient(135deg, #fcbf26, #eb9300);
     }

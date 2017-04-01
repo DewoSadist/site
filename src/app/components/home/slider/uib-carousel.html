@@ -1,0 +1,14 @@
+<div class="carousel-inner"  ng-swipe-left="next()"  ng-swipe-right="prev()" ng-transclude></div>
+<div class="container">
+	<a role="button" href="javascript:void(0)" class="hidden-sm hidden-xs slider-control_left slider-control" ng-click="prev()" ng-class="{ disabled: isPrevDisabled() }" ng-show="slides.length > 1">
+	    <span class="icon icon_chevron-left-white"></span>
+	</a>
+	<a role="button" href="javascript:void(0)" class="hidden-sm hidden-xs slider-control_right slider-control" ng-click="next()" ng-class="{ disabled: isNextDisabled() }" ng-show="slides.length > 1">
+	    <span class="icon icon_chevron-right-white"></span>
+	</a>
+</div>
+<ol class="carousel-indicators" ng-show="slides.length > 1">
+    <li ng-repeat="slide in slides | orderBy:indexOfSlide track by $index" ng-class="{ active: isActive(slide) }" ng-click="select(slide)">
+        <span class="sr-only">slide {{ $index + 1 }} of {{ slides.length }}<span ng-if="isActive(slide)">, currently active</span></span>
+    </li>
+</ol>

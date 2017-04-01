@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="45px" height="45px" viewBox="0 0 45 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>Icons/onboarding/0tenge</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons/onboarding/0tenge">
+            <g id="0t">
+                <rect id="Rectangle-4" x="0" y="0" width="45" height="45"></rect>
+                <g transform="translate(7.500000, 5.250000)" stroke-width="1.4">
+                    <rect id="Rectangle" stroke="#00A9FF" x="0" y="0" width="20.1796875" height="33.75" rx="10.0898438"></rect>
+                    <g id="tenge-sign" transform="translate(17.296875, 19.285714)" stroke="#061122" stroke-linecap="square">
+                        <path d="M0.781764938,0.765 L12.3290665,0.765" id="Line"></path>
+                        <path d="M0.781764938,4.62214286 L12.3290665,4.62214286" id="Line-Copy-2"></path>
+                        <path d="M6.74458008,4.9310947 L6.74458008,13.9959552" id="Line"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

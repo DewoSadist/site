@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="17px" height="18px" viewBox="0 0 17 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>icons/rotate left</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="bank-cards_order/overview" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+        <g id="m_clm-order_non-register_1" transform="translate(-24.000000, -526.000000)" stroke="#00A9FF">
+            <g id="card-order" transform="translate(10.000000, 10.000000)">
+                <g id="title" transform="translate(10.000000, 80.000000)">
+                    <g id="сard-visual" transform="translate(0.000000, 164.000000)">
+                        <g id="panel-with-actions" transform="translate(0.000000, 269.000000)">
+                            <g id="icons/rotate-left">
+                                <g id="rotation-arrow">
+                                    <path d="M4,12 C4,16.418278 7.581722,20 12,20 L12,20 C16.418278,20 20,16.418278 20,12 C20,7.581722 16.418278,4 12,4" id="Oval-17" stroke-width="1.4" stroke-linejoin="round" transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) "></path>
+                                    <g id="Group-2" transform="translate(6.274445, 6.966527) rotate(-75.000000) translate(-6.274445, -6.966527) translate(4.774445, 4.966527)" stroke-width="1.4">
+                                        <path d="M0.5,0.5 L2.5,1.5" id="Line-Copy" transform="translate(1.500000, 1.000000) scale(-1, 1) translate(-1.500000, -1.000000) "></path>
+                                        <path d="M0.5,1.5 L1.5,3.5" id="Line-Copy-2" transform="translate(1.000000, 2.500000) scale(-1, -1) translate(-1.000000, -2.500000) "></path>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

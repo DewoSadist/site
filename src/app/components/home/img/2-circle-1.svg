@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="61px" height="61px" viewBox="0 0 61 61" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>2-circle-1</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="index✅" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="d_index" transform="translate(-714.000000, -1639.000000)">
+            <g id="transfers-copy" transform="translate(-1.000000, 1420.000000)">
+                <g id="circular-shapes-virtual-card">
+                    <g id="transfers-art" transform="translate(254.000000, -15.000000)">
+                        <g id="2" transform="translate(54.899318, 222.699092)">
+                            <g id="Group-10" transform="translate(395.000000, 0.000000)">
+                                <g id="2-circle-1">
+                                    <circle id="Oval-5-Copy-3" fill="#FFFFFF" transform="translate(42.000000, 42.000000) rotate(-324.000000) translate(-42.000000, -42.000000) " cx="42" cy="42" r="30"></circle>
+                                    <g id="Icons/transfers/p2abroad-1px" transform="translate(42.500000, 42.500000) rotate(-360.000000) translate(-42.500000, -42.500000) translate(25.000000, 25.000000)">
+                                        <g id="international">
+                                            <rect id="Rectangle-4" x="0" y="0" width="35" height="35"></rect>
+                                            <g id="card" transform="translate(0.777778, 3.888889)" stroke="#061122">
+                                                <path d="M13.1723479,17.8888889 L1.56276821,17.8888889 C0.69967516,17.8888889 0,17.1876232 0,16.3326612 L0,1.55622773 L0,1.55622773 C0,0.696746887 0.693732005,0 1.55549365,0 L24.8889508,0 C25.7480262,0 26.4444444,0.697185772 26.4444444,1.55732142 L26.4444444,8.17722696" id="Rectangle"></path>
+                                                <path d="M0,4.27777778 L26.0584575,4.27777778" id="Path-2" stroke-linecap="round"></path>
+                                            </g>
+                                            <g id="p2abroad" transform="translate(14.000000, 11.666667)" stroke="#00A9FF">
+                                                <g id="glob">
+                                                    <circle id="Oval-3" stroke-linecap="round" stroke-linejoin="round" cx="10.1111111" cy="10.1111111" r="10.1111111"></circle>
+                                                    <path d="M0,9.72222222 L19.967864,9.72222222" id="Path-3" stroke-linecap="round"></path>
+                                                    <path d="M9.72222222,0.388888889 L9.72222222,19.8954563" id="Line" stroke-linecap="square"></path>
+                                                    <path d="M4.66666667,0.777777778 C4.66666667,0.777777778 7.92419305,5.34362867 7.88569383,10.5230364 C7.84719462,15.7024442 4.74715191,19.7201588 4.74715191,19.7201588" id="Line-Copy-3" stroke-linecap="square" transform="translate(6.276350, 10.248968) scale(-1, 1) translate(-6.276350, -10.248968) "></path>
+                                                    <path d="M12.1420981,0.777777778 C12.1420981,0.777777778 15.3996245,5.34362867 15.3611253,10.5230364 C15.3226261,15.7024442 12.2225834,19.7201588 12.2225834,19.7201588" id="Line-Copy-4" stroke-linecap="square"></path>
+                                                </g>
+                                            </g>
+                                            <g id="Group-2" transform="translate(27.222222, 14.777778) rotate(90.000000) translate(-27.222222, -14.777778) translate(23.333333, 14.000000)" stroke="#061122" stroke-linecap="round">
+                                                <path d="M0,0.777777778 L7.39911573,0.777777778" id="Path-2"></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -14,8 +14,9 @@
         > li {
             .crumb {
                 display: inline-block;
+                // opacity: .5;
                 color: $breadcrumb-color;
-                font-size: $font-size-small;
+                vertical-align: middle;
             }
 
             + li {
@@ -42,8 +43,8 @@
     }
 
     &_colorless {
-        background-color: $body-bg;
-        border-color: $border-gray;
+        background-color: $color-ice-blue;
+        border-color: $color-pale-gray;
 
         .icon_breadcrumbs-home {
             background-image: url("../icons/breadcrumbs-home-colorless.svg");

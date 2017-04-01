@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="500px" height="500px" viewBox="0 0 500 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>ripple</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="index✅" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="d_index" transform="translate(-590.000000, -920.000000)" stroke="#00A9FF">
+            <g id="Virtual-card-2" transform="translate(0.000000, 840.000000)">
+                <g id="circular-shapes" transform="translate(590.000000, 80.000000)">
+                    <g id="index-virtual-card">
+                        <g id="ripple">
+                            <ellipse id="8" opacity="0.049999997" cx="250" cy="250" rx="249.069066" ry="249.069066"></ellipse>
+                            <ellipse id="7" opacity="0.100000001" cx="250" cy="250" rx="215.824406" ry="215.824406"></ellipse>
+                            <ellipse id="6" opacity="0.200000003" cx="250" cy="250" rx="183.609596" ry="183.609596"></ellipse>
+                            <ellipse id="5" fill="#FFFFFF" opacity="0.300000012" cx="250" cy="250" rx="149.846642" ry="149.846642"></ellipse>
+                            <ellipse id="4" opacity="0.400000006" cx="250" cy="250" rx="118.399167" ry="118.399167"></ellipse>
+                            <ellipse id="3" opacity="0.5" cx="250" cy="250" rx="89.7787254" ry="89.7787254"></ellipse>
+                            <ellipse id="2" opacity="0.600000024" cx="250" cy="250" rx="62.7199019" ry="62.7199019"></ellipse>
+                            <ellipse id="1" opacity="0.699999988" cx="250" cy="250" rx="33.4398038" ry="33.4398038"></ellipse>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

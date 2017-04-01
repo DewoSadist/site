@@ -1,0 +1,48 @@
+<section class="home-slider">
+	<div uib-carousel 
+		template-url="app/components/home/slider/uib-carousel.html" 
+		class="carousel_home" 
+		active="$ctrl.activeSlide" 
+		interval="$ctrl.switchInterval" 
+		no-wrap="$ctrl.noWrapSlides">
+
+	    <div uib-slide index="0">
+	        <div class="slide slide_register">
+	            <div class="container">
+	                <div class="slide-wrap"> 
+	                    <div class="slide-content">
+	                        <h1 class="text-white title_home">
+	                                Лучший интернет-банкинг страны теперь открыт для держателей карт любых банков
+	                            </h1>
+	                        <p class="text-white subtitle subtitle_home">
+	                            Регистрируйтесь по номеру телефона за 1 мин., переводите деньги, оплачивайте услуги без комиссии и зарабатывайте Go! бонусы
+	                        </p>
+	                        <a href="javascript:void(0)" ui-sref="users.register" class="btn btn-auto btn-primary slide-button ">
+	                            	Регистрация
+								</a>
+	                    </div> 
+	                </div> 
+	            </div>
+	        </div>
+	    </div>
+	    <div uib-slide index="1">
+	        <div class="slide slide_login">
+	            <div class="container">
+	                <div class="slide-wrap">
+	                    <div class="slide-content">
+	                        <h1 class="text-white title_home">
+	                                Лучший интернет-банкинг страны теперь открыт для держателей карт любых банков
+	                            </h1>
+	                        <p class="text-white subtitle subtitle_home">
+	                            Регистрируйтесь по номеру телефона за 1 мин., переводите деньги, оплачивайте услуги без комиссии и зарабатывайте Go! бонусы
+	                        </p>
+	                        <a href="javascript:void(0)" ui-sref="users.login" class="btn btn-auto btn-primary slide-button ">
+	                            	Вход
+								</a>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</section>

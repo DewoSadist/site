@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="45px" height="45px" viewBox="0 0 45 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>Icons/onboarding/payment limits</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="32.25" height="19.2307692" rx="1"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="32.25" height="19.2307692" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons/onboarding/payment-limits">
+            <g id="tg">
+                <rect id="Rectangle-4-Copy" x="0" y="0" width="45" height="45"></rect>
+                <g id="tenge" transform="translate(6.750000, 11.250000)">
+                    <g id="bg" transform="translate(0.000000, 1.666667)" stroke="#00A9FF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+                        <use id="1" mask="url(#mask-2)" xlink:href="#path-1"></use>
+                    </g>
+                    <g id="corners-left" transform="translate(0.000000, 1.666667)" stroke-width="1.4">
+                        <path d="M6.07186989,0.937691222 L0.979903583,5.79585824" id="Line" stroke="#00A9FF" stroke-linecap="square"></path>
+                        <path d="M7.66641911,13.4610567 L0.979903583,20.0266275" id="Line-Copy" stroke="#061122" stroke-linecap="round" stroke-linejoin="round" transform="translate(4.667763, 16.730769) scale(1, -1) translate(-4.667763, -16.730769) "></path>
+                    </g>
+                    <g id="corners-righ" transform="translate(27.375000, 10.500000) scale(-1, 1) translate(-27.375000, -10.500000) translate(22.500000, 0.000000)" stroke-width="1.4">
+                        <path d="M8.5428121,0.0364131813 L0.979903583,7.46252491" id="Line" stroke="#061122" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M6.07186989,15.1043579 L0.979903583,19.9625249" id="Line-Copy" stroke="#00A9FF" stroke-linecap="square" transform="translate(3.527344, 17.532051) scale(1, -1) translate(-3.527344, -17.532051) "></path>
+                    </g>
+                    <g id="sign" transform="translate(11.085938, 6.474359)" stroke="#061122" stroke-width="1.4" stroke-linecap="square">
+                        <path d="M0.516858704,0.762820513 L8.78659798,0.762820513" id="Line"></path>
+                        <path d="M0.516858704,3.6474359 L8.78659798,3.6474359" id="Line-Copy-2"></path>
+                        <path d="M4.73671875,3.94092704 L4.73671875,9.13845744" id="Line"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,4 +1,4 @@
-@mixin button-variant($color, $background, $border, $hover-color:$color, $hover-background:darken($background, 10%), $hover-border:darken($border, 10%)) {
+@mixin button-variant($color, $background, $border, $hover-color: $color, $hover-background: darken($background, 10%), $hover-border: darken($border, 10%)) {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -58,8 +58,23 @@
         color: $background;
         background-color: $color;
     }
-    &.soon-label{
+
+    &.soon-label {
         border-color: rgba($border, 0.3);
+    }
+}
+
+// Labels
+
+@mixin label-variant($background, $color: $label-color) {
+    background-color: $background;
+    color: $color;
+
+    &[href] {
+        &:hover,
+        &:focus {
+            background-color: $background;
+        }
     }
 }
 
@@ -92,8 +107,8 @@
 }
 
 /* flexbox*/
-@mixin flex($align: center, $justify: space-between, $direction: row, $wrap: nowrap, $flex:flex) {
-    display: $flex;
+@mixin flex($align: center, $justify: space-between, $direction: row, $wrap: nowrap, $display: flex) {
+    display: $display;
     align-items: $align;
     justify-content: $justify;
     flex-direction: $direction;
@@ -109,18 +124,23 @@
     border: 1px solid $color;
     border-radius: $border-radius-base;
 }
-@mixin hb-shadow(){
+
+@mixin hb-shadow {
     box-shadow: 0 4px 8px 0 rgba(3, 37, 56, 0.08);
 }
+
 /* Retina screens setup*/
 $retina: "only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)";
-@mixin retina-background-image($file, $type, $width:100%, $height:100%) {
-    background-image: url($file + '.' + $type);
+
+@mixin retina-background-image($file, $type, $size: 100% 100%) {
+    background-image: url($file + "." + $type);
+
     @media #{$retina} {
-        background-image: url($file + '@2x.' + $type);
-      background-size: $width $height;
+        background-image: url($file + "@2x." + $type);
+        background-size: $size;
     }
 }
+
 @mixin icon-size($width, $height) {
     background-repeat: no-repeat;
     display: inline-block;
@@ -129,4 +149,59 @@ $retina: "only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (
     vertical-align: middle;
     width: $width + px;
     height: $height + px;
+}
+
+@mixin likeme-wrap {
+    border: 1px dashed $color-white;
+    display: inline-block;
+    position: relative;
+
+    &:before {
+        content: '';
+        position: absolute;
+        opacity: .5;
+        display: block;
+        left: 0;
+        right: 0;
+        left: 0;
+        top: 0;
+        background-image: linear-gradient(77deg, #0b1c37, #0a295a);
+    }
+
+    @include box-shadow(0px 0px 0px 9999px rgba($color-indigo-dark, 0.7));
+
+    .image-wrap {
+        position: absolute;
+        left: -3px;
+        right: -3px;
+        height: 5px;
+
+        &:before, &:after {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            width: 6px;
+            height: 6px;
+            border-radius: 1px;
+            background-color: $brand-primary;
+            border: 1px solid $color-white;
+        }
+
+        &:before {
+            left: 0;
+        }
+
+        &:after {
+            right: 0;
+        }
+
+        &_top {
+            top: -3px;
+        }
+
+        &_bottom {
+            bottom: -3px;
+        }
+    }
 }

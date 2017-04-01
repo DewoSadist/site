@@ -1,22 +1,28 @@
 <div class="container">
-    <h1>Type symbols</h1>
-    <h1>h1 Heading</h1>
-    <h1 class="subtitle">h1 Subtitle</h1>
-    <h2>h2 Heading</h2>
-    <h2 class="subtitle">h2 subtitle</h2>
-    <h3>h3 Heading</h3>
-    <h3 class="subtitle">h3 subtitle</h3>
-    <h4>h4 Heading</h4>
-    <h4 class="subtitle">h4 subtitle</h4>
-    <h5>h5 Heading</h5>
-    <h5 class="subtitle">h5 subtitle</h5>
-    <h6>h6 Heading</h6>
-    <h6 class="subtitle">h6 subtitle</h6>
-    <small>Small text</small>
-    <p>
-        Paragraph
-        <br /> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, qui!
-    </p>
+<div class="jumbotron">
+    <h1>Theme</h1>
+    <p>Here you can see the main styling elements of the app</p>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Type symbols
+    </div>
+    <div class="panel-body">
+        <h1>Heading h1</h1>
+        <h2>Heading h2</h2>
+        <h3>Heading h3</h3>
+        <h4>Heading h4</h4>
+        <h5>Heading h5</h5>
+        <h6>Heading h6</h6>
+        <small>Small text</small>
+        <p>
+            Paragraph
+            <br /> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, qui!
+        </p>
+    </div>
+</div>
+
+   
     <!-- <legend>Receipt</legend> -->
     <!-- <receipt-block></receipt-block> -->
 
@@ -62,7 +68,7 @@
         </div>
         <div class="form-group">
             <label for="exampleInputPassword3">Calendar</label>
-            <div class="input-group no-border">
+            <div class="input-group">
                 <input ui-mask ng-model="$ctrl.today" ng-attr-ui-mask="99.99.9999"
                    ui-mask-placeholder="" model-view-value="true" ui-mask-placeholder-char="" clear-on-blur="false"  format="DD.MM.YYYY" pikaday="$ctrl.today" type="text" class="form-control" id="exampleInputAmount" placeholder="Amount" trigger="datepicker-button">
                 <div id="datepicker-button" class="input-group-addon input-group-addon_button">

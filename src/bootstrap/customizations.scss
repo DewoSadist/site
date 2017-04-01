@@ -11,16 +11,21 @@ If you are not sure, you can probably simply use preBootstrapCustomizations and,
 
 $onai-background-color: #dfe9f5;
 
-/* footer gray gradient*/
-$gray-gradient: linear-gradient(to left, #fcfdff, #f6faff);
-
 /* pdd yellow info background color*/
 $pdd-yellow-background: rgba(254, 203, 0, 0.15);
 $pdd-dark-yellow-background: rgba(254, 203, 0, 0.3);
-$pdd-body-background: #fafbfc;
 $pdd-choosetickets-min-width: 433px;
 
 /* payment history variables*/
 $history-icon-width: 55;
 $history-status-badge-width: 10;
-$brand-success-pale: #d0fbed; //#d0fbed;
+
+/* onboarding variables*/
+$row-icon-size: 60;
+$row-icon-right-margin: 25px;
+$header-icon-size: 170px;
+$modal-window-size: 500px;
+
+/* requisites modal */
+$card-requisites-height: 235px;
+$card-requisites-width: 355px;

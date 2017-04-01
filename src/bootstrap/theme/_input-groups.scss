@@ -2,17 +2,23 @@
 // -------------------------
 .input-group {
     .input-group-addon {
-        background-color: #fff;
+        background-color: $color-white;
         border-color: $input-group-addon-border-color;
         padding: 0;
         line-height: ceil($input-height-base - 2);
         min-width: ceil($input-height-base - 2);
 
         &.input-sm {
-            height: 33px;
             padding: 0;
+            height: 33px;
             line-height: 33px;
-            min-width: 33px;
+            min-width: 34px;
+
+            @media (min-width: $screen-md-min) {
+                height: 43px;
+                line-height: 43px;
+                min-width: 44px;
+            }
 
             .icon {
                 @include icon-size(30, 30);
@@ -20,18 +26,16 @@
         }
 
         @media (min-width: $screen-md-min) {
-            line-height: ceil($input-height-large - 2);;
-            min-width: ceil($input-height-large - 2);;
+            line-height: ceil($input-height-large - 2);
+            min-width: ceil($input-height-large - 2);
         }
     }
 
     .form-control + .input-group-addon_cvv {
         background-color: $border-gray;
-        padding: 6px 5px 4px;
+        padding: 3px 5px;
+        line-height: initial;
         text-align: left;
-        font-size: $font-size-small;
-        line-height: 1.28;
-        color: $brand-info;
     }
 
     .input-group-addon_button {
@@ -46,7 +50,7 @@
 
     .input-group-addon {
         padding-right: 5px;
-        background-color: $white;
+        background-color: $color-white;
         color: $input-color-placeholder;
         font-weight: 300;
         border-right: 0;
@@ -85,10 +89,12 @@
         border: 0;
         z-index: 5;
         padding: 0px;
+
         // width: auto;
         width: ceil($input-height-base - 2);
         right: 1px;
         top: 1px;
+        border-left: 1px solid $input-group-addon-border-color;
         position: absolute;
         border-radius: 0 $border-radius-base $border-radius-base 0;
         background-color: transparent;

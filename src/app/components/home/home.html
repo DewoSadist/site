@@ -1,25 +1,26 @@
 <section class="home">
-  <section class="intro">
-    <div class="container">
-      <div class="title">
-        <h1>Sort by yum.</h1>
-        <p>The art of delivery is in the details. Minute by minute, morsel by morsel, we’ve broken down every step of your food’s journey to a perfect science.</p>
-      </div>
-      <form data-test-id="guest-address-form" class="guest-address-form" action="restaurants">
-        <div class="label">Delivery Address</div>
-        <div class="address-autocomplete-input_area">
-          <svg height="20px" width="17px" class="geolocation-icon" x="0px" y="0px" viewBox="0 0 17 20">
-            <path d="M7.5,0C3.358,0,0,3.444,0,7.692C0,11.941,7.5,20,7.5,20S15,11.941,15,7.692C15,3.444,11.642,0,7.5,0z M7.5,10.769c-1.657,0-3-1.378-3-3.077s1.343-3.077,3-3.077s3,1.378,3,3.077S9.157,10.769,7.5,10.769z">
-            </path>
-          </svg>
-          <input type="text" class="input-sm form-control edit-input" placeholder="Enter your delivery address" value="" autocomplete="off">
+    <!--<home-slider></home-slider>-->
+    <section class="home-virtual">
+        <div class="container">
+            <div class="content">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
+                        <div class="text-center">
+                            <h1 class="title">
+                                Launch the Yummy!
+                            </h1>
+                            <div class="subtitle">
+                                Order the tastiest meals from best restaurants in town
+                            </div>
+                        </div>
+                        <input autocomplete="off" clear-errors="" class="form-control ng-pristine ng-untouched ng-valid ng-empty" id="deliveryAddress" placeholder="Enter your delivery address" type="text">
+                    </div>
+                </div>
+
+                <a ui-sref="store.restaurants" class="btn btn-primary virtual-button">
+                    Find restaurants
+                </a>
+            </div>
         </div>
-        <button class="btn btn-default" ui-sref="restaurants" >
-          <span>Find Restaurants</span>
-        </button>
-      </form>
-    </div>
-  </section>
+    </section>
 </section>
-
-

@@ -25,7 +25,6 @@ styleLoaders:
 #    extractStyles: false
 #  production:
 #    extractStyles: true
-
 # Customize Bootstrap variables that get imported before the original Bootstrap variables.
 # Thus original Bootstrap variables can depend on values from here. All the bootstrap
 # variables are configured with !default, and thus, if you define the variable here, then

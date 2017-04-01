@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="26px" viewBox="0 0 24 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>1B4F34ED-E444-487F-822F-5A1CED77E169</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <linearGradient x1="91.5361538%" y1="4.8388%" x2="-37.5592308%" y2="71.9684%" id="linearGradient-1">
+            <stop stop-color="#00A0FF" offset="0%"></stop>
+            <stop stop-color="#00A1FF" offset="0.657445%"></stop>
+            <stop stop-color="#00BEFF" offset="26.01%"></stop>
+            <stop stop-color="#00D2FF" offset="51.22%"></stop>
+            <stop stop-color="#00DFFF" offset="76.04%"></stop>
+            <stop stop-color="#00E3FF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="107.728079%" y1="49.4282353%" x2="-130.665025%" y2="49.4282353%" id="linearGradient-2">
+            <stop stop-color="#FFE000" offset="0%"></stop>
+            <stop stop-color="#FFBD00" offset="40.87%"></stop>
+            <stop stop-color="#FFA500" offset="77.54%"></stop>
+            <stop stop-color="#FF9C00" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="86.3892216%" y1="17.8150459%" x2="-49.888024%" y2="194.392791%" id="linearGradient-3">
+            <stop stop-color="#FF3A44" offset="0%"></stop>
+            <stop stop-color="#C31162" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="-18.5790419%" y1="-54.5266535%" x2="42.2748503%" y2="24.6901019%" id="linearGradient-4">
+            <stop stop-color="#32A071" offset="0%"></stop>
+            <stop stop-color="#2DA771" offset="6.85%"></stop>
+            <stop stop-color="#15CF74" offset="47.62%"></stop>
+            <stop stop-color="#06E775" offset="80.09%"></stop>
+            <stop stop-color="#00F076" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="bank-cards" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="d_bank-cards_my-card_overview" transform="translate(-722.000000, -2019.000000)">
+            <g id="benefits-copy-5" transform="translate(462.000000, 1834.000000)">
+                <g id="фpp" transform="translate(20.000000, 173.000000)">
+                    <g id="button_primary" transform="translate(225.000000, 0.000000)">
+                        <g id="google-play" transform="translate(15.954545, 12.500000)">
+                            <path d="M0.478912216,0.316125318 C0.191564887,0.604626312 0,1.0854613 0,1.66246329 L0,22.9153698 C0,23.4923718 0.191564887,23.9732068 0.478912216,24.2617078 L0.57469466,24.3578748 L12.4517176,12.4331671 L12.4517176,12.3370001 L12.4517176,12.2408331 L0.478912216,0.316125318 L0.478912216,0.316125318 L0.478912216,0.316125318 Z" id="Shape" fill="url(#linearGradient-1)"></path>
+                            <path d="M16.3787978,16.472181 L12.4517176,12.5293341 L12.4517176,12.3370001 L12.4517176,12.2408331 L16.3787978,8.29798615 L16.4745802,8.39415315 L21.16792,11.0868291 C22.5088742,11.8561651 22.5088742,13.106336 21.16792,13.875672 L16.3787978,16.472181 L16.3787978,16.472181 L16.3787978,16.472181 Z" id="Shape" fill="url(#linearGradient-2)"></path>
+                            <path d="M16.4745802,16.376014 L12.4517176,12.3370001 L0.478912216,24.3578748 C0.957824433,24.8387098 1.62830154,24.8387098 2.49034353,24.4540418 L16.4745802,16.376014" id="Shape" fill="url(#linearGradient-3)"></path>
+                            <path d="M16.4745802,8.29798615 L2.49034353,0.316125318 C1.62830154,-0.164709672 0.957824433,-0.0685426742 0.478912216,0.412292316 L12.4517176,12.3370001 L16.4745802,8.29798615 L16.4745802,8.29798615 Z" id="Shape" fill="url(#linearGradient-4)"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

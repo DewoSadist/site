@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="45px" height="45px" viewBox="0 0 45 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>E6548B4B-42E2-4E4B-A4C1-206EC0BB8653</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons/cards/insurance-abroad">
+            <g id="safety" transform="translate(8.000000, 5.000000)">
+                <g id="shield">
+                    <path d="M17.7655133,0.565188709 C17.7655133,0.565188709 14.819073,1.4679639 14.4764869,1.55328715 L1.32746829,4.82594775 C0.545956933,5.02053838 0,5.63665269 0,6.32424199 L0,15.0483886 C0,19.658346 1.6523746,24.0799669 4.7782083,27.8354409 C7.20171928,30.7474209 10.4400898,33.1515712 14.1430054,34.7881695 C14.4112727,34.906818 14.7055834,34.9660529 15,34.9660529" id="Shape" stroke="#061122" stroke-width="1.4" stroke-linecap="round"></path>
+                    <path d="M29.7733014,0.529398769 C29.7733014,0.529398769 26.3986315,1.4679639 26.0560453,1.55328715 L12.9070267,4.82594775 C12.1255154,5.02053838 11.5795584,5.63665269 11.5795584,6.32424199 L11.5795584,15.0483886 C11.5795584,19.658346 13.231933,24.0799669 16.3577667,27.8354409 C18.7812777,30.7474209 22.0196482,33.1515712 25.7225638,34.7881695 C25.9908312,34.906818 26.2851419,34.9660529 26.5795584,34.9660529" id="Shape-Copy" stroke="#00A9FF" stroke-width="1.4" stroke-linecap="round" transform="translate(20.676430, 17.747726) scale(-1, 1) translate(-20.676430, -17.747726) "></path>
+                    <g id="user" transform="translate(7.000000, 8.000000)">
+                        <circle id="Oval" fill="#00A9FF" cx="5" cy="3" r="3"></circle>
+                        <path d="M0,12 L0,12 C0,9.80016313 1.50767284,8 3.35073564,8 L6.64926436,8 C8.49232716,8 10,9.80016313 10,12 L10,12" id="Stroke-3" stroke="#00A9FF" stroke-width="1.4" stroke-linecap="round"></path>
+                    </g>
+                </g>
+            </g>
+            <rect id="Rectangle-22" fill="#00A9FF" x="22" y="24" width="10" height="7" rx="1"></rect>
+            <path d="M29,24 C29,22.8954305 28.1045695,22 27,22 C25.8954305,22 25,22.8954305 25,24" id="Oval-2" stroke="#061122" stroke-width="1.4"></path>
+            <rect id="BG-container" x="0" y="0" width="45" height="45"></rect>
+        </g>
+    </g>
+</svg>

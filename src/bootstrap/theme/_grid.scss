@@ -7,21 +7,25 @@
 // Set the container width, and override it for fixed navbars in media queries.
 
 .container {
-  @include container-fixed;
-  
-  padding-left:  ceil($grid-gutter-small-width / 2);
-  padding-right: floor($grid-gutter-small-width / 2);
-
-  @media (min-width: $screen-sm-min) {
-    width: $container-sm;
-  }
-  @media (min-width: $screen-md-min) {
     @include container-fixed;
-    width: $container-md;
-  }
-  @media (min-width: $screen-lg-min) {
-    width: $container-lg;
-  }
+
+    padding-left: ceil($grid-gutter-small-width / 2);
+    padding-right: floor($grid-gutter-small-width / 2);
+
+    @media (min-width: $screen-sm-min) {
+        @include container-fixed;
+        width: $container-sm;
+        // padding-left: ceil($grid-gutter-width / 2);
+        // padding-right: floor($grid-gutter-width / 2);
+    }
+
+    @media (min-width: $screen-md-min) {
+        width: $container-md;
+    }
+
+    @media (min-width: $screen-lg-min) {
+        width: $container-lg;
+    }
 }
 
 // Row
@@ -29,8 +33,9 @@
 // Rows contain and clear the floats of your columns.
 
 .row {
-  @include make-row($grid-gutter-small-width);
-  @media (min-width: $screen-md-min) {
-    @include make-row();
-  }
+    @include make-row($grid-gutter-small-width);
+
+    @media (min-width: $screen-sm-min) {
+        @include make-row;
+    }
 }

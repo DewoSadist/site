@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="45px" height="45px" viewBox="0 0 45 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>4D6F70E0-8531-440C-8480-F9304F106849</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M0,25.0048815 C0,23.897616 0.899784928,23 2.00228533,23 L30.9977147,23 C32.1035463,23 33,23.8938998 33,25.0048815 L33,28 L0,28 L0,25.0048815 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="33" height="5" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons/cards/booking-Copy">
+            <rect id="BG-container" x="0" y="0" width="45" height="45"></rect>
+            <g id="ring-ring" transform="translate(6.000000, 7.000000)">
+                <use id="Rectangle-Copy-2" stroke="#00A9FF" mask="url(#mask-2)" stroke-width="2.8" fill="#FFFFFF" xlink:href="#path-1"></use>
+                <path d="M16.4615385,7.38181802 C9.20727345,7.38181802 3.29321293,13.1964234 3.01057242,20.4772025 L3,23.7510486 L29.9230769,23.7510486 L29.9230769,20.4772025 C29.629864,13.1964234 23.7158035,7.38181802 16.4615385,7.38181802 Z" id="Combined-Shape" stroke="#00A9FF" stroke-width="1.4"></path>
+                <ellipse id="Oval-12" stroke="#061122" stroke-width="1.4" cx="16.5" cy="2.5" rx="2.5" ry="2.5"></ellipse>
+            </g>
+        </g>
+    </g>
+</svg>

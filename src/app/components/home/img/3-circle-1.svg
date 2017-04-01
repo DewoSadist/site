@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>3-circle-1</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="index✅" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="d_index" transform="translate(-783.000000, -1640.000000)">
+            <g id="transfers-copy" transform="translate(-1.000000, 1420.000000)">
+                <g id="circular-shapes-virtual-card">
+                    <g id="transfers-art" transform="translate(254.000000, -15.000000)">
+                        <g id="3" transform="translate(0.000000, 235.000000)">
+                            <g id="Group-10" transform="translate(530.000000, 0.000000)">
+                                <g id="3-circle-1">
+                                    <circle id="Oval-5-Copy-3" fill="#FFFFFF" cx="30" cy="30" r="30"></circle>
+                                    <g id="Icons/transfers/p2hb-1px" transform="translate(30.500000, 30.500000) rotate(-360.000000) translate(-30.500000, -30.500000) translate(13.000000, 13.000000)">
+                                        <g id="p2hb">
+                                            <rect id="Rectangle-4" x="0" y="0" width="35" height="35"></rect>
+                                            <path d="M7.67116786,21.7777778 L2.33338429,21.7777778 C1.47424654,21.7777778 0.777777778,21.0765121 0.777777778,20.22155 L0.777777778,5.44511662 L0.777777778,5.44511662 C0.777777778,4.58563578 1.47150978,3.88888889 2.33327142,3.88888889 L25.6667286,3.88888889 C26.525804,3.88888889 27.2222222,4.5899453 27.2222222,5.4500535 L27.2222222,13.2160951" id="Rectangle" stroke="#061122"></path>
+                                            <path d="M0.777777778,8.16666667 L26.8362353,8.16666667" id="Path-2" stroke="#061122" stroke-linecap="round"></path>
+                                            <rect id="Rectangle" stroke="#00A9FF" x="7.77777778" y="13.2222222" width="26.4444444" height="17.8888889" rx="2"></rect>
+                                            <ellipse id="Oval" fill="#00A9FF" cx="21" cy="19.4444444" rx="2.33333333" ry="2.33333333"></ellipse>
+                                            <g id="Page-1" transform="translate(17.111111, 23.333333)" stroke="#00A9FF" stroke-linecap="round">
+                                                <path d="M0,3.11111111 L0,3.11111111 C0,1.40012688 1.17263443,0 2.60612772,0 L5.17165006,0 C6.60514335,0 7.77777778,1.40012688 7.77777778,3.11111111 L7.77777778,3.11111111" id="Stroke-3"></path>
+                                            </g>
+                                            <path d="M3.88888889,21.7777778 L11.2880046,21.7777778" id="Path-2" stroke="#061122" stroke-linecap="round"></path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

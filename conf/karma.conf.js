@@ -6,9 +6,7 @@ module.exports = function (config) {
     singleRun: true,
     autoWatch: false,
     logLevel: 'INFO',
-    junitReporter: {
-      outputDir: 'test-reports'
-    },
+
     browsers: [
       'PhantomJS'
     ],
@@ -32,10 +30,19 @@ module.exports = function (config) {
     ngHtml2JsPreprocessor: {
       stripPrefix: `${conf.paths.src}/`
     },
-    reporters: ['progress', 'coverage'],
+    reporters: ['progress','coverage','junit'],
     coverageReporter: {
       type: 'html',
       dir: 'coverage/'
+    },
+    junitReporter: {
+      outputDir:  'test_reports', // results will be saved as $outputDir/$browserName.xml
+      outputFile: 'errors.xml', // if included, results will be saved as $outputDir/$browserName/$outputFile
+      suite: '', // suite will become the package name attribute in xml testsuite element
+      useBrowserName: true, // add browser name to report and classes names
+      nameFormatter: undefined, // function (browser, result) to customize the name attribute in xml testcase element
+      classNameFormatter: undefined, // function (browser, result) to customize the classname attribute in xml testcase element
+      properties: {} // key value pair of properties to add to the <properties> section of the report
     },
     webpack: require('./webpack-test.conf'),
     webpackMiddleware: {

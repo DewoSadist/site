@@ -1,36 +1,33 @@
 .help-steps {
     @include flex(stretch, flex-start);
+    width: 100%;
     padding: 0;
     margin: 0;
-    // margin: 20px 0 15px;
-    list-style: none;
-    @media (min-width: $screen-md-min) {
-        height: 55px;
-    }
-    &_wrapped {
-        // @media (min-width: $screen-sm-min) {
-        //     margin: 0px 10px 5px;
-        // }
-        // @media (min-width: $screen-md-min) {
-        //     margin: 5px 10px 0px;
-        // }
 
+    list-style: none;
+
+    @media (min-width: $screen-md-min) {
+        height: 54px;
     }
 
     .item {
         min-width: 75px;
         flex-grow: 1;
+
         @media (min-width: $screen-md-min) {
-            @include flex(center,flex-start);
+            @include flex(center, flex-start);
         }
+
         position: relative;
 
         .text {
             opacity: .5;
             display: block;
-            font-size: 10px;
+            font-size: $font-size-tiny;
             margin: 5px 0 0;
-
+            line-height: 1.2;
+            font-weight: 300;
+            
             .help-label {
                 display: block;
             }
@@ -39,14 +36,13 @@
                 display: inline-block;
                 vertical-align: middle;
                 text-align: left;
-                font-size: 14px;
+                font-size: $font-size-small;
                 margin-left: 10px;
                 margin-top: 0;
             }
         }
 
         .step {
-
             text-align: center;
             position: relative;
             display: inline-block;
@@ -66,7 +62,9 @@
             &:after {
                 content: '';
                 display: inline-block;
-                position: relative;
+                position: absolute;
+                top: 25%;
+                left: 25%;
                 background-color: #fff;
                 width: 10px;
                 height: 10px;
@@ -109,59 +107,48 @@
     .help-arrow {
         position: absolute;
         right: 16px;
-        top: 8px;
+        top: 5px;
 
         @media (min-width: $screen-sm-min) {
-            top: 12px;
+            top: 10px;
         }
 
         @media (min-width: $screen-md-min) {
-            top: -1px;
+            top: 0px;
         }
     }
 }
 
 .password-btn {
     cursor: pointer;
-
-    .icon {
-        @include transition(all 0.3s);
-    }
-
-    &_show {
-        .icon {
-            opacity: .5;
-        }
-    }
 }
 
 .sms-confirmation {
     .resend-button {
         padding-top: 15px;
     }
+
     .form-group {
         margin-top: 15px;
     }
 }
 
 .password-info {
-    padding: 0;
-    overflow: auto;
     list-style: none;
-    padding: 0 15px;
-    background-color: rgba($border-gray, 0.3);
+
+    li + li {
+        margin-top: 10px;
+
+        @media (min-width: $screen-md-min) {
+            margin-top: 15px;
+        }
+    }
 
     li {
         @include flex(flex-start, flex-start);
 
-        margin: 15px 0;
-
-        .text {
-            max-width: 85%;
-        }
-
         .status {
-            margin-top: 3px;
+            flex-shrink: 0;
             border-radius: 50%;
             background-color: $brand-warning;
             width: 20px;
@@ -171,9 +158,9 @@
 
             @include transition(background-color, 0.3s);
 
-            &:before {
+            &:before,&:after {
                 content: '';
-                background-color: $white;
+                background-color: $color-white;
                 width: 10px;
                 height: 2px;
                 display: inline-block;
@@ -185,16 +172,10 @@
             }
 
             &:after {
-                content: '';
-                background-color: $white;
                 width: 0px;
                 height: 2px;
-                display: inline-block;
-                position: absolute;
                 left: 4px;
                 top: 10px;
-
-                @include transition(all, 0.3s);
             }
         }
 
@@ -217,16 +198,17 @@
     }
 }
 
-
-.loading{
+.loading {
     position: relative;
+
     @include user-select(none);
-    &:after{
-        content:'';
+
+    &:after {
+        content: '';
         position: absolute;
         z-index: 5;
         background-size: 100px;
-        background-color: rgba(255,255,255,0.5);
+        background-color: rgba(255, 255, 255, 0.5);
         top: 0;
         bottom: 0;
         left: 0;
@@ -235,24 +217,28 @@
         background-repeat: no-repeat;
         background-position: center center;
     }
-    &_small{
-        &:after{
+
+    &_small {
+        &:after {
             background-size: contain;
         }
     }
-	&.loading-simple {
-		background-image: none;
-	}
+
+    &.loading-simple {
+        background-image: none;
+    }
+
     &_height {
         height: 100px;
     }
 }
 
-.soon-label{
+.soon-label {
     position: relative;
-    &:after{
-        content:'Скоро';
-        color: $white;
+
+    &:after {
+        content: 'скоро';
+        color: $color-white;
         font-size: 12px;
         background-color: $brand-warning;
         width: 40px;
@@ -264,50 +250,48 @@
         top: 0;
         border-radius: $border-radius-base;
     }
+
     cursor: not-allowed !important;
+
     @include reset-filter;
+
     @include user-select(none);
-    &:before{
+
+    &:before {
         position: absolute;
         left: 0;
         right: 0;
         top: 0;
         bottom: 0;
-        content:'';
-        background-color: rgba($white,.7);
+        content: '';
+        background-color: rgba($color-white, 0.7);
     }
 }
 
 .summary {
-    border-radius: $border-radius-base;
-    &-heading{
-        font-size: 15px;
+    &-title{
         margin-top: 0;
-        @media (min-width: $screen-lg-min) {
-            font-size: 18px;
-        }
+        margin-bottom: 10px;
     }
-    &-row {
-        @include flex;
-
+    &-table{
+        margin-top: 10px;
+    }
+    &-form{
+        margin-top: 5px;
+    }
+    &-submit{
+        margin-top: 10px;
+    }
+    &-row{
+        @include flex(flex-start);
         margin: 5px 0;
     }
-
-    &-text {
-        &.black {
-            font-weight: normal;
-            color: $brand-info;
-        }
-
-        @media (min-width: $screen-md-min) {
-            font-size: 16px;
-            line-height: 1.88;
-        }
-    }
 }
-.payment-status{
+
+.payment-status {
     position: relative;
-    &:before{
+
+    &:before {
         content: '';
         display: inline-block;
         position: absolute;
@@ -320,23 +304,27 @@
         right: 2px;
         top: 2px;
     }
+
     &_success {
-        &:before{
+        &:before {
             background-color: $brand-success;
-            background-image: url('../icons/successcheck.svg');
+            background-image: url("../icons/successcheck.svg");
             background-size: 75%;
         }
     }
+
     &_in_progress {
-        &:before{
+        &:before {
             background-color: $brand-warning;
         }
     }
+
     &_failure {
-        &:before{
+        &:before {
             background-color: $brand-danger;
         }
-        &:after{
+
+        &:after {
             content: '';
             position: absolute;
             right: 4px;
@@ -344,7 +332,34 @@
             z-index: 6;
             width: 6px;
             height: 1px;
-            background-color: $white;
+            background-color: $color-white;
         }
+    }
+}
+
+.flex-truncated {
+    width: 100%;
+    @include flex(center, flex-start);
+    
+    .long-and-truncated {
+        flex: 1;
+        min-width: 0;
+
+        .truncated-text {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: inline-block;
+            max-width: 100%;
+            vertical-align: middle;
+        }
+    }
+
+    .short-and-fixed {
+        white-space: nowrap;
+    }
+
+    .edit-input {
+        max-width: 500px;
     }
 }

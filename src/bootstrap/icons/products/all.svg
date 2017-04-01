@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="45px" height="45px" viewBox="0 0 45 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>D1938467-07C7-4C57-BD45-8409DA8A0782</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons/tranfers/transfer-card-2-card">
+            <g id="p2p-icon">
+                <rect id="Rectangle-4" x="0" y="0" width="45" height="45"></rect>
+                <rect id="Rectangle" stroke="#061122" stroke-width="1.4" x="1" y="5" width="34" height="23" rx="2"></rect>
+                <path d="M1,11 L34.5931541,11" id="Path-2" stroke="#061122" stroke-width="1.4" stroke-linecap="round"></path>
+                <g id="Group-2" transform="translate(7.000000, 17.000000)" stroke-width="1.4">
+                    <rect id="Rectangle" stroke="#00A9FF" fill="#FFFFFF" x="3" y="0" width="34" height="23" rx="2"></rect>
+                    <path d="M28.5219741,8.66914174 C28.1852549,8.85423144 27.7986644,8.95948886 27.387533,8.95948886 C26.0826122,8.95948886 25.0247174,7.89858545 25.0247174,6.59035486 C25.0247174,5.28212427 26.0826122,4.22122085 27.387533,4.22122085 C27.8432226,4.22122085 28.2687635,4.35053013 28.6296648,4.57452851" id="Stroke-210" stroke="#00A9FF" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M32.8344413,6.59035486 C32.8344413,7.89858545 31.7765465,8.95948886 30.4713011,8.95948886 C29.1663803,8.95948886 28.1084855,7.89858545 28.1084855,6.59035486 C28.1084855,5.28212427 29.1663803,4.22122085 30.4713011,4.22122085 C31.7765465,4.22122085 32.8344413,5.28212427 32.8344413,6.59035486 L32.8344413,6.59035486 Z" id="Stroke-208" stroke="#00A9FF" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M0,11 L9.5131488,11" id="Path-2" stroke="#061122" stroke-linecap="round"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

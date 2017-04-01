@@ -1,0 +1,898 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+    <!-- This is a simple example template that you can edit to create your own custom templates -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Facebook sharing information tags -->
+    <meta property="og:title" content="Homebank">
+    <title>Homebank</title>
+    <style type="text/css">
+    /* Basics */
+    
+    body {
+        margin: 0 !important;
+        padding: 0;
+        background: #edf6ff;
+    }
+    
+    table {
+        border-spacing: 0;
+        font-family: sans-serif;
+        color: #333333;
+    }
+    
+    td {
+        padding: 0;
+    }
+    
+    img {
+        border: 0;
+    }
+    
+    div[style*="margin: 16px 0"] {
+        margin: 0 !important;
+    }
+    
+    #outlook a {
+        padding: 0;
+    }
+    
+    body {
+        width: 100% !important;
+    }
+    
+    body {
+        -webkit-text-size-adjust: none;
+    }
+    
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    
+    img {
+        border: none;
+        font-size: 14px;
+        font-weight: bold;
+        height: auto;
+        line-height: 100%;
+        outline: none;
+        text-decoration: none;
+        text-transform: capitalize;
+    }
+    
+    #backgroundTable {
+        height: 100% !important;
+        margin: 0;
+        padding: 0;
+        width: 100% !important;
+    }
+    /*
+        @tab Page
+        @section background color
+        @tip Set the background color for your email. You may want to choose one that matches your company's branding.
+        @theme page
+        */
+    
+    body,
+    .backgroundTable {
+        background: #edf6ff;
+    }
+    /*
+        @tab Page
+        @section email border
+        @tip Set the border for your email.
+        */
+    
+    #templateContainer {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    
+    #templateHeader {
+        border-radius: 4px 4px 0 0;
+        background: #071222;
+    }
+    
+    #templateFooter {
+        border-radius: 0 0 4px 4px;
+        background: #071222;
+    }
+    
+    div,
+    a,
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    td,
+    th {
+        font-family: Tahoma, sans-serif;
+    }
+    
+    .fz_13 {
+        font-size: 13px;
+    }
+    
+    .fz_14 {
+        font-size: 14px;
+    }
+    
+    .fz_16 {
+        font-size: 16px;
+    }
+    
+    .fz_18 {
+        font-size: 18px;
+    }
+    
+    .fz_20 {
+        font-size: 20px;
+    }
+    
+    .fz_22 {
+        font-size: 22px;
+    }
+    
+    .c_white {
+        color: #fff;
+    }
+    
+    .c_light-white {
+        color: #fff;
+        color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .c_gray {
+        color: #6e7278;
+    }
+    
+    .c_dark {
+        color: #071222;
+    }
+    
+    .c_green {
+        color: #1ec68b;
+    }
+    
+    .c_red {
+        color: #F82D6A;
+    }
+    
+    .c_blue {
+        color: #00a9ff;
+    }
+    
+    .left {
+        text-align: left;
+    }
+    
+    .right {
+        text-align: right;
+    }
+    
+    .pl {
+        padding-left: 30px;
+    }
+    
+    .pr {
+        padding-right: 30px;
+    }
+    
+    .header__div {
+        margin-bottom: 10px;
+    }
+    
+    .content {
+        border-left: 1px solid #cdd2d9;
+        border-right: 1px solid #cdd2d9;
+        background: #fff;
+    }
+    
+    .heading {
+        padding-top: 18px;
+        padding-bottom: 18px;
+        height: 44px;
+    }
+    
+    .main {
+        border-top: 1px dashed #cdd2d9;
+        border-bottom: 1px dashed #cdd2d9;
+        padding-top: 17px;
+        padding-bottom: 17px;
+    }
+    
+    .main__cell {
+        padding-top: 17px;
+        padding-bottom: 17px;
+    }
+    
+    .bottom {
+        padding-top: 14px;
+        padding-bottom: 14px;
+    }
+    
+    .bottom__cell {
+        padding-top: 14px;
+        padding-bottom: 14px;
+    }
+    
+    .footer__content {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .footer__phone{
+        padding-bottom: 5px;
+    }
+    .footer__border{
+        padding-top: 5px;
+        padding-bottom: 30px;
+        border-bottom: 1px dashed #fff;
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+    }
+    .stamp{
+        padding-bottom: 15px;
+    }
+    .alseco__row {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    
+    .alseco__cell {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    
+    .alseco__fixed {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    
+    .alseco__block {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border-top: 1px dashed #cdd2d9;
+    }
+    
+    .alseco__end {
+        padding-top: 20px;
+        border-top: 1px dashed #cdd2d9;
+    }
+    
+    .alseco__total {
+        padding-bottom: 5px;
+    }
+    
+    .alseco__total-middle {
+        padding-top: 5px;
+    }
+    .alseco__status{
+        padding-bottom: 15px;
+    }
+    </style>
+</head>
+
+<body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
+    <center>
+        <table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="backgroundTable">
+            <tr>
+                <td align="center" valign="top">
+                    <table border="0" cellpadding="0" cellspacing="0" width="600" id="templateContainer">
+                        <tr>
+                            <td align="center" valign="top">
+                                <!-- // Begin Template Header \\ -->
+                                <table border="0" cellpadding="0" cellspacing="0" width="600" id="templateHeader">
+                                    <tr>
+                                        <td class="left">
+                                            <!-- // Begin Module: Logo \\ -->
+                                            <a href="https://homebank.kz/open/">
+                                                <img src="http://ec2-52-211-226-76.eu-west-1.compute.amazonaws.com/img/logo-ripple@2x.png" width="276" height="115" class="logo" alt="Homebank">
+                                            </a>
+                                            <!-- // End Module: Logo \\ -->
+                                        </td>
+                                        <td class="right pr">
+                                            <div class="c_white fz_16 header__div"><b>Квитанция</b></div>
+                                            <!-- @var: category -->
+                                            <div class="c_white fz_20">Оплата Алсеко</div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <!-- // End Template Header \\ -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center" valign="top">
+                                <!-- // Begin Template Content \\ -->
+                                <table border="0" cellpadding="0" cellspacing="0" width="600" class="content">
+                                    <tr>
+                                        <td valign="middle" class="heading">
+                                            <!-- // Begin Module: Content Heading \\ -->
+                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tr>
+                                                    <td class="left pl">
+                                                        <div class="c_dark fz_20"><b>Детали платежа</b></div>
+                                                    </td>
+                                                    <td class="right pr">
+                                                        <img src="http://ec2-52-211-226-76.eu-west-1.compute.amazonaws.com/img/details-icon@2x.png" width="45" height="45" class="details-img" alt="Детали платежа" />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <!-- // End Module: Content Heading \\ -->
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="middle" class="alseco__block">
+                                            <!-- // Begin Module: Content Main \\ -->
+                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tr>
+                                                    <td class="alseco__row">
+                                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" class="">
+                                                            <tr>
+                                                                <td class="left pl alseco__cell">
+                                                                    <div class="c_gray fz_16">Собственник</div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="left pl alseco__cell">
+                                                                    <!-- @var accountInfo -->
+                                                                    <div class="c_dark fz_16">Нурманбетова Алия Амирбековна. г. Алматы Райымбека д. 101, кв. 105</div>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="alseco__row">
+                                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" class="">
+                                                            <tr>
+                                                                <td width="33%" class="left pl alseco__cell">
+                                                                    <div class="c_gray fz_16">№ лицевого счета</div>
+                                                                </td>
+                                                                <td width="33%" class="left pl alseco__cell">
+                                                                    <div class="c_gray fz_16">Квитанция №</div>
+                                                                </td>
+                                                                <td width="33%" class="left pl alseco__cell">
+                                                                    <div class="c_gray fz_16">Статус</div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="left pl alseco__cell">
+                                                                    <!-- @var accountId -->
+                                                                    <div class="c_dark fz_16">2141051</div>
+                                                                </td>
+                                                                <td class="left pl alseco__cell">
+                                                                    <!-- @var provInvoiceId -->
+                                                                    <div class="c_dark fz_16">160810388352</div>
+                                                                </td>
+                                                                <td class="left pl alseco__cell">
+                                                                    <!-- @var status -->
+                                                                    <div class="c_green fz_16">Оплачено</div>
+                                                                    <!-- 
+                                                                    <div class="c_red fz_16">Не оплачено</div> -->
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="alseco__row">
+                                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" class="">
+                                                            <tr>
+                                                                <td width="33%" class="left pl alseco__cell">
+                                                                    <div class="c_gray fz_16">Период</div>
+                                                                </td>
+                                                                <td width="33%" class="left pl alseco__cell">
+                                                                    <div class="c_gray fz_16">Дата выписки</div>
+                                                                </td>
+                                                                <td width="33%" class="left pl alseco__cell">
+                                                                    <div class="c_gray fz_16">Оплатить до</div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="left pl alseco__cell">
+                                                                    <!-- @var invoiceMonth -->
+                                                                    <div class="c_dark fz_16">Август</div>
+                                                                </td>
+                                                                <td class="left pl alseco__cell">
+                                                                    <!-- @var formedDate -->
+                                                                    <div class="c_dark fz_16">06.08.2016</div>
+                                                                </td>
+                                                                <td class="left pl alseco__cell">
+                                                                    <!-- @var expirationDate -->
+                                                                    <div class="c_dark fz_16">31.08.2016</div>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="alseco__row">
+                                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" class="">
+                                                            <tr>
+                                                                <td width="33%" class="left pl alseco__cell">
+                                                                    <div class="c_gray fz_16">Кол-во проживающих</div>
+                                                                </td>
+                                                                <td width="35%" class="left pl alseco__cell">
+                                                                    <div class="c_gray fz_16">Отапливаемая площадь</div>
+                                                                </td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="left pl alseco__cell">
+                                                                    <!-- @var invoiceCalcParameters[people] -->
+                                                                    <div class="c_dark fz_16">3</div>
+                                                                </td>
+                                                                <td class="left pl alseco__cell">
+                                                                    <!-- @var invoiceCalcParameters[area] -->
+                                                                    <div class="c_dark fz_16">56.80</div>
+                                                                </td>
+                                                                <td></td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <!-- // End Module: Content Main \\ -->
+                                        </td>
+                                    </tr>
+                                    <!-- @foreach detail in invoicePaymentDetails with cst (счетчиковые) -->
+                                    <tr>
+                                        <td valign="middle" class="alseco__block">
+                                            <!-- // Begin Module: Content Main \\ -->
+                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tr>
+                                                    <td class="alseco__row">
+                                                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                            <tr>
+                                                                <td class="left pl">
+                                                                    <div class="fz_18 c_dark">
+                                                                        <!-- @var detail[name] -->
+                                                                        <b>Электроэнергия</b>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="alseco__row">
+                                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" class="">
+                                                            <tr>
+                                                                <td width="25%" class="left pl alseco__cell">
+                                                                    <div class="c_gray fz_16">Текущие</div>
+                                                                </td>
+                                                                <td width="25%" class="left alseco__cell">
+                                                                    <div class="c_gray fz_16">Предыдущие</div>
+                                                                </td>
+                                                                <td width="25%" class="left alseco__cell">
+                                                                    <!-- @var monthName -->
+                                                                    <div class="c_gray fz_16">За август</div>
+                                                                </td>
+                                                                <td width="25%" class="left alseco__cell">
+                                                                    <div class="c_gray fz_16">Итого к оплате</div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="left pl alseco__cell">
+                                                                    <!-- @var detail[current] -->
+                                                                    <div class="c_dark fz_16">844.00</div>
+                                                                </td>
+                                                                <td class="left alseco__cell">
+                                                                    <!-- @var detail[previous] -->
+                                                                    <div class="c_dark fz_16">740.00</div>
+                                                                </td>
+                                                                <td class="left alseco__cell">
+                                                                    <!-- @var detail[difference] -->
+                                                                    <div class="c_dark fz_16">114.00</div>
+                                                                </td>
+                                                                <td class="left alseco__cell">
+                                                                    <!-- @var detail[sum] -->
+                                                                    <div class="c_dark fz_18"><b>4 618. 45</b></div>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <!-- // End Module: Content Main \\ -->
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="middle" class="alseco__block">
+                                            <!-- // Begin Module: Content Main \\ -->
+                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tr>
+                                                    <td class="alseco__row">
+                                                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                            <tr>
+                                                                <td class="left pl">
+                                                                    <div class="fz_18 c_dark">
+                                                                        <!-- @var detail[name] -->
+                                                                        <b>Горячая вода</b>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="alseco__row">
+                                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" class="">
+                                                            <tr>
+                                                                <td width="25%" class="left pl alseco__cell">
+                                                                    <div class="c_gray fz_16">Текущие</div>
+                                                                </td>
+                                                                <td width="25%" class="left alseco__cell">
+                                                                    <div class="c_gray fz_16">Предыдущие</div>
+                                                                </td>
+                                                                <td width="25%" class="left alseco__cell">
+                                                                    <!-- @var monthName -->
+                                                                    <div class="c_gray fz_16">За август</div>
+                                                                </td>
+                                                                <td width="25%" class="left alseco__cell">
+                                                                    <div class="c_gray fz_16">Итого к оплате</div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="left pl alseco__cell">
+                                                                    <!-- @var detail[current] -->
+                                                                    <div class="c_dark fz_16">844.00</div>
+                                                                </td>
+                                                                <td class="left alseco__cell">
+                                                                    <!-- @var detail[previous] -->
+                                                                    <div class="c_dark fz_16">740.00</div>
+                                                                </td>
+                                                                <td class="left alseco__cell">
+                                                                    <!-- @var detail[difference] -->
+                                                                    <div class="c_dark fz_16">114.00</div>
+                                                                </td>
+                                                                <td class="left alseco__cell">
+                                                                    <!-- @var detail[sum] -->
+                                                                    <div class="c_dark fz_18"><b>4 618. 45</b></div>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <!-- // End Module: Content Main \\ -->
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="middle" class="alseco__block">
+                                            <!-- // Begin Module: Content Main \\ -->
+                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tr>
+                                                    <td class="alseco__row">
+                                                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                            <tr>
+                                                                <td class="left pl">
+                                                                    <div class="fz_18 c_dark">
+                                                                        <!-- @var detail[name] -->
+                                                                        <b>Холодная вода</b>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="alseco__row">
+                                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" class="">
+                                                            <tr>
+                                                                <td width="25%" class="left pl alseco__cell">
+                                                                    <div class="c_gray fz_16">Текущие</div>
+                                                                </td>
+                                                                <td width="25%" class="left alseco__cell">
+                                                                    <div class="c_gray fz_16">Предыдущие</div>
+                                                                </td>
+                                                                <td width="25%" class="left alseco__cell">
+                                                                    <!-- @var monthName -->
+                                                                    <div class="c_gray fz_16">За август</div>
+                                                                </td>
+                                                                <td width="25%" class="left alseco__cell">
+                                                                    <div class="c_gray fz_16">Итого к оплате</div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="left pl alseco__cell">
+                                                                    <!-- @var detail[current] -->
+                                                                    <div class="c_dark fz_16">844.00</div>
+                                                                </td>
+                                                                <td class="left alseco__cell">
+                                                                    <!-- @var detail[previous] -->
+                                                                    <div class="c_dark fz_16">740.00</div>
+                                                                </td>
+                                                                <td class="left alseco__cell">
+                                                                    <!-- @var detail[difference] -->
+                                                                    <div class="c_dark fz_16">114.00</div>
+                                                                </td>
+                                                                <td class="left alseco__cell">
+                                                                    <!-- @var detail[sum] -->
+                                                                    <div class="c_dark fz_18"><b>4 618. 45</b></div>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <!-- // End Module: Content Main \\ -->
+                                        </td>
+                                    </tr>
+                                    <!-- @endforeach -->
+                                    <tr>
+                                        <td valign="middle" class="alseco__block">
+                                            <!-- // Begin Module: Content Main \\ -->
+                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tr>
+                                                    <td class="alseco__row">
+                                                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                            <tr>
+                                                                <td class="left pl">
+                                                                    <div class="fz_18 c_dark">
+                                                                        <!-- @var detail[name] -->
+                                                                        <b>Фиксированные</b>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="alseco__row">
+                                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" class="">
+                                                            <tr>
+                                                                <td width="28%" valign="top" class="left pl alseco__cell">
+                                                                    <div class="c_gray fz_16">Услуга</div>
+                                                                </td>
+                                                                <td width="47%" valign="top" class="left pl alseco__cell">
+                                                                    <div class="c_gray fz_16">Начислено</div>
+                                                                </td>
+                                                                <td width="25%" valign="top" class="left alseco__cell">
+                                                                    <div class="c_gray fz_16">Итого к оплате</div>
+                                                                </td>
+                                                            </tr>
+                                                            <!-- @foreach detail in invoicePaymentDetails with non-cst (фиксированные) -->
+                                                            <tr>
+                                                                <td class="left pl alseco__fixed" valign="top">
+                                                                    <!-- @var detail[current] -->
+                                                                    <div class="c_dark fz_14">Отопление</div>
+                                                                </td>
+                                                                <td class="left pl alseco__fixed" valign="top">
+                                                                    <!-- @var detail[amount] -->
+                                                                    <div class="c_dark fz_14">0.00</div>
+                                                                </td>
+                                                                <td class="left alseco__fixed" valign="middle">
+                                                                    <!-- @var detail[sum] -->
+                                                                    <div class="c_dark fz_18"><b>0.00</b></div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="left pl alseco__fixed" valign="top">
+                                                                    <!-- @var detail[current] -->
+                                                                    <div class="c_dark fz_14">Газ</div>
+                                                                    <!-- @var detail[description] -->
+                                                                    <div class="c_gray fz_14">
+                                                                        308.75 тг/чел
+                                                                    </div>
+                                                                </td>
+                                                                <td class="left pl alseco__fixed" valign="top">
+                                                                    <!-- @var detail[amount] -->
+                                                                    <div class="c_dark fz_14">2405.29</div>
+                                                                </td>
+                                                                <td class="left alseco__fixed" valign="middle">
+                                                                    <!-- @var detail[sum] -->
+                                                                    <div class="c_dark fz_18"><b>2 405.29</b></div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="left pl alseco__fixed" valign="top">
+                                                                    <!-- @var detail[current] -->
+                                                                    <div class="c_dark fz_14">ВДГО</div>
+                                                                    <!-- @var detail[description] -->
+                                                                    <div class="c_gray fz_14">
+                                                                        75.00 тг/точка
+                                                                    </div>
+                                                                </td>
+                                                                <td class="left pl alseco__fixed" valign="top">
+                                                                    <!-- @var detail[amount] -->
+                                                                    <div class="c_dark fz_14">300.00</div>
+                                                                </td>
+                                                                <td class="left alseco__fixed" valign="middle">
+                                                                    <!-- @var detail[sum] -->
+                                                                    <div class="c_dark fz_18"><b>300.00</b></div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="left pl alseco__fixed" valign="top">
+                                                                    <!-- @var detail[current] -->
+                                                                    <div class="c_dark fz_14">Служба спасения 109</div>
+                                                                </td>
+                                                                <td class="left pl alseco__fixed" valign="top">
+                                                                    <!-- @var detail[amount] -->
+                                                                    <div class="c_dark fz_14">70.00</div>
+                                                                </td>
+                                                                <td class="left alseco__fixed" valign="middle">
+                                                                    <!-- @var detail[sum] -->
+                                                                    <div class="c_dark fz_18"><b>70.00</b></div>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <!-- // End Module: Content Main \\ -->
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="middle" class="alseco__end">
+                                            <!-- // Begin Module: Content Main \\ -->
+                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tr>
+                                                    <td valign="middle" width="75%" class="pl left stamp">
+                                                        <!-- @if status == paid -->
+                                                        <img src="http://ec2-52-211-226-76.eu-west-1.compute.amazonaws.com/img/stamp@2x.png" width="340" class="details-img" alt="facebook" />
+                                                    </td>
+                                                    <td valign="middle">
+                                                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                            <tr>
+                                                                <td class="left alseco__total ">
+                                                                    <div class="fz_16 c_gray">Итого</div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="left alseco__total">
+                                                                    <!-- @var total sum -->
+                                                                    <div class="fz_18 c_dark">38 998.45</div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="left alseco__total alseco__total-middle">
+                                                                    <div class="fz_16 c_gray">Статус</div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="left alseco__status">
+                                                                    <!-- @var status -->
+                                                                    <div class="fz_18 c_green">Оплачено</div>
+                                                                    <!-- <div class="fz_18 c_red">Не оплачено</div> -->
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <!-- // End Module: Content Main \\ -->
+                                        </td>
+                                    </tr>
+                                </table>
+                                <!-- // End Template Content \\ -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center" valign="top">
+                                <!-- // Begin Template Footer \\ -->
+                                <table border="0" cellpadding="0" cellspacing="0" width="600" id="templateFooter">
+                                    <tr>
+                                        <td class="footer__content pl pr">
+                                            <div class="fz_18 c_white">С радостью ответим на любые
+                                                <br /> возникшие вопросы в нашем Call-Center</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="footer__border">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tr>
+                                                    <td valign="middle" class="pl">
+                                                        <img src="http://ec2-52-211-226-76.eu-west-1.compute.amazonaws.com/img/phone.png" alt="" width="36" height="36" />
+                                                    </td>
+                                                    <td valign="middle">
+                                                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                            <tr>
+                                                                <td class="footer__phone">
+                                                                    <div class="fz_14 c_light-white">
+                                                                        г. Алматы
+                                                                    </div>
+                                                                </td>
+                                                                <td class="footer__phone">
+                                                                    <div class="fz_14 c_light-white">
+                                                                        Другие города
+                                                                    </div>
+                                                                </td>
+                                                                <td class="footer__phone">
+                                                                    <div class="fz_14 c_light-white">
+                                                                        С мобильного (бесплатно)
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="fz_16 c_white">
+                                                                        +7 (727) 258-53-34
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="fz_16 c_white">
+                                                                        585-334
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="fz_16 c_white">
+                                                                        7111
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="middle" class="footer__content pl pr">
+                                            <!-- // Begin Module: Footer \\ -->
+                                            <table border="0" cellpadding="0" cellspacing="0" width="540">
+                                                <tr>
+                                                    <td valign="middle" class="footer__item"><a class="fz_14 c_blue" href="https://homebank.kz/open/">Мой Homebank</a></td>
+                                                    <td valign="middle" class="footer__item"><a class="fz_14 c_blue" href="https://homebank.kz/open/transfers">Переводы</a></td>
+                                                    <td valign="middle" class="footer__item"><a class="fz_14 c_blue" href="https://homebank.kz/open/payments">Услуги и платежи</a></td>
+                                                    <td valign="middle" class="footer__item right">
+                                                        <a href="https://www.facebook.com/qazkombank"><img src="http://ec2-52-211-226-76.eu-west-1.compute.amazonaws.com/img/facebook@2x.png" width="30" height="30" class="details-img" alt="facebook" /></a>
+                                                    </td>
+                                                    <td valign="middle" class="footer__item right">
+                                                        <a href="https://vk.com/qazkom_bank"><img src="http://ec2-52-211-226-76.eu-west-1.compute.amazonaws.com/img/vk@2x.png" width="30" height="30" class="details-img" alt="vkontakte" /></a>
+                                                    </td>
+                                                    <td valign="middle" class="footer__item right">
+                                                        <a href="https://twitter.com/Qazkom_Bank"><img src="http://ec2-52-211-226-76.eu-west-1.compute.amazonaws.com/img/tw@2x.png" width="30" height="30" class="details-img" alt="twitter" /></a>
+                                                    </td>
+                                                    <td valign="middle" class="footer__item right">
+                                                        <a href="https://www.instagram.com/qazkom_official/"><img src="http://ec2-52-211-226-76.eu-west-1.compute.amazonaws.com/img/inst@2x.png" width="30" height="30" class="details-img" alt="instagram" /></a>
+                                                    </td>
+                                                    <td valign="middle" class="footer__item right">
+                                                        <a href="https://www.youtube.com/c/QAZKOM"><img src="http://ec2-52-211-226-76.eu-west-1.compute.amazonaws.com/img/youtube@2x.png" width="30" height="30" class="details-img" alt="youtube" /></a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <!-- // End Module: Footer \\ -->
+                                        </td>
+                                    </tr>
+                                </table>
+                                <!-- // End Template Footer \\ -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center" valign="top">
+                                <!-- // Begin Template Copyright \\ -->
+                                <table border="0" cellpadding="0" cellspacing="0" width="600" id="templateCopyright">
+                                    <tr>
+                                        <td height="20">&nbsp;</td>
+                                        <td height="20">&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="middle" width="60">
+                                            <img src="http://ec2-52-211-226-76.eu-west-1.compute.amazonaws.com/img/kkb@2x.png" alt="kazkom" width="44" height="43" />
+                                        </td>
+                                        <td valign="middle">
+                                            <p class="fz_13 c_dark">
+                                                Лицензия Национального Банка Республики Казахстан №1.2.16/222/32 от 02.12.2014г.
+                                                <br />Copyright © 2016 АО "Казкоммерцбанк". Все права защищены.
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <!-- // End Template Copyright \\ -->
+                            </td>
+                        </tr>
+                    </table>
+                    <br>
+                </td>
+            </tr>
+        </table>
+    </center>
+</body>
+
+</html>

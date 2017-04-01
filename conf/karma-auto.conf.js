@@ -7,7 +7,7 @@ module.exports = function (config) {
     autoWatch: true,
     logLevel: 'INFO',
     junitReporter: {
-      outputDir: 'test-reports'
+      outputDir: 'test_reports'
     },
     browsers: [
       'PhantomJS'

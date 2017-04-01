@@ -1,5 +1,3 @@
-process.env.NODE_ENV = 'test';
-
 const path = require('path');
 
 const gulp = require('gulp');
@@ -11,6 +9,7 @@ gulp.task('karma:auto-run', karmaAutoRun);
 function karmaFinishHandler(done) {
   return failCount => {
     done(failCount ? new Error(`Failed ${failCount} tests.`) : null);
+  
   };
 }
 

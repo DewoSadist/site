@@ -17,38 +17,34 @@ exports.ngModule = 'app';
  *  The main paths of your project handle these with care
  */
 exports.paths = {
-  src: 'src',
-  dist: 'dist',
-  tmp: '.tmp',
-  e2e: 'e2e',
-  tasks: 'gulp_tasks'
-};
-
-/**
-* used on gulp dist
-*/
-exports.htmlmin = {
-  ignoreCustomFragments: [/{{.*?}}/]
+    src: 'src',
+    dist: 'dist',
+    heroku: 'herokuprod',
+    herokuconf: 'heroku_conf',
+    tmp: '.tmp',
+    e2e: 'e2e',
+    tasks: 'gulp_tasks',
+    config: 'src/config'
 };
 
 exports.path = {};
 for (const pathName in exports.paths) {
-  if (Object.prototype.hasOwnProperty.call(exports.paths, pathName)) {
-    exports.path[pathName] = function () {
-      const pathValue = exports.paths[pathName];
-      const funcArgs = Array.prototype.slice.call(arguments);
-      const joinArgs = [pathValue].concat(funcArgs);
-      return path.join.apply(this, joinArgs);
-    };
-  }
+    if (exports.paths.hasOwnProperty(pathName)) {
+        exports.path[pathName] = function pathJoin() {
+            const pathValue = exports.paths[pathName];
+            const funcArgs = Array.prototype.slice.call(arguments);
+            const joinArgs = [pathValue].concat(funcArgs);
+            return path.join.apply(this, joinArgs);
+        };
+    }
 }
 
 /**
- *  Common implementation for an error handler of a Gulp plugin
+ *  Common implementation for an errors handler of a Gulp plugin
  */
 exports.errorHandler = function (title) {
-  return function (err) {
-    gutil.log(gutil.colors.red(`[${title}]`), err.toString());
-    this.emit('end');
-  };
+    return function (err) {
+        gutil.log(gutil.colors.red(`[${title}]`), err.toString());
+        this.emit('end');
+    };
 };

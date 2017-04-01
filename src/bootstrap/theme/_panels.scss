@@ -1,44 +1,83 @@
 // Base class
 .panel {
+    border: 0;
     margin-bottom: 20px;
-    border-radius: $border-radius-base;
 
-    @include hb-shadow();
+    @include hb-shadow;
 }
+
+.panel-heading, .panel-footer {
+
+    padding: $panel-heading-padding;
+    height: $panel-heading-height;
+
+    @media (min-width: $screen-md-min) {
+        height: $panel-heading-height-large;
+        padding: $panel-heading-padding-large;
+    }
+
     
+}
+.panel-footer {
+    @include flex();
+}
 .panel-heading{
-    padding: 9px 10px;
-    @media (min-width: $screen-md-min) {
-        padding: 9px 15px;
+    @include flex(center, flex-start);
+
+    .icon_checkmark-green {
+        margin-right: 5px;
     }
-    &_dynamic{
-        h6{
-            font-size: $font-size-base;
+
+    .back-link {
+        display: block;
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 5px;
         }
-        @media (min-width: $screen-md-min) {
-            padding: 15.5px 15px;
-            h6{
-                font-size: 16px;
-            }
+
+        .text {
+            vertical-align: middle;
         }
     }
 }
-
 .panel-body {
-    padding: 15px ceil($grid-gutter-small-width / 2) 10px;
-
     @media (min-width: $screen-md-min) {
-        padding: 15px ceil($grid-gutter-width / 2) 20px;
+        padding: $panel-body-padding-large;
     }
 }
 
 .panel-heading_help-steps {
-    padding: 8.5px 10px;
-    border-color: $border-gray;
+    height: auto;
+    padding: 10px;
+
     @media (min-width: $screen-md-min) {
-        padding: 0px 10px;
+        padding: $panel-heading-padding-large;
     }
 }
-.panel-default > .panel-heading{
-    border-color: $border-gray;
+
+.panel-heading_back-link {
+    height: 40px;
+}
+
+.panel-heading_no-border {
+    border: 0;
+}
+
+.panel-heading_dynamic {
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    @media (min-width: $screen-md-min) {
+        padding-top: 15px;
+        padding-bottom: 15px; 
+    }
+}
+
+.panel-body_no-top-padding {
+    padding-top: 0;
+}
+.panel-body_bordered{
+    border-top: 1px solid $panel-inner-border;
 }

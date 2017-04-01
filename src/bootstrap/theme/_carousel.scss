@@ -5,8 +5,8 @@
 // Wrapper for the slide container and indicators
 .carousel_virtual {
     height: 225px;
-    background-color: $white;
-    padding: 5px 10px 10px 10px;
+    background-color: $color-white;
+    // padding: 5px 10px 10px 10px;
 
     .carousel-inner {
         position: relative;
@@ -29,13 +29,9 @@
             }
 
             &-title {
-                font-size: 18px;
                 padding-left: 20px;
             }
 
-            &-text {
-                font-weight: normal;
-            }
         }
     }
 
@@ -57,7 +53,7 @@
         left: 0%;
         width: 100%;
         margin-left: 0%;
-        padding-left: 10px;
+        margin-bottom: 8px;
         text-align: left;
 
         li {
@@ -79,7 +75,7 @@
     }
 
     // Scale up controls for tablets and up
-    @media screen and (min-width: $screen-sm-min) {
+    @media (min-width: $screen-sm-min) {
         // Move up the indicators
         .carousel-indicators {
             bottom: 0px;
@@ -122,4 +118,255 @@
 
 .carousel-wrap {
     position: relative;
+}
+.carousel_home{
+    $products-height-small: 400px;
+    $products-height-large: 700px;
+
+    .container {
+        position: relative;
+    }
+
+    .carousel-control {
+        display: none;
+    }
+
+    .carousel-indicators {
+        margin-bottom: 0;
+        bottom: 15px;
+        @media (min-width: $screen-md-min) {
+            bottom: 40px;
+        }
+        li {
+            border: 0;
+            background-color: $color-white;
+            width: 5px;
+            height: 5px;
+            margin: 0 2.5px;
+            
+            &.active {
+                background-color: $brand-primary;
+            }
+        }
+    }
+
+    .slide {
+        &-wrap {
+            height: $products-height-small;
+            @include flex;
+            
+            @media (min-width: $screen-md-min) {
+                text-align: left;
+                height: $products-height-large;
+            }
+        }
+        &-content{
+            max-width: 550px;
+            margin: 0 auto;
+            @media (min-width: $screen-md-min) {
+                margin: 0;
+            }
+        }
+        &-button {
+            margin-top: 20px;
+            margin-bottom: 0;
+            width: 150px;
+
+            @media (min-width: $screen-md-min) {
+                width: 300px;
+            }
+        }
+    }
+
+    .slider-control {
+        top: -($products-height-large/2);
+        z-index: 5;
+        border-radius: 50%;
+        position: absolute;
+        display: inline-block;
+        transform: translateY(-50%);
+        background-color: transparent;
+
+        @include transition(all 0.3s);
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        &_left {
+            left: -30px;
+        }
+
+        &_right {
+            right: -30px;
+        }
+
+    }
+}
+.carousel_products {
+    $products-height-small: 270px;
+    $products-height-large: 390px;
+
+    .container {
+        position: relative;
+    }
+
+    .carousel-control {
+        display: none;
+    }
+
+    .carousel-indicators {
+        margin-bottom: 0;
+        bottom: 10px;
+
+        li {
+            border: 0;
+            background-color: $color-white;
+            width: 5px;
+            height: 5px;
+            margin: 0 2.5px;
+
+            &.active {
+                background-color: $brand-primary;
+            }
+        }
+    }
+
+    .slide {
+        &-wrap {
+            position: relative;
+            z-index: 5;
+            text-align: left;
+            height: $products-height-small;
+
+            @include flex;
+
+            @media (min-width: $screen-md-min) {
+                height: $products-height-large;
+            }
+        }
+
+        &-title {
+            color: inherit;
+            margin-bottom: 10px;
+        }
+
+        &-text {
+        }
+
+        &-list {
+            padding-left: 17px;
+            margin: 0;
+        }
+
+        &-content {
+            min-width: 210px;
+            padding-right: 10px;
+        }
+
+        &-image {
+            img {
+                max-height: 160px;
+
+                @media (min-width: $screen-md-min) {
+                    max-height: 260px;
+                }
+            }
+
+            @include hb-shadow;
+        }
+
+        &-button {
+            margin-top: 20px;
+            width: 150px;
+
+            @media (min-width: $screen-md-min) {
+                margin-top: 30px;
+                width: 300px;
+            }
+        }
+    }
+
+    .slide-control {
+        top: 50%;
+        z-index: 5;
+        border-radius: 50%;
+        position: absolute;
+        display: inline-block;
+        transform: translateY(-50%);
+        background-color: transparent;
+
+        @include transition(all 0.3s);
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        &_left {
+            left: -30px;
+        }
+
+        &_right {
+            right: -30px;
+        }
+
+    }
+}
+
+.carousel_advices {
+    margin-top: 5px;
+
+    .carousel-inner {
+        padding: 0 25px;
+
+        .slide {
+            max-width: 500px;
+            margin: 0 auto;
+
+            &-top {
+                font-weight: 300;
+                margin-top: 0;
+            }
+        }
+    }
+
+    .carousel-control {
+        width: auto;
+        opacity: 1;
+
+        @include flex(center, center);
+
+        &:hover {
+            opacity: 1;
+        }
+
+        &.left, &.right {
+            background: none;
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    .carousel-indicators {
+        position: relative;
+        left: auto;
+        width: auto;
+        bottom: 0;
+        margin: 5px auto 0;
+
+        li {
+            border: 0;
+            background-color: $color-white;
+            width: 5px;
+            height: 5px;
+            margin: 0 2.5px;
+
+            &.active {
+                background-color: $brand-primary;
+            }
+        }
+    }
 }
