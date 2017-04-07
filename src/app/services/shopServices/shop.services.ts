@@ -43,7 +43,7 @@ export interface IProductCategory {
 /**
  * @interface IProduct
  */
-export  interface IProduct {
+export interface IProduct {
   id: string;
   title: string;
   img_url: string;

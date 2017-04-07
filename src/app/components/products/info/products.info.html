@@ -49,7 +49,7 @@
                   <label class="control-label">
                       Additional
                   </label>
-                  <textarea class="form-control vresize" type="text" id="additional-information"></textarea>
+                  <textarea class="form-control vresize" type="text" id="additional-information" ng-model="additional"></textarea>
               </div>
           </div>
       </div>
@@ -73,7 +73,7 @@
               </div>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-              <span class="btn btn-primary virtual-button">
+              <span class="btn btn-primary virtual-button" ng-click="$ctrl.validateForm()">
                   Add to Order ${{$ctrl.amount}}
               </span>
           </div>

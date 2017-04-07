@@ -41,6 +41,7 @@ import { productsFilter } from './app/components/products/filter/products.filter
 import { productsInfo } from './app/components/products/info/products.info';
 // ------------------  Services --------------------
 import ShopServices from './app/services/shopServices/shop.services';
+import CartServices from './app/services/cartServices/cart.services';
 // ------------------ General ---------------------
 import routesConfig from './config/routes';
 import restangularConfig from './config/restangular';
@@ -107,6 +108,7 @@ angular.module('app', [
 
 
 .service('ShopServices', ShopServices)
+.service('CartServices', CartServices)
 
 .component('header', header)
 .component('footer', footer)

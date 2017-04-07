@@ -3,11 +3,15 @@ import {
   IProduct, default as ShopServices, IShopServices,
   IProductOption
 } from "../../../services/shopServices/shop.services";
+import CartServices from "../../../services/cartServices/cart.services";
+import {ICartServices} from "../../../services/cartServices/cart.services";
+import {ICartItem} from "../../../services/cartServices/cart.services";
 /**
  * @ngdoc   object
  * @name    ProductsInfoController
  */
 class ProductsInfoController {
+  public additional: string;
   public isLoading: boolean;
   public product: IProduct;
   public productOptions: Array<IProductOption>;
@@ -16,14 +20,18 @@ class ProductsInfoController {
   public amount;
   public resolve;
   public order;
+  public item;
 
   /** @ngInject */
-  constructor($scope, ShopServices: IShopServices) {
+  constructor($scope,
+              public ShopServices: IShopServices,
+              public CartServices: ICartServices) {
 
     this.isLoading = true;
     this.product = this.resolve.product;
     this.quantity = 1;
     this.amount = this.product.price;
+
 
     // console.log(this.product.title);
 
@@ -34,7 +42,15 @@ class ProductsInfoController {
         });
 
   }
-
+  validateForm() {
+    this.item = {
+      id: this.product.id,
+      name: this.product.title,
+      quantity: this.quantity,
+      additional: this.additional
+    };
+      this.CartServices.addItemToCart(this.item);
+  }
   closeModal() {
     this.close();
   }
