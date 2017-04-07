@@ -1,20 +1,38 @@
 import './products.info.scss';
-import {IProduct} from "../../../services/shopServices/shop.services";
+import {
+  IProduct, default as ShopServices, IShopServices,
+  IProductOption
+} from "../../../services/shopServices/shop.services";
 /**
  * @ngdoc   object
  * @name    ProductsInfoController
  */
 class ProductsInfoController {
+  public isLoading: boolean;
   public product: IProduct;
+  public productOptions: Array<IProductOption>;
   public close;
   public quantity: number;
+  public amount;
   public resolve;
+  public order;
 
   /** @ngInject */
-  constructor($scope) {
+  constructor($scope, ShopServices: IShopServices) {
+
+    this.isLoading = true;
     this.product = this.resolve.product;
     this.quantity = 1;
+    this.amount = this.product.price;
+
     // console.log(this.product.title);
+
+    ShopServices.getProductOptions(this.product.id)
+        .then((object) => {
+          this.productOptions = object;
+          this.isLoading = false;
+        });
+
   }
 
   closeModal() {
@@ -31,6 +49,7 @@ class ProductsInfoController {
    */
   increaseQuantity() {
     this.quantity = this.quantity + 1;
+    this.amount = this.quantity * this.product.price;
   }
   /**
    * @ngdoc method
@@ -44,6 +63,7 @@ class ProductsInfoController {
   decreaseQuantity(){
     if(this.quantity > 1)
       this.quantity = this.quantity - 1;
+      this.amount = this.quantity * this.product.price;
   }
 
 }

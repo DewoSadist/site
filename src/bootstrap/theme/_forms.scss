@@ -118,6 +118,13 @@ label {
 }
 
 .radio input[type="radio"],
+.radio-inline input[type="radio"] {
+    &:checked + label:before {
+        @include icon-url(checkbox-checked);
+    }
+}
+
+.radio input[type="radio"],
 .radio-inline input[type="radio"],
 .checkbox input[type="checkbox"],
 .checkbox-inline input[type="checkbox"] {

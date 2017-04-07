@@ -47,7 +47,7 @@ export  interface IProduct {
   id: string;
   title: string;
   img_url: string;
-  price: string;
+  price: number;
   description: string;
   tags: string;
   discount: string;
@@ -55,6 +55,27 @@ export  interface IProduct {
   sup_id: string;
   type_id: string;
   cat_id: string;
+}
+
+/**
+ * @interface IProductOption
+ */
+export interface IProductOption {
+    id: string;
+    name: string;
+    isRequired: number;
+    isFree: number;
+    isOne: number
+    prod_id: number;
+    productOptionsItems: Array<IProductOptionItem>;
+}
+/**
+ * @interface IProductOptionItem
+ */
+export interface IProductOptionItem {
+    id: number;
+    name: string;
+    price: number;
 }
 
 /**
@@ -69,6 +90,8 @@ export interface IShopServices {
 
   getAllProducts();
   getCategoryProducts(catId: string);
+
+  getProductOptions(prodId: string);
 
 
 }
@@ -85,6 +108,8 @@ class ShopServices implements  IShopServices {
 
   public productsList: Array<IProduct>;
   public product: IProduct;
+
+  public productOptionsList: Array<IProductOption>;
 
   public text: string;
 
@@ -220,8 +245,7 @@ class ShopServices implements  IShopServices {
      * @methodOf ShopServices
      *
      * @description
-     * Requests User object from server to determine if user is logged in.
-     * If success, stores user in-memory, otherwise HTTP 401
+     * Requests productCategories object from server .
      *
      * @return  {IPromise}  Request promise
      */
@@ -234,6 +258,29 @@ class ShopServices implements  IShopServices {
             })
             .catch((error) => {
                 deferred.reject(error);
+            });
+        return deferred.promise;
+    }
+
+    /**
+     * @ngdoc method
+     * @name IShopServices.getProductOptions
+     * @methodOf ShopServices
+     *
+     * @description
+     * Requests product options object from server.
+     *
+     * @return  {IPromise}  Request promise
+     */
+    getProductOptions(prodId: string){
+        let deferred = this.$q.defer();
+        this.Restangular.one('products/' + prodId + '/options').post()
+            .then((object) => {
+                this.productOptionsList = object;
+                deferred.resolve(this.productOptionsList);
+            })
+            .catch((error) => {
+            deferred.reject(error);
             });
         return deferred.promise;
     }

@@ -12,7 +12,7 @@
                'active': category.isActive
              }" class="page-list-item" ng-repeat="category in $ctrl.categories track by $index">
             <div class="content">
-              <span class="icon icon_product"></span>
+              <span class="icon icon_product icon_product-all"></span>
               <span>{{category.name}} ({{$ctrl.categoryProductsCount(category)}})</span>
             </div>
           </div>

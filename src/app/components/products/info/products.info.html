@@ -10,34 +10,74 @@
       </div>
   </div>
   <div class="modal-body">
-      <div class="row" ng-show="$ctrl.product.type_id > 0">
+      <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div ng-repeat="option in $ctrl.productOptions" class="">
 
+                  <p class="option">
+                      <span class="option-name">{{option.name}}</span>
+                      <span class="option-optional">{{option.isRequired == 0? '(Optional)': '(Required)'}}</span>
+
+                  </p>
+                  <div class="info-box" ng-if="option.isOne == 0">
+                      <div class="info-box-row" ng-repeat="item in option.productOptionsItems">
+                          <div class="info-box-label">
+                              <div class="checkbox checkbox-primary">
+                                  <input id="opt{{item.id}}"type="checkbox" value="{{item.id}}">
+                                  <label for="opt{{item.id}}">
+                                      {{item.name}} -${{item.price}}
+                                  </label>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="info-box" ng-if="option.isOne == 1">
+                      <div class="info-box-row" ng-repeat="item in option.productOptionsItems">
+                          <div class="info-box-label">
+                              <div class="radio">
+                                  <input id="opt{{item.id}}" name="{{option.id}}" type="radio" value="{{item.id}}">
+                                  <label for="opt{{item.id}}">
+                                      {{item.name}} -${{item.price}}
+                                  </label>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+              </div>
+              <div class="form-group">
+                  <label class="control-label">
+                      Additional
+                  </label>
+                  <textarea class="form-control vresize" type="text" id="additional-information"></textarea>
+              </div>
           </div>
       </div>
+
+
   </div>
   <div class="modal-footer">
       <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-            <div class="input-group">
-              <span class="input-group-addon" id="btnGroupAddon">@</span>
-              <input type="text" class="form-control" placeholder="Input group example" aria-describedby="btnGroupAddon">
-            </div>
+          <div class="hidden-xs hidden-sm col-md-4 col-lg-4">
+
           </div>
-          <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-            <div class="quantity-block">
-              <div class="btn-group-justified" role="group">
-                <button class="btn btn-default btn-secondary" ng-click="$ctrl.decreaseQuantity()">-</button>
-                <button class="btn btn-info btn-secondary">{{$ctrl.quantity}}</button>
-                <button class="btn btn-default btn-secondary" ng-click="$ctrl.increaseQuantity()">+</button>
+          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+              <div class="input-group">
+                  <div class="input-group-addon input-group-addon_button" ng-click="$ctrl.decreaseQuantity()">
+                      <span>-</span>
+                  </div>
+                  <input type="text" class="form-control " value="{{$ctrl.quantity}}">
+                  <div class="input-group-addon input-group-addon_button" ng-click="$ctrl.increaseQuantity()">
+                      <span>+</span>
+                  </div>
               </div>
-            </div>
           </div>
-          <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-            <span class="btn btn-primary virtual-button">
-              Add to Order
-            </span>
+          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+              <span class="btn btn-primary virtual-button">
+                  Add to Order ${{$ctrl.amount}}
+              </span>
           </div>
+
       </div>
   </div>
 </div>
