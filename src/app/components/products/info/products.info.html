@@ -1,83 +1,96 @@
 <div class="products-info">
-  <a href="javascript:void(0)" ng-click="$ctrl.closeModal()" class="modal-close"><span class="icon icon_modal-close"></span></a>
-  <div class="modal-header">
-      <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <div class="price-block">ADD ITEM - ${{$ctrl.product.price}}</div>
-              <h5>{{$ctrl.product.title}}</h5>
-              <div class="description-block">{{$ctrl.product.description}}</div>
-          </div>
-      </div>
-  </div>
-  <div class="modal-body">
-      <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <div ng-repeat="option in $ctrl.productOptions" class="">
+    <a href="javascript:void(0)" ng-click="$ctrl.closeModal()" class="modal-close"><span
+            class="icon icon_modal-close"></span></a>
+    <div class="modal-header">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="price-block">ADD ITEM - {{$ctrl.product.price | currency}}</div>
+                <h4>{{$ctrl.product.title}}</h4>
+                <div class="description-block">{{$ctrl.product.description}}</div>
+            </div>
+        </div>
+    </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="form-group"
+                         ng-class="{'has-error': true}"
+                         ng-repeat="option in $ctrl.productOptions">
+                        <p class="option">
+                            <span class="option-name">{{option.name}}</span>
+                            <span class="option-optional">{{option.isRequired == 0? '(Optional)': '(Required)'}}</span>
+                        </p>
+                        <div class="info-box" ng-if="option.isOne == 0">
+                            <div class="info-box-row" ng-repeat="item in option.productOptionsItems">
+                                <div class="info-box-label">
+                                    <div class="checkbox checkbox-primary">
+                                        <input type="checkbox" id="checkbox{{item.id}}"
+                                               ng-click="$ctrl.totalProductPriceOnChange()"
+                                               ng-model="item.checked">
+                                        <label for="checkbox{{item.id}}" >
+                                            <span>{{item.name}}</span>
+                                            <span>{{item.price | currency}}</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                  <p class="option">
-                      <span class="option-name">{{option.name}}</span>
-                      <span class="option-optional">{{option.isRequired == 0? '(Optional)': '(Required)'}}</span>
+                        <div class="info-box" ng-if="option.isOne == 1">
+                            <div class="info-box-row" ng-repeat="item in option.productOptionsItems">
+                                <div class="info-box-label">
+                                    <div class="radio">
+                                        <input type="radio" id="radio{{item.id}}"
+                                               name="{{option.id}}"
+                                               ng-change="$ctrl.totalProductPriceOnChange()"
+                                               ng-model="option.checked" ng-value="item.id">
+                                        <label for="radio{{item.id}}">
+                                            <span>{{item.name}}</span>
+                                            <span>{{item.price | currency}}</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="extra">
+                            Extra Instructions:
+                        </label>
+                        <textarea class="form-control vresize" type="text" id="extra"
+                                  placeholder="Please list any special requests you may have (e.g. allergies,extra spicy, etc.)."
+                                  ng-model="$ctrl.additional">
+                        </textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="row">
+                <div class="hidden-xs hidden-sm col-md-4 col-lg-4">
 
-                  </p>
-                  <div class="info-box" ng-if="option.isOne == 0">
-                      <div class="info-box-row" ng-repeat="item in option.productOptionsItems">
-                          <div class="info-box-label">
-                              <div class="checkbox checkbox-primary">
-                                  <input id="opt{{item.id}}"type="checkbox" value="{{item.id}}">
-                                  <label for="opt{{item.id}}">
-                                      {{item.name}} -${{item.price}}
-                                  </label>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="info-box" ng-if="option.isOne == 1">
-                      <div class="info-box-row" ng-repeat="item in option.productOptionsItems">
-                          <div class="info-box-label">
-                              <div class="radio">
-                                  <input id="opt{{item.id}}" name="{{option.id}}" type="radio" value="{{item.id}}">
-                                  <label for="opt{{item.id}}">
-                                      {{item.name}} -${{item.price}}
-                                  </label>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-
-              </div>
-              <div class="form-group">
-                  <label class="control-label">
-                      Additional
-                  </label>
-                  <textarea class="form-control vresize" type="text" id="additional-information" ng-model="additional"></textarea>
-              </div>
-          </div>
-      </div>
-
-
-  </div>
-  <div class="modal-footer">
-      <div class="row">
-          <div class="hidden-xs hidden-sm col-md-4 col-lg-4">
-
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-              <div class="input-group">
-                  <div class="input-group-addon input-group-addon_button" ng-click="$ctrl.decreaseQuantity()">
-                      <span>-</span>
-                  </div>
-                  <input type="text" class="form-control " value="{{$ctrl.quantity}}">
-                  <div class="input-group-addon input-group-addon_button" ng-click="$ctrl.increaseQuantity()">
-                      <span>+</span>
-                  </div>
-              </div>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-              <span class="btn btn-primary virtual-button" ng-click="$ctrl.validateForm()">
-                  Add to Order ${{$ctrl.amount}}
-              </span>
-          </div>
-
-      </div>
-  </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                    <div class="form-group"
+                         ng-class="{'has-error': $ctrl.errors.cartQuantityEmptyError}">
+                        <div class="input-group">
+                            <div class="input-group-addon input-group-addon_button" ng-click="$ctrl.decreaseQuantity()">
+                                <span>-</span>
+                            </div>
+                            <input autocomplete="off" clear-errors
+                                   type="text" class="form-control "
+                                   value="{{$ctrl.quantity}}" ng-model="$ctrl.quantity">
+                            <div class="input-group-addon input-group-addon_button" ng-click="$ctrl.increaseQuantity()">
+                                <span>+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                    <button class="btn btn-primary virtual-button" ng-click="$ctrl.addItemToCart()">
+                        <span>Add to Order</span> <span>{{$ctrl.amount | currency}}</span>
+                    </button>
+                </div>
+            </div>
+        </div>
 </div>

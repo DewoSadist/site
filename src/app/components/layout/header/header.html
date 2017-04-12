@@ -1,28 +1,26 @@
 <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header pull-left">
-            <!--<a class="navbar-brand" ng-attr-ui-sref="{{$ctrl.isAuthorized ? 'profile.main' : 'home'}}"><span class="icon icon_logo"></span></a>-->
-            <a class="navbar-brand" ui-sref="home">
-                <!--<span class="icon icon_logo"></span>-->
-            Deos</a>
-        </div>
-        <div class="nav navbar navbar-right">
-            <a ui-sref="users.register" class="btn btn-sm pull-right change-color btn-primary">Registration</a>
-            <a ui-sref="users.login" class="pull-right navbar-link change-color">Login</a>
-        </div>
-        <!--<div class="nav navbar navbar_hb navbar-right pull-right">-->
-            <!--<div class="dropdown dropdown_static">-->
-                <!--<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">-->
-                    <!--<span class="image">-->
-                        <!--<img ng-src="{{$ctrl.getImgUrl()}}/profile-default.svg" alt="">-->
-                    <!--</span>-->
-                    <!--<span class="link">-->
-                        <!--<span class="link-item text-primary">{{$ctrl.user.phone | mask: '+7 999-999-99-99'}}</span>-->
-                        <!--&lt;!&ndash; <small class="link-item link-item_small">Go Bonus: 0 тг.</small> &ndash;&gt;-->
-                    <!--</span>-->
-                    <!--<span class="caret"></span>-->
-                <!--</a>-->
+        <!--<div class="navbar-header pull-left">-->
+            <!--&lt;!&ndash;<a class="navbar-brand" ng-attr-ui-sref="{{$ctrl.isAuthorized ? 'profile.main' : 'home'}}"><span class="icon icon_logo"></span></a>&ndash;&gt;-->
+            <!--<a class="navbar-brand" ui-sref="home">-->
+                <!--&lt;!&ndash;<span class="icon icon_logo"></span>&ndash;&gt;-->
+            <!--Deos</a>-->
+        <!--</div>-->
+        <!--<div class="nav navbar navbar-right">-->
+            <!--<a ui-sref="users.register" class="btn btn-sm pull-right change-color btn-primary">Registration</a>-->
+            <!--<a ui-sref="users.login" class="pull-right navbar-link change-color">Login</a>-->
+        <!--</div>-->
+
+        <div class="nav navbar navbar_hb navbar-right pull-right">
+            <div class="dropdown dropdown_static">
+                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <img ng-src="{{$ctrl.getImgUrl()}}/shopping-cart.svg" alt="">
+                    <span class="link" ng-click="$ctrl.toggleShowCart()">
+                        <span class="link-item">{{ $ctrl.CartServices.getTotalCount()}} {{$ctrl.CartServices.getTotalCount()==1 ? 'item':'items'}}</span>
+                        <small class="link-item link-item_small">{{ $ctrl.CartServices.getTotalPrice() | currency }}</small>
+                    </span>
+                </a>
                 <!--<ul class="dropdown-menu">-->
                     <!--&lt;!&ndash; <li class="disabled">-->
                         <!--<a ui-sref="profile.settings" class="block soon-label" ng-click="$ctrl.disableEvent($event)">-->
@@ -67,8 +65,8 @@
                     <!--</li> &ndash;&gt;-->
                     <!--<li><a href="javascript:void(0);" ng-click="$ctrl.logout()">Logout</a></li>-->
                 <!--</ul>-->
-            <!--</div>-->
-        <!--</div>-->
+            </div>
+        </div>
     </div>
     <!-- /.container-fluid -->
 </nav>
@@ -116,3 +114,4 @@
     </div>
     <!-- /.container-fluid -->
 </nav>
+<sidebar-cart ng-show="$ctrl.showCart" ></sidebar-cart>

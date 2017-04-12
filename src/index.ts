@@ -39,9 +39,13 @@ import { storeRestaurant} from './app/components/store/restaurants/restaurant/st
 import { productsCollection } from './app/components/products/collection/products.collection';
 import { productsFilter } from './app/components/products/filter/products.filter';
 import { productsInfo } from './app/components/products/info/products.info';
+
+import { sidebar } from './app/components/cart/sidebar/sidebar';
 // ------------------  Services --------------------
 import ShopServices from './app/services/shopServices/shop.services';
 import CartServices from './app/services/cartServices/cart.services';
+import TemplatorService from './app/services/templator/templator.service';
+import ErrorService from './app/services/errorService/error.service';
 // ------------------ General ---------------------
 import routesConfig from './config/routes';
 import restangularConfig from './config/restangular';
@@ -109,11 +113,15 @@ angular.module('app', [
 
 .service('ShopServices', ShopServices)
 .service('CartServices', CartServices)
+.service('TemplatorService', TemplatorService)
+.service('ErrorService', ErrorService)
 
 .component('header', header)
 .component('footer', footer)
 .component('home', home)
 .component('homeSlider', homeSlider)
+.component('sidebarCart', sidebar)
+
 
 .component('store', store)
 .component('storeRestaurants', storeRestaurants)

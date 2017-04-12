@@ -67,6 +67,7 @@ export interface IProductOption {
     isFree: number;
     isOne: number
     prod_id: number;
+    checked: string;
     productOptionsItems: Array<IProductOptionItem>;
 }
 /**
@@ -76,6 +77,15 @@ export interface IProductOptionItem {
     id: number;
     name: string;
     price: number;
+    checked: string;
+}
+
+export interface IFormContainer {
+    isLoading?: boolean;
+    resetErrors();
+    startLoading?();
+    stopLoading?();
+    hasNoErrors(): boolean;
 }
 
 /**
@@ -95,6 +105,7 @@ export interface IShopServices {
 
 
 }
+
 /**
  * @ngdoc object
  * @name ShopServices
@@ -104,7 +115,7 @@ class ShopServices implements  IShopServices {
   public restaurant: IRestaurant;
 
   public categoriesList: Array<IProductCategory>;
-  public category: IProductCategory
+  public category: IProductCategory;
 
   public productsList: Array<IProduct>;
   public product: IProduct;
@@ -114,6 +125,7 @@ class ShopServices implements  IShopServices {
   public text: string;
 
   /** @ngInject */
+
   constructor(public $q: ng.IQService,
               public Restangular,
               public appConfig) {

@@ -1,0 +1,30 @@
+<div class="sidebar scroll">
+    <div class="sidebar-close"/>
+    <div class="sidebar-header">
+      <div class="title">
+        {{$ctrl.cart.items?'Your Order':'Your cart is empty'}}
+      </div>
+      <div class="store">
+        {{$ctrl.cart.items?'Assorti':'Add item to get started'}}
+      </div>
+      <a class="btn btn-primary" ui-sref=".home">
+        <span>Checkout</span><span>{{$ctrl.CartServices.getTotalPrice() | currency}}</span>
+      </a>
+    </div>
+    <div class="order-list">
+      <div class="order-item" ng-repeat="item in $ctrl.cart.items">
+        <div class="order-item-quantity">{{item.quantity}}</div>
+        <div class="order-item-container">
+          <div class="order-item-container-header">
+            <div class="name">{{item.name}} </div>
+            <div class="total">{{item.price | currency}} </div>
+          </div>
+          <div ng-repeat="note in item.notes" class="order-item-container-note">{{note.name}}</div>
+          <div class="order-item-container-note">{{item.additional}}</div>
+          <div class="order-item-container-action">
+            <span ng-click="$ctrl.CartServices.deleteItemFromCart(item.id)">Remove</span>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

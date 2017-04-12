@@ -3,10 +3,10 @@
 }
 
 // mixin for generating icon classes
-$categoryList: transport creditsAndDeposits utilities landline tv mobile pdd qiwi;
+$categoryList: restaurant transport creditsAndDeposits utilities landline tv mobile pdd qiwi;
 $paymentList: alseco astanaERC hcsbkMakeDeposit hcsbkPayLoan kazakhtelecom tele2 kcell activ altel qiwi onai;
 $transferList: default default-small own cash cash-small international international-small homebank facebook paypal whatsapp;
-$productList: all booking credit debet extra go insurance internet limit multi nominal partners paypass period secure shopping travel zero-percent zero-tenge;
+$productList: all steak meat cake;
 $homeIcons: virtual-currency virtual-safety virtual-speed virtual-usage;
 
 @mixin home-url($name) {

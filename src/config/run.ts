@@ -3,6 +3,7 @@
 // import UserService from '../app/services/userService/user.service';
 // import ErrorService from '../app/services/errorService/error.service';
 
+import CartServices from "../app/services/cartServices/cart.services";
 export default runConfig;
 
 /** @ngInject */
@@ -15,6 +16,7 @@ function runConfig($cookies: ng.cookies.ICookiesService,
                    // AuthService: AuthService,
                    // UserService: UserService,
                    // ErrorService: ErrorService,
+				   CartServices: CartServices,
                    appConfig) {
 
 	function endSession() {

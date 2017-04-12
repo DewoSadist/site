@@ -1,0 +1,45 @@
+[
+  {
+    "id": 1,
+    "name": "vicki",
+    "isRequired": 1,
+    "isFree": 0,
+    "isOne": 0,
+    "prod_id": 1,
+    "productOptionsItems": [
+      {
+        "id": 2,
+        "name": "110ml",
+        "price": 2.2,
+        "checked": false
+      },
+      {
+        "id": 3,
+        "name": "130ml",
+        "price": 1.2,
+        "checked": true
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "vicki",
+    "isRequired": 0,
+    "isFree": 1,
+    "isOne": 1,
+    "prod_id": 1,
+    "productOptionsItems": [
+      {
+        "id": 4,
+        "name": "130ml",
+        "price": 1.2
+      },
+      {
+        "id": 5,
+        "name": "150ml",
+        "price": 3
+      }
+    ],
+    "checked": 4
+  }
+]

@@ -1,0 +1,101 @@
+//
+// Sidebar
+// --------------------------------------------------
+
+.sidebar {
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+
+    width: 324px;
+    right: 0;
+    height: 100%;
+    position: fixed;
+    z-index: 10000;
+    background-color: $color-white;
+    border-left: 1px solid $color-battleship-gray;
+    @media (max-width: $screen-xs) {
+        width: 100%;
+    }
+
+    &-header {
+        padding: 10px;
+        text-align: left;
+        .title {
+            font-weight: 600;
+            color: $color-warm-gray;
+            padding-bottom: 5px;
+        }
+        .subtitle{
+            color: $brand-primary;
+            padding-bottom: 5px;
+        }
+        .btn {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    .order {
+        &-list {
+            overflow: auto;
+        }
+        &-item {
+            border-bottom: 1px solid $gray-light;
+            padding: 10px;
+            display: flex;
+            width: 100%;
+            &-quantity {
+                width: 10%;
+                font-weight: 600;
+                padding-right: 1rem;
+                padding-top: 1.5rem;
+            }
+            &-container {
+                width: 90%;
+                &-category {
+                    color: red;
+                    margin-bottom: 8px;
+                }
+                &-header {
+                    position: relative;
+                    min-height: 16px;
+                    min-width: 100%;
+                    margin-bottom: 8px;
+                    display: flex;
+                    justify-content: space-between;
+                    .name {
+                        font-weight: 600;
+                        overflow: hidden;
+                        padding-right: 1rem;
+                    }
+                    .total {
+                        text-align: right;
+                    }
+                }
+                &-note {
+                    color: $color-warm-gray;
+                    margin-bottom: 8px;
+                }
+                &-action {
+                    color: $brand-primary;
+                    cursor: pointer;
+
+                }
+            }
+        }
+
+    }
+
+    .sticky {
+        background-color: darken($color-pale-gray, 10%);
+    }
+}
+.sidebar.scroll {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    right: 0;
+}
