@@ -45,6 +45,10 @@ function routesConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvi
 			},
 		}
 	})
+	.state('cart', {
+		url: '/cart',
+		template: '<cart></cart>'
+	})
 	.state('theme', {
 		url: '/theme',
 		templateUrl: 'bootstrap/demo.html'

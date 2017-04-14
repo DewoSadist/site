@@ -18,7 +18,6 @@ class ProductsInfoController implements IFormContainer {
      * @returns     {ICard}    Errors object bound to errors on UI, from IFormContainer
      */
     public errors;
-    public additional: string;
     /**
      * @ngdoc       property
      * @name        ProductsInfoController#isLoading
@@ -26,15 +25,27 @@ class ProductsInfoController implements IFormContainer {
      * @returns     {boolean}    Loading indicator, from IFormContainer interface
      */
     public isLoading: boolean;
+    /**
+     * @ngdoc       property
+     * @name        ProductsInfoController#isLoading
+     * @propertyOf  ProductsInfoController
+     * @returns     {boolean}    Loading indicator, from IFormContainer interface
+     */
+    public isLoadingAdd: boolean;
+
+    public additional: string;
+
     public product: IProduct;
     public productOptions: Array<IProductOption>;
     public close;
     public quantity: number;
     public amount;
-    public resolve;
-    public order;
+
     public item;
     public itemOptions: Array<any>;
+
+    public resolve;
+    public order;
 
     /** @ngInject */
     constructor(public $scope,
@@ -42,18 +53,21 @@ class ProductsInfoController implements IFormContainer {
                 public CartServices: ICartServices,
                 public ErrorService: ErrorService) {
         this.errors = {};
-
-        this.isLoading = true;
         this.product = this.resolve.product;
         this.quantity = 1;
         this.amount = this.product.price + this.getOptionsPrice();
         this.itemOptions = [];
-
+        this.startLoading();
         ShopServices.getProductOptions(this.product.id)
             .then((object) => {
-                this.productOptions = object;
-                this.isLoading = false;
-            });
+                    this.stopLoading();
+                    this.productOptions = object;
+                },
+                () => {
+                    this.stopLoading();
+                    this.errors.form = this.ErrorService.getServerError();
+                });
+
     }
 
     /**
@@ -66,15 +80,14 @@ class ProductsInfoController implements IFormContainer {
      * validate product fields
      */
     private validateForm() {
+        this.errors = {};
         this.getOptionsPrice();
-
         return this.hasNoErrors();
     }
 
     addItemToCart() {
+        this.startLoadingAdd();
         console.log("productOptions:", this.productOptions);
-        this.getOptionsPrice();
-
         if (this.validateForm()) {
             this.item = {
                 id: this.product.id,
@@ -85,6 +98,12 @@ class ProductsInfoController implements IFormContainer {
                 price: this.amount
             };
             this.CartServices.addItemToCart(this.item);
+            setTimeout(() => {
+                this.stopLoadingAdd();
+                this.closeModal();
+            }, 3000);
+        } else {
+            this.stopLoadingAdd();
         }
     }
 
@@ -133,9 +152,21 @@ class ProductsInfoController implements IFormContainer {
     getTotalProductPrice() {
         return this.product.price + this.getOptionsPrice();
     }
+
+    /**
+     * @ngdoc method
+     * @name totalProductPriceOnChange
+     * @methodOf ProductsInfoController
+     * @private
+     *
+     * @description
+     * get product total price
+     */
     totalProductPriceOnChange() {
+        this.errors = {};
         this.amount = this.quantity * (this.product.price + this.getOptionsPrice());
     }
+
     /**
      * @ngdoc function
      * @name getOptionsPrice
@@ -147,33 +178,36 @@ class ProductsInfoController implements IFormContainer {
      * @return {number} Counted total price
      */
     getOptionsPrice() {
+
         let total = 0;
         this.itemOptions = [];
         if (this.productOptions && this.productOptions.length > 0) {
-            console.log("kolichestvo opcii:",this.productOptions.length);
+            console.log("kolichestvo opcii:", this.productOptions.length);
             this.productOptions.forEach((productOptions) => {
-                if(productOptions.isOne === 0) {
+                if (productOptions.isOne === 0) {
                     //checkbox
-                    if(productOptions.isRequired === 1){
+                    if (productOptions.isRequired === 1) {
                         let checkedCount = 0;
                         productOptions.productOptionsItems.forEach((productOptionsItems) => {
-                            if(productOptionsItems.checked) {
+                            if (productOptionsItems.checked) {
+                                productOptionsItems.title = productOptions.name;
                                 this.itemOptions.push(productOptionsItems);
                                 checkedCount = checkedCount + 1;
-                                if(productOptions.isFree === 0 ){
+                                if (productOptions.isFree === 0) {
                                     total = total + productOptionsItems.price;
                                 }
                             }
                         });
-                        if(checkedCount === 0) {
-                            console.log("nichego ne otmeceno");
-                            // this.errors.cart.cartCheckboxEmptyError;
+                        if (checkedCount === 0) {
+                            console.log("nichego ne otmeceno1");
+                            this.errors.form = productOptions.name + ": " + this.ErrorService.getCartErrors().cartCheckboxEmptyError;
                         }
                     } else {
                         productOptions.productOptionsItems.forEach((productOptionsItems) => {
-                            if(productOptionsItems.checked){
+                            if (productOptionsItems.checked) {
+                                productOptionsItems.title = productOptions.name;
                                 this.itemOptions.push(productOptionsItems);
-                                if(productOptions.isFree === 0 ){
+                                if (productOptions.isFree === 0) {
                                     total = total + productOptionsItems.price;
                                 }
                             }
@@ -181,28 +215,30 @@ class ProductsInfoController implements IFormContainer {
                     }
                 } else {
                     //radio
-                    if(productOptions.isRequired === 1){
-                        if(productOptions.checked){
+                    if (productOptions.isRequired === 1) {
+                        if (productOptions.checked) {
                             let index = +productOptions.checked;
                             productOptions.productOptionsItems.forEach((productOptionsItems) => {
-                                if(productOptionsItems.id === index) {
+                                productOptionsItems.title = productOptions.name;
+                                if (productOptionsItems.id === index) {
                                     this.itemOptions.push(productOptionsItems);
-                                    if(productOptions.isFree === 0){
+                                    if (productOptions.isFree === 0) {
                                         total = total + productOptionsItems.price;
                                     }
                                 }
                             })
                         } else {
-                            console.log("radio nichego ne otmeceno");
-                            // this.errors.cart.cartRadioEmptyError;
+                            console.log("radio nichego ne otmeceno2");
+                            this.errors.form = productOptions.name + ": " + this.ErrorService.getCartErrors().cartRadioEmptyError;
                         }
                     } else {
-                        if(productOptions.checked){
+                        if (productOptions.checked) {
                             let index = +productOptions.checked;
                             productOptions.productOptionsItems.forEach((productOptionsItems) => {
-                                if(productOptionsItems.id === index) {
+                                if (productOptionsItems.id === index) {
+                                    productOptionsItems.title = productOptions.name;
                                     this.itemOptions.push(productOptionsItems);
-                                    if(productOptions.isFree === 0){
+                                    if (productOptions.isFree === 0) {
                                         total = total + productOptionsItems.price;
                                     }
                                 }
@@ -245,6 +281,54 @@ class ProductsInfoController implements IFormContainer {
      */
     hasNoErrors(): boolean {
         return Object.keys(this.errors).length === 0;
+    }
+
+    /**
+     * @ngdoc method
+     * @name startLoading
+     * @methodOf ProductsInfoController
+     *
+     * @description
+     * Start loading data state method from IFormContainer interface
+     */
+    startLoading() {
+        this.isLoading = true;
+    }
+
+    /**
+     * @ngdoc method
+     * @name stopLoading
+     * @methodOf ProductsInfoController
+     *
+     * @description
+     * Terminate loading state, IFormContainer interface
+     */
+    stopLoading() {
+        this.isLoading = false;
+    }
+
+    /**
+     * @ngdoc method
+     * @name startLoadingAdd
+     * @methodOf ProductsInfoController
+     *
+     * @description
+     * Start loading data state method from IFormContainer interface
+     */
+    startLoadingAdd() {
+        this.isLoadingAdd = true;
+    }
+
+    /**
+     * @ngdoc method
+     * @name stopLoadingAdd
+     * @methodOf ProductsInfoController
+     *
+     * @description
+     * Terminate loading state, IFormContainer interface
+     */
+    stopLoadingAdd() {
+        this.isLoadingAdd = false;
     }
 }
 

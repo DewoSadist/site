@@ -1,0 +1,26 @@
+.cart {
+    &-form {
+        background-color: $color-white;
+        padding: 30px 0;
+
+        @media (min-width: $screen-md-min) {
+            padding: 50px 0;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .title {
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            @media (min-width: $screen-sm-min) {
+                padding: 0 30px;
+            }
+        }
+    }
+
+}

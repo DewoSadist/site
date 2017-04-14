@@ -3,7 +3,7 @@
 import * as angular from 'angular';
 import * as moment from 'moment';
 
-// ------------------  Libs & system --------------------
+// ------------------ Libs & system --------------------
 import 'angular-sticky-plugin';
 import 'angular-swing';
 import 'angular-hammer';
@@ -26,7 +26,7 @@ import 'jquery-migrate';
 import './index.scss';
 import '@iamadamjowett/angular-click-outside';
 
-// ------------------  Components --------------------
+// ------------------ Components --------------------
 import { header } from './app/components/layout/header/header';
 import { footer } from './app/components/layout/footer/footer';
 
@@ -41,11 +41,14 @@ import { productsFilter } from './app/components/products/filter/products.filter
 import { productsInfo } from './app/components/products/info/products.info';
 
 import { sidebar } from './app/components/cart/sidebar/sidebar';
-// ------------------  Services --------------------
+import { cart } from './app/components/cart/cart';
+// ------------------ Services --------------------
 import ShopServices from './app/services/shopServices/shop.services';
 import CartServices from './app/services/cartServices/cart.services';
 import TemplatorService from './app/services/templator/templator.service';
 import ErrorService from './app/services/errorService/error.service';
+// ------------------ Directives ------------------
+import clearErrorDirective from './app/directives/clearErrors/clearErrors';
 // ------------------ General ---------------------
 import routesConfig from './config/routes';
 import restangularConfig from './config/restangular';
@@ -116,11 +119,14 @@ angular.module('app', [
 .service('TemplatorService', TemplatorService)
 .service('ErrorService', ErrorService)
 
+.directive('clearErrors', clearErrorDirective)
+
 .component('header', header)
 .component('footer', footer)
 .component('home', home)
 .component('homeSlider', homeSlider)
 .component('sidebarCart', sidebar)
+.component("cart", cart)
 
 
 .component('store', store)

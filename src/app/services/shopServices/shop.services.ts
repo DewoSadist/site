@@ -74,6 +74,7 @@ export interface IProductOption {
  * @interface IProductOptionItem
  */
 export interface IProductOptionItem {
+    title: string;
     id: number;
     name: string;
     price: number;

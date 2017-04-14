@@ -10,11 +10,11 @@
             </div>
         </div>
     </div>
+    <form ng-submit="$ctrl.addItemToCart()" ng-class="{'loading': $ctrl.isLoading}">
         <div class="modal-body">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="form-group"
-                         ng-class="{'has-error': true}"
                          ng-repeat="option in $ctrl.productOptions">
                         <p class="option">
                             <span class="option-name">{{option.name}}</span>
@@ -26,7 +26,8 @@
                                     <div class="checkbox checkbox-primary">
                                         <input type="checkbox" id="checkbox{{item.id}}"
                                                ng-click="$ctrl.totalProductPriceOnChange()"
-                                               ng-model="item.checked">
+                                               ng-model="item.checked"
+                                               clear-errors>
                                         <label for="checkbox{{item.id}}" >
                                             <span>{{item.name}}</span>
                                             <span>{{item.price | currency}}</span>
@@ -42,8 +43,9 @@
                                     <div class="radio">
                                         <input type="radio" id="radio{{item.id}}"
                                                name="{{option.id}}"
-                                               ng-change="$ctrl.totalProductPriceOnChange()"
-                                               ng-model="option.checked" ng-value="item.id">
+                                               ng-click="$ctrl.totalProductPriceOnChange()"
+                                               ng-model="option.checked" ng-value="item.id"
+                                               clear-errors>
                                         <label for="radio{{item.id}}">
                                             <span>{{item.name}}</span>
                                             <span>{{item.price | currency}}</span>
@@ -59,38 +61,49 @@
                         </label>
                         <textarea class="form-control vresize" type="text" id="extra"
                                   placeholder="Please list any special requests you may have (e.g. allergies,extra spicy, etc.)."
-                                  ng-model="$ctrl.additional">
+                                  ng-model="$ctrl.additional"
+                                  clear-errors>
                         </textarea>
+                    </div>
+                    <div ng-if="$ctrl.errors.form" class="">
+                        <div class="alert alert-danger" role="alert">{{$ctrl.errors.form}}</div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="modal-footer">
-            <div class="row">
-                <div class="hidden-xs hidden-sm col-md-4 col-lg-4">
+            <div ng-class="{'loading loading_small': $ctrl.isLoadingAdd}">
+                <div class="row">
+                    <div class="hidden-xs hidden-sm col-md-4 col-lg-4">
 
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                    <div class="form-group"
-                         ng-class="{'has-error': $ctrl.errors.cartQuantityEmptyError}">
-                        <div class="input-group">
-                            <div class="input-group-addon input-group-addon_button" ng-click="$ctrl.decreaseQuantity()">
-                                <span>-</span>
-                            </div>
-                            <input autocomplete="off" clear-errors
-                                   type="text" class="form-control "
-                                   value="{{$ctrl.quantity}}" ng-model="$ctrl.quantity">
-                            <div class="input-group-addon input-group-addon_button" ng-click="$ctrl.increaseQuantity()">
-                                <span>+</span>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                        <div class="form-group"
+                             ng-class="{'has-error': $ctrl.errors.cartQuantityEmptyError}">
+                            <div class="input-group">
+                                <div class="input-group-addon input-group-addon_button" ng-click="$ctrl.decreaseQuantity()">
+                                    <span>-</span>
+                                </div>
+                                <input autocomplete="off" clear-errors
+                                       type="text" class="form-control "
+                                       value="{{$ctrl.quantity}}" ng-model="$ctrl.quantity">
+                                <div class="input-group-addon input-group-addon_button" ng-click="$ctrl.increaseQuantity()">
+                                    <span>+</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                    <button class="btn btn-primary virtual-button" ng-click="$ctrl.addItemToCart()">
-                        <span>Add to Order</span> <span>{{$ctrl.amount | currency}}</span>
-                    </button>
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                        <button class="btn btn-primary virtual-button"
+                                type="submit"
+                                ng-disabled="$ctrl.isLoadingAdd">
+                            <span ng-if="!$ctrl.isLoadingAdd">Add to Order</span> <span ng-if="!$ctrl.isLoadingAdd">{{$ctrl.amount | currency}}</span>
+                            <span ng-if="$ctrl.isLoadingAdd">please waiting</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
+    </form>
+
 </div>

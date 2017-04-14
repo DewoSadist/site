@@ -1,8 +1,12 @@
+import './cart.scss';
+import CartServices from "../../services/cartServices/cart.services";
 class CartController {
   public text: string;
+  public cart;
 
   /** @ngInject */
-  constructor() {
+  constructor(public CartServices: CartServices) {
+    this.cart = this.CartServices.getCardItems();
     this.text = 'My brand new component!';
   }
 }

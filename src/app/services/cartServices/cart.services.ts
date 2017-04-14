@@ -14,6 +14,8 @@ export interface ICartItem {
  * @interface ICart
  */
 export interface ICart {
+    store: string
+    storeId: number;
     shipping: string;
     taxRate: number;
     tax: number;
@@ -29,6 +31,8 @@ export interface ICartServices {
     deleteItemFromCart(itemId: number);
     deleteAllFromCart();
     getTotalCount();
+    increaseItemQ(itemId: number);
+    decreaseItemQ(itemId: number)
 }
 
 /**
@@ -38,17 +42,23 @@ export interface ICartServices {
 class CartServices implements ICartServices {
     public cart: ICart;
     public totalPrice: number;
-    public cartItem: ICartItem;
-    public totalAmount: number;
 
     /** @ngInject */
-    constructor() {
-        this.cart = {
-            shipping: "",
-            tax: 0,
-            taxRate: 1,
-            items: []
-        };
+    constructor(
+        public $cookies: ng.cookies.ICookiesService
+    ) {
+        this.cart = $cookies.getObject("cart");
+        console.log(this.cart);
+        if(!this.cart) {
+            this.cart = {
+                store:"",
+                storeId:0,
+                shipping: "",
+                tax: 0,
+                taxRate: 1,
+                items: []
+            };
+        }
     }
 
     /**
@@ -84,7 +94,9 @@ class CartServices implements ICartServices {
      */
     addItemToCart(item) {
         this.cart.items.push(item);
-        console.log("dobavleno:", this.cart, this.cart.items.length);
+        this.$cookies.remove("cart");
+        this.$cookies.putObject("cart", this.cart);
+        console.log("Added to cart:", this.cart, this.getTotalCount());
     }
 
     /**
@@ -107,8 +119,9 @@ class CartServices implements ICartServices {
      *
      * @description delete item by id from shopping cart
      */
-    //todo fix
+    //todo: ok
     deleteItemFromCart(itemId: number) {
+        this.$cookies.remove("cart");
         this.cart.items.forEach((item) => {
             if (item.id === itemId) {
                 let index = this.cart.items.indexOf(item);
@@ -118,6 +131,8 @@ class CartServices implements ICartServices {
                 }
             }
         })
+        this.$cookies.putObject("cart", this.cart);
+
 
     }
 
@@ -141,6 +156,46 @@ class CartServices implements ICartServices {
      */
     getTotalCount() {
         return this.cart.items.length;
+    }
+
+    /**
+     * @ngdoc method
+     * @name ICartServices.increaseItemQ
+     * @methodOf CartServices
+     *
+     * @description get all items count from shopping cart
+     */
+    increaseItemQ (itemId:number) {
+        this.cart.items.forEach((item) => {
+            if (item.id === itemId) {
+                let index = this.cart.items.indexOf(item);
+                if (index => 0) {
+                    item.quantity = item.quantity + 1;
+                    console.log("+1");
+                }
+            }
+        })
+    }
+
+    /**
+     * @ngdoc method
+     * @name ICartServices.decreaseItemQ
+     * @methodOf CartServices
+     *
+     * @description get all items count from shopping cart
+     */
+    decreaseItemQ (itemId:number) {
+        this.cart.items.forEach((item) => {
+            if (item.id === itemId) {
+                if (index => 0) {
+                    if(item.quantity > 1) {
+                        item.quantity = item.quantity - 1;
+                        console.log("-1");
+                    }
+
+                }
+            }
+        })
     }
 }
 
