@@ -8,6 +8,7 @@ export interface ICartItem {
     additional: string;
     quantity: number;
     price: number;
+    each_price: number;
 }
 
 /**
@@ -33,6 +34,7 @@ export interface ICartServices {
     getTotalCount();
     increaseItemQ(itemId: number);
     decreaseItemQ(itemId: number)
+    toggleShowCart();
 }
 
 /**
@@ -42,11 +44,12 @@ export interface ICartServices {
 class CartServices implements ICartServices {
     public cart: ICart;
     public totalPrice: number;
+    public showCart: boolean;
 
     /** @ngInject */
     constructor(
-        public $cookies: ng.cookies.ICookiesService
-    ) {
+        public $cookies: ng.cookies.ICookiesService) {
+        this.showCart = false;
         this.cart = $cookies.getObject("cart");
         console.log(this.cart);
         if(!this.cart) {
@@ -132,8 +135,6 @@ class CartServices implements ICartServices {
             }
         })
         this.$cookies.putObject("cart", this.cart);
-
-
     }
 
     /**
@@ -172,6 +173,7 @@ class CartServices implements ICartServices {
                 if (index => 0) {
                     item.quantity = item.quantity + 1;
                     console.log("+1");
+                    item.price = item.each_price * item.quantity;
                 }
             }
         })
@@ -191,11 +193,23 @@ class CartServices implements ICartServices {
                     if(item.quantity > 1) {
                         item.quantity = item.quantity - 1;
                         console.log("-1");
+                        item.price = item.each_price * item.quantity;
                     }
 
                 }
             }
         })
+    }
+    /**
+     * @ngdoc method
+     * @name toggleShowCart
+     * @methodOf HeaderController
+     *
+     * @description
+     * Shows/hides cart sidebar
+     */
+    toggleShowCart() {
+        this.showCart = !this.showCart;
     }
 }
 

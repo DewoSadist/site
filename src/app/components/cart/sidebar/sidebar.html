@@ -1,5 +1,6 @@
 <div class="sidebar scroll">
-    <div class="sidebar-close"/>
+  <a href="javascript:void(0)" ng-click="$ctrl.CartServices.toggleShowCart()" class="modal-close"><span
+          class="glyphicon glyphicon-remove"></span></a>
     <div class="sidebar-header">
       <div class="title">
         {{$ctrl.cart.items?'Your Order':'Your cart is empty'}}

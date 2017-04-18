@@ -1,8 +1,8 @@
-<nav class="navbar navbar-default navbar-static-top">
-    <div class="container">
+<!--<nav class="navbar navbar-default navbar-static-top">-->
+    <!--<div class="container">-->
         <!-- Brand and toggle get grouped for better mobile display -->
         <!--<div class="navbar-header pull-left">-->
-            <!--&lt;!&ndash;<a class="navbar-brand" ng-attr-ui-sref="{{$ctrl.isAuthorized ? 'profile.main' : 'home'}}"><span class="icon icon_logo"></span></a>&ndash;&gt;-->
+            <!--<a class="navbar-brand" ng-attr-ui-sref="{{$ctrl.isAuthorized ? 'profile.main' : 'home'}}"><span class="icon icon_logo"></span></a>-->
             <!--<a class="navbar-brand" ui-sref="home">-->
                 <!--&lt;!&ndash;<span class="icon icon_logo"></span>&ndash;&gt;-->
             <!--Deos</a>-->
@@ -12,15 +12,15 @@
             <!--<a ui-sref="users.login" class="pull-right navbar-link change-color">Login</a>-->
         <!--</div>-->
 
-        <div class="nav navbar navbar_hb navbar-right pull-right">
-            <div class="dropdown dropdown_static">
-                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    <img ng-src="{{$ctrl.getImgUrl()}}/shopping-cart.svg" alt="">
-                    <span class="link" ng-click="$ctrl.toggleShowCart()">
-                        <span class="link-item">{{ $ctrl.CartServices.getTotalCount()}} {{$ctrl.CartServices.getTotalCount()==1 ? 'item':'items'}}</span>
-                        <small class="link-item link-item_small">{{ $ctrl.CartServices.getTotalPrice() | currency }}</small>
-                    </span>
-                </a>
+        <!--<div class="nav navbar navbar_hb navbar-right pull-right">-->
+            <!--<div class="dropdown dropdown_static">-->
+                <!--<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">-->
+                    <!--<img ng-src="{{$ctrl.getImgUrl()}}/shopping-cart.svg" alt="">-->
+                    <!--<span class="link" ng-click="$ctrl.CartServices.toggleShowCart()">-->
+                        <!--<span class="link-item">{{ $ctrl.CartServices.getTotalCount()}} {{$ctrl.CartServices.getTotalCount()==1 ? 'item':'items'}}</span>-->
+                        <!--<small class="link-item link-item_small">{{ $ctrl.CartServices.getTotalPrice() | currency }}</small>-->
+                    <!--</span>-->
+                <!--</a>-->
                 <!--<ul class="dropdown-menu">-->
                     <!--&lt;!&ndash; <li class="disabled">-->
                         <!--<a ui-sref="profile.settings" class="block soon-label" ng-click="$ctrl.disableEvent($event)">-->
@@ -65,25 +65,39 @@
                     <!--</li> &ndash;&gt;-->
                     <!--<li><a href="javascript:void(0);" ng-click="$ctrl.logout()">Logout</a></li>-->
                 <!--</ul>-->
-            </div>
-        </div>
-    </div>
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
     <!-- /.container-fluid -->
-</nav>
-<nav class="navbar navbar-static-top navbar-inverse">
+<!--</nav>-->
+<nav class="navbar navbar-fixed-top navbar-inverse">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <div class="navbar-state visible-xs visible-sm pull-left">{{$ctrl.getStateTitle()}}</div>
-            <!-- TODO: Enable on see theme -->
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav" aria-expanded="false">
-                <div class="navbar-label">Menu</div>
-                <div class="icon-bar-wrap">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </div>
-            </button>
+            <div class="pull-left">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <a class="navbar-brand" ui-sref="home">Deos</a>
+
+                <div class="navbar-state visible-xs visible-sm pull-left">{{$ctrl.getStateTitle()}}</div>
+            </div>
+            <div class="pull-right">
+                <!-- TODO: Enable on see theme -->
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav" aria-expanded="false">
+                    <div class="navbar-label">Menu</div>
+                    <div class="icon-bar-wrap">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </div>
+                </button>
+                <button type="button" ng-click="$ctrl.CartServices.toggleShowCart()"
+                        class="btn btn-sm pull-right change-color btn-primary"
+                        data-toggle="collapse" data-target="#sidecart"
+                        ng-show="$ctrl.CartServices.getTotalCount() > 0">
+                    <span class="glyphicon glyphicon-shopping-cart"></span>
+                    <span>{{ $ctrl.CartServices.getTotalCount()}}</span>
+                </button>
+            </div>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="nav">
@@ -114,4 +128,10 @@
     </div>
     <!-- /.container-fluid -->
 </nav>
-<sidebar-cart ng-show="$ctrl.showCart" ></sidebar-cart>
+<!-- Sidebar -->
+<aside>
+    <div class="sidebar collapse" id="sidecart">
+        <!--<sidebar-cart ng-show="$ctrl.CartServices.showCart"></sidebar-cart>-->
+        <sidebar-cart></sidebar-cart>
+    </div>
+</aside>

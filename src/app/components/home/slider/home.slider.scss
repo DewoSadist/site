@@ -1,7 +1,7 @@
 .home-slider{
 	overflow: hidden;
 	.slide_register{
-        @include retina-background-image('../img/index-hero', jpg, cover);
+        @include retina-background-image('../img/index-food', jpg, cover);
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;

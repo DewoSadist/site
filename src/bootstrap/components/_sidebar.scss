@@ -3,22 +3,29 @@
 // --------------------------------------------------
 
 .sidebar {
-    -webkit-transition: all 0.4s ease;
-    -moz-transition: all 0.4s ease;
-    -o-transition: all 0.4s ease;
-    transition: all 0.4s ease;
-
+    -webkit-transition: all 0.4s ease 0s;
+    -moz-transition: all 0.4s ease 0s;
+    -o-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
     width: 324px;
+    //margin-right: -324px;
     right: 0;
     height: 100%;
     position: fixed;
     z-index: 10000;
     background-color: $color-white;
     border-left: 1px solid $color-battleship-gray;
+    &:active {
+        margin-right: 0;
+    }
     @media (max-width: $screen-xs) {
         width: 100%;
     }
+    .icon, .glyphicon {
+        padding: 5px;
+        float: right;
 
+    }
     &-header {
         padding: 10px;
         text-align: left;

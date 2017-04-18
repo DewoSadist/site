@@ -5,8 +5,8 @@ import './footer.scss';
  */
 class FooterController {
 	public data;
-	public payments;
-	public transfers;
+	public pages;
+	public features;
 	public categories;
 	/** @ngInject */
 	constructor(public $state) {
@@ -16,7 +16,17 @@ class FooterController {
 			almaty: '77272585334',
 			mobile: '7111'
 		};
-		this.payments = ['mobile','onai','pdd'];
+		this.pages = [
+			{id:'home', link:'home', name:'Home'},
+			{id:'restaurants', link:'store.restaurants',name:'Restaurants'},
+			{id:'about', link:'about', name:'About'},
+			{id:'contacts', link:'contacts', name:'Contacts'}
+		];
+		this.features = [
+			{id:'login', link:'login', name:'Login'},
+			{id:'registration', link:'registration', name:'Registration'},
+			{id:'email', link:'email', name:'Email'}
+		];
  	}
  	/**
 	 * @ngdoc method

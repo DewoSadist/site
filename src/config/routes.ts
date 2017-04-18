@@ -52,5 +52,13 @@ function routesConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvi
 	.state('theme', {
 		url: '/theme',
 		templateUrl: 'bootstrap/demo.html'
+	})
+	.state('about',{
+			url: '/about',
+			template:'<about></about>'
+	})
+	.state('contacts',{
+		url: '/contacts',
+		template:'<contacts></contacts>'
 	});
 }

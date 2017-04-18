@@ -1,13 +1,69 @@
 import './cart.scss';
 import CartServices from "../../services/cartServices/cart.services";
-class CartController {
-  public text: string;
+import {IFormContainer} from "../../services/shopServices/shop.services";
+class CartController implements IFormContainer {
   public cart;
+  public isSend: boolean;
+  public errors;
+  public isLoading: boolean;
 
   /** @ngInject */
-  constructor(public CartServices: CartServices) {
+  constructor(public $scope,
+              public CartServices: CartServices) {
+    this.isSend = false;
     this.cart = this.CartServices.getCardItems();
-    this.text = 'My brand new component!';
+  }
+
+  /**
+   * @ngdoc method
+   * @name resetErrors
+   * @methodOf CartController
+   *
+   * @description
+   * resets the errors object method from IFormContainer interface
+   */
+  resetErrors() {
+    this.$scope.$apply(() => {
+      this.errors = {};
+    })
+  }
+
+  /**
+   * @ngdoc method
+   * @name startLoading
+   * @methodOf CartController
+   *
+   * @description
+   * Start loading data state method from IFormContainer interface
+   */
+  startLoading() {
+    this.isLoading = true;
+  }
+
+  /**
+   * @ngdoc method
+   * @name stopLoading
+   * @methodOf CartController
+   *
+   * @description
+   * Terminate loading state, IFormContainer interface
+   */
+  stopLoading() {
+    this.isLoading = false;
+  }
+
+  /**
+   * @ngdoc method
+   * @name hasNoErrors
+   * @methodOf CartController
+   *
+   * @description
+   * Return true if no errors present in Form, IFormContainer interface
+   *
+   * @return {boolean} Return true if no errors present in Form
+   */
+  hasNoErrors(): boolean {
+    return Object.keys(this.errors).length === 0;
   }
 }
 

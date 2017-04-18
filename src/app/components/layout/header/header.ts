@@ -21,7 +21,6 @@ class HeaderController {
 		this.cartItemsCount = this.CartServices.getTotalCount();
 		this.state = this.$state;
 		this.text = 'DEOS';
-		this.showCart = false;
 
 		this.$scope.$on('LoginEvent', () => {
 		});
@@ -72,17 +71,6 @@ class HeaderController {
 	 */
 	getImgUrl(){
 		return 'app/components/layout/header/img';
-	}
-	/**
-	 * @ngdoc method
-	 * @name toggleShowCart
-	 * @methodOf HeaderController
-	 *
-	 * @description
-	 * Shows/hides cart sidebar
-	 */
-	toggleShowCart() {
-		this.showCart = !this.showCart;
 	}
 }
 

@@ -95,7 +95,8 @@ class ProductsInfoController implements IFormContainer {
                 quantity: this.quantity,
                 notes: this.itemOptions,
                 additional: this.additional,
-                price: this.amount
+                price: this.amount,
+                each_price: this.getTotalProductPrice()
             };
             this.CartServices.addItemToCart(this.item);
             setTimeout(() => {

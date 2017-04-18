@@ -163,9 +163,9 @@
         &-content{
             max-width: 550px;
             margin: 0 auto;
-            @media (min-width: $screen-md-min) {
-                margin: 0;
-            }
+            //@media (min-width: $screen-md-min) {
+            //    margin: 0;
+            //}
         }
         &-button {
             margin-top: 20px;

@@ -42,6 +42,10 @@ import { productsInfo } from './app/components/products/info/products.info';
 
 import { sidebar } from './app/components/cart/sidebar/sidebar';
 import { cart } from './app/components/cart/cart';
+
+import { about } from './app/components/pages/about/about';
+import { contacts } from  './app/components/pages/contacts/contacts';
+
 // ------------------ Services --------------------
 import ShopServices from './app/services/shopServices/shop.services';
 import CartServices from './app/services/cartServices/cart.services';
@@ -135,6 +139,8 @@ angular.module('app', [
 .component('productsCollection',productsCollection)
 .component('productsFilter', productsFilter)
 .component('productsInfo', productsInfo)
+.component('about', about)
+.component('contacts', contacts)
 
 .config(restangularConfig)
 .config(routesConfig)

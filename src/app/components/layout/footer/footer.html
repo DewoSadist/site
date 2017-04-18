@@ -1,9 +1,9 @@
 <div class="footer">
-    <!--<div class="container">-->
+    <div class="container">
         <!--<div class="footer-top">-->
             <!--<div class="footer-left">-->
                 <!--<div class="footer-item download">-->
-                    <!--<h4>в вашем смартфоне</h4>-->
+                    <!--<h4>In Your Smarphone</h4>-->
                     <!--<a class="button" href="javascript:void(0);"><span class="icon icon_app-store"></span></a>-->
                     <!--<a class="button" href="javascript:void(0);"><span class="icon icon_google-play"></span></a>-->
                 <!--</div>-->
@@ -14,7 +14,7 @@
                                 <!--{{$ctrl.data.phones.almaty | mask:'+9 999 999-99-99'}}-->
                             <!--</h2>-->
                     <!--</a>-->
-                    <!--<div class="text-info">для жителей г. Алматы</div>-->
+                    <!--&lt;!&ndash;<div class="text-info">для жителей г. Алматы</div>&ndash;&gt;-->
                 <!--</div>-->
             <!--</div>-->
             <!--<div class="footer-right">-->
@@ -44,62 +44,61 @@
                 <!--</div>-->
             <!--</div>-->
         <!--</div>-->
-        <!--<div class="row">-->
-            <!--<div class="col-xs-12 col-sm-3 col-md-3">-->
-                <!--<div class="footer-category">-->
-                    <!--<h4>Платежи</h4>-->
-                    <!--<a class="category-link" ng-repeat="payment in $ctrl.payments" ui-sref="payments.form({shortName: payment})">-->
-                        <!--</a>-->
+        <div class="row">
+            <div class="col-xs-12 col-sm-3 col-md-3">
+                <div class="footer-category">
+                    <h4>Pages</h4>
+                    <a class="category-link" ng-repeat="page in $ctrl.pages" ui-sref="{{page.link}}">
+                        {{page.name}}
+                        </a>
                     <!--<a class="category-link" href="javascript:void(0)" ng-click="$ctrl.goToUtilities()">-->
                         <!--</a>-->
                     <!--<a class="category-link" href="javascript:void(0)" ui-sref="payments.main">-->
                             <!--Остальные платежи-->
                         <!--</a>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="col-xs-12 col-sm-3 col-md-3">-->
-                <!--<div class="footer-category">-->
-                    <!--<h4>Переводы</h4>-->
-                    <!--<a class="category-link" ng-repeat="transfer in $ctrl.transfers" ui-sref="transfers.{{transfer.link}}">-->
-                            <!--{{transfer.name}}-->
-                        <!--</a>-->
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-3 col-md-3">
+                <div class="footer-category">
+                    <h4>Features</h4>
+                    <a class="category-link" ng-repeat="feature in $ctrl.features" ui-sref="{{feature.link}}">
+                            {{feature.name}}
+                        </a>
                     <!--<a class="category-link" href="javascript:void(0)" ui-sref="transfers.main">-->
                             <!--Остальные переводы-->
                         <!--</a>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="footer-bottom">
         <div class="container">
             <div class="row">
-                <!--<div class="col-xs-12 col-sm-6 col-md-7">-->
-                    <!--<div class="footer-item copyright">-->
+                <div class="col-xs-12 col-sm-6 col-md-7">
+                    <div class="footer-item copyright">
                         <!--<div class="logo">-->
                             <!--<span class="icon icon_kkb-logo"></span>-->
                         <!--</div>-->
-                        <!--<p class="text">-->
-                            <!--Лицензия Национального Банка Республики Казахстан-->
-                            <!--<br> №1.2.16/222/32 от 02.12.2014г. Copyright 2016 АО "Казкоммерцбанк".-->
-                            <!--<br> Все права защищены.-->
-                        <!--</p>-->
-                    <!--</div>-->
-                <!--</div>-->
+                        <p class="text">
+                            Made with <span class="glyphicon glyphicon-heart"></span>
+                        </p>
+                    </div>
+                </div>
                 <div class="col-xs-12 col-sm-6 col-md-5">
                     <div class="footer-item social">
-                        <a href="https://www.facebook.com/qazkombank" class="link">
+                        <a href="#" class="link">
                             <span class="icon icon_facebook"></span>
                         </a>
-                        <a href="https://vk.com/Qazkom_Bank" class="link">
+                        <a href="#" class="link">
                             <span class="icon icon_vk"></span>
                         </a>
-                        <a href="https://twitter.com/Qazkom_Bank" class="link">
+                        <a href="#" class="link">
                             <span class="icon icon_twitter"></span>
                         </a>
-                        <a href="https://www.instagram.com/qazkom_official" class="link">
+                        <a href="#" class="link">
                             <span class="icon icon_instagram"></span>
                         </a>
-                        <a href="https://www.youtube.com/c/QAZKOM" class="link">
+                        <a href="#" class="link">
                             <span class="icon icon_youtube"></span>
                         </a>
                     </div>

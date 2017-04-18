@@ -4,6 +4,12 @@
 // Body
 body {
     background-color: $color-ice-blue;
+    padding-top: 55px;
+
+    @media (min-width: $screen-md-min) {
+        padding-top: 70px;
+    }
+
     &.no-scroll{
     	overflow: hidden;
     }
