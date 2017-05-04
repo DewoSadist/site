@@ -3,10 +3,11 @@
 }
 
 // mixin for generating icon classes
-$categoryList: restaurant transport creditsAndDeposits utilities landline tv mobile pdd qiwi;
+$foodCategoryList: burger chicken curry noodles pizza salmona shawarma shrimp steak sushi taco thai;
+$categoryList: restaurant;
 $paymentList: alseco astanaERC hcsbkMakeDeposit hcsbkPayLoan kazakhtelecom tele2 kcell activ altel qiwi onai;
 $transferList: default default-small own cash cash-small international international-small homebank facebook paypal whatsapp;
-$productList: all steak meat cake;
+$productList: all steaks;
 $homeIcons: virtual-currency virtual-safety virtual-speed virtual-usage;
 
 @mixin home-url($name) {
@@ -23,6 +24,10 @@ $homeIcons: virtual-currency virtual-safety virtual-speed virtual-usage;
 
 @mixin category-url($name) {
     background-image: url("../icons/categories/" + $name + ".svg");
+}
+
+@mixin food-category-url($name) {
+    background-image: url("../icons/categories/" + $name + ".png");
 }
 
 @mixin payment-url($name) {
@@ -56,6 +61,12 @@ $homeIcons: virtual-currency virtual-safety virtual-speed virtual-usage;
             @include category-url(#{$category});
         }
     }
+    @each $f_category in $foodCategoryList {
+        &_food_category-#{$f_category} {
+            @include food-category-url(#{$f_category});
+            background-size: cover;
+        }
+    }
 
     @each $product in $productList {
         &_product-#{$product} {
@@ -75,10 +86,14 @@ $homeIcons: virtual-currency virtual-safety virtual-speed virtual-usage;
         }
     }
 
-    &_category, &_transfer , &_product{
+    &_transfer, &_product{
         @include icon-size(45, 45);
 
         margin-bottom: 10px;
+    }
+    &_category {
+        @include icon-size(70,70);
+        border-radius: 10%;
     }
     
     &_transfer-small {
@@ -192,9 +207,9 @@ $homeIcons: virtual-currency virtual-safety virtual-speed virtual-usage;
     }
 
     &_logo {
-        @include icon-size(101, 24);
-
-        @include icon-url(logo);
+        @include icon-size(40, 40);
+        background-image: url("logo.png");
+        background-size: cover;
     }
 
     &_modal-close {

@@ -1,0 +1,22 @@
+.users {
+  &-panel {
+    margin-bottom: 15px;
+    @media (min-width: $screen-md-min) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &-links {
+    margin-top: 15px;
+    @include flex;
+
+    a.disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+      &:hover, &:focus {
+        color: $brand-primary;
+      }
+    }
+  }
+
+}

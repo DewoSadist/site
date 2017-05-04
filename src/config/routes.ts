@@ -1,5 +1,6 @@
 /// <reference path="../../typings/index.d.ts" />
 import {IShopServices, default as ShopServices} from '../app/services/shopServices/shop.services';
+import AuthService from "../app/services/auth/auth.service";
 export default routesConfig;
 
 /** @ngInject */
@@ -10,7 +11,24 @@ function routesConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvi
 	$stateProvider
 	.state('root', {
 		abstract: true,
-		template: '<div ui-view=""></div>'
+		template: '<div ui-view=""></div>',
+		resolve: {
+			user: (AuthService: AuthService,
+				   $q: ng.IQService,
+				   $state: ng.ui.IStateService) => {
+				let deferred = $q.defer();
+
+				AuthService.initiateUser()
+				.then((response) => {
+					deferred.resolve(response);
+				})
+				.catch((error) => {
+					AuthService.loginEventBroadcast();
+					$state.go('user.login')
+				});
+				return deferred.promise;
+			}
+		}
 	})
 	.state('home', {
 		url: '/',
@@ -49,6 +67,9 @@ function routesConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvi
 		url: '/cart',
 		template: '<cart></cart>'
 	})
+
+	// ----------------------------------- CUSTOM PAGES -----------------------------------
+
 	.state('theme', {
 		url: '/theme',
 		templateUrl: 'bootstrap/demo.html'
@@ -60,5 +81,45 @@ function routesConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvi
 	.state('contacts',{
 		url: '/contacts',
 		template:'<contacts></contacts>'
-	});
+	})
+
+	// ----------------------------------- USER STATES ---------------------------------------
+
+	.state('users', {
+		url: '/users',
+		parent: 'root',
+		template: '<users></users>',
+	})
+	.state('users.login', {
+		url: '/login',
+		params: {
+			warning: null,
+		},
+		template: '<login warning="$resolve.warning"></login>',
+		resolve: {
+			warning: ($stateParams: ng.ui.IStateParamsService) => {
+				return $stateParams['warning'];
+			}
+		}
+	})
+	// ----------------------------------- PROFILE STATES -----------------------------------
+
+	.state('profile', {
+		url: '/profile',
+		template: '<profile operation="$resolve.operation" user="$resolve.user"></profile>',
+		parent: 'root',
+		params: {
+			operation: null
+		},
+		resolve: {
+			operation: ($stateParams: ng.ui.IStateParamsService) => {
+				return $stateParams['operation'];
+			},
+		}
+
+	})
+        .state('profile.main', {
+			url: '/main',
+			template: '<profile-main user="$resolve.user" ></profile-main>',
+		});
 }

@@ -1,0 +1,8 @@
+.products-filter {
+  min-height: 0;
+  .trigger-button {
+    @include flex;
+
+    margin: 0;
+  }
+}

@@ -1,5 +1,6 @@
 import './header.scss';
 import {ICartServices} from "../../../services/cartServices/cart.services";
+import AuthService from "../../../services/auth/auth.service";
 
 /**
  * @ngdoc   object
@@ -16,15 +17,21 @@ class HeaderController {
 	/** @ngInject */
 	constructor(public $scope,
 				public $state,
-				public CartServices: ICartServices
+				public CartServices: ICartServices,
+				public AuthService: AuthService
 	) {
 		this.cartItemsCount = this.CartServices.getTotalCount();
 		this.state = this.$state;
+		this.isAuthorized = this.AuthService.isAuthorized();
 		this.text = 'DEOS';
 
 		this.$scope.$on('LoginEvent', () => {
+			this.isAuthorized = true;
+			// this.user = this.UserService.user;
 		});
 		this.$scope.$on('LogoutEvent', () => {
+			this.isAuthorized = false;
+			// this.user = null;
 		});
 	}
 	/**
@@ -36,7 +43,11 @@ class HeaderController {
 	 * Logs out user via AuthService
 	 */
 	logout() {
-		this.$state.go('home');
+		this.AuthService.logout()
+			.then((response) => {
+				this.AuthService.logoutEventBroadcast();
+				this.$state.go('home');
+		})
 	}
 	/**
 	 * @ngdoc method

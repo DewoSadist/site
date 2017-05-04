@@ -46,19 +46,29 @@ import { cart } from './app/components/cart/cart';
 import { about } from './app/components/pages/about/about';
 import { contacts } from  './app/components/pages/contacts/contacts';
 
+import { users } from './app/components/users/users';
+import { login } from './app/components/users/login/login';
+
+import { profile } from './app/components/profile/profile';
+import { profileMain } from './app/components/profile/main/main';
 // ------------------ Services --------------------
+import AuthService from './app/services/auth/auth.service';
 import ShopServices from './app/services/shopServices/shop.services';
 import CartServices from './app/services/cartServices/cart.services';
 import TemplatorService from './app/services/templator/templator.service';
 import ErrorService from './app/services/errorService/error.service';
+import UserService from "./app/services/userService/user.service";
+
 // ------------------ Directives ------------------
 import clearErrorDirective from './app/directives/clearErrors/clearErrors';
+
 // ------------------ General ---------------------
 import routesConfig from './config/routes';
 import restangularConfig from './config/restangular';
 import maskConfig from './config/mask';
 import runConfig from './config/run';
 import loadingBarConfig from './config/loadingBar';
+
 
 const highcharts = require('highcharts');
 const tinycolor = require('tinycolor2');
@@ -122,6 +132,8 @@ angular.module('app', [
 .service('CartServices', CartServices)
 .service('TemplatorService', TemplatorService)
 .service('ErrorService', ErrorService)
+.service('AuthService', AuthService)
+	.service('UserService',UserService)
 
 .directive('clearErrors', clearErrorDirective)
 
@@ -132,6 +144,9 @@ angular.module('app', [
 .component('sidebarCart', sidebar)
 .component("cart", cart)
 
+// import { profile } from './app/components/profile/profile';
+
+
 
 .component('store', store)
 .component('storeRestaurants', storeRestaurants)
@@ -141,6 +156,12 @@ angular.module('app', [
 .component('productsInfo', productsInfo)
 .component('about', about)
 .component('contacts', contacts)
+
+.component('users', users)
+.component('login', login)
+
+.component('profile', profile)
+.component('profileMain', profileMain)
 
 .config(restangularConfig)
 .config(routesConfig)

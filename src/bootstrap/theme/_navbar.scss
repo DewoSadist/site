@@ -1,9 +1,10 @@
 $navbar-font-size: 14px;
-$navbar-padding-horizontal: 10px;
+$navbar-padding-horizontal: 7px;
 
 .navbar-toggle {
     color: $color-white;
-    margin-right: 16px;
+    float: left;
+    margin-left: 16px;
     min-height: $navbar-height;
     margin-bottom: 0;
     margin-top: 0;
@@ -336,14 +337,16 @@ $navbar-padding-horizontal: 10px;
 
 .navbar-brand {
     line-height: 27px;
-    padding: 13px $navbar-padding-horizontal;
-    position: relative;
+    padding: 5px $navbar-padding-horizontal;
+    /*position: relative;*/
+    position: absolute;
+    left: 50%;
     z-index: 5;
 
     @media (min-width: $grid-float-breakpoint) {
         .navbar > .container &,
         .navbar > .container-fluid & {
-            margin-left: -$navbar-padding-horizontal;
+            margin-left: -$navbar-padding-horizontal * 2;
             padding: ($navbar-padding-horizontal * 2) $navbar-padding-horizontal;
             height: $navbar-height-large;
         }

@@ -4,6 +4,8 @@
 // import ErrorService from '../app/services/errorService/error.service';
 
 import CartServices from "../app/services/cartServices/cart.services";
+import AuthService from "../app/services/auth/auth.service";
+import ErrorService from "../app/services/errorService/error.service";
 export default runConfig;
 
 /** @ngInject */
@@ -13,15 +15,15 @@ function runConfig($cookies: ng.cookies.ICookiesService,
                    $q: ng.IQService,
                    $http: ng.IHttpService,
                    Restangular: restangular.IService,
-                   // AuthService: AuthService,
+                   AuthService: AuthService,
                    // UserService: UserService,
-                   // ErrorService: ErrorService,
+                   ErrorService: ErrorService,
 				   CartServices: CartServices,
                    appConfig) {
 
 	function endSession() {
-		// AuthService.logoutEventBroadcast();
-		// $state.go('users.login', { warning: ErrorService.getAuthErrors().sessionExpiredError });
+		AuthService.logoutEventBroadcast();
+		$state.go('users.login', { warning: ErrorService.getAuthErrors().sessionExpiredError });
 	}
 
 	/**
@@ -34,8 +36,8 @@ function runConfig($cookies: ng.cookies.ICookiesService,
 	 * @return {IPromise}    Request promise
 	 */
 	function refreshAccessToken() {
-		// AuthService.setBasicHeader();
-		// return AuthService.requestBearerToken();
+		AuthService.setBasicHeader();
+		return AuthService.requestBearerToken();
 	}
 
 	/**
@@ -48,14 +50,14 @@ function runConfig($cookies: ng.cookies.ICookiesService,
 		// todo: do not refresh requests from AuthService.getUser. If 401 came back, then 401 it is, no need to resend.
 		// if (response.status === 401 && response.data.error === 'invalid_token') {
 		if (response.status === 401) {
-			let userTokenCookie = $cookies.get('user_token'); // private user token obtained after login
-			let userIdCookie = $cookies.get('user_id'); // User GUID from Kazkom
+			// let userTokenCookie = $cookies.get('user_token'); // private user token obtained after login
+			// let userIdCookie = $cookies.get('user_id'); // User GUID from Kazkom
 			// if (!userTokenCookie && !userIdCookie) {
-			// 	refreshAccessToken().then(
-			// 		(data: any) => {
-			// 			response.config.headers.Authorization = 'Bearer ' + data.access_token;
-			// 			$http(response.config).then(responseHandler, deferred.reject);
-			// 		});
+				refreshAccessToken().then(
+					(data: any) => {
+						response.config.headers.Authorization = 'Bearer ' + data.access_token;
+						$http(response.config).then(responseHandler, deferred.reject);
+					});
 			// } else {
 			// 	endSession();
 			// }

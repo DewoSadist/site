@@ -1,72 +1,72 @@
 <section class="products-filter">
-  <div class="page-list page-list_scrollable page-list_products visible-sm visible-md visible-lg">
-    <div class="container">
-      <div id="scrollableViewport" class="page-list-viewport">
-        <div class="page-list-left" ng-click="$ctrl.scrollLeft()" ng-show="$ctrl.scrollableShowLeft">
-          <span class="icon icon_chevron-left"></span>
-        </div>
-        <div id="scrollableContainer" class="page-list-wrap menu-list">
-          <div ng-click="$ctrl.selectItem(category)"
-             ng-class="{
-                'soon-label':category.disabled,
-               'active': category.isActive
-             }" class="page-list-item" ng-repeat="category in $ctrl.categories track by $index">
-            <div class="content">
-              <span class="icon icon_product icon_product-steak"></span>
-              <span>{{category.name}} ({{$ctrl.categoryProductsCount(category)}})</span>
+    <div class="page-list page-list_scrollable page-list_products visible-sm visible-md visible-lg">
+        <div class="container">
+            <div id="scrollableViewport" class="page-list-viewport">
+                <div class="page-list-left" ng-click="$ctrl.scrollLeft()" ng-show="$ctrl.scrollableShowLeft">
+                    <span class="icon icon_chevron-left"></span>
+                </div>
+                <div id="scrollableContainer" class="page-list-wrap menu-list">
+                    <div ng-click="$ctrl.selectItem(category)"
+                         ng-class="{
+                            'soon-label':category.disabled,
+                            'active': category.isActive
+                        }" class="page-list-item" ng-repeat="category in $ctrl.categories track by $index">
+                        <div class="content">
+                            <span class="icon icon_category icon_food_category-{{category.tags}}"></span>
+                            <span>{{category.name}} ({{$ctrl.categoryProductsCount(category)}})</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-list-right" ng-click="$ctrl.scrollRight()" ng-show="$ctrl.scrollableShowRight">
+                    <span class="icon icon_chevron-right"></span>
+                </div>
             </div>
-          </div>
         </div>
-        <div class="page-list-right" ng-click="$ctrl.scrollRight()" ng-show="$ctrl.scrollableShowRight">
-          <span class="icon icon_chevron-right"></span>
-        </div>
-      </div>
     </div>
-  </div>
-  <section class="page-list page-list_products page-mobile visible-xs">
-    <div class="container">
-      <div class="page-list-wrap page-list-wrap_no-shadow">
-        <div class="page-list-item products-filter page-list-item_authorized">
-          <a href="javascript:void(0);" ng-click="$ctrl.toggleCategories(true)" class="trigger-button">
-            <span ng-if="!$ctrl.selected" class="text-primary">Select the category</span>
-            <span ng-if="$ctrl.selected" >
-                        	{{$ctrl.selected.name}}
-                        	({{$ctrl.categoryProductsCount($ctrl.selected)}})
+    <section class="page-list page-list_products page-mobile visible-xs">
+        <div class="container">
+            <div class="page-list-wrap page-list-wrap_no-shadow">
+                <div class="page-list-item products-filter page-list-item_authorized">
+                    <a href="javascript:void(0);" ng-click="$ctrl.toggleCategories(true)" class="trigger-button">
+                        <span ng-if="!$ctrl.selected" class="text-primary">Select the category</span>
+                        <span ng-if="$ctrl.selected">
+                            {{$ctrl.selected.name}}
+                            ({{$ctrl.categoryProductsCount($ctrl.selected)}})
                         </span>
-            <span class="icon icon_hamburger-blue"></span>
-          </a>
-          <div class="menu" ng-class="{'menu_open': $ctrl.scrollableShowFilter === true}">
-            <a class="menu-close" ng-click="$ctrl.toggleCategories(false)" href="javascript:void(0);">
-              <div class="link">
-                <span class="icon icon_chevron-left"></span>
-                <span class="text hidden-xs hidden-sm">back</span>
-              </div>
-              <h3>Select the category</h3>
-            </a>
-            <div class="page-list-wrap menu-list">
-              <div ng-click="$ctrl.selectItem(category)"
-                   ng-class="{
+                        <span class="icon icon_hamburger-blue"></span>
+                    </a>
+                    <div class="menu" ng-class="{'menu_open': $ctrl.scrollableShowFilter === true}">
+                        <a class="menu-close" ng-click="$ctrl.toggleCategories(false)" href="javascript:void(0);">
+                            <div class="link">
+                                <span class="icon icon_chevron-left"></span>
+                                <span class="text hidden-xs hidden-sm">back</span>
+                            </div>
+                            <h3>Select the category</h3>
+                        </a>
+                        <div class="page-list-wrap menu-list">
+                            <div ng-click="$ctrl.selectItem(category)"
+                                 ng-class="{
                             		'soon-label':category.disabled,
                             		'page-list-item_bottom': (($index == $ctrl.categories.length - 1) && ($ctrl.categories.length % 2 == 1)),
 									'active': category.isActive
                             		}" class="page-list-item" ng-repeat="category in $ctrl.categories track by $index">
-                <div class="content">
-                  <span class="icon icon_product"></span>
-                  <span>{{category.name}} ({{$ctrl.categoryProductsCount(category)}})</span>
+                                <div class="content">
+                                    <span class="icon icon_category icon_food_category-{{category.tags}}"></span>
+                                    <span>{{category.name}} ({{$ctrl.categoryProductsCount(category)}})</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 </section>
 <section class="home-payments" ng-class="{'loading':$ctrl.isProductsLoading}">
-  <div class="page-list page-list_dynamic page-list_no-padding content-block">
-    <div class="container">
-      <products-collection data-products="$ctrl.products"></products-collection>
-      <a ui-sref="payments.main" class="btn btn-primary payments-button">All Products</a>
+    <div class="page-list page-list_dynamic page-list_no-padding content-block">
+        <div class="container">
+            <products-collection data-products="$ctrl.products"></products-collection>
+            <a ui-sref="payments.main" class="btn btn-primary payments-button">All Products</a>
+        </div>
     </div>
-  </div>
 </section>

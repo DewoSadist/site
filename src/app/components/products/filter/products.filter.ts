@@ -1,3 +1,4 @@
+import './products.filter.scss';
 class ProductsFilterController {
   public categories;
   public productsList;

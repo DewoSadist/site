@@ -1,0 +1,64 @@
+<section class="top-section main">
+    <section class="container">
+        <div class="info">
+            <div class="row">
+                <div class="col-xs-12 col-sm-9 col-md-7">
+                    <h1 class="title">Sign in</h1>
+                    <div class="subtitle">New to Deos? <a ui-sref="users.register" href="javascript:void(0);">Create an
+                        account</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+<div class="container">
+    <div class="row">
+        <div class="row-height">
+            <div class="col-xs-12 col-sm-9 col-md-7">
+                <div ng-class="{'loading':$ctrl.isLoading}">
+                    <div class="panel panel-default users-panel">
+                        <div class="panel-body">
+                            <div class="alert alert-warning" ng-show="$ctrl.warning">{{$ctrl.warning}}</div>
+                            <form ng-submit="$ctrl.loginAction()">
+                                <div class="form-group" ng-class="{'has-error': $ctrl.errors.input}">
+                                    <label class="control-label" for="loginEmail">Email</label>
+                                    <input clear-errors autocomplete="off" id="loginEmail" class="form-control"
+                                           ui-mask-placeholder="" ui-mask-placeholder-char="" clear-on-blur="false"
+                                           type="email" ng-model="$ctrl.loginData.email" auto-focus="true">
+                                    <small class="error" ng-show="$ctrl.errors.input"> {{$ctrl.errors.input}}</small>
+                                </div>
+                                <div class="form-group"
+                                     ng-class="{'has-error': $ctrl.errors.password && $ctrl.errors.password.length}">
+                                    <label class="control-label" for="loginPassword">Password</label>
+                                    <div class="input-group no-border">
+                                        <input clear-errors id="loginPassword" autocomplete="off" class="form-control"
+                                               ng-model="$ctrl.loginData.password"
+                                               type="{{$ctrl.loginData.isPasswordShown === true? 'text' : 'password'}}">
+                                        <a href="javascript:void(0);" class="input-group-addon password-btn"
+                                           ng-class="{'password-btn_show':$ctrl.loginData.isPasswordShown === true}"
+                                           ng-click="$ctrl.togglePasswordShow()" placeholder="Your password">
+                                            <span class="icon icon_password-show"></span>
+                                        </a>
+                                    </div>
+                                    <small class="error" ng-show="$ctrl.errors.password"> {{$ctrl.errors.password}}
+                                    </small>
+                                </div>
+                                <div ng-if="$ctrl.errors.form" class="alert alert-danger" role="alert">
+                                    {{$ctrl.errors.form}}
+                                </div>
+                                <button type="submit" ng-disabled="$ctrl.isLoading === true" class="btn btn-primary">
+                                    <span ng-if="$ctrl.isLoading">pleas wait</span>
+                                    <span ng-if="!$ctrl.isLoading">Sign in</span>
+                                </button>
+                                <div class="users-links">
+                                    <a ui-sref="users.restore" href="javascript:void(0);">I forgot password</a>
+                                    <a href="javascript:void(0);" class="disabled">I forgot login</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

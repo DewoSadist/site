@@ -74,22 +74,19 @@
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <div class="pull-left">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <a class="navbar-brand" ui-sref="home">Deos</a>
-
-                <div class="navbar-state visible-xs visible-sm pull-left">{{$ctrl.getStateTitle()}}</div>
-            </div>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav" aria-expanded="false">
+                <!-- div class="navbar-label">Menu</div-->
+                <div class="icon-bar-wrap">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </div>
+            </button>
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <a class="navbar-brand navbar-brand-centered" ng-attr-ui-sref="{{$ctrl.isAuthorized ? 'profile.main' : 'home'}}"><span class="icon icon_logo"></span></a>
+            <div class="navbar-state visible-xs visible-sm pull-left">Daulet{{$ctrl.getStateTitle()}}</div>
             <div class="pull-right">
                 <!-- TODO: Enable on see theme -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav" aria-expanded="false">
-                    <div class="navbar-label">Menu</div>
-                    <div class="icon-bar-wrap">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </div>
-                </button>
                 <button type="button" ng-click="$ctrl.CartServices.toggleShowCart()"
                         class="btn btn-sm pull-right change-color btn-primary"
                         data-toggle="collapse" data-target="#sidecart"
@@ -104,7 +101,7 @@
             <ul class="nav navbar-nav navbar_hb">
                 <!-- <li  ng-class="{active: $ctrl.state.includes('theme')}"><a ui-sref="theme">Theme</a></li> -->
                 <li>
-                    <span class="contacts">8 800 8000 00 00  Call Us</span>
+                    <span class="contacts">604 7814625 TEXT/CALL</span>
                 </li>
                 <li ng-if="$ctrl.isAuthorized" ng-class="{active: $ctrl.state.includes('profile') || $ctrl.state.includes('account')}">
                     <a ui-sref="store.restaurants">My Restaurants</a>
@@ -117,6 +114,12 @@
                 </li>
                 <li ng-class="{active: $ctrl.state.includes('products')}">
                     <a ui-sref="contacts">Contacts</a>
+                </li>
+                <li>
+                    <a ng-if="!$ctrl.isAuthorized" ui-sref="users.login">Login</a>
+                </li>
+                <li>
+                    <a ng-if="$ctrl.isAuthorized" href="javascript:void(0);" ng-click="$ctrl.logout()">Logout</a>
                 </li>
                 <!--<li ng-if="$ctrl.isAuthorized" ng-class="{active: $ctrl.state.includes('history')}"><a ui-sref="history">Архив платежей и переводов</a></li>-->
                 <!-- <li><a ui-sref="home">Кредиты</a></li> -->

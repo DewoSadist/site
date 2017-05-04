@@ -111,9 +111,10 @@ class ErrorService {
 				cardSaveUnknownError: 'Произошла ошибка при сохранении карточки',
 			},
 			auth: {
+				emailEmptyError: 'Enter your email',
 				numberEmptyError: 'Введите ваш номер телефона',
 				numberInvalidError: 'Введите ваш номер телефона',
-				numberFailedError: 'Произошла ошибка при обработке вашего номера. Попробуйте еще раз.',
+				emailFailedError: 'Произошла ошибка при обработке вашего email. Попробуйте еще раз.',
 				codeEmptyError: 'Введите код подтверждения',
 				codeNotFoundError: 'Код подтверждения не найден, попробуйте еще раз',
 				codeCountExceededError: 'Вы не можете запрашивать больше одного SMS подтверждения в минуту',
@@ -128,14 +129,14 @@ class ErrorService {
 				sessionExpiredError: 'Время вашей сессии истекло, авторизуйтесь снова',
 			},
 			password: {
-				passwordEmptyError: 'Введите ваш пароль',
+				passwordEmptyError: 'Enter your password',
 				passwordRepeatError: 'Новый пароль не должен совпадать с текущим',
 				passwordShortError: 'Пароль должен содержать не менее 8 знаков',
 				passwordNotMatchError: 'Введенные пароли должны совпадать',
 				passwordWeakError: 'Вы ввели слабый пароль. Пароль должен содержать буквы и цифры.',
-				passwordWrongError: 'Вы ввели неверный пароль',
+				passwordWrongError: 'Incorrect password',
 				passwordSaveError: 'Произошла ошибка при сохранении пароля',
-				passwordChangedMessage: 'Пароль успешно изменен',
+				passwordChangedMessage: 'Password successfully changed',
 			}
 		};
 	}
