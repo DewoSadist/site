@@ -19,7 +19,7 @@ export interface IUserService {
  * @ngdoc object
  * @name UserService
  */
-class UserService implements UserService{
+class UserService implements IUserService{
   /**
    * @ngdoc       property
    * @name        UserService#user

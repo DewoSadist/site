@@ -12,23 +12,23 @@ function routesConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvi
 	.state('root', {
 		abstract: true,
 		template: '<div ui-view=""></div>',
-		resolve: {
-			user: (AuthService: AuthService,
-				   $q: ng.IQService,
-				   $state: ng.ui.IStateService) => {
-				let deferred = $q.defer();
-
-				AuthService.initiateUser()
-				.then((response) => {
-					deferred.resolve(response);
-				})
-				.catch((error) => {
-					AuthService.loginEventBroadcast();
-					$state.go('user.login')
-				});
-				return deferred.promise;
-			}
-		}
+		// resolve: {
+		// 	user: (AuthService: AuthService,
+		// 		   $q: ng.IQService,
+		// 		   $state: ng.ui.IStateService) => {
+		// 		let deferred = $q.defer();
+        //
+		// 		AuthService.initiateUser()
+		// 		.then((response) => {
+		// 			deferred.resolve(response);
+		// 		})
+		// 		.catch((error) => {
+		// 			AuthService.loginEventBroadcast();
+		// 			$state.go('user.login')
+		// 		});
+		// 		return deferred.promise;
+		// 	}
+		// }
 	})
 	.state('home', {
 		url: '/',

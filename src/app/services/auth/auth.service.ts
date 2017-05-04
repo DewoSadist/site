@@ -153,7 +153,7 @@ class AuthService {
                 console.log("auth response:",response.toString());
                 this.UserService.user = response.user;
                 this.setBearerHeader(response.access_token);
-                this.writeUserToCookies(response);
+                // this.writeUserToCookies(response);
                 this.loginEventBroadcast();
                 deferred.resolve(response);
             })
