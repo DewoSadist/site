@@ -1,8 +1,17 @@
 import './home.scss';
 
 class HomeController {
+	public vm;
+
 	/** @ngInject */
-	constructor(public $state: ng.ui.IStateService, public $scope) {
+	constructor(public $state: ng.ui.IStateService,
+				public $scope,
+				public NgMap) {
+		NgMap.getMap().then((map) => {
+			console.log(map.getCenter());
+			console.log('markers', map.markers);
+			console.log('shapes', map.shapes);
+		});
 		// this.$state.go('payments.main');
 		$(window).resize(() => {
 			this.updateArtStyle();

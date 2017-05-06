@@ -20,6 +20,7 @@ import 'angular-credit-cards';
 import 'creditcards/card';
 import 'angular-filter';
 import 'angular-loading-bar';
+import 'ngmap/build/scripts/ng-map';
 
 import 'jquery-migrate';
 
@@ -121,6 +122,7 @@ angular.module('app', [
 	'angular.filter',
 	'angular-loading-bar',
 	'angular-click-outside',
+	'ngMap',
 ])
 .constant('appConfig', appConfig)
 .constant('moment', moment)
