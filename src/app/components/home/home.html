@@ -1,28 +1,24 @@
 <section class="home">
     <home-slider></home-slider>
-    Auto Complete Type:
-    <select ng-model="$ctrl.vm.types">
-        <option value="['geocode']">Geodode</option>
-        <option value="['establishment']">Establishment</option>
-        <option value="['address']">Address</option>
-    </select><br/>
 
-    Enter an address: <br/>
-    <input places-auto-complete size=80
-           ng-model="$ctrl.vm.address"
-           component-restrictions="{country:'us'}"
-           types="{{types}}"
-           on-place-changed="$ctrl.vm.placeChanged()" /> <br/>
-    <div ng-show="$ctrl.vm.place">
-        Address = {{$ctrl.vm.place.formatted_address}} <br/>
-        Location: {{$ctrl.vm.place.geometry.location}}<br/>
-    </div>
-    address : {{$ctrl.vm.address}}
-    <ng-map center="41,-87" zoom="3" style="width:400px;height:400px;background:yellow"></ng-map>
-    <ng-map default-style="true" center="current-location" zoom="18"
-            style="width:400px;height:400px;background:yellow">
-        <info-window position="current-location">
-            <span>Location found using HTML5.</span>
-        </info-window>
-    </ng-map>
+
+
+    <!--Auto Complete Type:-->
+    <!--<select ng-model="$ctrl.vm.types">-->
+        <!--<option value="['geocode']">Geodode</option>-->
+        <!--<option value="['establishment']">Establishment</option>-->
+        <!--<option value="['address']">Address</option>-->
+    <!--</select><br/>-->
+    <!--Enter an address: <br/>-->
+    <!--<input places-auto-complete size=80-->
+           <!--ng-model="$ctrl.vm.address"-->
+           <!--component-restrictions="{country:'us'}"-->
+           <!--types="{{types}}"-->
+           <!--on-place-changed="$ctrl.vm.placeChanged()" /> <br/>-->
+    <!--<div ng-show="$ctrl.vm.place">-->
+        <!--Address = {{$ctrl.vm.place.formatted_address}} <br/>-->
+        <!--Location: {{$ctrl.vm.place.geometry.location}}<br/>-->
+    <!--</div>-->
+    <!--address : {{$ctrl.vm.address}}-->
+    <!--center="current-location" -->
 </section>

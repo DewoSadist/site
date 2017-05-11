@@ -12,8 +12,8 @@ class ProfileMainController {
               public AuthService,
               public UserService: UserService,
               public tinycolor) {
-    // if (this.UserService.user && this.UserService.user.userId) {
-    //   // this.UserService.getMyContracts()
+    if (this.UserService.user && this.UserService.user.user_id) {
+      // this.UserService.getMyContracts()
     //   //     .then((list) => {
     //   //       this.myPayments = list;
     //   //     });
@@ -21,13 +21,14 @@ class ProfileMainController {
     //   //     .then((list) => {
     //   //       this.cardList = list;
     //   //     });
-    // } else {
-    //   $state.go('users.login');
-    // }
+    } else {
+      $state.go('users.login');
+    }
     this.isAdmin = true;
     this.text = 'My brand new component!';
     this.isAuthorized = this.UserService.isAuthorized();
     if (this.isAuthorized) {
+      this.isAdmin = this.UserService.isAdmin();
     }
   }
 }

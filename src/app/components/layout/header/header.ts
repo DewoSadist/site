@@ -1,6 +1,9 @@
 import './header.scss';
 import {ICartServices} from "../../../services/cartServices/cart.services";
 import AuthService from "../../../services/auth/auth.service";
+import UserService from "../../../services/userService/user.service";
+import TemplatorService from '../../../services/templator/templator.service';
+
 
 /**
  * @ngdoc   object
@@ -18,7 +21,9 @@ class HeaderController {
 	constructor(public $scope,
 				public $state,
 				public CartServices: ICartServices,
-				public AuthService: AuthService
+				public AuthService: AuthService,
+				public UserService: UserService,
+				public TemplatorService: TemplatorService
 	) {
 		this.cartItemsCount = this.CartServices.getTotalCount();
 		this.state = this.$state;
@@ -27,11 +32,11 @@ class HeaderController {
 
 		this.$scope.$on('LoginEvent', () => {
 			this.isAuthorized = true;
-			// this.user = this.UserService.user;
+			this.user = this.UserService.user;
 		});
 		this.$scope.$on('LogoutEvent', () => {
 			this.isAuthorized = false;
-			// this.user = null;
+			this.user = null;
 		});
 	}
 	/**
@@ -71,6 +76,8 @@ class HeaderController {
 	 * Returns current page's name as in breadcrumbs
 	 */
 	getStateTitle() {
+		let stateParent = this.$state.current.name.split('.');
+		return this.TemplatorService.getStateTitle(stateParent[0]);
 	}
 	/**
 	 * @ngdoc method

@@ -27,15 +27,30 @@ class AuthService {
 
     // ------------------------------ Basic auth Actions -----------------------------
     initiateUser() {
+        console.log("initiateUser");
         let deferred = this.$q.defer();
         var accessToken = this.$cookies.get('access_token'); // general access token from API
-        console.log("InitiateUser get access token:", this.$cookies.get('access_token'));
-        if (accessToken) {
+        var userId = this.$cookies.get('user_id');
+        if(userId) {
+            this.UserService.getUser(userId)
+            .then(
+                (userObject) => {
+                    this.loginEventBroadcast();
+                    deferred.resolve(userObject);
+                })
+            .catch((error) => {
+               deferred.resolve(null);
+            });
+        // } else {
+        //     deferred.resolve(null);
+        }
+        else if (accessToken) {
             console.log("InitiateUser yes access token");
             this.setBearerHeader(accessToken);
             deferred.resolve(null);
         } else {
             console.log("InitiateUser no access token");
+            this.setBasicHeader();
             this.requestBearerToken()
             .then(() => {
                 deferred.resolve(null);
@@ -70,23 +85,22 @@ class AuthService {
         console.log("RequestBearerToken");
         let deferred = this.$q.defer();
         let self = this;
-        this.Restangular.withConfig(
+        this.Restangular
+            .setDefaultHeaders({Authorization:  "Basic "+this.getBasicToken()})
+            .withConfig(
             (RestangularConfigurer) => {
                 RestangularConfigurer.setBaseUrl(this.appConfig.apiUrl + '/oauth/');
-            })
-            .all('token?grant_type=client_credentials&scope=read')
-            .withHttpConfig({ignoreLoadingBar: true})
-            .post()
-            .then((tokenObject) => {
-                console.log("tokenObject:", tokenObject);
-                self.writeTokenToCookies(tokenObject);
-                self.setBearerHeader(tokenObject.access_token);
-                deferred.resolve(tokenObject);
-            })
-            .catch((error) => {
-                console.log(error);
-                deferred.reject(error);
-            });
+            }).all('token?grant_type=client_credentials&scope=read').post({Authorization: "Basic " + this.getBasicToken()})
+        .then((tokenObject) => {
+            console.log("tokenObject:", tokenObject);
+            self.writeTokenToCookies(tokenObject);
+            self.setBearerHeader(tokenObject.access_token);
+            deferred.resolve(tokenObject);
+        })
+        .catch((error) => {
+            console.log(error);
+            deferred.reject(error);
+        });
         return deferred.promise;
     }
 
@@ -153,7 +167,7 @@ class AuthService {
                 console.log("auth response:",response.toString());
                 this.UserService.user = response.user;
                 this.setBearerHeader(response.access_token);
-                // this.writeUserToCookies(response);
+                this.writeUserToCookies(response);
                 this.loginEventBroadcast();
                 deferred.resolve(response);
             })
@@ -301,10 +315,10 @@ class AuthService {
     private writeUserToCookies(data) {
         var expireDate = new Date();
         expireDate.setSeconds(expireDate.getSeconds() + data.expires_in);
-        this.$cookies.put('user_id', data.user.userId, {
+        this.$cookies.put('user_id', data.user.user_id, {
         	expires: expireDate
         });
-        // this.$cookies.put('user_id', data.user.userId);
+        this.$cookies.put('user_id', data.user.user_id);
         // this.$cookies.put('user_token', data.access_token);
     }
 

@@ -84,7 +84,7 @@
             </button>
             <!-- Brand and toggle get grouped for better mobile display -->
             <a class="navbar-brand navbar-brand-centered" ng-attr-ui-sref="{{$ctrl.isAuthorized ? 'profile.main' : 'home'}}"><span class="icon icon_logo"></span></a>
-            <div class="navbar-state visible-xs visible-sm pull-left">Daulet{{$ctrl.getStateTitle()}}</div>
+            <div class="navbar-state visible-xs visible-sm pull-left">{{$ctrl.getStateTitle()}}</div>
             <div class="pull-right">
                 <!-- TODO: Enable on see theme -->
                 <button type="button" ng-click="$ctrl.CartServices.toggleShowCart()"
@@ -104,7 +104,7 @@
                     <span class="contacts">604 7814625 TEXT/CALL</span>
                 </li>
                 <li ng-if="$ctrl.isAuthorized" ng-class="{active: $ctrl.state.includes('profile') || $ctrl.state.includes('account')}">
-                    <a ui-sref="store.restaurants">My Restaurants</a>
+                    <a ui-sref="profile.main">My Profile</a>
                 </li>
                 <li ng-class="{active: $ctrl.state.includes('payments')}">
                     <a ui-sref="store.restaurants">Restaurants</a>

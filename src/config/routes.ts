@@ -1,6 +1,7 @@
 /// <reference path="../../typings/index.d.ts" />
 import {IShopServices, default as ShopServices} from '../app/services/shopServices/shop.services';
 import AuthService from "../app/services/auth/auth.service";
+import {IUserService} from "../app/services/userService/user.service";
 export default routesConfig;
 
 /** @ngInject */
@@ -12,23 +13,27 @@ function routesConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvi
 	.state('root', {
 		abstract: true,
 		template: '<div ui-view=""></div>',
-		// resolve: {
-		// 	user: (AuthService: AuthService,
-		// 		   $q: ng.IQService,
-		// 		   $state: ng.ui.IStateService) => {
-		// 		let deferred = $q.defer();
-        //
-		// 		AuthService.initiateUser()
-		// 		.then((response) => {
-		// 			deferred.resolve(response);
-		// 		})
-		// 		.catch((error) => {
-		// 			AuthService.loginEventBroadcast();
-		// 			$state.go('user.login')
-		// 		});
-		// 		return deferred.promise;
-		// 	}
-		// }
+		resolve: {
+			user: (UserService: IUserService,
+				   AuthService: AuthService,
+				   $q: ng.IQService,
+				   $state: ng.ui.IStateService) => {
+				if (UserService.user) {
+					return UserService.user;
+				} else {
+					let deferred = $q.defer();
+					AuthService.initiateUser()
+					.then((response) => {
+						deferred.resolve(response);
+					})
+					.catch((error) => {
+						AuthService.logoutEventBroadcast();
+						$state.go('users.login')
+					});
+					return deferred.promise;
+				}
+			}
+		}
 	})
 	.state('home', {
 		url: '/',
@@ -118,8 +123,8 @@ function routesConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvi
 		}
 
 	})
-        .state('profile.main', {
-			url: '/main',
-			template: '<profile-main user="$resolve.user" ></profile-main>',
-		});
+	.state('profile.main', {
+		url: '/main',
+		template: '<profile-main user="$resolve.user" ></profile-main>',
+	});
 }

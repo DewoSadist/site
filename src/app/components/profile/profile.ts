@@ -6,7 +6,7 @@ class ProfileController {
 
   /** @ngInject */
   constructor(public $state: angular.ui.IStateService, public AuthService, public UserService: UserService) {
-    if (this.UserService.user && this.UserService.user.userId) {
+    if (this.UserService.user && this.UserService.user.user_id) {
       switch (this.operation) {
         case 'register':
           this.operationText ='Регистрация прошла успешно.';

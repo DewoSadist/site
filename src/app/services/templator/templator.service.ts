@@ -45,10 +45,10 @@ class TemplatorService implements ITemplatorService {
 			payments: 'Услуги и платежи',
 			transfers: 'Переводы',
 			mobile: 'Мобильная связь',
-			users: 'Вход и регистрация',
-			profile: 'Мой Homebank',
-			account: 'Мой Homebank',
-			virtual: 'Мой Homebank',
+			users: 'Login and registration',
+			profile: 'My Profile',
+			account: 'My Profile',
+			virtual: 'My Profile',
 		};
 		this.currencies = {
 			KZT: 'тг.',

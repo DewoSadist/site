@@ -3,16 +3,25 @@ import {isNullOrUndefined} from "util";
  * @interface IUserObject
  */
 export interface IUserObject {
-  userId: string,
-  phone: string,
+  username: string,
+  enabled: string,
   email: string,
-  firstName?: string,
-  lastName?: string,
-  roles?: any
+  phone?: string,
+  postal_code?: string,
+  country: string,
+  city:string,
+  address: string,
+  location: any,
+  roles: string,
+  firstname?: string,
+  secondname?: string,
+  lastname?: string,
+  user_id: string
 }
 export interface IUserService {
   user;
   isAuthorized();
+  getUser();
 }
 
 /**
@@ -50,9 +59,23 @@ class UserService implements IUserService{
    * @return {boolean}    true if user object is present
    */
   isAuthorized() {
-    return !isNullOrUndefined(this.user && this.user.userId);
+    return !isNullOrUndefined(this.user && this.user.user_id);
   }
 
+  /**
+   * @ngdoc method
+   * @name UserService.isAdmin
+   * @methodOf UserService
+   *
+   * @description
+   * Returns true if user has banking role
+   *
+   * @return {IUserObject|string|boolean}
+   */
+
+  isAdmin() {
+    return this.user && this.user.roles && (this.user.roles.indexOf("ADMIN") >-1);
+  }
   /**
    * @ngdoc method
    * @name UserService.getUser
@@ -67,8 +90,8 @@ class UserService implements IUserService{
    */
   getUser(userId = null) {
     let deferred = this.$q.defer();
-    if (!userId && this.user && this.user.userId) {
-      userId = this.user.userId; // take existing one from User service
+    if (!userId && this.user && this.user.user_id) {
+      userId = this.user.user_id; // take existing one from User service
     } else if (!userId) {
       userId = this.$cookies.get('user_id'); // take existing one from cookies
     }
