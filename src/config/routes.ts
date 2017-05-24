@@ -126,5 +126,34 @@ function routesConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvi
 	.state('profile.main', {
 		url: '/main',
 		template: '<profile-main user="$resolve.user" ></profile-main>',
-	});
+	})
+	.state('profile.restaurant', {
+		url:'/restaurant/:id',
+		params: {id:null},
+		template: '<restaurant-item data-restaurant="$resolve.restaurant"></restaurant-item>',
+		resolve:{
+
+			restaurant: (ShopServices: IShopServices, $stateParams: ng.ui.IStateParamsService, $state: ng.ui.IStateService) => {
+				if ($stateParams['id']) {
+					return ShopServices.getRestaurant($stateParams['id']) || $state.go('profile.main');
+				} else {
+					return ShopServices.getRestaurant($stateParams['id']) || $state.go('profile.main');
+				}
+			}
+		}
+	})
+	.state('profile.restaurant-edit', {
+		url:'/restaurant/edit/:id',
+		template: '<restaurant-edit data-restaurant="$resolve.restaurant"></restaurant-edit>',
+		resolve:{
+			restaurant: (ShopServices: IShopServices, $stateParams: ng.ui.IStateParamsService, $state: ng.ui.IStateService) => {
+				return ShopServices.getRestaurant($stateParams['id']) || $state.go('profile.restaurant');
+			}
+		}
+	})
+	.state('profile.restaurant-new', {
+		url:'/restaurantnew',
+		template: '<restaurant-new></restaurant-new>'
+	})
+	;
 }

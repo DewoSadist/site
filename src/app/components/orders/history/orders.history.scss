@@ -1,0 +1,18 @@
+.account-list {
+  &-item {
+    .multicurrency {
+      @include flex(center, center);
+      .foreign {
+        margin-left: 15px;
+      }
+    }
+    @include flex;
+  }
+  .mps-heading {
+    @include flex;
+    .mps {
+      margin-left: 0;
+      margin-right: 10px;
+    }
+  }
+}

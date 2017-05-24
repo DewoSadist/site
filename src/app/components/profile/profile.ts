@@ -1,4 +1,5 @@
 import UserService from "../../services/userService/user.service";
+import './profile.scss';
 class ProfileController {
   public operation: string;
   public operationText: string;

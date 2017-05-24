@@ -1,0 +1,98 @@
+<div class="component">
+    <h2>Restaurant <a href="javascript:void(0);" ui-sref="profile.restaurant-edit({id:$ctrl.restaurant.id}) ">edit</a></h2>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>NAME</th>
+            <th>Value</th>
+        </tr>
+        </thead>
+        <tr>
+            <td>ID</td>
+            <td>{{ $ctrl.restaurant.id }}</td>
+        </tr>
+        <tr>
+            <td>TITLE</td>
+            <td>{{ $ctrl.restaurant.title }}</td>
+        </tr>
+        <tr>
+            <td>Slug</td>
+            <td>{{ $ctrl.restaurant.slug }}</td>
+        </tr>
+        <tr>
+            <td>Tags</td>
+            <td>{{ $ctrl.restaurant.tags }}</td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td>{{ $ctrl.restaurant.description }}</td>
+        </tr>
+        <tr>
+            <td>Logo img</td>
+            <td>{{ $ctrl.restaurant.logo_image_url }}</td>
+        </tr>
+        <tr>
+            <td>Header img</td>
+            <td>{{ $ctrl.restaurant.header_image_url }}</td>
+        </tr>
+        <tr>
+            <td>Cover img</td>
+            <td>{{ $ctrl.restaurant.cover_image_url }}</td>
+        </tr>
+        <tr>
+            <td>TITLE</td>
+            <td>{{ $ctrl.restaurant.status }}</td>
+        </tr>
+        <tr>
+            <td>Country</td>
+            <td>{{ $ctrl.restaurant.country }}</td>
+        </tr>
+        <tr>
+            <td>City</td>
+            <td>{{ $ctrl.restaurant.city }}</td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td>{{ $ctrl.restaurant.address }}</td>
+        </tr>
+        <tr>
+            <td>Location</td>
+            <td>{{ $ctrl.restaurant.location }}</td>
+        </tr>
+        <tr>
+            <td>Fax</td>
+            <td>{{ $ctrl.restaurant.fax }}</td>
+        </tr>
+        <tr>
+            <td>Tel:</td>
+            <td>{{ $ctrl.restaurant.phone }}</td>
+        </tr>
+        <tr>
+            <td>Postal code</td>
+            <td>{{ $ctrl.restaurant.postal_code }}</td>
+        </tr>
+        <tr>
+            <td>Rating</td>
+            <td>{{ $ctrl.restaurant.ratings }}</td>
+        </tr>
+    </table>
+    <div ng-if="$ctrl.restaurant.hours.length>0">
+        <h2>Open Hours</h2>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Day of Week</th>
+                <th>Open Hour</th>
+                <th>Close Hour</th>
+            </tr>
+            </thead>
+            <tr ng-repeat="hour in $ctrl.restaurant.hours">
+                <td>{{ hour.open_id }}</td>
+                <td>{{ hour.day }}</td>
+                <td>{{ hour.open_hour }}</td>
+                <td>{{ hour.close_hour }}</td>
+            </tr>
+        </table>
+    </div>
+</div>

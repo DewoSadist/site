@@ -31,6 +31,7 @@ class AuthService {
         let deferred = this.$q.defer();
         var accessToken = this.$cookies.get('access_token'); // general access token from API
         var userId = this.$cookies.get('user_id');
+        console.log("serID:",userId);
         if(userId) {
             this.UserService.getUser(userId)
             .then(
@@ -86,11 +87,10 @@ class AuthService {
         let deferred = this.$q.defer();
         let self = this;
         this.Restangular
-            .setDefaultHeaders({Authorization:  "Basic "+this.getBasicToken()})
             .withConfig(
             (RestangularConfigurer) => {
                 RestangularConfigurer.setBaseUrl(this.appConfig.apiUrl + '/oauth/');
-            }).all('token?grant_type=client_credentials&scope=read').post({Authorization: "Basic " + this.getBasicToken()})
+            }).all('token?grant_type=client_credentials&scope=read').post()
         .then((tokenObject) => {
             console.log("tokenObject:", tokenObject);
             self.writeTokenToCookies(tokenObject);
@@ -313,11 +313,11 @@ class AuthService {
      * @param {Object}  data    Data from token request
      */
     private writeUserToCookies(data) {
-        var expireDate = new Date();
-        expireDate.setSeconds(expireDate.getSeconds() + data.expires_in);
-        this.$cookies.put('user_id', data.user.user_id, {
-        	expires: expireDate
-        });
+        // var expireDate = new Date();
+        // expireDate.setSeconds(expireDate.getSeconds() + data.expires_in);
+        // this.$cookies.put('user_id', data.user.user_id, {
+        // 	expires: expireDate
+        // });
         this.$cookies.put('user_id', data.user.user_id);
         // this.$cookies.put('user_token', data.access_token);
     }

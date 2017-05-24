@@ -137,6 +137,9 @@ class ErrorService {
 				passwordWrongError: 'Incorrect password',
 				passwordSaveError: 'Произошла ошибка при сохранении пароля',
 				passwordChangedMessage: 'Password successfully changed',
+			},
+			edit: {
+				saveError: 'Error not Saved'
 			}
 		};
 	}
@@ -363,6 +366,19 @@ class ErrorService {
 	 */
 	getPasswordErrors(): any {
 		return this.errors.password;
+	}
+
+	/**
+	 * @ngdoc method
+	 * @name ErrorService.getEditSaveError
+	 * @methodOf ErrorService
+	 *
+	 * @description
+	 * Return object with all save with error objects
+	 * @return {any} - Object with all errors
+	 */
+	getEditError(): any {
+		return this.errors.edit;
 	}
 
 }

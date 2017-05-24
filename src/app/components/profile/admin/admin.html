@@ -1,3 +1,93 @@
-<div class="component">
-  <h2>{{$ctrl.text}}</h2>
+<div class="user-card">
+  <div class="panel panel-default panel-field" class="panel-virtual_dynamic">
+    <!--<div class="panel-heading" ng-click="$ctrl.headerClick()" ng-class="$ctrl.dynamic? 'container' :'panel-heading_link'">-->
+      <!--<div class="flex-truncated">-->
+        <!--<div class="mps flex-child short-and-fixed" ng-class="{'mps_left': !$ctrl.dynamic, 'hidden-xs':$ctrl.isEditing}">-->
+          <!--<img ng-if="$ctrl.account.mps && $ctrl.account.mps.length" class="mps" ng-src="{{$ctrl.getMpsUrlString()}}">-->
+        <!--</div>-->
+        <!--<div class="flex-child long-and-truncated" ng-show="!$ctrl.isEditing">-->
+          <!--<h3 id="virtualNameLabel" class="truncated-text text-white">{{$ctrl.account.alias}}</h3>-->
+          <!--<a href="" class="edit" ng-if="$ctrl.dynamic" ng-click="$ctrl.enableEdit()"><span class="icon icon_pencil-white"></span></a>-->
+        <!--</div>-->
+        <!--<form class="flex-child card-name" ng-show="$ctrl.isEditing">-->
+          <!--<input id="virtualNameInput" type="text" class="input-sm form-control edit-input" ng-model="$ctrl.account.alias">-->
+          <!--<a href="" ng-click="$ctrl.rename()"><span class="icon icon_checked-white"></span></a>-->
+        <!--</form>-->
+        <!--<a href="javascript:void(0)" class="back flex-child short-and-fixed" ui-sref="profile.main" ng-if="$ctrl.dynamic" ng-class="{'hidden-xs':$ctrl.isEditing}">-->
+          <!--<span class="icon icon_chevron-left-white"></span>-->
+        <!--</a>-->
+        <!--<a href="javascript:void(0)" class="forward" ng-click="$ctrl.headerClick()" ng-if="!$ctrl.dynamic">-->
+          <!--<span class="icon icon_chevron-right-white"></span>-->
+        <!--</a>-->
+      <!--</div>-->
+    <!--</div>-->
+    <div ng-class="{'container': $ctrl.dynamic}">
+      <div ng-class="{'row': $ctrl.dynamic}">
+        <div class="panel-body">
+          <div class="row">
+            <div class="row-height">
+              <div class="col-xs-12" ng-class="{'col-sm-7 col-sm-height col-sm-middle': $ctrl.dynamic}">
+                <div class="virtual-label">Name</div>
+                <h2 class="virtual-balance text-white">{{$ctrl.user.firstname}}</h2>
+                <!--<h2 class="virtual-balance text-white">{{$ctrl.account.balance | amount}} тг</h2>-->
+                <!--<button class="btn btn-auto btn-primary hidden-xs " ng-if="$ctrl.isAdmin">Restaurants</button>-->
+                <!--<button class="btn btn-auto btn-primary hidden-xs " ng-if="$ctrl.isAdmin">Orders</button>-->
+                <!--<button class="btn btn-auto btn-primary hidden-xs " ng-if="$ctrl.isAdmin">Users</button>-->
+              </div>
+              <div class="requisites col-xs-12" ng-class="{'col-sm-5 col-sm-height col-sm-middle': $ctrl.dynamic}">
+                <div ng-class="{'requisites_main': $ctrl.dynamic}">
+                  <div class="requisites-block">
+                    <div>
+                      <div class="virtual-label">Email</div>
+                      <h4 class="virtual-number text-white">{{$ctrl.user.email}}</h4>
+                    </div>
+                    <div ng-if="$ctrl.account.expMonth">
+                      <div class="virtual-label">Срок действия</div>
+                      <h4 class="virtual-number text-white">{{$ctrl.account.expMonth + '/' + $ctrl.account.expYear}}</h4>
+                    </div>
+                  </div>
+                  <div class="requisites-block" ng-if="$ctrl.account.iban">
+                    <div class="iban-block">
+                      <div class="virtual-label">IBAN</div>
+                      <h4 class="virtual-number text-white">{{$ctrl.account.iban}}</h4>
+                    </div>
+                  </div>
+                  <div class="requisites-block requisites_bottom hidden-xs" ng-if="$ctrl.dynamic && $ctrl.account.isVirtual">
+                    <div class="requisites-text">
+                      Полные реквизиты карты и CVC/CVV код
+                    </div>
+                    <button ng-click="$ctrl.requestRequisites()" class="btn btn-sm btn-auto btn-white requisites-button">Запросить</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-list container hidden-xs" ng-if="$ctrl.dynamic">
+      <a class="btn btn-auto btn-transparent list-item" href="">Restaurants</a>
+      <a class="btn btn-auto btn-transparent list-item" href="">Orders</a>
+      <a ng-if="$ctrl.isAdmin" class="btn btn-auto btn-transparent list-item" href="">Users</a>
+    </div>
+    <div class="card-actions dropdown dropdown_right dropdown_small" ng-class="{'container hidden-sm hidden-md hidden-lg': $ctrl.dynamic}">
+      <a class="card-button" href="">Restaurants</a>
+      <a class="card-button" ng-if="$ctrl.dynamic" href="">Orders</a>
+      <a class="card-button" ng-if="$ctrl.isAdmin" href="">Users</a>
+      <a class="card-button" type="button" id="cardActions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <span>more</span>
+        <span class="icon icon_more"></span>
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="cardActions">
+        <li><a href="#">Оплатить с карты</a></li>
+        <li><a href="#">Обналичить в банкомате</a></li>
+      </ul>
+    </div>
+    <!--<div ng-if="$ctrl.isAdmin" ng-class="{'hidden-sm hidden-md hidden-lg':$ctrl.dynamic}" class="requisites requisites_bottom requisites_white" ng-class="{'container': $ctrl.dynamic}">-->
+      <!--<div class="requisites-text">-->
+        <!--Полные реквизиты карты и CVC/CVV код-->
+      <!--</div>-->
+      <!--<button ng-click="$ctrl.requestRequisites()" class="btn btn-sm btn-auto btn-primary requisites-button">Запросить</button>-->
+    <!--</div>-->
+  </div>
 </div>

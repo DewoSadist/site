@@ -49,9 +49,23 @@ import { contacts } from  './app/components/pages/contacts/contacts';
 
 import { users } from './app/components/users/users';
 import { login } from './app/components/users/login/login';
+import { usersList } from "./app/components/users/list/users.list";
+
 
 import { profile } from './app/components/profile/profile';
 import { profileMain } from './app/components/profile/main/main';
+import { history } from './app/components/common/history/history';
+import { historyItem } from './app/components/common/history/item/history.item';
+import { historyDetails } from './app/components/common/history/details/history.details';
+import { historyFilter } from './app/components/common/history/filter/history.filter';
+import { admin } from './app/components/profile/admin/admin';
+import { restaurantsList } from './app/components/profile/restaurants/list/restaurants.list';
+import { restaurantNew } from "./app/components/profile/restaurants/new/restaurant.new";
+import { restaurantEdit } from "./app/components/profile/restaurants/edit/restaurant.edit";
+import { restaurantItem } from "./app/components/profile/restaurants/item/restaurant.item";
+
+import { orderHistory } from "./app/components/orders/history/order.history";
+
 // ------------------ Services --------------------
 import AuthService from './app/services/auth/auth.service';
 import ShopServices from './app/services/shopServices/shop.services';
@@ -69,6 +83,7 @@ import restangularConfig from './config/restangular';
 import maskConfig from './config/mask';
 import runConfig from './config/run';
 import loadingBarConfig from './config/loadingBar';
+
 
 
 const highcharts = require('highcharts');
@@ -135,7 +150,7 @@ angular.module('app', [
 .service('TemplatorService', TemplatorService)
 .service('ErrorService', ErrorService)
 .service('AuthService', AuthService)
-	.service('UserService',UserService)
+.service('UserService',UserService)
 
 .directive('clearErrors', clearErrorDirective)
 
@@ -164,6 +179,18 @@ angular.module('app', [
 
 .component('profile', profile)
 .component('profileMain', profileMain)
+.component('profileAdmin', admin)
+.component('restaurantsList',restaurantsList)
+.component('restaurantNew', restaurantNew)
+.component('restaurantEdit', restaurantEdit)
+.component('restaurantItem', restaurantItem)
+.component('usersList', usersList)
+.component('history', history)
+.component('historyItem', historyItem)
+.component('historyDetails', historyDetails)
+.component('historyFilter', historyFilter)
+.component('orderHistory', orderHistory)
+
 
 .config(restangularConfig)
 .config(routesConfig)

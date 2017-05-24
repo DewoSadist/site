@@ -13,6 +13,7 @@ class ProfileMainController {
               public UserService: UserService,
               public tinycolor) {
     if (this.UserService.user && this.UserService.user.user_id) {
+      this.user = this.UserService.user;
       // this.UserService.getMyContracts()
     //   //     .then((list) => {
     //   //       this.myPayments = list;
@@ -38,7 +39,6 @@ export const profileMain = {
   controller: ProfileMainController,
   bindings: {
     user: '<'
-
   }
 };
 

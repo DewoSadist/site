@@ -1,0 +1,79 @@
+<div class="profile-cards account-list panel panel-default">
+  <div class="panel-heading panel-heading_account">
+    <h3 class="profile-heading">
+      <span>Users</span>
+      <span ng-if="$ctrl.list && $ctrl.list.length" class="label label-default">{{$ctrl.list.length}}</span>
+    </h3>
+  </div>
+  <div class="card-list" ng-class="{'loading_small': $ctrl.isLoading}">
+    <div class="loading loading_height" ng-if="!$ctrl.list"></div>
+    <div class="tile tile_dropdown tile_account card" ng-repeat="user in $ctrl.list | limitTo: 4">
+      <div>
+        <div class="tile-heading flex-truncated">
+          <div class="mps-heading short-and-fixed">
+            <!--<img class="mps" ng-src="{{$ctrl.getMpsUrlString(card)}}">-->
+          </div>
+          <div class="long-and-truncated">
+            <h3 class="text-primary truncated-text">
+              <a href="javascript:void(0);" ui-sref="account({id:card.cardId})">
+                {{user.username}}({{user.country}})
+              </a>
+            </h3>
+          </div>
+          <div>
+            <a href="javascript:void(0);" ui-sref="account({id:card.cardId})">
+              <span class="icon icon_chevron-right"></span>
+            </a>
+          </div>
+        </div>
+        <div class="tile-body profile-payments">
+          <div class="account-list-item">
+            <div class="multicurrency">
+              <h4>{{user.roles}}</h4>
+              <h4 class="foreign">{{user.firstname}}</h4>
+            </div>
+            <div class="text-info card-mask">{{user.enabled == 1?'enable':'disable'}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div uib-collapse="!$ctrl.showAll" class="card-list_collapsed">
+      <div class="tile tile_dropdown tile_account card" ng-repeat="user in $ctrl.list | limitTo: ($ctrl.list.length - 4): 4">
+        <div>
+          <div class="tile-heading flex-truncated">
+            <div class="mps-heading short-and-fixed">
+              <!--<img class="mps" ng-src="{{$ctrl.getMpsUrlString(card)}}">-->
+            </div>
+            <div class="long-and-truncated">
+              <h3 class="text-primary truncated-text">
+                <a href="javascript:void(0);" ui-sref="account({id:card.cardId})">
+                  {{user.username}}
+                </a>
+              </h3>
+            </div>
+            <div>
+              <a href="javascript:void(0);" ui-sref="account({id:card.cardId})">
+                <span class="icon icon_chevron-right"></span>
+              </a>
+            </div>
+          </div>
+          <div class="tile-body profile-payments">
+            <div class="account-list-item">
+              <div class="multicurrency">
+                <h4>{{user.roles}}</h4>
+                <h4 class="foreign">{{user.firstname}}</h4>
+              </div>
+              <div class="text-info card-mask">{{user.enabled == 1?'enable':'disable'}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-default no-border no-margin" ng-if="$ctrl.list" ng-click="$ctrl.toggleShowAll()">
+    	<span>
+    		{{$ctrl.showAll? 'Hide' : 'Show all'}}
+    	</span>
+    <span class="icon icon_chevron-up" ng-class="{'down': !$ctrl.showAll}"></span>
+  </button>
+</div>

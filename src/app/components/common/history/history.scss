@@ -1,0 +1,250 @@
+$padding-sm: 10px;
+$padding-md: 15px;
+
+.history {
+    &-date {
+        border-bottom: 1px solid $color-pale-gray;
+        background-color: $color-ice-blue;
+        padding-top: 1px;
+        padding-bottom: 1px;
+
+        @media (min-width: $screen-sm-min) {
+            padding-top: 3px;
+            padding-bottom: 3px;
+        }
+        &_blocked{
+            background-color: $state-warning-bg;
+        }
+    }
+
+    .payment-round-small {
+        margin: 0 10px 0 0;
+    }
+
+    &-amount {
+        margin: 0;
+    }
+
+    &-title {
+        margin-top: 3px;
+    }
+
+    .history-text + .history-amount {
+        margin-top: 5px;
+    }
+
+    // &-timestamp {
+    //     text-align: center;
+    //     background-color: $color-ice-blue;
+    //     width: 80px;
+    //     height: 15px;
+    //     font-size: 10px !important;
+    //     font-weight: normal;
+    // }
+
+    &-item {
+        background-color: $color-white;
+        border-bottom: 1px solid $color-pale-gray;
+        padding-top: $padding-sm;
+        padding-bottom: $padding-sm;
+
+        @media (min-width: $screen-md-min) {
+            padding-top: $padding-md;
+            padding-bottom: $padding-md;
+        }
+
+		.timestamp{
+			width: 60px;
+			flex-shrink: 0;
+			margin-right: 5px;
+			display: none;
+        	@media (min-width: $screen-lg-min) {
+        		display: block;
+        	}
+		}
+        .details-link {
+            // align-self: center;
+            cursor: pointer;
+        }
+
+        .main-info {
+            @include flex(flex-start, flex-start);
+            width: 80%;
+            @media (min-width: $screen-md-min) {
+            	width: 50%;
+            }
+        }
+
+        .amount-info {}
+		.city{
+			display: none;
+            margin-top: 3px;
+		}
+        .status {
+            display: none;
+            margin-top: 3px;
+        }
+
+        .card-info {
+            display: none;
+            margin-top: 3px;
+            @media (min-width: $screen-md-min) {
+            	display: block;
+            }
+        }
+
+        .buttons-wrap {
+			width: 20%;
+
+            @media (min-width: $screen-md-min) {
+				width: 50%;
+			}
+            &_mobile {
+            	@include flex(center, flex-end);
+                @media (min-width: $screen-md-min) {
+					display: none;
+            	}
+            }
+
+            &_desktop {
+                display: none;
+                @media (min-width: $screen-md-min) {
+            		@include flex(center, flex-end);
+                }
+            }
+
+            .buttons {
+                @include flex(center, flex-end);
+
+                .history-button {
+                    margin-top: 0;
+                    margin-bottom: 0;
+                    margin-left: $padding-md;
+                }
+            }
+        }
+
+        &_responsive {
+        	.main-info {
+	        	@media (min-width: $screen-md-min) {
+        			width: 35%;
+        		}
+	        	@media (min-width: $screen-lg-min) {
+        			width: 40%;
+        		}
+        	}
+        	.status {
+                @media (min-width: $screen-md-min) {
+            		width: 20%;
+                    display: block;
+                }
+            }
+            .city{
+				@media (min-width: $screen-md-min) {
+            		width: 10%;
+                    display: block;
+                }
+            }
+            .city + .status{
+				@media (min-width: $screen-md-min) {
+            		width: 10%;
+                }
+            }
+	        .card-info {
+	            @media (min-width: $screen-md-min) {
+	            	width: 10%;
+	            	display: block;
+	            }
+	           
+	        }
+        	.buttons-wrap {
+        		@media (min-width: $screen-md-min) {
+        			width: 33%;
+        		}
+        		@media (min-width: $screen-lg-min) {
+        			width: 28%;
+        		}
+        	}
+        	.timestamp{
+	        	@media (min-width: $screen-md-min) {
+	        		display: block;
+	        	}
+			}
+      
+        }
+    }
+
+    &-row {
+        @include flex;
+    }
+
+    &-filter {
+        background-color: $color-ice-blue;
+        border-bottom: 1px solid $color-pale-gray;
+
+        .filter {
+            &-trigger {
+                cursor: pointer;
+                background-color: $color-pale-gray-transparent;
+                padding: ceil($padding-sm / 2) $padding-sm;
+
+                @include flex;
+
+                @media (min-width: $screen-sm-min) {
+                    padding: ceil($padding-md / 2) $padding-md;
+                }
+
+                &.collapsed {
+                    .icon_trigger {
+                        transform: rotateZ(-90deg);
+                    }
+                }
+
+                .filter-label {
+                    margin-bottom: 0;
+                }
+            }
+
+            &-body {
+                margin-top: $padding-md;
+                margin-bottom: $padding-md;
+            }
+
+            &-bottom {
+                @include flex;
+
+                @media (min-width: $screen-md-min) {
+                    border-top: 0;
+                    background-color: $color-ice-blue;
+
+                    @include flex(center, flex-start);
+                }
+
+                .filter-label {
+                    margin-right: 10px;
+                    margin-bottom: 0;
+                }
+            }
+
+            &-download {
+                margin-left: 5px;
+                display: inline-block;
+            }
+
+            &-button {
+                margin: 5px 0 0 0;
+
+                &_responsive {
+                    @media (min-width: $screen-md-min) {
+                        margin-bottom: 0;
+                        margin-top: 25px;
+                    }
+                }
+            }
+        }
+    }
+
+    .details-wrap {
+        position: absolute;
+    }
+}

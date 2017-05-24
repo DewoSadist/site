@@ -118,7 +118,7 @@ class LoginController implements IUsers, IFormContainer {
             this.AuthService.login(params)
                 .then((response) => {
                     this.stopLoading();
-                    this.$state.go('home');
+                    this.$state.go('profile.main');
                 })
                 .catch((error) => {
                     this.stopLoading();

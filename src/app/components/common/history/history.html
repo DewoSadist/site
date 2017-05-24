@@ -1,0 +1,26 @@
+<div class="loading loading_height" ng-if="!$ctrl.list"></div>
+
+<div ng-if="$ctrl.list" class="history">
+	<history-filter ng-if="$ctrl.showFilter"
+	                data-is-loading="$ctrl.isLoading"
+	                data-is-responsive="$ctrl.isResponsive"
+	                data-category-list="$ctrl.categories"
+	                on-category-selected="$ctrl.selectCategory(category)"
+	                on-date-selected="$ctrl.updateHistory(startDateString, endDateString)"></history-filter>
+	<div ng-class="{'loading': $ctrl.isLoading}">
+		<div ng-repeat="(dateKey, group) in $ctrl.filteredList | limitTo:$ctrl.showCount | groupBy: 'paymentMonth' ">
+			<div class="history-date description">
+				<div class="col-xs-12">
+					{{$ctrl.getMonthLabel(dateKey)}}
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<history-item ng-repeat="payment in group" payment="payment"
+			              data-is-responsive="$ctrl.isResponsive" is-editing="$ctrl.isEditing">
+			</history-item>
+		</div>
+	</div>
+	<div class="alert alert_no-margin alert-warning" ng-if="$ctrl.filteredList && $ctrl.filteredList.length == 0">
+		Не найдено операций за указанный период
+	</div>
+</div>
