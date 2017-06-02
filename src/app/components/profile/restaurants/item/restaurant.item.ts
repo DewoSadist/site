@@ -1,7 +1,7 @@
 import {IRestaurant} from "../../../../services/shopServices/shop.services";
 class RestaurantItemController {
+
   public restaurant: IRestaurant;
-  public text: string;
   /** @ngInject */
   constructor(public $state) {
 

@@ -40,6 +40,7 @@ class ProductsInfoController implements IFormContainer {
     public close;
     public quantity: number;
     public amount;
+    public restaurant;
 
     public item;
     public itemOptions: Array<any>;
@@ -54,6 +55,7 @@ class ProductsInfoController implements IFormContainer {
                 public ErrorService: ErrorService) {
         this.errors = {};
         this.product = this.resolve.product;
+        this.restaurant = this.resolve.restaurant;
         this.quantity = 1;
         this.amount = this.product.price + this.getOptionsPrice();
         this.itemOptions = [];
@@ -90,6 +92,7 @@ class ProductsInfoController implements IFormContainer {
         console.log("productOptions:", this.productOptions);
         if (this.validateForm()) {
             this.item = {
+                restaurant: this.restaurant,
                 id: this.product.id,
                 name: this.product.title,
                 quantity: this.quantity,

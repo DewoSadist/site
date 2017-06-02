@@ -6,7 +6,7 @@
                 <!--<account-list ng-if="$ctrl.isAdmin">-->
                     <!--<div class="loading loading_height"></div>-->
                 <!--</account-list>-->
-                <users-list></users-list>
+                <users-list ng-if="$ctrl.isAdmin"></users-list>
                 <!--<cards-list list="$ctrl.cardList"></cards-list>-->
                 <restaurants-list></restaurants-list>
             </div>

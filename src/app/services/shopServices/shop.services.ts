@@ -22,6 +22,10 @@ export interface IRestaurant {
     ratings: number;
     user_id?: string;
     hours?: Array<IHour>;
+    tax: number;
+    delivery: number;
+    service_fee: number;
+    small_order_fee: number;
 }
 
 export interface IHour {
@@ -32,17 +36,18 @@ export interface IHour {
 }
 
 export interface IOrder {
-    id: number,
-    employee_id: number,
+    id?: number,
+    res_id: number,
     order_day: string,
     order_time: string,
     req_day: string,
     req_time: string,
     ship_via: string,
     order_amount: number,
-    customer_id: number,
-    order_products: string,
     user_id: string
+    status: string,
+    reorder: number,
+    quantity: number
 }
 
 /**
@@ -75,6 +80,8 @@ export interface IProduct {
  * @interface IProductOption
  */
 export interface IProductOption {
+    res_id: string,
+    res_name: string,
     id: string;
     name: string;
     isRequired: number;
@@ -107,6 +114,7 @@ export interface IFormContainer {
  * @interface IShopServices
  */
 export interface IShopServices {
+    userRestaurantsList;
     getAllRestaurants();
     getUserRestaurants(userId: string);
     getRestaurant(resId: string);
@@ -124,7 +132,10 @@ export interface IShopServices {
     getProductOptions(prodId: string);
 
     getOrders();
+    getOrder(orderId: number);
     getUserOrders(userId: string);
+    getRestaurantOrders(resId: number);
+    saveOrUpdateOrder(data);
 
 
 }
@@ -242,7 +253,7 @@ class ShopServices implements IShopServices {
      */
     getRestaurantCategories(resId: string) {
         let deferred = this.$q.defer();
-        this.Restangular.one('restaurants/' + resId + '/categories').post()
+        this.Restangular.one('restaurants/' + resId + '/categories').get()
             .then((object) => {
                 this.categoriesList = object;
                 deferred.resolve(this.categoriesList);
@@ -356,7 +367,7 @@ class ShopServices implements IShopServices {
      */
     getUserRestaurants(userId: string) {
         let deferred = this.$q.defer();
-        this.Restangular.one("/users/" + userId + "/restaurants").post()
+        this.Restangular.one("/users/" + userId + "/restaurants").customGET()
             .then((object) => {
                 this.userRestaurantsList = object;
                 deferred.resolve(this.userRestaurantsList);
@@ -440,6 +451,42 @@ class ShopServices implements IShopServices {
 
         return deferred.promise;
     }
+    getOrder(orderId: number){
+        console.log("orderId:", orderId);
+        let deferred = this.$q.defer();
+        this.Restangular.one("orders/" + orderId).customGET()
+            .then((object) => {
+            console.log(object);
+            deferred.resolve(object)
+        })
+        .catch((error) => {
+                deferred.reject(error);
+            }
+        );
+        console.log("order:", deferred.promise);
+        return deferred.promise;
+    }
+    /**
+     * @ngdoc method
+     * @name IShopServices.saveOrUpdateOrder
+     * @methodOf ShopServices
+     *
+     * @description
+     * Save Or update Order object
+     *
+     * @return  {IPromise}  Request order object promise
+     */
+    saveOrUpdateOrder(data) {
+        let deferred = this.$q.defer();
+        this.Restangular.one('orders/').customPOST(data)
+            .then((object) => {
+                deferred.resolve(object);
+            })
+            .catch((error) => {
+                deferred.reject(error);
+            });
+        return deferred.promise;
+    }
     /**
      * @ngdoc method
      * @name IShopServices.getUserOrders
@@ -461,6 +508,19 @@ class ShopServices implements IShopServices {
                     deferred.reject(error);
                 }
             );
+        return deferred.promise;
+    }
+
+    getRestaurantOrders(resId: number) {
+        let deferred = this.$q.defer();
+        this.Restangular.one("/restaurants/" + resId + "/orders").get()
+            .then((object) => {
+            this.orderList = object;
+            deferred.resolve(this.orderList);
+        })
+        .catch((error) => {
+            deferred.reject(error);
+        });
         return deferred.promise;
     }
 }

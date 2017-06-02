@@ -1,3 +1,4 @@
+import {IRestaurant} from "../shopServices/shop.services";
 /**
  * @interface ICartItem
  */
@@ -10,24 +11,51 @@ export interface ICartItem {
     price: number;
     each_price: number;
 }
+export interface IOrder {
+    order_id: string;
+    res_id: number;
+    res_name: string;
+    tax: number;
+    delivery: number;
+    service_fee: number;
+    small_order_fee: number;
+    quantity: number;
+    order_amount: number | string;
+    status: string;
+    user_id: string;
+    reorder: number;
+    order_day: string;
+    order_time: string;
+    req_day: string;
+    req_time: string;
+    ship_via: string;
+    order_details: any;
+}
 
 /**
  * @interface ICart
  */
 export interface ICart {
-    store: string
+    restaurant: IRestaurant;
+    store: string;
     storeId: number;
     shipping: string;
     taxRate: number;
     tax: number;
+    delivery: number;
+    service_fee: number;
+    small_order_fee: number;
     items: Array<ICartItem>;
+    payment: string;
+    total: number;
+    subtotal: number ;
 }
 
 /**
  * @interface ICartServices
  */
 export interface ICartServices {
-    getTotalPrice();
+    getSubTotalPrice();
     addItemToCart(item);
     deleteItemFromCart(itemId: number);
     deleteAllFromCart();
@@ -43,30 +71,37 @@ export interface ICartServices {
  */
 class CartServices implements ICartServices {
     public cart: ICart;
-    public totalPrice: number;
+    public subTotalPrice: number;
     public showCart: boolean;
+    public order: IOrder;
 
     /** @ngInject */
-    constructor(
-        public $cookies: ng.cookies.ICookiesService) {
+    constructor(public $cookies: ng.cookies.ICookiesService) {
         this.showCart = false;
         this.cart = $cookies.getObject("cart");
         console.log(this.cart);
         if(!this.cart) {
             this.cart = {
-                store:"",
-                storeId:0,
+                restaurant: null,
+                store: "",
+                storeId: 0,
                 shipping: "",
                 tax: 0,
                 taxRate: 1,
-                items: []
+                items: [],
+                payment: "cash",
+                delivery: 0,
+                service_fee: 0,
+                small_order_fee: 0,
+                total: 0,
+                subtotal: 0
             };
         }
     }
 
     /**
      * @ngdoc method
-     * @name ICartServices.getTotalPrice
+     * @name ICartServices.getSubTotalPrice
      * @methodOf CartServices
      *
      * @description
@@ -75,17 +110,40 @@ class CartServices implements ICartServices {
      *
      * @return  {IPromise}  Request promise
      */
-    getTotalPrice() {
-        this.totalPrice = 0;
+    getSubTotalPrice() {
+        this.subTotalPrice = 0;
         if (this.cart.items.length > 0) {
             this.cart.items.forEach((item) => {
                 if (item.price > 0) {
-                    this.totalPrice += item.price;
+                    this.subTotalPrice += item.price;
                 }
             });
         }
-        return this.totalPrice.toFixed(2);
+        this.cart.subtotal = this.subTotalPrice;
+        console.log(this.cart.total);
+        return this.cart.subtotal;
     };
+    getDeliveryTax(){
+        this.cart.delivery = (this.getSubTotalPrice() * this.cart.restaurant.delivery)/100;
+        console.log(this.cart.delivery);
+        return this.cart.delivery;
+    }
+    getServiceFee(){
+        this.cart.service_fee = (this.getSubTotalPrice() * this.cart.restaurant.service_fee)/100;
+        console.log(this.cart.service_fee);
+
+        return this.cart.service_fee;
+    }
+    getTax() {
+        this.cart.tax = (this.getSubTotalPrice() * this.cart.restaurant.tax)/100;
+        console.log(this.cart.tax);
+        return this.cart.tax;
+    }
+    getTotalPrice(){
+        this.cart.total = (this.getSubTotalPrice() + this.getTax() + this.getDeliveryTax() + this.getServiceFee());
+        console.log(this.cart.total);
+
+    }
 
     /**
      * @ngdoc method
@@ -96,7 +154,24 @@ class CartServices implements ICartServices {
      * @description add item to shopping cart
      */
     addItemToCart(item) {
-        this.cart.items.push(item);
+        if(this.cart.restaurant == null) {
+            this.cart.restaurant = item.restaurant;
+        } else {
+            if(this.cart.restaurant.id == item.restaurant.id) {
+                this.cart.items.push(item);
+            } else {
+                let msg = 'This product from another restaurant,do you want to change restaurant?' +
+                    'If you change we delete products from existing restaurant';
+                if(window.confirm(msg)) {
+                    this.cart.restaurant = item.restaurant;
+                    this.cart.items=[];
+                    this.cart.items.push(item);
+                }
+                console.log("error! restaurants are different")
+            }
+        }
+
+        // this.cart.items.push(item);
         this.$cookies.remove("cart");
         this.$cookies.putObject("cart", this.cart);
         console.log("Added to cart:", this.cart, this.getTotalCount());
@@ -211,6 +286,7 @@ class CartServices implements ICartServices {
     toggleShowCart() {
         this.showCart = !this.showCart;
     }
+
 }
 
 export default CartServices;

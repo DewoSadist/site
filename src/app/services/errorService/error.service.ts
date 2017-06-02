@@ -22,7 +22,7 @@ class ErrorService {
 			general: {
 				serverError: 'Произошла неизвестная ошибка, попробуйте еще раз.',
 				generalPaymentError: 'Платежный сервис временно не доступен. Пожалуйста, попробуйте позже.',
-				generalBadRequestError: 'Транзакция отклонена. Пожалуйста проверьте ваши данные',
+				generalBadRequestError: 'Transaction was declined. Please check your data',
 				conflictError: 'Платеж с данным идентификатором уже обработан. Попробуйте сделать новый платеж.',
 				contractAliasEmptyError: 'Имя платежа не должно быть пустым',
 				contractSaveUnknownError: 'Произошла ошибка при сохранении платежа',
@@ -139,7 +139,8 @@ class ErrorService {
 				passwordChangedMessage: 'Password successfully changed',
 			},
 			edit: {
-				saveError: 'Error not Saved'
+				saveError: 'Error not Saved',
+				saveIncorrectValue: 'Error value. please check fields'
 			}
 		};
 	}

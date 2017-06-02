@@ -155,5 +155,33 @@ function routesConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvi
 		url:'/restaurantnew',
 		template: '<restaurant-new></restaurant-new>'
 	})
+	.state('profile.order-item', {
+		url: '/orders/:id',
+		params: {id:null},
+		template: '<order-item data-order="$resolve.order"></order-item>',
+		resolve: {
+			order: (ShopServices: IShopServices, $stateParams: ng.ui.IStateParamsService, $state: ng.ui.IStateService)=>{
+				if ($stateParams['id']) {
+					return ShopServices.getOrder($stateParams['id']);
+				} else {
+					return ShopServices.getOrder($stateParams['id']);
+				}
+			}
+		}
+	})
+	.state('profile.order-edit', {
+		url: '/orders/edit/:id',
+		params: {id: null},
+		template: '<order-edit data-order="$resolve.order"></order-edit>',
+		resolve: {
+			order: (ShopServices: IShopServices, $stateParams: ng.ui.IStateParamsService, $state: ng.ui.IStateService)=> {
+				if ($stateParams['id']) {
+					return ShopServices.getOrder($stateParams['id']);
+				} else {
+					return ShopServices.getOrder($stateParams['id']) || $state.go('profile.main');
+				}
+			}
+		}
+	})
 	;
 }

@@ -3,7 +3,7 @@ class SidebarController {
   public text: string;
   public cart;
 
-  constructor(public CartServices:CartServices) {
+  constructor(public CartServices: CartServices) {
     this.text = 'Cart!';
     this.cart = CartServices.getCardItems();
     console.log("cartItems:", this.cart);

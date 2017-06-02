@@ -1,78 +1,78 @@
 <div class="component">
-    <h2>Restaurant</h2>
-    <table class="table table-striped" ng-class="{'loading': $ctrl.isLoading}">
-        <thead>
-        <tr>
-            <th>NAME</th>
-            <th>Value</th>
-        </tr>
-        </thead>
-        <tr>
-            <td>TITLE</td>
-            <td><input type="text" class="form-control" ng-model="$ctrl.restaurant.title"></td>
-        </tr>
-        <tr>
-            <td>Slug</td>
-            <td><input type="text" class="form-control" ng-model="$ctrl.restaurant.slug"></td>
-        </tr>
-        <tr>
-            <td>Tags</td>
-            <td><input type="text" class="form-control" ng-model="$ctrl.restaurant.tags"></td>
-        </tr>
-        <tr>
-            <td>Description</td>
-            <td><input type="text" class="form-control" ng-model="$ctrl.restaurant.description"></td>
-        </tr>
-        <tr>
-            <td>Logo img</td>
-            <td><input type="text" class="form-control" ng-model="$ctrl.restaurant.logo_image_url"></td>
-        </tr>
-        <tr>
-            <td>Header img</td>
-            <td><input type="text" class="form-control" ng-model="$ctrl.restaurant.header_image_url"></td>
-        </tr>
-        <tr>
-            <td>Cover img</td>
-            <td><input type="text" class="form-control" ng-model="$ctrl.restaurant.cover_image_url"></td>
-        </tr>
-        <tr>
-            <td>Status</td>
-            <td><input type="text" class="form-control" ng-model="$ctrl.restaurant.status"></td>
-        </tr>
-        <tr>
-            <td>Country</td>
-            <td><input type="text" class="form-control" ng-model="$ctrl.restaurant.country"></td>
-        </tr>
-        <tr>
-            <td>City</td>
-            <td><input type="text" class="form-control" ng-model="$ctrl.restaurant.city"></td>
-        </tr>
-        <tr>
-            <td>Address</td>
-            <td><input type="text" class="form-control" ng-model="$ctrl.restaurant.address"></td>
-        </tr>
-        <tr>
-            <td>Location</td>
-            <td><input type="text" class="form-control" ng-model="$ctrl.restaurant.location"></td>
-        </tr>
-        <tr>
-            <td>Fax</td>
-            <td><input type="text" class="form-control" ng-model="$ctrl.restaurant.fax"></td>
-        </tr>
-        <tr>
-            <td>Tel:</td>
-            <td><input type="text" class="form-control" ng-model="$ctrl.restaurant.phone"></td>
-        </tr>
-        <tr>
-            <td>Postal code</td>
-            <td><input type="text" class="form-control" ng-model="$ctrl.restaurant.postal_code"></td>
-        </tr>
-        <tr>
-            <td>Rating</td>
-            <td><input type="text" class="form-control" ng-model="$ctrl.restaurant.ratings"></td>
-        </tr>
-    </table>
-    <div ng-class="{'loading': $ctrl.isLoading}">
+    <form ng-submit="$ctrl.saveRestaurant()" ng-class="{'loading': $ctrl.isLoading}">
+        <h2>Restaurant</h2>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>NAME</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>TITLE</td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.restaurant.title" required></td>
+            </tr>
+            <tr>
+                <td>Slug</td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.restaurant.slug" required></td>
+            </tr>
+            <tr>
+                <td>Tags</td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.restaurant.tags" required></td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.restaurant.description" required></td>
+            </tr>
+            <tr>
+                <td>Logo img</td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.restaurant.logo_image_url"></td>
+            </tr>
+            <tr>
+                <td>Header img</td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.restaurant.header_image_url"></td>
+            </tr>
+            <tr>
+                <td>Cover img</td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.restaurant.cover_image_url"></td>
+            </tr>
+            <tr>
+                <td>Status</td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.restaurant.status" required></td>
+            </tr>
+            <tr>
+                <td>Country</td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.restaurant.country" required></td>
+            </tr>
+            <tr>
+                <td>City</td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.restaurant.city" required></td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.restaurant.address" required></td>
+            </tr>
+            <tr>
+                <td>Location</td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.restaurant.location" required></td>
+            </tr>
+            <tr>
+                <td>Fax</td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.restaurant.fax"></td>
+            </tr>
+            <tr>
+                <td>Tel:</td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.restaurant.phone" required></td>
+            </tr>
+            <tr>
+                <td>Postal code</td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.restaurant.postal_code" required></td>
+            </tr>
+            <tr>
+                <td>Rating</td>
+                <td><input type="text" class="form-control" ng-model="$ctrl.restaurant.ratings" required></td>
+            </tr>
+        </table>
         <h2>Open Hours</h2>
         <table class="table table-striped">
             <thead>
@@ -86,16 +86,19 @@
             </thead>
             <tr ng-repeat="hour in $ctrl.restaurant.hours">
                 <td>{{hour.open_id }}</td>
-                <td><input type="text" class="form-control" ng-model="hour.day"></td>
-                <td><input type="datetime" class="form-control" ng-model="hour.open_hour"></td>
-                <td><input type="datetime" class="form-control" ng-model="hour.close_hour"></td>
-                <td><a href="javascript:void(0);" ng-if="$ctrl.getIndexHour(hour)!=0" ng-click="$ctrl.removeHour(hour)">delete</a></td>
+                <td><input type="text" class="form-control" ng-model="hour.day" required></td>
+                <td><input type="datetime" class="form-control" ng-model="hour.open_hour" required></td>
+                <td><input type="datetime" class="form-control" ng-model="hour.close_hour" required></td>
+                <td><a href="javascript:void(0);" ng-if="$ctrl.getIndexHour(hour)!=0"
+                       ng-click="$ctrl.removeHour(hour)">delete</a></td>
             </tr>
         </table>
         <a href="javascript:void(0);" ng-click="$ctrl.addHour()">add new hour</a>
-    </div>
-    <button class="btn btn-primary" ng-click="$ctrl.saveRestaurant()">
-        <span ng-if="$ctrl.isLoading">pleas wait</span>
-        <span ng-if="!$ctrl.isLoading">Save</span>
-    </button>
+        <div ng-if="$ctrl.errors.form" class="alert alert-danger" role="alert">{{$ctrl.errors.form}}</div>
+        <button type="submit" class="btn btn-primary confirm-button form-submit"
+                ng-disabled="$ctrl.isLoading">
+            <span ng-if="$ctrl.isLoading">pleas wait</span>
+            <span ng-if="!$ctrl.isLoading">Save</span>
+        </button>
+    </form>
 </div>

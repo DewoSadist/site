@@ -1,0 +1,76 @@
+<div class="component">
+  <form ng-submit="$ctrl.saveOrder()" ng-class="{'loading': $ctrl.isLoading}">
+    <h2>Restaurant | <a href="javascript:void(0);">edit</a></h2>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>NAME</th>
+        <th>Value</th>
+      </tr>
+      </thead>
+      <tr>
+        <td>ID</td>
+        <td>{{ $ctrl.order.id }}</td>
+      </tr>
+      <tr>
+        <td>Order day</td>
+        <td>{{ $ctrl.order.order_day }}</td>
+      </tr>
+      <tr>
+        <td>Order time</td>
+        <td>{{ $ctrl.order.order_time }}</td>
+      </tr>
+      <tr>
+        <td>Delivery day</td>
+        <td><input type="text" class="form-control" ng-model="$ctrl.order.req_day" required></td>
+      </tr>
+      <tr>
+        <td>Delivery time</td>
+        <td><input type="datetime" class="form-control" ng-model="$ctrl.order.req_time" required></td>
+      </tr>
+      <tr>
+        <td>Amout</td>
+        <td><input type="text" class="form-control" ng-model="$ctrl.order.order_amount" required></td>
+      </tr>
+      <tr>
+        <td>Status</td>
+        <td><input type="text" class="form-control" ng-model="$ctrl.order.status" required></td>
+      </tr>
+      <tr>
+        <td>Reorder times</td>
+        <td>{{ $ctrl.order.reorder}}</td>
+      </tr>
+      <tr>
+        <td>Item Quantity</td>
+        <td><input type="number" class="form-control" ng-model="$ctrl.order.quantity" required></td>
+      </tr>
+    </table>
+    <!--<h2>Open Hours</h2>-->
+    <!--<table class="table table-striped">-->
+      <!--<thead>-->
+      <!--<tr>-->
+        <!--<th>ID</th>-->
+        <!--<th>Day of Week</th>-->
+        <!--<th>Open Hour</th>-->
+        <!--<th>Close Hour</th>-->
+        <!--<th></th>-->
+      <!--</tr>-->
+      <!--</thead>-->
+      <!--<tr ng-repeat="hour in $ctrl.restaurant.hours">-->
+        <!--<td>{{hour.open_id }}</td>-->
+        <!--<td><input type="text" class="form-control" ng-model="hour.day" required></td>-->
+        <!--<td><input type="datetime" class="form-control" ng-model="hour.open_hour" required></td>-->
+        <!--<td><input type="datetime" class="form-control" ng-model="hour.close_hour" required></td>-->
+        <!--<td><a href="javascript:void(0);" ng-if="$ctrl.getIndexHour(hour)!=0"-->
+               <!--ng-click="$ctrl.removeHour(hour)">delete</a></td>-->
+      <!--</tr>-->
+    <!--</table>-->
+    <!--<a href="javascript:void(0);" ng-click="$ctrl.addHour()">add new hour</a>-->
+    <div ng-if="$ctrl.errors.form" class="alert alert-danger" role="alert">{{$ctrl.errors.form}}</div>
+    <button type="submit" class="btn btn-primary confirm-button form-submit"
+            ng-disabled="$ctrl.isLoading">
+      <span ng-if="$ctrl.isLoading">pleas wait</span>
+      <span ng-if="!$ctrl.isLoading">Save</span>
+    </button>
+  </form>
+</div>

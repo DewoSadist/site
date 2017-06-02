@@ -65,7 +65,7 @@
 <section class="home-payments" ng-class="{'loading':$ctrl.isProductsLoading}">
     <div class="page-list page-list_dynamic page-list_no-padding content-block">
         <div class="container">
-            <products-collection data-products="$ctrl.products"></products-collection>
+            <products-collection data-products="$ctrl.products" data-restaurant="$ctrl.restaurant"></products-collection>
             <a ui-sref="payments.main" class="btn btn-primary payments-button">All Products</a>
         </div>
     </div>

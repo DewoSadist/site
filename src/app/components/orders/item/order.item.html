@@ -1,0 +1,66 @@
+<div class="component">
+  <h2>Order <a href="javascript:void(0);" ui-sref="profile.order-edit({id:$ctrl.order.id}) ">edit</a></h2>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>NAME</th>
+      <th>Value</th>
+    </tr>
+    </thead>
+    <tr>
+      <td>ID</td>
+      <td>{{ $ctrl.order.id }}</td>
+    </tr>
+    <tr>
+      <td>Order day</td>
+      <td>{{ $ctrl.order.order_day }}</td>
+    </tr>
+    <tr>
+      <td>Order time</td>
+      <td>{{ $ctrl.order.order_time }}</td>
+    </tr>
+    <tr>
+      <td>Delivery day</td>
+      <td>{{ $ctrl.order.req_day }}</td>
+    </tr>
+    <tr>
+      <td>Delivery time</td>
+      <td>{{ $ctrl.order.req_time }}</td>
+    </tr>
+    <tr>
+      <td>Amout</td>
+      <td>{{ $ctrl.order.order_amount }}</td>
+    </tr>
+    <tr>
+      <td>Status</td>
+      <td>{{ $ctrl.order.status}}</td>
+    </tr>
+    <tr>
+      <td>Reorder times</td>
+      <td>{{ $ctrl.order.reorder}}</td>
+    </tr>
+    <tr>
+      <td>Item Quantity</td>
+      <td>{{ $ctrl.order.quantity }}</td>
+    </tr>
+  </table>
+  <div ng-if="$ctrl.order.hours.length>0">
+    <h2>Open Hours</h2>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Day of Week</th>
+        <th>Open Hour</th>
+        <th>Close Hour</th>
+      </tr>
+      </thead>
+      <tr ng-repeat="hour in $ctrl.restaurant.hours">
+        <td>{{ hour.open_id }}</td>
+        <td>{{ hour.day }}</td>
+        <td>{{ hour.open_hour }}</td>
+        <td>{{ hour.close_hour }}</td>
+      </tr>
+    </table>
+  </div>
+</div>

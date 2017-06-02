@@ -1,61 +1,32 @@
-import {IFormContainer, IRestaurant, IShopServices, IHour} from "../../../../services/shopServices/shop.services";
-import ErrorService from "../../../../services/errorService/error.service";
-import UserService from "../../../../services/userService/user.service";
-
-class RestaurantNewController implements IFormContainer {
+import ErrorService from "../../../services/errorService/error.service";
+import {IShopServices, IFormContainer, IOrder} from "../../../services/shopServices/shop.services";
+class OrderEditController implements IFormContainer {
+    public loginData;
     public errors;
     public isLoading;
     public warning; // string for alert at the top
-    public restaurant: IRestaurant;
+    public order: IOrder;
+    public text: string;
 
+    /** @ngInject */
     constructor(public $state,
                 public $stateParams,
                 public $scope: ng.IScope,
                 public ShopServices: IShopServices,
-                public ErrorService: ErrorService,
-                public UserService: UserService
-    ) {
-        this.restaurant = {
-            title: "",
-            slug: "",
-            tags: "",
-            description: "#",
-            logo_image_url: "#",
-            header_image_url: "#",
-            cover_image_url: "",
-            status: "OPEN",
-            country: "",
-            city: "",
-            address: "",
-            location: "",
-            fax: "",
-            phone: "",
-            postal_code: "",
-            open_id: "",
-            ratings: 0,
-            user_id: this.UserService.user.user_id,
-            hours: [
-                {
-                    day: "EVERYDAY",
-                    open_hour: "11:00:00",
-                    close_hour: "19:00:00"
-                }
-            ],
-            tax: 0,
-            delivery: 0,
-            service_fee: 0,
-            small_order_fee: 0
-
-            };
+                public ErrorService: ErrorService) {
+        this.errors = {};
+        this.loginData = {};
+        this.isLoading = false;
+        this.text = 'My brand new component!';
     }
 
-    saveRestaurant() {
+    saveOrder() {
         this.startLoading();
-        this.ShopServices.saveOrUpdateRestaurant(this.restaurant)
+        this.ShopServices.saveOrUpdateOrder(this.order)
             .then((response) => {
                 this.stopLoading();
                 console.log(response);
-                this.$state.go('profile.restaurant',{id:response.id});
+                this.order = response;
             })
             .catch((error) => {
                 console.log(error);
@@ -76,6 +47,26 @@ class RestaurantNewController implements IFormContainer {
             });
 
     }
+
+    // removeHour(hour: IHour) {
+    //   let index = this.restaurant.hours.indexOf(hour);
+    //   this.restaurant.hours.splice(index, 1);
+    // }
+    //
+    // getIndexHour(hour: IHour) {
+    //   let index = this.restaurant.hours.indexOf(hour);
+    //   return index;
+    // }
+
+    // addHour() {
+    //   let obj = {
+    //     day: '',
+    //     open_hour: '00:00:00',
+    //     close_hour: '00:00:00'
+    //   };
+    //   this.restaurant.hours.push(obj);
+    // }
+
     /**
      * @ngdoc method
      * @name resetErrors
@@ -128,30 +119,14 @@ class RestaurantNewController implements IFormContainer {
     hasNoErrors(): boolean {
         return Object.keys(this.errors).length === 0;
     }
-
-    removeHour(hour: IHour) {
-        let index = this.restaurant.hours.indexOf(hour);
-        this.restaurant.hours.splice(index, 1);
-    }
-
-    getIndexHour(hour: IHour) {
-        let index = this.restaurant.hours.indexOf(hour);
-        return index;
-    }
-
-    addHour() {
-        let obj = {
-            day: '',
-            open_hour: '00:00:00',
-            close_hour: '00:00:00'
-        };
-        this.restaurant.hours.push(obj);
-    }
-
 }
 
-export const restaurantNew = {
-    templateUrl: 'app/components/profile/restaurants/new/restaurant.new.html',
-    controller: RestaurantNewController
+export const orderEdit = {
+    templateUrl: 'app/components/orders/edit/order.edit.html',
+    controller: OrderEditController,
+    bindings: {
+        order: '<'
+
+    }
 };
 

@@ -1,5 +1,6 @@
 import './products.filter.scss';
 class ProductsFilterController {
+  public restaurant;
   public categories;
   public productsList;
   public selected;
@@ -258,7 +259,8 @@ export const productsFilter = {
   controller: ProductsFilterController,
   bindings: {
     categories: '<',
-    productsList: '<'
+    productsList: '<',
+    restaurant: '<'
   }
 };
 

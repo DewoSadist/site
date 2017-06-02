@@ -1,7 +1,9 @@
 import './cart.scss';
 import CartServices from "../../services/cartServices/cart.services";
 import {IFormContainer} from "../../services/shopServices/shop.services";
+import UserService from "../../services/userService/user.service";
 class CartController implements IFormContainer {
+  public payment;
   public cart;
   public isSend: boolean;
   public errors;
@@ -9,9 +11,12 @@ class CartController implements IFormContainer {
 
   /** @ngInject */
   constructor(public $scope,
-              public CartServices: CartServices) {
+              public CartServices: CartServices,
+              public UserService: UserService) {
     this.isSend = false;
     this.cart = this.CartServices.getCardItems();
+
+
   }
 
   /**

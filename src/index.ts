@@ -65,6 +65,8 @@ import { restaurantEdit } from "./app/components/profile/restaurants/edit/restau
 import { restaurantItem } from "./app/components/profile/restaurants/item/restaurant.item";
 
 import { orderHistory } from "./app/components/orders/history/order.history";
+import { orderEdit } from "./app/components/orders/edit/order.edit";
+import { orderItem } from "./app/components/orders/item/order.item";
 
 // ------------------ Services --------------------
 import AuthService from './app/services/auth/auth.service';
@@ -83,6 +85,7 @@ import restangularConfig from './config/restangular';
 import maskConfig from './config/mask';
 import runConfig from './config/run';
 import loadingBarConfig from './config/loadingBar';
+
 
 
 
@@ -190,6 +193,8 @@ angular.module('app', [
 .component('historyDetails', historyDetails)
 .component('historyFilter', historyFilter)
 .component('orderHistory', orderHistory)
+.component('orderItem', orderItem)
+.component('orderEdit', orderEdit)
 
 
 .config(restangularConfig)

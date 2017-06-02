@@ -36,6 +36,10 @@ class RestaurantEditController implements IFormContainer {
                   this.errors = {
                     form: this.ErrorService.getEditError().saveError
                   };
+                } else if (error.status === 500) {
+                    this.errors = {
+                        form: this.ErrorService.getEditError().saveIncorrectValue
+                    }
                 } else {
                   this.errors = {
                     form: this.ErrorService.getGeneralBadRequestError()
