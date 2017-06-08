@@ -1,80 +1,9 @@
-<!--<nav class="navbar navbar-default navbar-static-top">-->
-    <!--<div class="container">-->
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <!--<div class="navbar-header pull-left">-->
-            <!--<a class="navbar-brand" ng-attr-ui-sref="{{$ctrl.isAuthorized ? 'profile.main' : 'home'}}"><span class="icon icon_logo"></span></a>-->
-            <!--<a class="navbar-brand" ui-sref="home">-->
-                <!--&lt;!&ndash;<span class="icon icon_logo"></span>&ndash;&gt;-->
-            <!--Deos</a>-->
-        <!--</div>-->
-        <!--<div class="nav navbar navbar-right">-->
-            <!--<a ui-sref="users.register" class="btn btn-sm pull-right change-color btn-primary">Registration</a>-->
-            <!--<a ui-sref="users.login" class="pull-right navbar-link change-color">Login</a>-->
-        <!--</div>-->
-
-        <!--<div class="nav navbar navbar_hb navbar-right pull-right">-->
-            <!--<div class="dropdown dropdown_static">-->
-                <!--<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">-->
-                    <!--<img ng-src="{{$ctrl.getImgUrl()}}/shopping-cart.svg" alt="">-->
-                    <!--<span class="link" ng-click="$ctrl.CartServices.toggleShowCart()">-->
-                        <!--<span class="link-item">{{ $ctrl.CartServices.getTotalCount()}} {{$ctrl.CartServices.getTotalCount()==1 ? 'item':'items'}}</span>-->
-                        <!--<small class="link-item link-item_small">{{ $ctrl.CartServices.getTotalPrice() | currency }}</small>-->
-                    <!--</span>-->
-                <!--</a>-->
-                <!--<ul class="dropdown-menu">-->
-                    <!--&lt;!&ndash; <li class="disabled">-->
-                        <!--<a ui-sref="profile.settings" class="block soon-label" ng-click="$ctrl.disableEvent($event)">-->
-                            <!--<span class="block-item">Мы не знаем, кто вы =(</span>-->
-                            <!--<span href="javascript:void(0);" class="btn btn-primary disabled">Заполнить профиль</span>-->
-                        <!--</a>-->
-                    <!--</li>-->
-                    <!--<li role="separator" class="divider"></li>-->
-                    <!--<li class="disabled">-->
-                        <!--<a ui-sref="profile.virtual" class="block soon-label" ng-click="$ctrl.disableEvent($event)">-->
-                            <!--<span class="block-item">-->
-                                <!--<small>-->
-                                    <!--Виртуальная карта-->
-                                <!--</small>-->
-                                <!--4003 **** 5454-->
-                            <!--</span>-->
-
-                            <!--<span class="block-item">-->
-                                <!--<small >-->
-                                    <!--Баланс-->
-                                <!--</small>-->
-                                <!--0 тг.-->
-                            <!--</span>-->
-                        <!--</a>-->
-                    <!--</li>-->
-                    <!--<li role="separator" class="divider"></li>-->
-                    <!--<li class="disabled">-->
-                        <!--<a ui-sref="profile.main" class="soon-label" ng-click="$ctrl.disableEvent($event)">-->
-                            <!--<span class="block-item">-->
-                                <!--<small >-->
-                                    <!--Go bonus-->
-                                <!--</small>-->
-                                <!--0 тг.-->
-                            <!--</span>-->
-                        <!--</a>-->
-                    <!--</li>-->
-                    <!--<li role="separator" class="divider"></li>-->
-                    <!--<li class="disabled">-->
-                        <!--<a ui-sref="profile.settings" class="soon-label" ng-click="$ctrl.disableEvent($event)">-->
-                            <!--Настройки профиля-->
-                        <!--</a>-->
-                    <!--</li> &ndash;&gt;-->
-                    <!--<li><a href="javascript:void(0);" ng-click="$ctrl.logout()">Logout</a></li>-->
-                <!--</ul>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-    <!-- /.container-fluid -->
-<!--</nav>-->
 <nav class="navbar navbar-fixed-top navbar-inverse">
-    <div class="container">
+    <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav" aria-expanded="false">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav"
+                    aria-expanded="false">
                 <!-- div class="navbar-label">Menu</div-->
                 <div class="icon-bar-wrap">
                     <span class="icon-bar"></span>
@@ -83,36 +12,41 @@
                 </div>
             </button>
             <!-- Brand and toggle get grouped for better mobile display -->
-            <a class="navbar-brand navbar-brand-centered" ng-attr-ui-sref="{{$ctrl.isAuthorized ? 'profile.main' : 'home'}}"><span class="icon icon_logo"></span></a>
-            <div class="navbar-state visible-xs visible-sm pull-left">{{$ctrl.getStateTitle()}}</div>
-            <div class="pull-right">
+            <div class="navbar-state pull-left"><a class="text-uppercase" href="javascript:void(0)">ASAP</a> <span
+                    class="text-info">to</span> <a href="javascript:void(0)">BELOVA st. 88</a></div>
+            <!--<div class="navbar-state visible-xs visible-sm pull-left">{{$ctrl.getStateTitle()}}</div>-->
+            <div class="navbar-brand hidden-xs" ng-attr-ui-sref="{{$ctrl.isAuthorized ? 'profile.main' : 'home'}}">
+                <span class="icon icon_logo"></span>
+            </div>
+
+            <div class="navbar-basket pull-right" data-toggle="collapse" data-target="#sidecart">
                 <!-- TODO: Enable on see theme -->
-                <button type="button" ng-click="$ctrl.CartServices.toggleShowCart()"
-                        class="btn btn-sm pull-right change-color btn-primary"
+                <span
+                        ng-click="$ctrl.CartServices.toggleShowCart()"
+                        class="icon icon_basket"
                         data-toggle="collapse" data-target="#sidecart"
                         ng-show="$ctrl.CartServices.getTotalCount() > 0">
-                    <span class="glyphicon glyphicon-shopping-cart"></span>
                     <span>{{ $ctrl.CartServices.getTotalCount()}}</span>
-                </button>
+                </span>
             </div>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="nav">
             <ul class="nav navbar-nav navbar_hb">
-                <!-- <li  ng-class="{active: $ctrl.state.includes('theme')}"><a ui-sref="theme">Theme</a></li> -->
                 <li>
                     <span class="contacts">604 7814625 TEXT/CALL</span>
                 </li>
-                <li ng-if="$ctrl.isAuthorized" ng-class="{active: $ctrl.state.includes('profile') || $ctrl.state.includes('account')}">
+                <li ng-if="$ctrl.isAuthorized"
+                    ng-class="{active: $ctrl.state.includes('profile') || $ctrl.state.includes('account')}">
                     <a ui-sref="profile.main">My Profile</a>
                 </li>
-                <li ng-class="{active: $ctrl.state.includes('payments')}">
+                <li ng-class="{active: $ctrl.state.includes('store')}">
                     <a ui-sref="store.restaurants">Restaurants</a>
                 </li>
-                <li ng-class="{active: $ctrl.state.includes('transfers')}">
+                <li ng-class="{active: $ctrl.state.includes('about')}">
                     <a ui-sref="about">About</a>
                 </li>
-                <li ng-class="{active: $ctrl.state.includes('products')}">
+                <li ng-class="{active: $ctrl.state.includes('contacts')}">
                     <a ui-sref="contacts">Contacts</a>
                 </li>
                 <li>
@@ -121,10 +55,6 @@
                 <li>
                     <a ng-if="$ctrl.isAuthorized" href="javascript:void(0);" ng-click="$ctrl.logout()">Logout</a>
                 </li>
-                <!--<li ng-if="$ctrl.isAuthorized" ng-class="{active: $ctrl.state.includes('history')}"><a ui-sref="history">Архив платежей и переводов</a></li>-->
-                <!-- <li><a ui-sref="home">Кредиты</a></li> -->
-                <!-- <li><a ui-sref="home">Депозиты</a></li> -->
-                <!-- <li><a ui-sref="home">Страхование</a></li> -->
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -133,8 +63,5 @@
 </nav>
 <!-- Sidebar -->
 <aside>
-    <div class="sidebar collapse" id="sidecart">
-        <!--<sidebar-cart ng-show="$ctrl.CartServices.showCart"></sidebar-cart>-->
-        <sidebar-cart></sidebar-cart>
-    </div>
+    <sidebar-cart></sidebar-cart>
 </aside>

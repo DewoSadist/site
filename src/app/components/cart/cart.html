@@ -1,6 +1,6 @@
 <section class="form-wrap container cart-form">
-    <div class="container">
-        <form class="form-horizontal">
+    <div class="container" ng-if="$ctrl.step === 1">
+        <form class="form-horizontal" ng-submit="$ctrl.placeOrder()" ng-class="{'loading': $ctrl.isLoading}">
             <div class="row" ng-show="$ctrl.CartServices.getTotalCount() > 0">
                 <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
                     <div class="text-center">
@@ -13,7 +13,8 @@
                     </div>
                 </div>
             </div>
-
+            {{$ctrl.day | date:'yyyy-MM-dd' }}
+            {{$ctrl.day | date: 'hh:mm:ss'}}
             <div class="form-group">
                 <legend><h2>Summary</h2></legend>
                 <div class="alert alert-warning" role="alert" ng-if="$ctrl.CartServices.getTotalCount() === 0">
@@ -55,7 +56,8 @@
                             <td></td>
                             <td></td>
                             <td><h4>Delivery:</h4></td>
-                            <td>{{ $ctrl.cart.delivery == 0? 'free':$ctrl.cart.delivery | currency}}</td>
+                            <td><span ng-if="$ctrl.cart.delivery === 0">Free</span><span
+                                    ng-if="$ctrl.cart.delivery > 0">{{$ctrl.cart.delivery | currency}}</span></td>
                         </tr>
                         <tr>
                             <td></td>
@@ -106,17 +108,18 @@
                 <legend><h2>Payment</h2></legend>
                 <div class="radio radio-inline">
                     <input type="radio" id="cash"
-                           name="payment"
-                           ng-model="$ctrl.payment" ng-value="cash"
+                           ng-model="$ctrl.payment"
+                           value="by_cash"
                            clear-errors
-                           checked="true">
+                           checked>
                     <label for="cash">
                         <span>Cash</span>
                     </label>
                 </div>
                 <div class="radio radio-inline">
                     <input type="radio" id="credit"
-                           name="payment" ng-value="credit"
+                           ng-model="$ctrl.payment"
+                           value="by_credit"
                            clear-errors>
                     <label for="credit">
                         <span>Credit on Delivery</span>
@@ -135,8 +138,12 @@
                     <fieldset>
                         <label class="col-md-4 control-label" for="of_f_name">First Name</label>
                         <div class="col-md-5">
-                            <input id="of_f_name" name="First Name" placeholder="Daulet" class="form-control input-md"
-                                   required type="text">
+                            <input id="of_f_name"
+                                   name="First Name"
+                                   placeholder="Daulet"
+                                   class="form-control input-md"
+                                   required type="text"
+                                   ng-model="$ctrl.userForm.name">
 
                         </div>
                     </fieldset>
@@ -150,7 +157,8 @@
                     <div class="col-md-5">
                         <input id="of_address" name="textinput" placeholder="city"
                                class="form-control input-md"
-                               required type="text">
+                               required type="text"
+                               ng-model="$ctrl.userForm.address">
                     </div>
 
                 </div>
@@ -159,16 +167,21 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="of_email">Email</label>
                     <div class="col-md-5">
-                        <input id="of_email" name="textinput" placeholder="" class="form-control input-md" required
-                               type="email">
+                        <input id="of_email" name="textinput" placeholder=""
+                               class="form-control input-md"
+                               required
+                               type="email"
+                               ng-model="$ctrl.userForm.email">
                     </div>
                 </div>
                 <!-- Text input-->
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="of_phone1">Tel.</label>
                     <div class="col-md-5">
-                        <input id="of_phone1" name="textinput" placeholder="" class="form-control input-md" required
-                               type="tel">
+                        <input id="of_phone1" name="textinput" placeholder=""
+                               class="form-control input-md" required
+                               type="tel"
+                               ng-model="$ctrl.userForm.number">
                     </div>
                 </div>
 
@@ -183,13 +196,129 @@
             </div>
             <!-- Submit Button -->
             <div class="form-group">
+                <div ng-if="$ctrl.errors.form" class="alert alert-danger" role="alert">{{$ctrl.errors.form}}</div>
                 <label class="col-md-4 control-label" for="of_btn"></label>
                 <div class="col-md-5">
-                    <button id="of_btn" name="singlebutton" class="btn btn-success"
+                    <button id="of_btn" name="singlebutton" class="btn btn-success" type="submit"
                             ng-disabled="$ctrl.CartServices.getTotalCount() === 0">Place Order
                     </button>
                 </div>
             </div>
         </form>
+    </div>
+    <div class="container" ng-if="$ctrl.step === 2">
+        <div class="row">
+            <div class="col-xs-12 hidden-sm hidden-md hidden-lg hidden-xl text-center"><a href="javascript:void(0);">CANCEL
+                ORDER</a></div>
+            <div class="col-xs-12 col-sm-6">RECEIPT FOR <span class="text-uppercase">{{$ctrl.order.client_name}}</span>  AT  <span class="text-uppercase">{{$ctrl.order.res_name}}</span> </div>
+            <div class="hidden-xs col-sm-6 text-right"><a href="javascript.void(0);">CANCEL ORDER</a></div>
+        </div>
+
+        <div class="visible-sm visible-md visible-lg">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="table-responsive text-info">
+                        <table class="table">
+                            <caption><span class="text-uppercase">{{$ctrl.order.client_name}}</span>'S ORDER №{{$ctrl.order.id}}</caption>
+                            <tbody>
+                            <tr>
+                                <td class="col-sm-1">1x</td>
+                                <td class="col-sm-4"><b>Salmon sushi(Aburi special)</b><br>
+                                    <b>Substitution preferences:"Go with merchant recommendation</b>
+                                </td>
+                                <td class="col-sm-3"></td>
+                                <td class="col-sm-2"></td>
+                                <td class="col-sm-2 text-right">
+                                    $12.00
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-sm-1">1x</td>
+                                <td class="col-sm-4"><b>Salmon sushi(Aburi special)</b><br>
+                                    <b>Substitution preferences:"Go with merchant recommendation</b>
+                                </td>
+                                <td class="col-sm-3"></td>
+                                <td class="col-sm-2"></td>
+                                <td class="col-sm-2 text-right">
+                                    $12.00
+
+                                </td>
+                            </tr>
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <td colspan="3"></td>
+                                <td class="text-left">
+                                    Subtotal:<br/>
+                                    Tax:<br/>
+                                    Delivery:<br/>
+                                    Service Fees:<br/>
+                                    <h2>Total:</h2>
+                                </td>
+                                <td class="text-right">
+                                    {{$ctrl.order.order_amount - $ctrl.order.tax -$ctrl.order.delivery - $ctrl.order.service_fee }}<br/>
+                                    {{$ctrl.order.tax.toFixed(2)}}<br/>
+                                    {{$ctrl.order.delivery.toFixed(2)}}<br/>
+                                    {{$ctrl.order.service_fee.toFixed(2)}}<br/>
+                                    <h2>{{$ctrl.order.order_amount.toFixed(2)}}</h2>
+                                </td>
+                            </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="visible-xs">
+            <div class="row">
+                <div class="col-xs-12">
+                    <table class="table text-info">
+                        <caption><span class="text-uppercase">{{$ctrl.order.client_name}}</span>'S ORDER №{{$ctrl.order.id}}</caption>
+                        <tbody>
+                        <tr>
+                            <td class="col-xs-1">1x</td>
+                            <td class="col-xs-9"><b>Salmon sushi(Aburi special)</b><br>
+                                <b>Substitution preferences:"Go with merchant recommendation</b>
+                            </td>
+                            <td class="col-xs-2 text-right">
+                                $12.00
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1x</td>
+                            <td><b>Salmon sushi(Aburi special)</b><br>
+                                <b>Substitution preferences:"Go with merchant recommendation</b>
+                            </td>
+                            <td class="text-right">
+                                $12.00
+                            </td>
+                        </tr>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td></td>
+                            <td class="text-left">
+                                Subtotal:<br/>
+                                Tax:<br/>
+                                Delivery:<br/>
+                                Service Fees:<br/>
+                                <h2>Total:</h2>
+                            </td>
+                            <td class="text-right">
+                                {{$ctrl.order.order_amount - $ctrl.order.tax -$ctrl.order.delivery - $ctrl.order.service_fee }}<br/>
+                                {{$ctrl.order.tax.toFixed(2)}}<br/>
+                                {{$ctrl.order.delivery.toFixed(2)}}<br/>
+                                {{$ctrl.order.service_fee.toFixed(2)}}<br/>
+                                <h2>{{$ctrl.order.order_amount.toFixed(2)}}</h2>
+                            </td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+
     </div>
 </section>

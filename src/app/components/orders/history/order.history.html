@@ -7,7 +7,7 @@
     </div>
     <div class="card-list" ng-class="{'loading_small': $ctrl.isLoading}">
         <div class="loading loading_height" ng-if="!$ctrl.list"></div>
-        <div class="tile tile_dropdown tile_account card" ng-repeat="order in $ctrl.list | limitTo: 4">
+        <div class="tile tile_dropdown tile_account card" ng-repeat="order in $ctrl.list | limitTo: 4 | orderBy: '-order_day'">
             <div>
                 <div class="tile-heading flex-truncated">
                     <div class="mps-heading short-and-fixed">
@@ -16,7 +16,7 @@
                     <div class="long-and-truncated">
                         <h3 class="text-primary truncated-text">
                             <a href="javascript:void(0);" ui-sref="profile.order-item({id: order.id})">
-                                №:{{order.id}}
+                                №:{{order.id}} - {{order.res_name}} - {{order.order_day}}
                             </a>
                         </h3>
                     </div>
@@ -29,7 +29,7 @@
                 <div class="tile-body profile-payments">
                     <div class="account-list-item">
                         <div class="multicurrency">
-                            <h4>{{order.order_time}}</h4>
+                            <h4>Order time: {{order.order_time}}</h4>
                             <h4 class="foreign">Price:{{order.order_amount}}$</h4>
                         </div>
                         <div class="text-info card-mask">{{order.status}}</div>
@@ -39,7 +39,7 @@
         </div>
         <div uib-collapse="!$ctrl.showAll" class="card-list_collapsed">
             <div class="tile tile_dropdown tile_account card"
-                 ng-repeat="order in $ctrl.list | limitTo: ($ctrl.list.length - 4): 4">
+                 ng-repeat="order in $ctrl.list | limitTo: ($ctrl.list.length - 4): 4 | orderBy: '-order_day'">
                 <div>
                     <div class="tile-heading flex-truncated">
                         <div class="mps-heading short-and-fixed">
@@ -48,7 +48,7 @@
                         <div class="long-and-truncated">
                             <h3 class="text-primary truncated-text">
                                 <a href="javascript:void(0);" ui-sref="profile.order-item({id: order.id})">
-                                    №:{{order.id}}
+                                    №:{{order.id}} - {{order.res_name}} - {{order.order_day}}
                                 </a>
                             </h3>
                         </div>
@@ -61,8 +61,8 @@
                     <div class="tile-body profile-payments">
                         <div class="account-list-item">
                             <div class="multicurrency">
-                                <h4>{{order.order_time}}</h4>
-                                <h4 class="foreign">Price:{{order.amount}}$</h4>
+                                <h4>Order time: {{order.order_time}}</h4>
+                                <h4 class="foreign">Price:{{order.order_amount | currency}}</h4>
                             </div>
                             <div class="text-info card-mask">{{order.status}}</div>
                         </div>

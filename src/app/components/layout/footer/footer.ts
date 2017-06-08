@@ -23,9 +23,10 @@ class FooterController {
 			{id:'contacts', link:'contacts', name:'Contacts'}
 		];
 		this.features = [
-			{id:'login', link:'login', name:'Login'},
+			{id:'login', link:'users.login', name:'Login'},
 			{id:'registration', link:'registration', name:'Registration'},
-			{id:'email', link:'email', name:'Email'}
+			{id:'email', link:'email', name:'Email'},
+			{id:'terms', link:'terms', name:'Terms of service'}
 		];
  	}
  	/**

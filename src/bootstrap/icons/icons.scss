@@ -2,6 +2,10 @@
     background-image: url($name + ".svg");
 }
 
+@mixin icon-url-png($name) {
+    background-image: url($name + ".png");
+}
+
 // mixin for generating icon classes
 $foodCategoryList: burger chicken curry noodles pizza salmona shawarma shrimp steak sushi taco thai;
 $categoryList: restaurant;
@@ -94,6 +98,10 @@ $homeIcons: virtual-currency virtual-safety virtual-speed virtual-usage;
     &_category {
         @include icon-size(70,70);
         border-radius: 10%;
+    }
+    &_restaurant {
+        @include icon-size(105, 58);
+        border-radius: 5px;
     }
     
     &_transfer-small {
@@ -207,7 +215,7 @@ $homeIcons: virtual-currency virtual-safety virtual-speed virtual-usage;
     }
 
     &_logo {
-        @include icon-size(40, 40);
+        @include icon-size(155, 55);
         background-image: url("logo.png");
         background-size: cover;
     }
@@ -585,6 +593,13 @@ $homeIcons: virtual-currency virtual-safety virtual-speed virtual-usage;
 
     &_collapse-margin {
         margin-left: auto;
+    }
+
+    &_basket {
+        @include icon-size(60, 48);
+        @include icon-url-png(basket);
+        font-family: Impact;
+        cursor: pointer;
     }
 }
 .icon-text{

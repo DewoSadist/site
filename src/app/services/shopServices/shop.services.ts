@@ -36,27 +36,39 @@ export interface IHour {
 }
 
 export interface IOrder {
-    id?: number,
-    res_id: number,
-    order_day: string,
-    order_time: string,
-    req_day: string,
-    req_time: string,
-    ship_via: string,
-    order_amount: number,
-    user_id: string
-    status: string,
-    reorder: number,
-    quantity: number
+    id?: number;
+    res_id: number;
+    res_name: string;
+    tax: number;
+    delivery: number;
+    service_fee: number;
+    small_order_fee: number;
+    quantity: number;
+    order_amount: number;
+    status: string;
+    user_id: string;
+    reorder: number;
+    order_day: string;
+    order_time: string;
+    req_day: string;
+    req_time: string;
+    ship_via: string;
+    order_details: any;
+    client_name: string;
+    client_address: string;
+    client_number: string;
+    client_email: string;
+    payment: string;
 }
 
 /**
  * @interface IProductCategory
  */
 export interface IProductCategory {
-    id: string;
+    id?: string;
     name: string;
-    res_id: string;
+    res_id: number;
+    tags: string;
 }
 
 /**
@@ -128,6 +140,8 @@ export interface IShopServices {
 
     getAllProducts();
     getCategoryProducts(catId: string);
+    saveOrUpdateCategory(data);
+    delCategory(catId: number);
 
     getProductOptions(prodId: string);
 
@@ -136,6 +150,7 @@ export interface IShopServices {
     getUserOrders(userId: string);
     getRestaurantOrders(resId: number);
     saveOrUpdateOrder(data);
+    getImgCategories();
 
 
 }
@@ -159,6 +174,7 @@ class ShopServices implements IShopServices {
     public productOptionsList: Array<IProductOption>;
 
     public text: string;
+    public imgCategories = [];
 
     /** @ngInject */
 
@@ -284,7 +300,48 @@ class ShopServices implements IShopServices {
             });
         return deferred.promise;
     }
-
+    /**
+     * @ngdoc method
+     * @name IShopServices.saveOrUpdateCategory
+     * @methodOf ShopServices
+     *
+     * @description
+     * Save Or update Category object
+     *
+     * @return  {IPromise}  Request category object promise
+     */
+    saveOrUpdateCategory(data) {
+        let deferred = this.$q.defer();
+        this.Restangular.one('restaurants/categories').customPOST(data)
+            .then((object) => {
+                deferred.resolve(object);
+            })
+            .catch((error) => {
+                deferred.reject(error);
+            });
+        return deferred.promise;
+    }
+    /**
+     * @ngdoc method
+     * @name IShopServices.delCategory
+     * @methodOf ShopServices
+     *
+     * @description
+     * delete  restaurant
+     *
+     * @return  {IPromise}  Request promise
+     */
+    delCategory(catId: number) {
+        let deferred = this.$q.defer();
+        this.Restangular.one("/restaurants/categories/" + catId).customDELETE()
+            .then((responce) => {
+                deferred.resolve(responce);
+            })
+            .catch((error) => {
+                deferred.reject(error);
+            })
+        return deferred.promise;
+    }
     /**
      * @ngdoc method
      * @name IShopServices.getAllProducts
@@ -394,7 +451,7 @@ class ShopServices implements IShopServices {
 
     /**
      * @ngdoc method
-     * @name IShopServices.getUserRestaurants
+     * @name IShopServices.delRestaurant
      * @methodOf ShopServices
      *
      * @description
@@ -404,13 +461,13 @@ class ShopServices implements IShopServices {
      */
     delRestaurant(resId: string) {
         let deferred = this.$q.defer();
-        this.Restangular.one("/restaurants/" + resId).delete()
+        this.Restangular.one("/restaurants/" + resId).customDELETE()
             .then((responce) => {
                 deferred.resolve(responce);
             })
             .catch((error) => {
                 deferred.reject(error);
-            })
+            });
         return deferred.promise;
     }
 
@@ -521,6 +578,40 @@ class ShopServices implements IShopServices {
         .catch((error) => {
             deferred.reject(error);
         });
+        return deferred.promise;
+    }
+
+    setCategories(scope, list) {
+        scope.imgCategories = list;
+    }
+    getImgCategories() {
+        let promise = this.Restangular.withConfig(function(RestangularConfigurer) {
+            RestangularConfigurer.setBaseUrl('');
+            RestangularConfigurer.setRequestSuffix('.json');
+        }).all('categories').getList();
+        return this.promiseWrapper(promise, this.setCategories);
+    }
+    /**
+     * Private method wraps API call promise into another promise, during which we
+     * execute callbacks, e.g. locally store the response objects
+     *
+     * @param {promise} promise - Actual promise
+     * @param {function} callback - void function taking two parameters, scope and response object
+     * @return {promise} Wrapper promise
+     */
+    private promiseWrapper(promise, callback) {
+        let self = this;
+        var deferred = this.$q.defer();
+        promise.then(
+            (response) => {
+                callback(self, response);
+                deferred.resolve(response);
+            },
+            (error) => {
+                deferred.reject(error);
+            }
+
+        );
         return deferred.promise;
     }
 }

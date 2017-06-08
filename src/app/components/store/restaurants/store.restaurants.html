@@ -6,14 +6,15 @@
     <div class="page-list page-list_dynamic" ng-class="{'page-list_less-padding  visible-sm visible-md visible-lg': $ctrl.isAuthorized }">
       <div class="container">
         <div class="page-list-wrap" click-outside="$ctrl.closeMenus()">
-          <div class="page-list-item" ng-repeat="item in $ctrl.list" ng-class="page-list-item_bottom">
+          <div class="page-list-item" ng-repeat="item in $ctrl.list | limitTo:($ctrl.showAll?undefined:8)" ng-class="page-list-item_bottom">
             <div class="content" ng-click="$ctrl.selectItem(item)">
-              <span class="icon icon_category icon_category-restaurant"></span>
+              <img src="img/restaurants/{{item.logo_image_url}}" class="icon icon_restaurant " >
+              <!--<span class="icon icon_category icon_category-restaurant"></span>-->
               <span>{{item.title}}</span>
             </div>
           </div>
         </div>
-        <div class="profile-button" ng-if="$ctrl.list">
+        <div class="profile-button" ng-if="$ctrl.list.length > 8">
           <button class="btn btn-primary" ng-click="$ctrl.toggleShowAll()">{{$ctrl.showAll? 'Hide' : 'Show all'}}</button>
         </div>
       </div>

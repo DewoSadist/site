@@ -287,6 +287,7 @@ class AuthService {
      * @param {string}  confirmPassword     Confirm password value
      * @return {Object} Validation output as object if errors are found
      */
+
     validatePasswordsPair(password: string, confirmPassword: string) {
         let errors = {};
         errors = this.validatePassword(password);

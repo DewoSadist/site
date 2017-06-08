@@ -238,7 +238,8 @@ $list-vertical-margin: 15px;
         }
 
         .icon_category,
-        .icon_transfer {
+        .icon_transfer,
+        .icon_restaurant {
             @media (min-width: $screen-sm-min) {
                 margin-bottom: 0;
                 margin-right: 10px;
@@ -336,7 +337,8 @@ $list-vertical-margin: 15px;
         }
 
         .icon_category,
-        .icon_transfer {
+        .icon_transfer,
+        .icon_restaurant {
             @media (min-width: $screen-sm-min) {
                 margin-bottom: 0;
                 margin-right: 10px;

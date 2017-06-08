@@ -8,11 +8,14 @@
 
 //## Palette colors.
 $color-azure: #00a9ff;
+$color-red: #ff0000;
+$color-red-dark: #8B0000;
 $color-indigo: #071222;
 $color-indigo-dark: #061122;
 $color-sunflower-yellow: #ffcc01;
 $color-aqua-green: #11d392;
 $color-pink-red: #ff005d;
+
 
 $color-ice-blue: #f6faff;
 
@@ -28,7 +31,7 @@ $color-white-transparent: rgba($color-white, 0.30);
 //
 //## Colors for bootstrap element
 
-$brand-primary: $color-azure !default;
+$brand-primary: $color-red !default;
 $brand-success: $color-aqua-green !default;
 $brand-info: $color-indigo !default;
 $brand-warning: $color-sunflower-yellow !default;
@@ -105,8 +108,8 @@ $nav-tabs-justified-active-link-border-color:     $nav-tabs-border-color !defaul
 //
 //##
 // Basics of a navbar
-$navbar-height: 55px !default;
-$navbar-height-large: 70px !default;
+$navbar-height: 60px !default;
+$navbar-height-large: 60px !default;
 $navbar-border-radius: $border-radius-base !default;
 $navbar-padding-small: 12px;
 $navbar-padding-base: 20px;
@@ -117,7 +120,7 @@ $navbar-default-color:             $color-indigo !default;
 $navbar-default-bg:                $color-white !default;
 $navbar-default-border:            $navbar-default-bg !default;
 
-$navbar-height: 55px !default;
+$navbar-height: 60px !default;
 $navbar-margin-bottom: 0 !default;
 $navbar-default-color: $color-indigo !default;
 $navbar-default-bg: $color-white !default;
@@ -126,8 +129,8 @@ $navbar-default-border: $navbar-default-bg !default;
 //=== Inverted navbar
 // Reset inverted navbar basics
 $navbar-inverse-color: $color-white !default;
-$navbar-inverse-bg: $color-indigo-dark !default;
-$navbar-inverse-border: $color-indigo-dark !default;
+$navbar-inverse-bg: $color-red !default;
+$navbar-inverse-border: $color-red !default;
 
 // Inverted navbar links
 $navbar-inverse-link-color: $color-white !default;
@@ -300,7 +303,7 @@ $grid-gutter-small-width: 20px !default;
 
 // Navbar collapse
 //** Point at which the navbar becomes uncollapsed.
-$grid-float-breakpoint: $screen-md-min !default;
+$grid-float-breakpoint: 4000px !default;
 
 //** Point at which the navbar begins collapsing.
 $grid-float-breakpoint-max: $grid-float-breakpoint - 1 !default;

@@ -1,0 +1,55 @@
+<div class="component">
+    <form ng-submit="$ctrl.saveCategory()" ng-class="{'loading': $ctrl.isLoading}">
+        <h2>Category</h2>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>NAME</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>Name</td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle align-tab btn-default" type="button" id="resselect"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
+                            {{$ctrl.selectedRestaurantName}}
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li ng-repeat="restaurant in $ctrl.restaurants" role="presentation"
+                                ng-class="{active: $ctrl.selectedRestaurantName === $index + 2}">
+                                <a href="javascript:void(0);" ng-click="$ctrl.selectRestaurant(restaurant)">{{restaurant.title}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Restaurant</td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle align-tab btn-default" type="button" id="catselect"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            {{$ctrl.imgCategoriesSelected}}
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li ng-repeat="cat in $ctrl.imgCategories" role="presentation"
+                                ng-class="{active: $ctrl.searchTicketOption === $index + 2}">
+                                <a href="javascript:void(0);" ng-click="$ctrl.selectCategory(cat)">{{cat.name}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div ng-if="$ctrl.errors.form" class="alert alert-danger" role="alert">{{$ctrl.errors.form}}</div>
+        <button type="submit" class="btn btn-primary confirm-button form-submit"
+                ng-disabled="$ctrl.isLoading">
+            <span ng-if="$ctrl.isLoading">pleas wait</span>
+            <span ng-if="!$ctrl.isLoading">Save</span>
+        </button>
+    </form>
+</div>

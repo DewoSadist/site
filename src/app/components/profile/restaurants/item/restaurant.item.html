@@ -1,5 +1,6 @@
 <div class="component">
-    <h2>Restaurant <a href="javascript:void(0);" ui-sref="profile.restaurant-edit({id:$ctrl.restaurant.id}) ">edit</a></h2>
+    <h2>Restaurant <a href="javascript:void(0);" ui-sref="profile.restaurant-edit({id:$ctrl.restaurant.id}) ">edit</a>
+    </h2>
     <table class="table table-striped">
         <thead>
         <tr>
@@ -75,6 +76,22 @@
             <td>Rating</td>
             <td>{{ $ctrl.restaurant.ratings }}</td>
         </tr>
+        <tr>
+            <td>Tax</td>
+            <td>{{ $ctrl.restaurant.tax }}%</td>
+        </tr>
+        <tr>
+            <td>Delivery</td>
+            <td>{{ $ctrl.restaurant.delivery }}%</td>
+        </tr>
+        <tr>
+            <td>Service fee</td>
+            <td>{{ $ctrl.restaurant.service_fee }}%</td>
+        </tr>
+        <tr>
+            <td>Small order fee</td>
+            <td>{{ $ctrl.restaurant.small_order_fee |currency }}</td>
+        </tr>
     </table>
     <div ng-if="$ctrl.restaurant.hours.length>0">
         <h2>Open Hours</h2>
@@ -95,4 +112,28 @@
             </tr>
         </table>
     </div>
+    <form ng-class="{'loading': $ctrl.isLoading}">
+        <h2>Categories</h2>
+        <a href="javascript:void(0);" ui-sref="profile.category-new({id:category.id})">add new category</a>
+
+        <div ng-if="$ctrl.categories.length>0">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Restaurant ID</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tr ng-repeat="category in $ctrl.categories">
+                    <td>{{ category.id }}</td>
+                    <td>{{ category.name }}</td>
+                    <td>{{ category.res_id }}</td>
+                    <td><a href="javascript:void(0);" ng-click="$ctrl.deleteCategory(category.id)">delete</a></td>
+                </tr>
+            </table>
+            <div ng-if="$ctrl.errors.form" class="alert alert-danger" role="alert">{{$ctrl.errors.form}}</div>
+        </div>
+    </form>
 </div>

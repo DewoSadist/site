@@ -46,6 +46,8 @@ import { cart } from './app/components/cart/cart';
 
 import { about } from './app/components/pages/about/about';
 import { contacts } from  './app/components/pages/contacts/contacts';
+import { terms } from "./app/components/pages/terms/terms";
+
 
 import { users } from './app/components/users/users';
 import { login } from './app/components/users/login/login';
@@ -63,10 +65,10 @@ import { restaurantsList } from './app/components/profile/restaurants/list/resta
 import { restaurantNew } from "./app/components/profile/restaurants/new/restaurant.new";
 import { restaurantEdit } from "./app/components/profile/restaurants/edit/restaurant.edit";
 import { restaurantItem } from "./app/components/profile/restaurants/item/restaurant.item";
-
 import { orderHistory } from "./app/components/orders/history/order.history";
 import { orderEdit } from "./app/components/orders/edit/order.edit";
 import { orderItem } from "./app/components/orders/item/order.item";
+import {categoryNew} from "./app/components/profile/categories/new/category.new";
 
 // ------------------ Services --------------------
 import AuthService from './app/services/auth/auth.service';
@@ -176,6 +178,7 @@ angular.module('app', [
 .component('productsInfo', productsInfo)
 .component('about', about)
 .component('contacts', contacts)
+.component('terms', terms)
 
 .component('users', users)
 .component('login', login)
@@ -195,6 +198,7 @@ angular.module('app', [
 .component('orderHistory', orderHistory)
 .component('orderItem', orderItem)
 .component('orderEdit', orderEdit)
+.component('categoryNew', categoryNew)
 
 
 .config(restangularConfig)

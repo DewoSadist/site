@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="page-content">
+        <div ng-repeat="block in $ctrl.text">
+            <h2>{{block.title}}</h2>
+            <ol ng-if="block.order_list">
+                <li ng-repeat="item in block.order_list">
+                    {{item.value}}
+                    <ol>
+                        <li ng-repeat="citem in item.order_list">{{citem.value}}</li>
+                    </ol>
+                </li>
+            </ol>
+            <ul ng-if="block.rows" >
+                <li ng-repeat="row in block.rows">
+                    {{row.value}}
+                    <ol>
+                        <li ng-repeat="nitem in row.order_list">{{nitem.value}}</li>
+                    </ol>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>

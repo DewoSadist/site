@@ -75,8 +75,17 @@ $navbar-padding-horizontal: 7px;
     border: 0;
     height: $navbar-height;
     font-size: $font-size-small;
+    a {
+        position: relative;
+        color: $color-white;
 
-    @media (min-width: $grid-float-breakpoint) {
+        &:hover,
+        &:focus {
+            color: $color-battleship-gray;
+        }
+    }
+
+    @media (min-width: $screen-md-min) {
         height: $navbar-height-large;
         font-size: $font-size-base;
     }
@@ -133,7 +142,7 @@ $navbar-padding-horizontal: 7px;
             color: $color-white;
 
             &:hover {
-                color: $brand-primary;
+                color: $color-battleship-gray;
             }
         }
 
@@ -155,7 +164,7 @@ $navbar-padding-horizontal: 7px;
 
                 &:hover,
                 &:focus {
-                    color: $brand-primary;
+                    color: $color-battleship-gray;
                 }
             }
 
@@ -307,7 +316,7 @@ $navbar-padding-horizontal: 7px;
                 &,
                 &:hover,
                 &:focus {
-                    color: $brand-primary;
+                    color: $color-white;
                     background-color: $navbar-default-bg;
                 }
 
@@ -315,7 +324,7 @@ $navbar-padding-horizontal: 7px;
                     position: absolute;
                     width: 100%;
                     content: '';
-                    background-color: $brand-primary;
+                    background-color: $color-battleship-gray;
                     height: 2px;
                     bottom: 0;
                     left: 0;
@@ -337,17 +346,18 @@ $navbar-padding-horizontal: 7px;
 
 .navbar-brand {
     line-height: 27px;
-    padding: 5px $navbar-padding-horizontal;
+    padding: 0 $navbar-padding-horizontal;
     /*position: relative;*/
     position: absolute;
     left: 50%;
+    margin-left: -78px;
     z-index: 5;
 
-    @media (min-width: $grid-float-breakpoint) {
+    @media (min-width: $screen-md-min) {
         .navbar > .container &,
         .navbar > .container-fluid & {
             margin-left: -$navbar-padding-horizontal * 2;
-            padding: ($navbar-padding-horizontal * 2) $navbar-padding-horizontal;
+            padding: 0 $navbar-padding-horizontal;
             height: $navbar-height-large;
         }
     }
@@ -369,6 +379,12 @@ $navbar-padding-horizontal: 7px;
 
 .navbar-state {
     color: $color-white;
+    line-height: $navbar-height;
+    padding-left: $navbar-padding-horizontal;
+}
+
+.navbar-basket {
+    color: $color-red;
     line-height: $navbar-height;
     padding-left: $navbar-padding-horizontal;
 }

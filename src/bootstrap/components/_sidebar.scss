@@ -3,23 +3,32 @@
 // --------------------------------------------------
 
 .sidebar {
-    -webkit-transition: all 0.4s ease 0s;
-    -moz-transition: all 0.4s ease 0s;
-    -o-transition: all 0.4s ease 0s;
-    transition: all 0.4s ease 0s;
-    width: 324px;
-    //margin-right: -324px;
+    width: 0;
+    height: 91%!important;
     right: 0;
-    height: 100%;
+    flex-direction: column;
+    overflow-x: auto;
+    -webkit-transition: 0.4s ;
+    -moz-transition: 0.4s ;
+    -o-transition: 0.4s ;
+    transition: 0.4s ;
     position: fixed;
     z-index: 10000;
     background-color: $color-white;
-    border-left: 1px solid $color-battleship-gray;
+    border-left: 1px solid $color-warm-gray;
+
     &:active {
         margin-right: 0;
     }
+
+    &.in {
+        overflow-x: auto;
+        width: 350px;
+    }
     @media (max-width: $screen-xs) {
-        width: 100%;
+        &.in {
+            width: 100%
+        }
     }
     .icon, .glyphicon {
         padding: 5px;

@@ -11,26 +11,6 @@ export interface ICartItem {
     price: number;
     each_price: number;
 }
-export interface IOrder {
-    order_id: string;
-    res_id: number;
-    res_name: string;
-    tax: number;
-    delivery: number;
-    service_fee: number;
-    small_order_fee: number;
-    quantity: number;
-    order_amount: number | string;
-    status: string;
-    user_id: string;
-    reorder: number;
-    order_day: string;
-    order_time: string;
-    req_day: string;
-    req_time: string;
-    ship_via: string;
-    order_details: any;
-}
 
 /**
  * @interface ICart
@@ -73,7 +53,6 @@ class CartServices implements ICartServices {
     public cart: ICart;
     public subTotalPrice: number;
     public showCart: boolean;
-    public order: IOrder;
 
     /** @ngInject */
     constructor(public $cookies: ng.cookies.ICookiesService) {
@@ -105,10 +84,9 @@ class CartServices implements ICartServices {
      * @methodOf CartServices
      *
      * @description
-     * Requests User object from server to determine if user is logged in.
-     * If success, stores user in-memory, otherwise HTTP 401
+     * count cart subtotal price
      *
-     * @return  {IPromise}  Request promise
+     * @return  subtotal price
      */
     getSubTotalPrice() {
         this.subTotalPrice = 0;
@@ -120,29 +98,75 @@ class CartServices implements ICartServices {
             });
         }
         this.cart.subtotal = this.subTotalPrice;
-        console.log(this.cart.total);
         return this.cart.subtotal;
     };
+    /**
+     * @ngdoc method
+     * @name ICartServices.getDeliveryTax
+     * @methodOf CartServices
+     *
+     * @description
+     * If restaurant object not null make calculation else return 0
+     *
+     * @return  delivery tax
+     */
     getDeliveryTax(){
-        this.cart.delivery = (this.getSubTotalPrice() * this.cart.restaurant.delivery)/100;
-        console.log(this.cart.delivery);
+        if(this.cart.restaurant != null && this.cart.restaurant.delivery){
+            this.cart.delivery = (this.getSubTotalPrice() * this.cart.restaurant.delivery)/100;
+        } else {
+            this.cart.delivery = 0;
+
+        }
         return this.cart.delivery;
     }
+    /**
+     * @ngdoc method
+     * @name ICartServices.getServiceFee
+     * @methodOf CartServices
+     *
+     * @description
+     * If restaurant object not null make calculation else return 0
+     *
+     * @return  service fee
+     */
     getServiceFee(){
-        this.cart.service_fee = (this.getSubTotalPrice() * this.cart.restaurant.service_fee)/100;
-        console.log(this.cart.service_fee);
-
+        if(this.cart.restaurant != null && this.cart.restaurant.service_fee){
+            this.cart.service_fee = (this.getSubTotalPrice() * this.cart.restaurant.service_fee)/100;
+        } else {
+            this.cart.service_fee = 0
+        }
         return this.cart.service_fee;
     }
+    /**
+     * @ngdoc method
+     * @name ICartServices.getTax
+     * @methodOf CartServices
+     *
+     * @description
+     * If restaurant object not null make calculation else return 0
+     *
+     * @return  tax
+     */
     getTax() {
-        this.cart.tax = (this.getSubTotalPrice() * this.cart.restaurant.tax)/100;
-        console.log(this.cart.tax);
+        if(this.cart.restaurant != null && this.cart.restaurant.tax) {
+            this.cart.tax = (this.getSubTotalPrice() * this.cart.restaurant.tax)/100;
+        } else {
+            this.cart.tax = 0;
+        }
         return this.cart.tax;
     }
+    /**
+     * @ngdoc method
+     * @name ICartServices.getTotalPrice
+     * @methodOf CartServices
+     *
+     * @description
+     * subtotal + tax + + delivery tax + service fee
+     *
+     * @return  total price
+     */
     getTotalPrice(){
         this.cart.total = (this.getSubTotalPrice() + this.getTax() + this.getDeliveryTax() + this.getServiceFee());
-        console.log(this.cart.total);
-
     }
 
     /**
@@ -156,6 +180,10 @@ class CartServices implements ICartServices {
     addItemToCart(item) {
         if(this.cart.restaurant == null) {
             this.cart.restaurant = item.restaurant;
+            this.cart.store = item.restaurant.title;
+            this.cart.storeId = item.restaurant.id;
+            this.cart.items.push(item);
+
         } else {
             if(this.cart.restaurant.id == item.restaurant.id) {
                 this.cart.items.push(item);
@@ -164,6 +192,8 @@ class CartServices implements ICartServices {
                     'If you change we delete products from existing restaurant';
                 if(window.confirm(msg)) {
                     this.cart.restaurant = item.restaurant;
+                    this.cart.store = item.restaurant.title;
+                    this.cart.storeId = item.restaurant.id;
                     this.cart.items=[];
                     this.cart.items.push(item);
                 }
@@ -208,7 +238,7 @@ class CartServices implements ICartServices {
                     console.log("udaleno:", this.cart);
                 }
             }
-        })
+        });
         this.$cookies.putObject("cart", this.cart);
     }
 
@@ -221,6 +251,8 @@ class CartServices implements ICartServices {
      */
     deleteAllFromCart() {
         this.cart.items = [];
+        this.$cookies.remove("cart");
+        this.$cookies.putObject("cart", this.cart);
     }
 
     /**
@@ -251,7 +283,9 @@ class CartServices implements ICartServices {
                     item.price = item.each_price * item.quantity;
                 }
             }
-        })
+        });
+        this.$cookies.remove("cart");
+        this.$cookies.putObject("cart", this.cart);
     }
 
     /**
@@ -274,6 +308,8 @@ class CartServices implements ICartServices {
                 }
             }
         })
+        this.$cookies.remove("cart");
+        this.$cookies.putObject("cart", this.cart);
     }
     /**
      * @ngdoc method

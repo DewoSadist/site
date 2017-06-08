@@ -18,6 +18,17 @@ class UsersListController {
               });
       }
   }
+    /**
+     * @ngdoc method
+     * @name toggleShowAll
+     * @methodOf AccountListController
+     *
+     * @description
+     * Shows/hides list of all accounts
+     */
+    toggleShowAll() {
+        this.showAll = !this.showAll;
+    }
 }
 
 export const usersList = {

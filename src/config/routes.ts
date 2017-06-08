@@ -87,6 +87,10 @@ function routesConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvi
 		url: '/contacts',
 		template:'<contacts></contacts>'
 	})
+	.state('terms', {
+		url: '/terms',
+		template: '<terms></terms>'
+	})
 
 	// ----------------------------------- USER STATES ---------------------------------------
 
@@ -130,16 +134,18 @@ function routesConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvi
 	.state('profile.restaurant', {
 		url:'/restaurant/:id',
 		params: {id:null},
-		template: '<restaurant-item data-restaurant="$resolve.restaurant"></restaurant-item>',
+		template: '<restaurant-item data-restaurant="$resolve.restaurant" data-categories="$resolve.categories"></restaurant-item>',
 		resolve:{
-
 			restaurant: (ShopServices: IShopServices, $stateParams: ng.ui.IStateParamsService, $state: ng.ui.IStateService) => {
 				if ($stateParams['id']) {
 					return ShopServices.getRestaurant($stateParams['id']) || $state.go('profile.main');
 				} else {
 					return ShopServices.getRestaurant($stateParams['id']) || $state.go('profile.main');
 				}
-			}
+			},
+			categories: (ShopServices: IShopServices, $stateParams: ng.ui.IStateParamsService) => {
+				return ShopServices.getRestaurantCategories($stateParams['id']);
+			},
 		}
 	})
 	.state('profile.restaurant-edit', {
@@ -180,6 +186,15 @@ function routesConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvi
 				} else {
 					return ShopServices.getOrder($stateParams['id']) || $state.go('profile.main');
 				}
+			}
+		}
+	})
+	.state('profile.category-new', {
+		url: '/categorynew',
+		template: '<category-new data-img-categories="$resolve.imgCategories"></category-new>',
+		resolve: {
+			imgCategories: (ShopServices: IShopServices) => {
+				return ShopServices.getImgCategories();
 			}
 		}
 	})
