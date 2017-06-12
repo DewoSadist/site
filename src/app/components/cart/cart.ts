@@ -22,75 +22,9 @@ class CartController implements IFormContainer {
                 public UserService: UserService,
                 public ErrorService: ErrorService,
                 public ShopServices: IShopServices) {
-        this.order={
-            client_address:
-                "smam",
-            client_email
-                :
-                "mamsa@asmas.asl",
-            client_name
-                :
-                "Sama",
-            client_number
-                :
-                "121312121",
-            delivery
-                :
-                0.06625,
-            id
-                :
-                100010,
-            order_amount
-                :
-                13.43815,
-            order_day
-                :
-                "2017-06-05",
-            order_time
-                :
-                "11:20:25",
-            payment
-                :
-                "by_cash",
-            quantity
-                :
-                0,
-            reorder
-                :
-                0,
-            req_day
-                :
-                "2017-06-05",
-            req_time
-                :
-                "11:20:25",
-            res_id
-                :
-                2,
-            res_name
-                :
-                "Nandus Cafe",
-            service_fee
-                :
-                0.02915,
-            ship_via
-                :
-                "car",
-            small_order_fee
-                :
-                0,
-            status
-                :
-                "preorder",
-            tax
-                :
-                0.09274999999999999,
-            user_id
-                :
-                "unknown",
-            order_details:null
-
-        }
+        this.time = this.$filter('date')(new Date(), 'HH:mm:ss');
+        this.day = this.$filter('date')(new Date(), 'yyyy-MM-dd');
+        console.log("current date:", this.day, this.time);
         this.step = 1;
         this.userForm = {
             name: '',
@@ -101,8 +35,6 @@ class CartController implements IFormContainer {
         this.payment = 'by_cash';
         this.isSend = false;
         this.cart = this.CartServices.getCardItems();
-        this.day = this.$filter('date')(new Date(), 'yyyy-MM-dd');
-        console.log(this.day)
     }
 
     /**
@@ -160,7 +92,9 @@ class CartController implements IFormContainer {
     placeOrder() {
         this.startLoading();
         this.time = this.$filter('date')(new Date(), 'hh:mm:ss');
-        if(this.UserService.isAuthorized()) {
+        this.day = this.$filter('date')(new Date(), 'yyyy-MM-dd');
+        console.log("current date:", this.day, this.time);
+        if (this.UserService.isAuthorized()) {
             this.order = {
                 res_id: this.cart.restaurant.id,
                 res_name: this.cart.restaurant.title,
@@ -178,7 +112,7 @@ class CartController implements IFormContainer {
                 req_day: this.day,
                 req_time: this.time,
                 ship_via: 'car',
-                order_details: null,
+                orderDetails: [],
                 client_name: this.UserService.user.firstname,
                 client_address: this.UserService.user.address,
                 client_email: this.UserService.user.email,
@@ -203,7 +137,7 @@ class CartController implements IFormContainer {
                 req_day: this.day,
                 req_time: this.time,
                 ship_via: 'car',
-                order_details: null,
+                orderDetails: [],
                 client_name: this.userForm.name,
                 client_address: this.userForm.address,
                 client_email: this.userForm.email,
@@ -211,13 +145,35 @@ class CartController implements IFormContainer {
                 payment: this.payment
             };
         }
+        this.cart.items.forEach((item) => {
+            let notes = "";
+            if(item.notes.length > 0){
+                item.notes.forEach((note) => {
+                    notes = notes + note.title + " " + note.name + "; ";
+                });
+            }
 
+            if (index => 0) {
+                let obj = {
+                    title: item.name,
+                    employee_id: 1,
+                    unit_price: item.each_price,
+                    quantity: item.quantity,
+                    additional: item.additional,
+                    note: notes
+                };
+                this.order.orderDetails.push(obj);
+                console.log("dobavleno:", item);
+            }
+        });
         console.log("Order Details", this.order);
         this.ShopServices.saveOrUpdateOrder(this.order)
             .then((response) => {
                 this.stopLoading();
                 console.log(response);
                 this.order = response;
+                this.step = 2;
+                this.CartServices.setCartDefault();
             })
             .catch((error) => {
                 console.log(error);
@@ -238,6 +194,34 @@ class CartController implements IFormContainer {
             });
     }
 
+    cancelOrder() {
+        this.startLoading();
+        this.order.status = 'canceled';
+        this.ShopServices.saveOrUpdateOrder(this.order)
+            .then((response) => {
+                this.stopLoading();
+                console.log(response);
+                this.order = response;
+                this.step = 2;
+            })
+            .catch((error) => {
+                console.log(error);
+                this.stopLoading();
+                if (error.status === 404) {
+                    this.errors = {
+                        form: this.ErrorService.getEditError().saveError
+                    };
+                } else if (error.status === 500) {
+                    this.errors = {
+                        form: this.ErrorService.getEditError().saveIncorrectValue
+                    }
+                } else {
+                    this.errors = {
+                        form: this.ErrorService.getGeneralBadRequestError()
+                    };
+                }
+            });
+    }
 
 }
 

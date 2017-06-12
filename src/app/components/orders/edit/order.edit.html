@@ -1,6 +1,8 @@
+<div class="container">
+
 <div class="component">
   <form ng-submit="$ctrl.saveOrder()" ng-class="{'loading': $ctrl.isLoading}">
-    <h2>Restaurant | <a href="javascript:void(0);">edit</a></h2>
+    <h2>Order</h2>
     <table class="table table-striped">
       <thead>
       <tr>
@@ -73,4 +75,5 @@
       <span ng-if="!$ctrl.isLoading">Save</span>
     </button>
   </form>
+</div>
 </div>

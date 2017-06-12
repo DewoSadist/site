@@ -356,7 +356,8 @@ $navbar-padding-horizontal: 7px;
     @media (min-width: $screen-md-min) {
         .navbar > .container &,
         .navbar > .container-fluid & {
-            margin-left: -$navbar-padding-horizontal * 2;
+            margin-left: -80px;
+            //margin-left: -$navbar-padding-horizontal * 2;
             padding: 0 $navbar-padding-horizontal;
             height: $navbar-height-large;
         }

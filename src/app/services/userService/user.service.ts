@@ -80,7 +80,7 @@ class UserService implements IUserService{
    */
 
   isAdmin() {
-    return this.user && this.user.roles && (this.user.roles.indexOf("ADMIN") >-1);
+    return this.user && this.user.roles && (this.user.roles.indexOf("ADMIN") > -1);
   }
   /**
    * @ngdoc method

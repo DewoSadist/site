@@ -109,8 +109,8 @@ $footer-vertical-margin: 25px;
             width: 60px;
             flex-shrink: 0;
 
-            .icon_kkb-logo {
-                @include retina-background-image("./img/kkb-logo", png, 45px 45px);
+            .icon_munchrocket-logo {
+                @include retina-background-image("./img/munchrocket-logo", png, 45px 45px);
             }
         }
 

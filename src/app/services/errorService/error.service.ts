@@ -111,8 +111,10 @@ class ErrorService {
 				cardSaveUnknownError: 'Произошла ошибка при сохранении карточки',
 			},
 			auth: {
+				nameEmptyError: 'Enter your name',
 				emailEmptyError: 'Enter your email',
-				numberEmptyError: 'Введите ваш номер телефона',
+				numberEmptyError: 'Enter your phone number',
+				textEmptyError: 'Fill this field',
 				numberInvalidError: 'Введите ваш номер телефона',
 				emailFailedError: 'Произошла ошибка при обработке вашего email. Попробуйте еще раз.',
 				codeEmptyError: 'Введите код подтверждения',

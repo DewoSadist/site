@@ -40,6 +40,9 @@ import { storeRestaurant} from './app/components/store/restaurants/restaurant/st
 import { productsCollection } from './app/components/products/collection/products.collection';
 import { productsFilter } from './app/components/products/filter/products.filter';
 import { productsInfo } from './app/components/products/info/products.info';
+import { productsItem } from './app/components/products/item/products.item';
+import { productsEdit } from './app/components/products/edit/products.edit';
+import { productsNew } from './app/components/products/new/products.new';
 
 import { sidebar } from './app/components/cart/sidebar/sidebar';
 import { cart } from './app/components/cart/cart';
@@ -51,6 +54,7 @@ import { terms } from "./app/components/pages/terms/terms";
 
 import { users } from './app/components/users/users';
 import { login } from './app/components/users/login/login';
+import { register } from "./app/components/users/register/register";
 import { usersList } from "./app/components/users/list/users.list";
 
 
@@ -68,7 +72,7 @@ import { restaurantItem } from "./app/components/profile/restaurants/item/restau
 import { orderHistory } from "./app/components/orders/history/order.history";
 import { orderEdit } from "./app/components/orders/edit/order.edit";
 import { orderItem } from "./app/components/orders/item/order.item";
-import {categoryNew} from "./app/components/profile/categories/new/category.new";
+import { categoryNew } from "./app/components/profile/categories/new/category.new";
 
 // ------------------ Services --------------------
 import AuthService from './app/services/auth/auth.service';
@@ -87,6 +91,7 @@ import restangularConfig from './config/restangular';
 import maskConfig from './config/mask';
 import runConfig from './config/run';
 import loadingBarConfig from './config/loadingBar';
+
 
 
 
@@ -182,6 +187,7 @@ angular.module('app', [
 
 .component('users', users)
 .component('login', login)
+.component('register', register)
 
 .component('profile', profile)
 .component('profileMain', profileMain)
@@ -199,6 +205,9 @@ angular.module('app', [
 .component('orderItem', orderItem)
 .component('orderEdit', orderEdit)
 .component('categoryNew', categoryNew)
+.component('productsItem', productsItem)
+.component('productsEdit', productsEdit)
+.component('productsNew', productsNew)
 
 
 .config(restangularConfig)

@@ -330,6 +330,20 @@ $mobile-final-position-activ: 88% 0%;
     }
 }
 
+//orders
+.top-section.orders {
+    @include inverse-brand(linear-gradient(138deg, #00a9ff, #3f64e8));
+
+    .info {
+        margin-bottom: 25px;
+
+        @media (min-width: $screen-md-min) {
+            min-height: 200px;
+            margin-bottom: 0;
+        }
+    }
+}
+
 .top-section.transfers + .form-wrap {
     @media (min-width: $screen-sm-min) {
         top: -56px;

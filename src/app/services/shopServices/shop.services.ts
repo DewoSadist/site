@@ -53,14 +53,22 @@ export interface IOrder {
     req_day: string;
     req_time: string;
     ship_via: string;
-    order_details: any;
+    orderDetails: Array<IOrderDetails>;
     client_name: string;
     client_address: string;
     client_number: string;
     client_email: string;
     payment: string;
 }
-
+export interface IOrderDetails {
+    id?: number;
+    title: string;
+    employee_id: number;
+    unit_price: number;
+    quantity: number;
+    note: string;
+    additional: string;
+}
 /**
  * @interface IProductCategory
  */
@@ -431,7 +439,7 @@ class ShopServices implements IShopServices {
             })
             .catch((error) => {
                 deferred.reject(error);
-            })
+            });
         return deferred.promise;
     }
 

@@ -15,7 +15,7 @@
                             <mask id="mask-2" fill="white">
                                 <use xlink:href="#path-1"></use>
                             </mask>
-                            <use id="Mask" fill="#00A9FF" xlink:href="#path-1"></use>
+                            <use id="Mask" fill="#FF0000" xlink:href="#path-1"></use>
                             <polygon fill="#FFFFFF" mask="url(#mask-2)" points="8.13536477 11.0863589 8.92505071 11.780278 9.57866803 10.9569239 17.783214 0.621752184 16.216786 -0.621752184 8.63348389 8.90930176 5.66008923 6.2488128 4.33991077 7.7511872"></polygon>
                         </g>
                     </g>

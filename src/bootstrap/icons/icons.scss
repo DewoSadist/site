@@ -343,6 +343,10 @@ $homeIcons: virtual-currency virtual-safety virtual-speed virtual-usage;
         @include icon-size(45, 45);
     }
 
+    &_munchrocket-logo {
+        @include icon-size(45, 45);
+    }
+
     // social icons
     &_facebook {
         @include icon-size(38, 38);

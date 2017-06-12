@@ -53,6 +53,8 @@ class ProductsInfoController implements IFormContainer {
                 public ShopServices: IShopServices,
                 public CartServices: ICartServices,
                 public ErrorService: ErrorService) {
+        this.additional = "";
+
         this.errors = {};
         this.product = this.resolve.product;
         this.restaurant = this.resolve.restaurant;
@@ -88,6 +90,9 @@ class ProductsInfoController implements IFormContainer {
     }
 
     addItemToCart() {
+        if(this.additional == "" && this.additional.length === 0){
+            this.additional = "Go with merchant recommendation";
+        }
         this.startLoadingAdd();
         console.log("productOptions:", this.productOptions);
         if (this.validateForm()) {
@@ -101,11 +106,11 @@ class ProductsInfoController implements IFormContainer {
                 price: this.amount,
                 each_price: this.getTotalProductPrice()
             };
-            this.CartServices.addItemToCart(this.item);
             setTimeout(() => {
                 this.stopLoadingAdd();
                 this.closeModal();
             }, 3000);
+            this.CartServices.addItemToCart(this.item);
         } else {
             this.stopLoadingAdd();
         }

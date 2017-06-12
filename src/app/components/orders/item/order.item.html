@@ -1,66 +1,176 @@
-<div class="component">
-  <h2>Order <a href="javascript:void(0);" ui-sref="profile.order-edit({id:$ctrl.order.id}) ">edit</a></h2>
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th>NAME</th>
-      <th>Value</th>
-    </tr>
-    </thead>
-    <tr>
-      <td>ID</td>
-      <td>{{ $ctrl.order.id }}</td>
-    </tr>
-    <tr>
-      <td>Order day</td>
-      <td>{{ $ctrl.order.order_day }}</td>
-    </tr>
-    <tr>
-      <td>Order time</td>
-      <td>{{ $ctrl.order.order_time }}</td>
-    </tr>
-    <tr>
-      <td>Delivery day</td>
-      <td>{{ $ctrl.order.req_day }}</td>
-    </tr>
-    <tr>
-      <td>Delivery time</td>
-      <td>{{ $ctrl.order.req_time }}</td>
-    </tr>
-    <tr>
-      <td>Amout</td>
-      <td>{{ $ctrl.order.order_amount }}</td>
-    </tr>
-    <tr>
-      <td>Status</td>
-      <td>{{ $ctrl.order.status}}</td>
-    </tr>
-    <tr>
-      <td>Reorder times</td>
-      <td>{{ $ctrl.order.reorder}}</td>
-    </tr>
-    <tr>
-      <td>Item Quantity</td>
-      <td>{{ $ctrl.order.quantity }}</td>
-    </tr>
-  </table>
-  <div ng-if="$ctrl.order.hours.length>0">
-    <h2>Open Hours</h2>
-    <table class="table table-striped">
-      <thead>
-      <tr>
-        <th>ID</th>
-        <th>Day of Week</th>
-        <th>Open Hour</th>
-        <th>Close Hour</th>
-      </tr>
-      </thead>
-      <tr ng-repeat="hour in $ctrl.restaurant.hours">
-        <td>{{ hour.open_id }}</td>
-        <td>{{ hour.day }}</td>
-        <td>{{ hour.open_hour }}</td>
-        <td>{{ hour.close_hour }}</td>
-      </tr>
-    </table>
-  </div>
-</div>
+<section class="top-section orders">
+    <!--<breadcrumbs class="hidden-xs hidden-sm"></breadcrumbs>-->
+    <section class="container">
+        <div class="submenu">
+            <a href="javascript:void(0);" ui-sref="profile.main">
+                <span class="button">
+                    <span class="icon icon_chevron-left"></span>
+                </span>
+                <span class="button-text">back</span>
+            </a>
+            <a href="javascript:void(0);" class="hidden-xs hidden-sm" ui-sref="profile.order-edit({id:$ctrl.order.id})" ng-if="$ctrl.UserService.isAdmin()">
+                <span class="button">
+                    <span class="icon"></span>
+                </span>
+                <span class="button-text">Edit</span>
+            </a>
+
+            <span class="pull-right">№{{$ctrl.order.id}}</span>
+        </div>
+         <!--<div class="submenu">-->
+            <!--<button ui-sref="transfers.main" class="button pull-left">-->
+                <!--<span class="icon icon_chevron-left"></span>-->
+            <!--</button>-->
+            <!--<div class="dropdown payments-dropdown">-->
+                <!--<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">-->
+                    <!--Переводы <span class="caret"></span>-->
+                <!--</a>-->
+                <!--<ul class="dropdown-menu">-->
+                    <!--<li ng-repeat="type in $ctrl.types">-->
+                        <!--<a ui-sref="transfers.{{type.link}}">{{type.name}}</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+         <!--<button class="button pull-right">-->
+            <!--<span class="icon icon_search-small"></span>-->
+        <!--</button>-->
+         <!--</div>-->
+        <div class="info-wrap">
+            <div class="info">
+                <h1 class="title">We got your order for {{$ctrl.order.res_name}}! <h4>{{$ctrl.order.order_day | date}}</h4></h1>
+                <h1 class="title">{{$ctrl.order.order_amount | currency}}</h1>
+            </div>
+        </div>
+    </section>
+</section>
+<section class="form-wrap container" ng-if="$ctrl.order.orderDetails.length > 0">
+    <div class="panel panel-default">
+        <div class="panel-heading panel-heading_help-steps">
+            <ul class="help-steps" ng-class="{'item_current':$ctrl.step === $ctrl.stepOptions.RECEIVED}">
+                <li class="item">
+                    <span class="step" ng-class="{'step_success':$ctrl.step === $ctrl.stepOptions.IN_PROGRESS || $ctrl.step === $ctrl.stepOptions.ON_THE_WAY || $ctrl.step === $ctrl.stepOptions.DELIVERED }">
+                        <span class="icon icon_restore-check"></span>
+                    </span>
+                    <span class="text">
+                         <span class="hidden-xs">Order</span> Received
+                    </span>
+                    <span class="icon icon_restore-arrow help-arrow "></span>
+                </li>
+                <li class="item" ng-class="{'item_current':$ctrl.step === $ctrl.stepOptions.IN_PROGRESS || $ctrl.step === $ctrl.stepOptions.ON_THE_WAY}">
+                    <span class="step" ng-class=" {'step_success':$ctrl.step === $ctrl.stepOptions.ON_THE_WAY || $ctrl.step === $ctrl.stepOptions.DELIVERED }">
+                        <span class="icon icon_restore-check"></span>
+                    </span>
+                    <span class="text">
+                        In Progress
+                    </span>
+                    <span class="icon icon_restore-arrow help-arrow "></span>
+                </li>
+                <li class="item" ng-class="{'item_current':$ctrl.step === $ctrl.stepOptions.ON_THE_WAY}">
+                    <span class="step" ng-class=" {'step_success':$ctrl.step === $ctrl.stepOptions.DELIVERED}">
+                        <span class="icon icon_restore-check"></span>
+                    </span>
+                    <span class="text">
+                        On the Way
+                    </span>
+                    <span class="icon icon_restore-arrow help-arrow "></span>
+                </li>
+                <li class="item" ng-class="{'item_current':$ctrl.step === $ctrl.stepOptions.DELIVERED}">
+                    <span class="step" ng-class=" {'step_success':$ctrl.step === $ctrl.stepOptions.DELIVERED}">
+                        <span class="icon icon_restore-check"></span>
+                    </span>
+                    <span class="text">
+                        Delivered
+                    </span>
+                </li>
+            </ul>
+        </div>
+        <div class="panel-heading panel-heading_back-link hidden-md hidden-lg" ng-if="$ctrl.UserService.isAdmin()">
+            <a href="javascript:void(0)" class="back-link" ui-sref="profile.order-edit({id:$ctrl.order.id})">
+                <span class="icon icon_chevron-left"></span>
+                <span class="text">Edit order</span>
+            </a>
+        </div>
+        <div class="panel-body">
+            <div class="orders-main">
+                <div class="orders-products list">
+                    <div class="input-wrap"  ng-repeat="orderDetail in $ctrl.order.orderDetails">
+                        <div class="item-wrap">
+                            {{ orderDetail.quantity }}x
+                        </div>
+                        <div class="item-wrap">
+                            <p><b>{{ orderDetail.title }}</b></p>
+                            <p>{{ orderDetail.note }}</p>
+                            <p>{{ orderDetail.additional }}</p>
+                        </div>
+                        <div class="item-wrap">
+                            {{(orderDetail.quantity * orderDetail.unit_price) | currency}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--<div class="component">-->
+    <!--<h2>Order <a href="javascript:void(0);" ui-sref="profile.order-edit({id:$ctrl.order.id}) ">edit</a></h2>-->
+    <!--<table class="table table-striped">-->
+        <!--<thead>-->
+        <!--<tr>-->
+            <!--<th>NAME</th>-->
+            <!--<th>Value</th>-->
+        <!--</tr>-->
+        <!--</thead>-->
+        <!--<tr>-->
+            <!--<td>ID</td>-->
+            <!--<td>{{ $ctrl.order.id }}</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>Order day</td>-->
+            <!--<td>{{ $ctrl.order.order_day }}</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>Order time</td>-->
+            <!--<td>{{ $ctrl.order.order_time }}</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>Delivery day</td>-->
+            <!--<td>{{ $ctrl.order.req_day }}</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>Delivery time</td>-->
+            <!--<td>{{ $ctrl.order.req_time }}</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>Amout</td>-->
+            <!--<td>{{ $ctrl.order.order_amount }}</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>Status</td>-->
+            <!--<td>{{ $ctrl.order.status}}</td>-->
+        <!--</tr>-->
+        <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>Reorder times</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>{{ $ctrl.order.reorder}}</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+        <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>Item Quantity</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>{{ $ctrl.order.quantity }}</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+    <!--</table>-->
+    <!--<div ng-if="$ctrl.order.orderDetails.length > 0">-->
+        <!--<h2>Products</h2>-->
+        <!--<table class="table ">-->
+            <!--<tr ng-repeat="orderDetail in $ctrl.order.orderDetails">-->
+                <!--<td>{{ orderDetail.quantity }}x</td>-->
+                <!--<td>-->
+                    <!--<p><b>{{ orderDetail.title }}</b></p>-->
+                    <!--<p>{{ orderDetail.note }}</p>-->
+                    <!--<p>{{ orderDetail.additional }}</p>-->
+                <!--</td>-->
+                <!--<td>{{(orderDetail.quantity * orderDetail.unit_price)}}</td>-->
+            <!--</tr>-->
+
+        <!--</table>-->
+    <!--</div>-->
+<!--</div>-->

@@ -36,12 +36,17 @@ export interface ICart {
  */
 export interface ICartServices {
     getSubTotalPrice();
+    getDeliveryTax();
+    getTax();
+    getServiceFee();
+    getTotalPrice();
+
     addItemToCart(item);
     deleteItemFromCart(itemId: number);
     deleteAllFromCart();
     getTotalCount();
-    increaseItemQ(itemId: number);
-    decreaseItemQ(itemId: number)
+    increaseItemQ(index: number);
+    decreaseItemQ(index: number);
     toggleShowCart();
 }
 
@@ -60,21 +65,7 @@ class CartServices implements ICartServices {
         this.cart = $cookies.getObject("cart");
         console.log(this.cart);
         if(!this.cart) {
-            this.cart = {
-                restaurant: null,
-                store: "",
-                storeId: 0,
-                shipping: "",
-                tax: 0,
-                taxRate: 1,
-                items: [],
-                payment: "cash",
-                delivery: 0,
-                service_fee: 0,
-                small_order_fee: 0,
-                total: 0,
-                subtotal: 0
-            };
+            this.setCartDefault();
         }
     }
 
@@ -97,7 +88,7 @@ class CartServices implements ICartServices {
                 }
             });
         }
-        this.cart.subtotal = this.subTotalPrice;
+        this.cart.subtotal = Math.round(this.subTotalPrice * 100)/100;
         return this.cart.subtotal;
     };
     /**
@@ -112,7 +103,8 @@ class CartServices implements ICartServices {
      */
     getDeliveryTax(){
         if(this.cart.restaurant != null && this.cart.restaurant.delivery){
-            this.cart.delivery = (this.getSubTotalPrice() * this.cart.restaurant.delivery)/100;
+            let delivery = (this.getSubTotalPrice() * this.cart.restaurant.delivery)/100;
+            this.cart.delivery = Math.round(delivery * 100)/ 100;
         } else {
             this.cart.delivery = 0;
 
@@ -131,7 +123,8 @@ class CartServices implements ICartServices {
      */
     getServiceFee(){
         if(this.cart.restaurant != null && this.cart.restaurant.service_fee){
-            this.cart.service_fee = (this.getSubTotalPrice() * this.cart.restaurant.service_fee)/100;
+            let serviceFee = (this.getSubTotalPrice() * this.cart.restaurant.service_fee)/100;
+            this.cart.service_fee = Math.round(serviceFee * 100) / 100;
         } else {
             this.cart.service_fee = 0
         }
@@ -149,7 +142,9 @@ class CartServices implements ICartServices {
      */
     getTax() {
         if(this.cart.restaurant != null && this.cart.restaurant.tax) {
-            this.cart.tax = (this.getSubTotalPrice() * this.cart.restaurant.tax)/100;
+            let tax = (this.getSubTotalPrice() * this.cart.restaurant.tax)/100;
+            this.cart.tax = Math.round(tax * 100) / 100;
+
         } else {
             this.cart.tax = 0;
         }
@@ -166,7 +161,9 @@ class CartServices implements ICartServices {
      * @return  total price
      */
     getTotalPrice(){
-        this.cart.total = (this.getSubTotalPrice() + this.getTax() + this.getDeliveryTax() + this.getServiceFee());
+        let total = (this.getSubTotalPrice() + this.getTax() + this.getDeliveryTax() + this.getServiceFee());
+        this.cart.total = Math.round(total * 100) / 100;
+        return this.cart.total;
     }
 
     /**
@@ -205,6 +202,8 @@ class CartServices implements ICartServices {
         this.$cookies.remove("cart");
         this.$cookies.putObject("cart", this.cart);
         console.log("Added to cart:", this.cart, this.getTotalCount());
+        // calculating total price.
+        this.getTotalPrice();
     }
 
     /**
@@ -273,11 +272,12 @@ class CartServices implements ICartServices {
      *
      * @description get all items count from shopping cart
      */
-    increaseItemQ (itemId:number) {
+    increaseItemQ (indexE:number) {
         this.cart.items.forEach((item) => {
-            if (item.id === itemId) {
                 let index = this.cart.items.indexOf(item);
-                if (index => 0) {
+            if (indexE == index) {
+
+            if (index => 0) {
                     item.quantity = item.quantity + 1;
                     console.log("+1");
                     item.price = item.each_price * item.quantity;
@@ -295,9 +295,10 @@ class CartServices implements ICartServices {
      *
      * @description get all items count from shopping cart
      */
-    decreaseItemQ (itemId:number) {
+    decreaseItemQ (indexE:number) {
         this.cart.items.forEach((item) => {
-            if (item.id === itemId) {
+            let index = this.cart.items.indexOf(item);
+            if (indexE === index) {
                 if (index => 0) {
                     if(item.quantity > 1) {
                         item.quantity = item.quantity - 1;
@@ -307,7 +308,7 @@ class CartServices implements ICartServices {
 
                 }
             }
-        })
+        });
         this.$cookies.remove("cart");
         this.$cookies.putObject("cart", this.cart);
     }
@@ -322,6 +323,24 @@ class CartServices implements ICartServices {
     toggleShowCart() {
         this.showCart = !this.showCart;
     }
+    setCartDefault(){
+        this.cart = {
+            restaurant: null,
+            store: "",
+            storeId: 0,
+            shipping: "",
+            tax: 0,
+            taxRate: 1,
+            items: [],
+            payment: "cash",
+            delivery: 0,
+            service_fee: 0,
+            small_order_fee: 0,
+            total: 0,
+            subtotal: 0
+        };
+    }
+
 
 }
 

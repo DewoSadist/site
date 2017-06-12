@@ -1,10 +1,11 @@
-<div class="profile-wrap">
-    <div class="row">
+<div class="container">
+    <div class="profile-wrap">
+        <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4">
                 <!--<profile-admin ng-if="$ctrl.isAdmin" data-user="$ctrl.user"></profile-admin>-->
                 <!--<virtual-slider ng-if="!$ctrl.isAdmin"></virtual-slider>-->
                 <!--<account-list ng-if="$ctrl.isAdmin">-->
-                    <!--<div class="loading loading_height"></div>-->
+                <!--<div class="loading loading_height"></div>-->
                 <!--</account-list>-->
                 <users-list ng-if="$ctrl.isAdmin"></users-list>
                 <!--<cards-list list="$ctrl.cardList"></cards-list>-->
@@ -12,27 +13,28 @@
             </div>
             <div class="col-xs-12 col-sm-6 col-md-7 col-lg-8">
                 <!--<payments-contracts data-show-count="2" list="$ctrl.myPayments"-->
-                                    <!--data-all-payments="$ctrl.allPayments"></payments-contracts>-->
+                <!--data-all-payments="$ctrl.allPayments"></payments-contracts>-->
                 <!--<div class="profile-payments panel panel-default">-->
-                    <!--<a href="javascript:void(0);" ui-sref="transfers.main"-->
-                       <!--class="panel-heading payment-row">-->
-                        <!--<h3 class="profile-heading text-primary">Доступные переводы</h3>-->
-                        <!--<span class="icon icon_chevron-right"></span>-->
-                    <!--</a>-->
-                    <!--&lt;!&ndash;<div class="page-list page-list_profile">&ndash;&gt;-->
-                        <!--&lt;!&ndash;<transfers-collection data-collection-type="'external'" data-show-count="4"></transfers-collection>&ndash;&gt;-->
-                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--<a href="javascript:void(0);" ui-sref="transfers.main"-->
+                <!--class="panel-heading payment-row">-->
+                <!--<h3 class="profile-heading text-primary">Доступные переводы</h3>-->
+                <!--<span class="icon icon_chevron-right"></span>-->
+                <!--</a>-->
+                <!--&lt;!&ndash;<div class="page-list page-list_profile">&ndash;&gt;-->
+                <!--&lt;!&ndash;<transfers-collection data-collection-type="'external'" data-show-count="4"></transfers-collection>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
                 <!--</div>-->
                 <!--<div class="panel panel-default profile-history">-->
-                    <!--<div class="panel-heading">-->
-                        <!--<h3 class="profile-heading">Order history</h3>-->
-                    <!--</div>-->
-                    <!--<order-history show-count="5">-->
-                        <!--<div class="loading loading_height"></div>-->
-                    <!--</order-history>-->
-                    <!---->
+                <!--<div class="panel-heading">-->
+                <!--<h3 class="profile-heading">Order history</h3>-->
+                <!--</div>-->
+                <!--<order-history show-count="5">-->
+                <!--<div class="loading loading_height"></div>-->
+                <!--</order-history>-->
+                <!---->
                 <!--</div>-->
                 <order-history></order-history>
             </div>
         </div>
+    </div>
 </div>

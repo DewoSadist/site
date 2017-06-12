@@ -12,8 +12,9 @@
                 </div>
             </button>
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-state pull-left"><a class="text-uppercase" href="javascript:void(0)">ASAP</a> <span
-                    class="text-info">to</span> <a href="javascript:void(0)">BELOVA st. 88</a></div>
+            <div class="navbar-state pull-left" ng-if="$ctrl.UserService.isAuthorized()">
+                <a class="text-uppercase" href="javascript:void(0)">ASAP</a> <span
+                    class="text-info">to</span> <a href="javascript:void(0)">{{$ctrl.UserService.user.address}}</a></div>
             <!--<div class="navbar-state visible-xs visible-sm pull-left">{{$ctrl.getStateTitle()}}</div>-->
             <div class="navbar-brand hidden-xs" ng-attr-ui-sref="{{$ctrl.isAuthorized ? 'profile.main' : 'home'}}">
                 <span class="icon icon_logo"></span>

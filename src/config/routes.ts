@@ -2,6 +2,7 @@
 import {IShopServices, default as ShopServices} from '../app/services/shopServices/shop.services';
 import AuthService from "../app/services/auth/auth.service";
 import {IUserService} from "../app/services/userService/user.service";
+import {register} from "../app/components/users/register/register";
 export default routesConfig;
 
 /** @ngInject */
@@ -105,6 +106,18 @@ function routesConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvi
 			warning: null,
 		},
 		template: '<login warning="$resolve.warning"></login>',
+		resolve: {
+			warning: ($stateParams: ng.ui.IStateParamsService) => {
+				return $stateParams['warning'];
+			}
+		}
+	})
+	.state('users.register', {
+		url: '/register',
+		params: {
+			warning: null,
+		},
+		template: '<register warning="$resolve.warning"></register>',
 		resolve: {
 			warning: ($stateParams: ng.ui.IStateParamsService) => {
 				return $stateParams['warning'];

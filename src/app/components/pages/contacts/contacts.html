@@ -1,29 +1,131 @@
 <section class="contacts">
-  <div class="container">
-    <div class="component">
-      <h2>{{$ctrl.text}}</h2>
-    </div>
+    <div class="container">
+        <br/><br/>
+        <div class="row">
+            <div class="row-height">
+                <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
+                    <div ng-class="{'loading':$ctrl.isLoading}">
+                        <div class="panel panel-default users-panel">
+                            <div class="panel-body">
+                                <h2 class="text-center">CONTACT US</h2>
+                                <h4 class="text-center">Ask us question, tell us something or provide feedback!</h4>
+                                <div class="alert alert-warning" ng-show="$ctrl.warning">{{$ctrl.warning}}</div>
+                                <form ng-submit="$ctrl.sendAction()">
+                                    <div class="form-group" ng-class="{'has-error': $ctrl.errors.name}">
+                                        <label class="control-label" for="cName">Name</label>
+                                        <input clear-errors autocomplete="off" id="cName" class="form-control"
+                                               ui-mask-placeholder=""
+                                               ui-mask-placeholder-char=""
+                                               clear-on-blur="false"
+                                               type="text"
+                                               ng-model="$ctrl.contactData.name"
+                                               auto-focus="true">
+                                        <small class="error" ng-show="$ctrl.errors.name"> {{$ctrl.errors.name}}
+                                        </small>
+                                    </div>
+                                    <div class="form-group" ng-class="{'has-error': $ctrl.errors.email}">
+                                        <label class="control-label" for="cEmail">Email</label>
+                                        <input clear-errors autocomplete="off" id="cEmail" class="form-control"
+                                               ui-mask-placeholder="" ui-mask-placeholder-char="" clear-on-blur="false"
+                                               type="email" ng-model="$ctrl.contactData.email" auto-focus="true">
+                                        <small class="error" ng-show="$ctrl.errors.email"> {{$ctrl.errors.email}}
+                                        </small>
+                                    </div>
+                                    <div class="form-group" ng-class="{'has-error': $ctrl.errors.number}">
+                                        <label class="control-label" for="cPhone">Phone</label>
+                                        <input clear-errors autocomplete="off" id="cPhone" class="form-control"
+                                               ui-mask-placeholder="" ui-mask-placeholder-char="" clear-on-blur="false"
+                                               type="text" ng-model="$ctrl.contactData.number" auto-focus="true">
+                                        <small class="error" ng-show="$ctrl.errors.number"> {{$ctrl.errors.number}}
+                                        </small>
+                                    </div>
+                                    <div class="form-group" ng-class="{'has-error': $ctrl.errors.text}">
+                                        <label class="control-label" for="cText">Your message</label>
+                                        <textarea clear-errors autocomplete="off" id="cText" class="form-control"
+                                               ui-mask-placeholder="" ui-mask-placeholder-char="" clear-on-blur="false"
+                                                  type="text" ng-model="$ctrl.contactData.text" auto-focus="true"></textarea>
+                                        <small class="error" ng-show="$ctrl.errors.text"> {{$ctrl.errors.text}}
+                                        </small>
+                                    </div>
 
-    <div class="component">
-      <h2>Auto Complete Type:</h2>
+                                    <div ng-if="$ctrl.errors.form" class="alert alert-danger" role="alert">
+                                        {{$ctrl.errors.form}}
+                                    </div>
+                                    <button type="submit" ng-disabled="$ctrl.isLoading === true"
+                                            class="btn btn-primary">
+                                        <span ng-if="$ctrl.isLoading">pleas wait</span>
+                                        <span ng-if="!$ctrl.isLoading">send</span>
+                                    </button>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="row-height">
+                <div class="col-xs-12 col-md-offset-2 col-md-8">
+                    <div class="panel panel-default users-panel">
+                        <div class="panel-body text-center">
+                            <h2>Are You?</h2>
+                            <h4>Looking to learn more about our services for your restaurant or store?  Click Here</h4>
+                            <h4>Looking to start delivering meals on your car, bike or on foot? Click Here</h4>
+                            <h4>Looking to join our team to help bring happiness? Click Here</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div class="row">
+            <div class="row-height">
+                <div class="col-xs-12 col-md-offset-2 col-md-8">
+                    <div class="panel panel-default users-panel">
+                        <div class="panel-body text-center">
+                            <h2>You can also reach through:</h2>
+                            <div class="col-xs-4">
+                                <h4>Phone</h4>
+                                <address>+16047814625</address>
+                            </div>
+                            <div class="col-xs-4">
+                                <h4>Email</h4>
+                                <address>hello@munchrocket.com</address>
+                            </div>
+                            <div class="col-xs-4">
+                                <h4>Facebook</h4>
+                                <address>Our Facebook Page</address>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="component">
+            <h2>Auto Complete Type:</h2>
+        </div>
+        <select ng-model="$ctrl.vm.types">
+            <option value="['geocode']">Geodode</option>
+            <option value="['establishment']">Establishment</option>
+            <option value="['address']">Address</option>
+        </select><br/>
+        <ng-map default-style="true"
+                style="width:400px; height:400px; background:yellow"
+                center="45.518970, -122.672899"
+                zoom="18"
+                map-type-id="SATELLITE"
+                tilt="45"
+                heading="90"
+                id="my_map"
+                map-initialized="{{$ctrl.onMapLoaded()}}">
+            <info-window position="current-location">
+                <span>Location found using HTML5.</span>
+            </info-window>
+        </ng-map>
     </div>
-    <select ng-model="$ctrl.vm.types">
-      <option value="['geocode']">Geodode</option>
-      <option value="['establishment']">Establishment</option>
-      <option value="['address']">Address</option>
-    </select><br/>
-    <ng-map default-style="true"
-            style="width:400px; height:400px; background:yellow"
-            center="45.518970, -122.672899"
-            zoom="18"
-            map-type-id="SATELLITE"
-            tilt="45"
-            heading="90"
-            id="my_map"
-            map-initialized="{{$ctrl.onMapLoaded()}}">
-      <info-window position="current-location">
-        <span>Location found using HTML5.</span>
-      </info-window>
-    </ng-map>
-  </div>
 </section>
+<div class="container">
+
+</div>
