@@ -27,6 +27,10 @@ export interface IUserService {
   delUser(userId: string);
   updateUser(userId: string);
   getOrderHistory(startDate, endDate);
+  getUserLocation();
+  setUserLocation(data);
+  getAddress();
+  setAddress(data:string);
 }
 
 /**
@@ -42,17 +46,22 @@ class UserService implements IUserService{
    */
   public user: IUserObject;
   public usersList;
+  public userAddress;
+  public userLocation;
 
   /** @ngInject */
   constructor(public $q: ng.IQService,
               public $state: ng.ui.IStateService,
               public $filter,
-              public $cookies,
+              public $cookies:ng.cookies.ICookiesService,
               public Restangular,
               public moment,
               public TemplatorService,
               public appConfig) {
+    this.userAddress = "";
+    this.userLocation = "";
   }
+
   /**
    * @ngdoc method
    * @name UserService.isAuthorized
@@ -215,6 +224,70 @@ class UserService implements IUserService{
     //   return this.processHistoryItem(order);
     // });
     return orders;
+  }
+  /**
+   * @ngdoc method
+   * @name UserService.getUserLocation
+   * @methodOf UserService
+   *
+   * @description
+   * Gets the user Location from cookies
+   *
+   * @return location {lat:"",lng:""}
+   */
+  getUserLocation(){
+    let location = this.$cookies.getObject("uLocation");
+    if(location == null) {
+      location = this.userLocation;
+    }
+    return location;
+  }
+  /**
+   * @ngdoc method
+   * @name UserService.setUserLocation
+   * @methodOf UserService
+   *
+   * @description
+   * set user Location object into the cookie
+   *
+   * @param {data}  location {lat:"",lng:""}
+   */
+  setUserLocation(data){
+    this.userLocation = data;
+    this.$cookies.remove("uLocation");
+    this.$cookies.putObject("uLocation", data);
+  }
+  /**
+   * @ngdoc method
+   * @name UserService.getAddress
+   * @methodOf UserService
+   *
+   * @description
+   * Gets the user Address from cookies
+   *
+   * @return map address
+   */
+  getAddress(){
+    let address = this.$cookies.getObject("uAddress");
+    if(address == null) {
+      address = this.userAddress;
+    }
+    return address;
+  }
+  /**
+   * @ngdoc method
+   * @name UserService.setAddress
+   * @methodOf UserService
+   *
+   * @description
+   * set user address to cookies
+   *
+   * @param {string}  data   formatted address
+   */
+  setAddress(data:string){
+    this.userAddress = data;
+    this.$cookies.remove("uAddress");
+    this.$cookies.putObject("uAddress", data);
   }
 
 }

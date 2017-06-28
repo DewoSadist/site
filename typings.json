@@ -3,6 +3,7 @@
     "angular": "github:DefinitelyTyped/DefinitelyTyped/angularjs/angular.d.ts#dc9dabe74a5be62613b17a36053097",
     "angular-mocks": "github:DefinitelyTyped/DefinitelyTyped/angularjs/angular-mocks.d.ts#dc9dabe74a5be62613b17a3605309783a12ff28a",
     "angular-ui-router": "github:DefinitelyTyped/DefinitelyTyped/angular-ui-router/angular-ui-router.d.ts#41f31600a1bff1adef3c76642183b20ec97aa81e",
+    "google.maps": "registry:dt/google.maps#3.25.0+20161208205818",
     "jasmine": "github:DefinitelyTyped/DefinitelyTyped/jasmine/jasmine.d.ts#dc9dabe74a5be62613b17a3605309783a12ff28a",
     "jquery": "github:DefinitelyTyped/DefinitelyTyped/jquery/jquery.d.ts#dc9dabe74a5be62613b17a3605309783a12ff28a",
     "node": "registry:dt/node#6.0.0+20161019125345",

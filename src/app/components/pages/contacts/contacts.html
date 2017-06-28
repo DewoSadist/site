@@ -103,27 +103,6 @@
                 </div>
             </div>
         </div>
-        <div class="component">
-            <h2>Auto Complete Type:</h2>
-        </div>
-        <select ng-model="$ctrl.vm.types">
-            <option value="['geocode']">Geodode</option>
-            <option value="['establishment']">Establishment</option>
-            <option value="['address']">Address</option>
-        </select><br/>
-        <ng-map default-style="true"
-                style="width:400px; height:400px; background:yellow"
-                center="45.518970, -122.672899"
-                zoom="18"
-                map-type-id="SATELLITE"
-                tilt="45"
-                heading="90"
-                id="my_map"
-                map-initialized="{{$ctrl.onMapLoaded()}}">
-            <info-window position="current-location">
-                <span>Location found using HTML5.</span>
-            </info-window>
-        </ng-map>
     </div>
 </section>
 <div class="container">

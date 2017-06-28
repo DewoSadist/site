@@ -27,7 +27,7 @@ class RestaurantNewController implements IFormContainer {
             country: "",
             city: "",
             address: "",
-            location: "",
+            location: {lat:0,lng:0},
             fax: "",
             phone: "",
             postal_code: "",

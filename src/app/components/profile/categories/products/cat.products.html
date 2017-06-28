@@ -1,0 +1,16 @@
+<div class="component">
+    <div class="container">
+        <div ng-class="{'loading': $ctrl.isLoading}">
+            <h5 ng-repeat="product in $ctrl.productsList">
+                <a href="javascript:void(0)" ui-sref="profile.product-item({id:{{product.id}}})">
+                    {{product.title}}</a>
+                <span ng-click="$ctrl.delete(product)" title="delete product">X</span>
+            </h5>
+        </div>
+        <br>
+        <br>
+        <div class="text-center">
+            <a href="javascript:void(0)" class="btn btn-success" ui-sref="profile.product-new">Add new Product</a>
+        </div>
+    </div>
+</div>

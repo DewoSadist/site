@@ -349,27 +349,31 @@ $homeIcons: virtual-currency virtual-safety virtual-speed virtual-usage;
 
     // social icons
     &_facebook {
+        background-size: cover;
         @include icon-size(38, 38);
 
-        @include icon-url(facebook);
+        @include icon-url-png(facebook);
     }
 
     &_vk {
+        background-size: cover;
         @include icon-size(38, 38);
 
         @include icon-url(vk);
     }
 
     &_twitter {
+        background-size: cover;
         @include icon-size(38, 38);
 
-        @include icon-url(twitter);
+        @include icon-url-png(twitter);
     }
 
     &_instagram {
+        background-size: cover;
         @include icon-size(38, 38);
 
-        @include icon-url(instagram);
+        @include icon-url-png(instagram);
     }
 
     &_youtube {

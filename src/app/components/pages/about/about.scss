@@ -1,0 +1,23 @@
+.about {
+  padding-top: 40px;
+  &-banner {
+    height: 100vh;
+    width: 100%;
+    @include retina-background-image('img/about-banner', jpeg, cover);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  .foods {
+    @include flex(center, center);
+
+    width: 100%;
+    text-align: center;
+    &-item {
+      position: relative;
+      display: inline-block;
+      float: left;
+      padding: 10px;
+    }
+  }
+}

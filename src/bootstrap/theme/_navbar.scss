@@ -132,6 +132,12 @@ $navbar-padding-horizontal: 7px;
         }
     }
 
+    &_map {
+        margin: 0;
+        position: static;
+        padding: 10px;
+    }
+
     &-inverse {
         .navbar-collapse {
             background-color: $navbar-inverse-bg;
@@ -226,7 +232,7 @@ $navbar-padding-horizontal: 7px;
                 display: block;
                 padding: 9.5px 0;
 
-                @media (min-width: $grid-float-breakpoint) {
+                @media (min-width: $screen-md-min) {
                     padding: 17px 0;
                 }
 
@@ -447,9 +453,59 @@ $navbar-padding-horizontal: 7px;
     }
 }
 
+.navbar-map-collapse {
+    width: 100%;
+    right: $navbar-padding-horizontal;
+    position: absolute;
+    padding-right: 0;
+    padding-left: 0;
+    border-top: 0;
+    box-shadow: none;
+    background-color: $color-white;
+
+    @include clearfix;
+
+    -webkit-overflow-scrolling: touch;
+
+    &.in {
+        overflow-y: auto;
+    }
+
+    @media (min-width: $grid-float-breakpoint) {
+        width: auto;
+        border-top: 0;
+        right: auto;
+        position: initial;
+        box-shadow: none;
+
+        &.collapse {
+            display: block !important;
+            height: auto !important;
+            padding-bottom: 0;
+
+            // Override default setting
+            overflow: visible !important;
+        }
+
+        &.in {
+            overflow-y: visible;
+        }
+
+        // Undo the collapse side padding for navbars with containers to ensure
+        // alignment of right-aligned contents.
+        .navbar-fixed-top &,
+        .navbar-static-top &,
+        .navbar-fixed-bottom & {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}
+
 .navbar-fixed-top,
 .navbar-fixed-bottom {
-    .navbar-collapse {
+    .navbar-collapse,
+    .navbar-map-collapse {
         max-height: $navbar-collapse-max-height;
 
         @media (max-device-width: $screen-xs-min) and (orientation: landscape) {
@@ -464,11 +520,12 @@ $navbar-padding-horizontal: 7px;
 .container,
 .container-fluid {
     > .navbar-header,
-    > .navbar-collapse {
+    > .navbar-collapse,
+    > .navbar-map-collapse {
         margin-right: -$navbar-padding-horizontal;
         margin-left: -$navbar-padding-horizontal;
 
-        @media (min-width: $grid-float-breakpoint) {
+        @media (min-width: $screen-md-min) {
             margin-right: 0;
             margin-left: 0;
         }

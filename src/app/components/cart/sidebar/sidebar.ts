@@ -3,9 +3,10 @@ class SidebarController {
   public text: string;
   public cart;
 
+  /** @ngInject */
   constructor(public CartServices: CartServices) {
     this.text = 'Cart!';
-    this.cart = CartServices.getCardItems();
+    this.cart = this.CartServices.getCardItems();
     console.log("cartItems:", this.cart);
   }
 }

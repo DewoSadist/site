@@ -174,6 +174,26 @@ function routesConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvi
 		url:'/restaurantnew',
 		template: '<restaurant-new></restaurant-new>'
 	})
+	.state('profile.product-new', {
+		url: '/productnew',
+		template: '<product-new></product-new>',
+
+	})
+	.state('profile.product-item', {
+		url: '/products/:id',
+		params: {id:null},
+		template: '<products-item data-product="$resolve.product"></products-item>',
+		resolve: {
+			product: (ShopServices: IShopServices, $stateParams: ng.ui.IStateParamsService, $state: ng.ui.IStateService)=>{
+				if ($stateParams['id']) {
+					return ShopServices.getProduct($stateParams['id']);
+				} else {
+					return ShopServices.getProduct($stateParams['id']);
+				}
+			}
+		}
+
+	})
 	.state('profile.order-item', {
 		url: '/orders/:id',
 		params: {id:null},
@@ -204,10 +224,24 @@ function routesConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvi
 	})
 	.state('profile.category-new', {
 		url: '/categorynew',
+		params: {id : null},
 		template: '<category-new data-img-categories="$resolve.imgCategories"></category-new>',
 		resolve: {
 			imgCategories: (ShopServices: IShopServices) => {
 				return ShopServices.getImgCategories();
+			}
+		}
+	})
+	.state('profile.category-products', {
+		url: '/category/:id/products',
+		template: '<cat-products data-products-list="$resolve.catProducts"></cat-products>',
+		resolve: {
+			catProducts: (ShopServices: IShopServices, $stateParams: ng.ui.IStateParamsService, $state : ng.ui.IStateService)=>{
+				if ($stateParams['id']) {
+					return ShopServices.getCategoryProducts($stateParams['id']);
+				} else {
+					return ShopServices.getCategoryProducts($stateParams['id']) || $state.go('profile.main');
+				}
 			}
 		}
 	})

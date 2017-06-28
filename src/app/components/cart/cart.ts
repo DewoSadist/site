@@ -88,7 +88,16 @@ class CartController implements IFormContainer {
     hasNoErrors(): boolean {
         return Object.keys(this.errors).length === 0;
     }
-
+    /**
+     * @ngdoc method
+     * @name placeOrder
+     * @methodOf CartController
+     *
+     * @description
+     * place order on server
+     *
+     * @return response order object from server
+     */
     placeOrder() {
         this.startLoading();
         this.time = this.$filter('date')(new Date(), 'hh:mm:ss');
@@ -193,7 +202,16 @@ class CartController implements IFormContainer {
                 }
             });
     }
-
+    /**
+     * @ngdoc method
+     * @name cancelOrder
+     * @methodOf CartController
+     *
+     * @description
+     * cancel order on server
+     *
+     * @return response order object from server
+     */
     cancelOrder() {
         this.startLoading();
         this.order.status = 'canceled';

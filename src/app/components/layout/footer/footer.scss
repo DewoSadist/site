@@ -1,18 +1,25 @@
 /* resources.scss */
 
-$footer-vertical-margin: 25px;
+$footer-vertical-margin: 0;
 
 .footer {
     //margin-top: 50px;
     padding-top: $footer-vertical-margin;
     padding-bottom: 10px;
-    background-color: $color-white;
+    background-color: $color-red;
     text-align: center;
 
     @media (min-width: $screen-sm-min) {
         text-align: left;
     }
 
+    a {
+        padding-right: 5px;
+        color: $color-white;
+        &:hover{
+            color: $color-red-dark;
+        }
+    }
     &-item {
         margin-bottom: $footer-vertical-margin;
     }
@@ -96,7 +103,7 @@ $footer-vertical-margin: 25px;
     }
     &-bottom {
         border-top: 1px solid $color-pale-gray;
-        margin-top: 20px;
+        //margin-top: 20px;
         padding-top: 30px;
     }
 
@@ -110,12 +117,15 @@ $footer-vertical-margin: 25px;
             flex-shrink: 0;
 
             .icon_munchrocket-logo {
-                @include retina-background-image("./img/munchrocket-logo", png, 45px 45px);
+                background-size: cover;
+                @include retina-background-image("./img/munchrocket-white", png, 45px 45px);
             }
         }
 
         .text {
+            color: $color-white;
             display: inline-block;
+            line-height: 40px;
         }
     }
 
@@ -137,5 +147,12 @@ $footer-vertical-margin: 25px;
             border-radius: 50%;
             border: 1px solid $brand-primary;
         }
+    }
+    .links {
+        @media (min-width: $screen-md-min) {
+
+            @include flex(center, center);
+        }
+
     }
 }

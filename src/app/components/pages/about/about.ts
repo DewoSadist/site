@@ -1,3 +1,4 @@
+import './about.scss';
 class AboutController {
   public text: string;
 

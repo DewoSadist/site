@@ -14,7 +14,7 @@ export interface IRestaurant {
     country: string;
     city: string;
     address?: string;
-    location: string;
+    location: {lat:number, lng:number};
     fax?: string;
     phone?: string;
     postal_code?: string;
@@ -26,15 +26,20 @@ export interface IRestaurant {
     delivery: number;
     service_fee: number;
     small_order_fee: number;
+    is_show?: boolean;
 }
-
+/**
+ * @interface IHour
+ */
 export interface IHour {
     open_id?: number;
     day: string;
     open_hour: string;
     close_hour: string;
 }
-
+/**
+ * @interface IOrder
+ */
 export interface IOrder {
     id?: number;
     res_id: number;
@@ -60,6 +65,9 @@ export interface IOrder {
     client_email: string;
     payment: string;
 }
+/**
+ * @interface IOrderDetails
+ */
 export interface IOrderDetails {
     id?: number;
     title: string;
@@ -83,16 +91,16 @@ export interface IProductCategory {
  * @interface IProduct
  */
 export interface IProduct {
-    id: string;
+    id?: string;
     title: string;
     img_url: string;
     price: number;
     description: string;
     tags: string;
     discount: string;
-    cus_id: string;
-    sup_id: string;
-    type_id: string;
+    cus_id?: string;
+    sup_id?: string;
+    type_id?: string;
     cat_id: string;
 }
 
@@ -111,6 +119,7 @@ export interface IProductOption {
     checked: string;
     productOptionsItems: Array<IProductOptionItem>;
 }
+
 /**
  * @interface IProductOptionItem
  */
@@ -122,6 +131,9 @@ export interface IProductOptionItem {
     checked: string;
 }
 
+/**
+ * @interface IFormContainer
+ */
 export interface IFormContainer {
     isLoading?: boolean;
     resetErrors();
@@ -129,7 +141,6 @@ export interface IFormContainer {
     stopLoading?();
     hasNoErrors(): boolean;
 }
-
 /**
  * @interface IShopServices
  */
@@ -147,11 +158,15 @@ export interface IShopServices {
     saveOrUpdateRestaurant(data);
 
     getAllProducts();
+    getProduct(prodId: number);
+    delProduct(prodId: number);
+    saveOrUpdateProduct(data);
     getCategoryProducts(catId: string);
     saveOrUpdateCategory(data);
     delCategory(catId: number);
 
     getProductOptions(prodId: string);
+    saveOrUpdateProductOptions(data);
 
     getOrders();
     getOrder(orderId: number);
@@ -159,6 +174,8 @@ export interface IShopServices {
     getRestaurantOrders(resId: number);
     saveOrUpdateOrder(data);
     getImgCategories();
+    rad(x: number);
+    getDistance(p1, p2);
 
 
 }
@@ -185,10 +202,10 @@ class ShopServices implements IShopServices {
     public imgCategories = [];
 
     /** @ngInject */
-
     constructor(public $q: ng.IQService,
                 public Restangular,
-                public appConfig) {
+                public appConfig,
+                public $cookies) {
         this.text = 'My brand new component!';
     }
 
@@ -310,6 +327,27 @@ class ShopServices implements IShopServices {
     }
     /**
      * @ngdoc method
+     * @name IShopServices.saveOrUpdateProduct
+     * @methodOf ShopServices
+     *
+     * @description
+     * Save Or update product object
+     *
+     * @return  {IPromise}  Request product object promise
+     */
+    saveOrUpdateProduct(data){
+        let deferred = this.$q.defer();
+        this.Restangular.one('products/').customPOST(data)
+            .then((object) => {
+                deferred.resolve(object);
+            })
+            .catch((error) => {
+                deferred.reject(error);
+            });
+        return deferred.promise;
+    }
+    /**
+     * @ngdoc method
      * @name IShopServices.saveOrUpdateCategory
      * @methodOf ShopServices
      *
@@ -347,7 +385,7 @@ class ShopServices implements IShopServices {
             })
             .catch((error) => {
                 deferred.reject(error);
-            })
+            });
         return deferred.promise;
     }
     /**
@@ -373,6 +411,50 @@ class ShopServices implements IShopServices {
             });
         return deferred.promise;
     }
+    /**
+     * @ngdoc method
+     * @name IShopServices.getProduct
+     * @methodOf ShopServices
+     *
+     * @description
+     * get product by id
+     *
+     * @return  {IPromise}  Request promise
+     */
+    getProduct(prodId: number){
+        let deferred = this.$q.defer();
+        this.Restangular.one('products/'+prodId).get()
+            .then((object) => {
+                this.product = object;
+                deferred.resolve(this.product);
+            })
+            .catch((error) => {
+                deferred.reject(error);
+            });
+        return deferred.promise;
+    }
+
+    /**
+     * @ngdoc method
+     * @name IShopServices.delProduct
+     * @methodOf ShopServices
+     *
+     * @description
+     * delete  restaurant
+     *
+     * @return  {IPromise}  Request promise
+     */
+    delProduct(prodId: number) {
+        let deferred = this.$q.defer();
+        this.Restangular.one("/products/" + prodId).customDELETE()
+            .then((responce) => {
+                deferred.resolve(responce);
+            })
+            .catch((error) => {
+                deferred.reject(error);
+            });
+        return deferred.promise;
+    }
 
     /**
      * @ngdoc method
@@ -386,10 +468,10 @@ class ShopServices implements IShopServices {
      */
     getCategoryProducts(catId: string) {
         let deferred = this.$q.defer();
-        this.Restangular.one('restaurants/categories' + catId).post()
+        this.Restangular.one('/categories/'+ catId + '/products' ).post()
             .then((object) => {
-                this.categoriesList = object;
-                deferred.resolve(this.categoriesList);
+                this.productsList = object;
+                deferred.resolve(this.productsList);
             })
             .catch((error) => {
                 deferred.reject(error);
@@ -409,7 +491,7 @@ class ShopServices implements IShopServices {
      */
     getProductOptions(prodId: string) {
         let deferred = this.$q.defer();
-        this.Restangular.one('products/' + prodId + '/options').post()
+        this.Restangular.one('products/' + prodId + '/options').get()
             .then((object) => {
                 this.productOptionsList = object;
                 deferred.resolve(this.productOptionsList);
@@ -419,7 +501,27 @@ class ShopServices implements IShopServices {
             });
         return deferred.promise;
     }
-
+    /**
+     * @ngdoc method
+     * @name IShopServices.saveOrUpdateProductOtions
+     * @methodOf ShopServices
+     *
+     * @description
+     * Requests product options object from server.
+     *
+     * @return  {IPromise}  Request promise
+     */
+    saveOrUpdateProductOptions(data) {
+        let deferred = this.$q.defer();
+        this.Restangular.one('options/').customPOST(data)
+            .then((object) => {
+                deferred.resolve(object);
+            })
+            .catch((error) => {
+                deferred.reject(error);
+            });
+        return deferred.promise;
+    }
     /**
      * @ngdoc method
      * @name IShopServices.getUserRestaurants
@@ -618,9 +720,24 @@ class ShopServices implements IShopServices {
             (error) => {
                 deferred.reject(error);
             }
-
         );
         return deferred.promise;
     }
+
+    public rad(x:number){
+        return x*Math.PI/180;
+    }
+    public getDistance(p1, p2) {
+        // console.log(p1,p2);
+        let R =6378137; //Earth`s mean radius in meter
+        let dLat = this.rad(p2.lat-p1.lat);
+        let dLng = this.rad(p2.lng-p1.lng);
+        let a = Math.sin(dLat/2)*Math.sin(dLat/2) + Math.cos(this.rad(p1.lat))*Math.cos(this.rad(p2.lat))*Math.sin(dLng/2)*Math.sin(dLng/2);
+        let c = 2 * Math.atan2(Math.sqrt(a),Math.sqrt(1 - a));
+        let d = R * c;
+        return d;
+    }
+
+
 }
 export default ShopServices;

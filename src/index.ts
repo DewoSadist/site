@@ -20,7 +20,8 @@ import 'angular-credit-cards';
 import 'creditcards/card';
 import 'angular-filter';
 import 'angular-loading-bar';
-import 'ngmap/build/scripts/ng-map';
+import 'ngmap';
+import 'ng-map-autocomplete'
 
 import 'jquery-migrate';
 
@@ -73,6 +74,8 @@ import { orderHistory } from "./app/components/orders/history/order.history";
 import { orderEdit } from "./app/components/orders/edit/order.edit";
 import { orderItem } from "./app/components/orders/item/order.item";
 import { categoryNew } from "./app/components/profile/categories/new/category.new";
+import { catProducts } from "./app/components/profile/categories/products/cat.products";
+
 
 // ------------------ Services --------------------
 import AuthService from './app/services/auth/auth.service';
@@ -148,6 +151,7 @@ angular.module('app', [
 	'angular-loading-bar',
 	'angular-click-outside',
 	'ngMap',
+	'ngMapAutocomplete'
 ])
 .constant('appConfig', appConfig)
 .constant('moment', moment)
@@ -170,10 +174,6 @@ angular.module('app', [
 .component('homeSlider', homeSlider)
 .component('sidebarCart', sidebar)
 .component("cart", cart)
-
-// import { profile } from './app/components/profile/profile';
-
-
 
 .component('store', store)
 .component('storeRestaurants', storeRestaurants)
@@ -205,6 +205,7 @@ angular.module('app', [
 .component('orderItem', orderItem)
 .component('orderEdit', orderEdit)
 .component('categoryNew', categoryNew)
+.component('catProducts', catProducts)
 .component('productsItem', productsItem)
 .component('productsEdit', productsEdit)
 .component('productsNew', productsNew)

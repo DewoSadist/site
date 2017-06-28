@@ -315,7 +315,7 @@ class CartServices implements ICartServices {
     /**
      * @ngdoc method
      * @name toggleShowCart
-     * @methodOf HeaderController
+     * @methodOf CartServices
      *
      * @description
      * Shows/hides cart sidebar
@@ -323,6 +323,15 @@ class CartServices implements ICartServices {
     toggleShowCart() {
         this.showCart = !this.showCart;
     }
+
+    /**
+     * @ngdoc method
+     * @name setCartDefault
+     * @methodOf CartServices
+     *
+     * @description
+     * set cart with default data
+     */
     setCartDefault(){
         this.cart = {
             restaurant: null,
@@ -340,8 +349,6 @@ class CartServices implements ICartServices {
             subtotal: 0
         };
     }
-
-
 }
 
 export default CartServices;

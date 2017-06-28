@@ -1,110 +1,124 @@
 <div class="footer">
-    <div class="container">
-        <!--<div class="footer-top">-->
-            <!--<div class="footer-left">-->
-                <!--<div class="footer-item download">-->
-                    <!--<h4>In Your Smarphone</h4>-->
-                    <!--<a class="button" href="javascript:void(0);"><span class="icon icon_app-store"></span></a>-->
-                    <!--<a class="button" href="javascript:void(0);"><span class="icon icon_google-play"></span></a>-->
-                <!--</div>-->
-                <!--<div class="footer-item">-->
-                    <!--<h4>Call center</h4>-->
-                    <!--<a href="tel:+{{$ctrl.data.phones.almaty}}">-->
-                        <!--<h2>-->
-                                <!--{{$ctrl.data.phones.almaty | mask:'+9 999 999-99-99'}}-->
-                            <!--</h2>-->
-                    <!--</a>-->
-                    <!--&lt;!&ndash;<div class="text-info">для жителей г. Алматы</div>&ndash;&gt;-->
+    <!--<div class="container">-->
+        <!--&lt;!&ndash;<div class="footer-top">&ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="footer-left">&ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="footer-item download">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<h4>In Your Smarphone</h4>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<a class="button" href="javascript:void(0);"><span class="icon icon_app-store"></span></a>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<a class="button" href="javascript:void(0);"><span class="icon icon_google-play"></span></a>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="footer-item">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<h4>Call center</h4>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<a href="tel:+{{$ctrl.data.phones.almaty}}">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<h2>&ndash;&gt;-->
+                                <!--&lt;!&ndash;{{$ctrl.data.phones.almaty | mask:'+9 999 999-99-99'}}&ndash;&gt;-->
+                            <!--&lt;!&ndash;</h2>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                    <!--&lt;!&ndash;&lt;!&ndash;<div class="text-info">для жителей г. Алматы</div>&ndash;&gt;&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="footer-right">&ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="footer-contacts">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="footer-item contact-item">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<a href="tel:{{$ctrl.data.phones.otherCity}}">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<h2>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;{{$ctrl.data.phones.otherCity | mask:'999-999'}}&ndash;&gt;-->
+                                <!--&lt;!&ndash;</h2>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="text-info">в других городах</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="footer-item contact-item">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<a href="tel:{{$ctrl.data.phones.mobile}}">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<h2>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;{{$ctrl.data.phones.mobile}}&ndash;&gt;-->
+                                <!--&lt;!&ndash;</h2>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="text-info">с мобильного</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="footer-item contact-item">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<a href="" class="contact-icon">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<span class="icon icon_skype"></span>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="text-info">звонок в skype</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--<div class="row">-->
+            <!--<div class="col-xs-12 col-sm-3 col-md-3">-->
+                <!--<div class="footer-category">-->
+                    <!--<h4>Pages</h4>-->
+                    <!--<a class="category-link" ng-repeat="page in $ctrl.pages" ui-sref="{{page.link}}">-->
+                        <!--{{page.name}}-->
+                        <!--</a>-->
+                    <!--&lt;!&ndash;<a class="category-link" href="javascript:void(0)" ng-click="$ctrl.goToUtilities()">&ndash;&gt;-->
+                        <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<a class="category-link" href="javascript:void(0)" ui-sref="payments.main">&ndash;&gt;-->
+                            <!--&lt;!&ndash;Остальные платежи&ndash;&gt;-->
+                        <!--&lt;!&ndash;</a>&ndash;&gt;-->
                 <!--</div>-->
             <!--</div>-->
-            <!--<div class="footer-right">-->
-                <!--<div class="footer-contacts">-->
-                    <!--<div class="footer-item contact-item">-->
-                        <!--<a href="tel:{{$ctrl.data.phones.otherCity}}">-->
-                            <!--<h2>-->
-                                    <!--{{$ctrl.data.phones.otherCity | mask:'999-999'}}-->
-                                <!--</h2>-->
+            <!--<div class="col-xs-12 col-sm-3 col-md-3">-->
+                <!--<div class="footer-category">-->
+                    <!--<h4>Features</h4>-->
+                    <!--<a class="category-link" ng-repeat="feature in $ctrl.features" ui-sref="{{feature.link}}">-->
+                            <!--{{feature.name}}-->
                         <!--</a>-->
-                        <!--<div class="text-info">в других городах</div>-->
-                    <!--</div>-->
-                    <!--<div class="footer-item contact-item">-->
-                        <!--<a href="tel:{{$ctrl.data.phones.mobile}}">-->
-                            <!--<h2>-->
-                                    <!--{{$ctrl.data.phones.mobile}}-->
-                                <!--</h2>-->
-                        <!--</a>-->
-                        <!--<div class="text-info">с мобильного</div>-->
-                    <!--</div>-->
-                    <!--<div class="footer-item contact-item">-->
-                        <!--<a href="" class="contact-icon">-->
-                            <!--<span class="icon icon_skype"></span>-->
-                        <!--</a>-->
-                        <!--<div class="text-info">звонок в skype</div>-->
-                    <!--</div>-->
+                    <!--&lt;!&ndash;<a class="category-link" href="javascript:void(0)" ui-sref="transfers.main">&ndash;&gt;-->
+                            <!--&lt;!&ndash;Остальные переводы&ndash;&gt;-->
+                        <!--&lt;!&ndash;</a>&ndash;&gt;-->
                 <!--</div>-->
             <!--</div>-->
         <!--</div>-->
-        <div class="row">
-            <div class="col-xs-12 col-sm-3 col-md-3">
-                <div class="footer-category">
-                    <h4>Pages</h4>
-                    <a class="category-link" ng-repeat="page in $ctrl.pages" ui-sref="{{page.link}}">
-                        {{page.name}}
-                        </a>
-                    <!--<a class="category-link" href="javascript:void(0)" ng-click="$ctrl.goToUtilities()">-->
-                        <!--</a>-->
-                    <!--<a class="category-link" href="javascript:void(0)" ui-sref="payments.main">-->
-                            <!--Остальные платежи-->
-                        <!--</a>-->
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-3 col-md-3">
-                <div class="footer-category">
-                    <h4>Features</h4>
-                    <a class="category-link" ng-repeat="feature in $ctrl.features" ui-sref="{{feature.link}}">
-                            {{feature.name}}
-                        </a>
-                    <!--<a class="category-link" href="javascript:void(0)" ui-sref="transfers.main">-->
-                            <!--Остальные переводы-->
-                        <!--</a>-->
-                </div>
-            </div>
-        </div>
-    </div>
+    <!--</div>-->
     <div class="footer-bottom">
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-7">
+                <div class="col-xs-12">
+                    <div class="links">
+                        <a href="javascript:void(0)" ui-sref="about">About Us</a>
+                        <a href="javascript:void(0)" ui-sref="contacts">Careers</a>
+                        <a href="javascript:void(0)" ui-sref="contacts">Contact Us</a>
+                        <a href="javascript:void(0)" ui-sref="contacts">Blog</a>
+                        <a href="javascript:void(0)" ui-sref="contacts">Support</a>
+                        <a href="javascript:void(0)" ui-sref="contacts">FAQ</a>
+                        <a href="javascript:void(0)" ui-sref="terms">Terms</a>
+                        <a href="javascript:void(0)" ui-sref="users.login">My Account</a>
+                        <a href="javascript:void(0)" ui-sref="contacts">Delivery Areas</a>
+                        <a href="javascript:void(0)" ui-sref="contacts">Become Rocket Courier</a>
+                        <a href="javascript:void(0)" ui-sref="contacts">Become Restaurant Partner</a>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-5">
                     <div class="footer-item copyright">
                         <div class="logo">
                             <span class="icon icon_munchrocket-logo"></span>
                         </div>
                         <p class="text">
-                            © 2017 Munchrocket<br>
-                            All rights reserved
-                        </p>
-                        <p class="text">
-
+                            Munchrocket 2017 All rights reserved
                         </p>
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-6 col-md-5">
+                <div class="col-xs-12 col-sm-6 col-md-2">
                     <div class="footer-item social">
                         <a href="#" class="link">
                             <span class="icon icon_facebook"></span>
                         </a>
-                        <a href="#" class="link">
-                            <span class="icon icon_vk"></span>
-                        </a>
+                        <!--<a href="#" class="link">-->
+                            <!--<span class="icon icon_vk"></span>-->
+                        <!--</a>-->
                         <a href="#" class="link">
                             <span class="icon icon_twitter"></span>
                         </a>
                         <a href="#" class="link">
                             <span class="icon icon_instagram"></span>
                         </a>
-                        <a href="#" class="link">
-                            <span class="icon icon_youtube"></span>
-                        </a>
+                        <!--<a href="#" class="link">-->
+                            <!--<span class="icon icon_youtube"></span>-->
+                        <!--</a>-->
                     </div>
                 </div>
             </div>

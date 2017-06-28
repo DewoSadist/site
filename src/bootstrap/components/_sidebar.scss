@@ -3,9 +3,9 @@
 // --------------------------------------------------
 
 .sidebar {
-    width: 0;
-    height: 91%!important;
-    right: 0;
+    min-width: 350px ;
+    height: 95%!important;
+    right: -400px;
     flex-direction: column;
     overflow-x: auto;
     -webkit-transition: 0.4s ;
@@ -22,8 +22,9 @@
     }
 
     &.in {
-        overflow-x: auto;
+        //overflow-x: auto;
         width: 350px;
+        right: 0;
     }
     @media (max-width: $screen-xs) {
         &.in {

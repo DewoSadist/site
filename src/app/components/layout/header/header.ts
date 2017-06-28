@@ -3,6 +3,7 @@ import {ICartServices} from "../../../services/cartServices/cart.services";
 import AuthService from "../../../services/auth/auth.service";
 import UserService from "../../../services/userService/user.service";
 import TemplatorService from '../../../services/templator/templator.service';
+import Map = google.maps.Map;
 
 
 /**
@@ -15,20 +16,24 @@ class HeaderController {
 	public state;
 	public user;
 	public isAuthorized;
-	public showCart;
+	public gMap: Map;
+	public center;
+
 
 	/** @ngInject */
 	constructor(public $scope,
+				public $rootScope,
 				public $state,
 				public CartServices: ICartServices,
 				public AuthService: AuthService,
 				public UserService: UserService,
-				public TemplatorService: TemplatorService
-	) {
+				public TemplatorService: TemplatorService,
+				public NgMap) {
 		this.cartItemsCount = this.CartServices.getTotalCount();
 		this.state = this.$state;
 		this.isAuthorized = this.AuthService.isAuthorized();
 		this.text = 'DEOS';
+		$scope.center = this.UserService.getUserLocation();
 
 		this.$scope.$on('LoginEvent', () => {
 			this.isAuthorized = true;
@@ -38,6 +43,30 @@ class HeaderController {
 			this.isAuthorized = false;
 			this.user = null;
 		});
+		this.$scope.onDragEnd = ($event) => {
+			console.log("dragged");
+			console.log($event, $event.latLng); // event
+			this.center = $event.latLng;
+			this.UserService.setUserLocation($event.latLng);
+		};
+		this.$scope.onMapLoaded = ()=>{
+			var self = this;
+			self.NgMap.getMap("map").then(function (map) {
+				self.gMap = map;
+				google.maps.event.trigger(self.gMap, 'resize');
+			});
+		}
+	}
+	loadMap(){
+		this.center = this.UserService.getUserLocation();
+
+		setTimeout(() => {
+			this.NgMap.getMap("map").then((map)=> {
+				google.maps.event.trigger(map,'resize');
+				map.setCenter(this.center);
+			})
+		}
+		, 1000)
 	}
 	/**
 	 * @ngdoc method
