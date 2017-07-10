@@ -2,6 +2,7 @@ import './about.scss';
 class AboutController {
   public text: string;
 
+  /** @ngInject */
   constructor() {
     this.text = 'About';
   }

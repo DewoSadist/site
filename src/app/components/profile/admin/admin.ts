@@ -6,6 +6,7 @@ class AdminController {
   public dynamic: boolean;
   public isAdmin: boolean;
 
+  /** @ngInject */
   constructor(public UserService:UserService) {
     this.dynamic = true;
     this.isAdmin = this.UserService.isAdmin();

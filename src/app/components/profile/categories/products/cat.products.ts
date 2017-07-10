@@ -1,7 +1,9 @@
 import ErrorService from "../../../../services/errorService/error.service";
 import {IShopServices} from "../../../../services/shopServices/shop.services";
 class CatProductsController {
+    public resolve;
     public productsList;
+    public catId;
     public errors;
     public isLoading;
     public isOptionsLoading;
@@ -125,7 +127,8 @@ export const catProducts = {
     templateUrl: 'app/components/profile/categories/products/cat.products.html',
     controller: CatProductsController,
     bindings: {
-        productsList: '<'
+        productsList: '<',
+        catId: '<'
     }
 };
 

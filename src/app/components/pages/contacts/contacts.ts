@@ -1,5 +1,6 @@
 import ErrorService from "../../../services/errorService/error.service";
 import {IFormContainer} from "../../../services/shopServices/shop.services";
+import {IUserService} from "../../../services/userService/user.service";
 
 class ContactsController implements IFormContainer{
     public contactData;
@@ -11,7 +12,8 @@ class ContactsController implements IFormContainer{
     constructor(public $scope,
                 public $state,
                 public $stateParams,
-                public ErrorService: ErrorService) {
+                public ErrorService: ErrorService,
+                public UserService: IUserService) {
         this.contactData = {};
         this.errors = {};
         this.isLoading = false;
@@ -97,47 +99,47 @@ class ContactsController implements IFormContainer{
         } else {
             let self = this;
             let params = {
+                type: 'contact-us',
                 name: this.contactData.name,
-                email: this.contactData.email,
+                from: this.contactData.email,
                 number: this.contactData.number,
                 text: this.contactData.text
             };
             this.startLoading();
-            // this.AuthService.login(params)
-            //     .then((response) => {
-            //         this.stopLoading();
-            //         this.$state.go('profile.main');
-            //     })
-            //     .catch((error) => {
-            //         this.stopLoading();
-            //         console.log("-----------",error.status);
-            //         switch (error.status) {
-            //             case 403:
-            //                 if (error.data.code === '') {
-            //                     this.errors = {
-            //                         form: this.ErrorService.getAuthErrors().loginDeniedError,
-            //                     };
-            //                 }
-            //                 else {
-            //                     this.errors = {
-            //                         form: this.ErrorService.getAuthErrors().loginLockedError,
-            //                     };
-            //                 }
-            //                 break;
-            //             case 400:
-            //             case 401:
-            //             case 404:
-            //                 this.errors = {
-            //                     form: this.ErrorService.getAuthErrors().loginFailedError,
-            //                 };
-            //                 break;
-            //             default:
-            //                 this.errors = {
-            //                     form: this.ErrorService.getAuthErrors().emailFailedError,
-            //                 };
-            //                 break;
-            //         }
-            //     });
+            this.UserService.sendEmail(params)
+                .then((response) => {
+                    this.stopLoading();
+                })
+                .catch((error) => {
+                    this.stopLoading();
+                    console.log("-----------",error.status);
+                    switch (error.status) {
+                        case 403:
+                            if (error.data.code === '') {
+                                this.errors = {
+                                    form: this.ErrorService.getAuthErrors().loginDeniedError,
+                                };
+                            }
+                            else {
+                                this.errors = {
+                                    form: this.ErrorService.getAuthErrors().loginLockedError,
+                                };
+                            }
+                            break;
+                        case 400:
+                        case 401:
+                        case 404:
+                            this.errors = {
+                                form: this.ErrorService.getAuthErrors().loginFailedError,
+                            };
+                            break;
+                        default:
+                            this.errors = {
+                                form: this.ErrorService.getAuthErrors().emailFailedError,
+                            };
+                            break;
+                    }
+                });
 
 
         }

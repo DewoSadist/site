@@ -15,7 +15,7 @@ class CategoryNewController implements IFormContainer {
     public imgCategoriesSelected;
     public imgCategories;
 
-
+    /** @ngInject */
     constructor(public $state,
                 public $stateParams,
                 public $scope: ng.IScope,

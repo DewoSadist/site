@@ -31,6 +31,7 @@ export interface IUserService {
   setUserLocation(data);
   getAddress();
   setAddress(data:string);
+  sendEmail(data:any);
 }
 
 /**
@@ -290,5 +291,26 @@ class UserService implements IUserService{
     this.$cookies.putObject("uAddress", data);
   }
 
+  /**
+   * @ngdoc method
+   * @name UserService.senEmail
+   * @methodOf UserService
+   *
+   * @description
+   * send email for different purposes
+   *
+   * @param {string}  data  email body
+   */
+  sendEmail(data) {
+    let deferred = this.$q.defer();
+    this.Restangular.one('email').customPOST(data)
+        .then((response) => {
+          deferred.resolve(response);
+        })
+        .catch((error) => {
+          deferred.reject(error);
+        });
+    return deferred.promise;
+  }
 }
 export default UserService;

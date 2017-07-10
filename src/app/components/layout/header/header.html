@@ -12,13 +12,13 @@
                 </div>
             </button>
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-state pull-left" ng-if="$ctrl.UserService.getAddress()!= null">
+            <div class="navbar-state pull-left" ng-if="$ctrl.UserService.getAddress()!= null && $ctrl.state.includes('store')">
                 <a class="text-uppercase hidden-xs" href="javascript:void(0)">Preorder</a>
                 <span class="text-info hidden-xs">to</span>
                 <a href="javascript:void(0)" data-toggle="collapse" data-target="#umap" ng-click="$ctrl.loadMap();">{{$ctrl.UserService.getAddress()}}</a>
             </div>
             <!--<div class="navbar-state visible-xs visible-sm pull-left">{{$ctrl.getStateTitle()}}</div>-->
-            <div class="navbar-brand hidden-xs" ng-attr-ui-sref="{{$ctrl.isAuthorized ? 'profile.main' : 'home'}}">
+            <div class="navbar-brand" style="cursor: pointer" ng-attr-ui-sref="{{$ctrl.isAuthorized ? 'profile.main' : 'home'}}">
                 <span class="icon icon_logo"></span>
             </div>
 

@@ -15,6 +15,7 @@ export interface IUsers {
   errors;
 }
 class UsersController {
+  /** @ngInject */
   constructor() {
   }
 }

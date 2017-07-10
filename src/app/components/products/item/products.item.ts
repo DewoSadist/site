@@ -8,7 +8,7 @@ class ProductsItemController implements IFormContainer {
     public isLoading;
     public isOptionsLoading;
     public warning; // string for alert at the top
-
+    /** @ngInject */
     constructor(public $state,
                 public $stateParams,
                 public $scope: ng.IScope,

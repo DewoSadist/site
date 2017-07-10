@@ -2,7 +2,7 @@ import {IFormContainer, IProduct} from "../../../services/shopServices/shop.serv
 import {IShopServices} from "../../../services/shopServices/shop.services";
 import ErrorService from "../../../services/errorService/error.service";
 class ProductsNewController implements IFormContainer {
-    public catid;
+    public cid;
     public product :IProduct;
     public productOptions;
     public errors;
@@ -10,6 +10,7 @@ class ProductsNewController implements IFormContainer {
     public isOptionsLoading;
     public warning; // string for alert at the top
 
+    /** @ngInject */
     constructor(public $state,
                 public $stateParams,
                 public $scope: ng.IScope,
@@ -22,7 +23,7 @@ class ProductsNewController implements IFormContainer {
             description: '',
             tags: '',
             discount: '',
-            cat_id: this.catid
+            cat_id: this.cid
         };
         this.isLoading = false;
         this.isOptionsLoading = false;
@@ -92,12 +93,14 @@ class ProductsNewController implements IFormContainer {
         this.productOptions[pindex].productOptionsItems.splice(index, 1);
     }
     saveProduct() {
+        this.errors = {};
         this.startLoading();
         this.ShopServices.saveOrUpdateProduct(this.product)
             .then((response) => {
                 this.stopLoading();
                 console.log(response);
                 this.product = response;
+                this.$state.go('profile.product-item', {id: this.product.id});
             })
             .catch((error) => {
                 console.log(error);
@@ -223,7 +226,10 @@ class ProductsNewController implements IFormContainer {
 
 export const productsNew = {
     templateUrl: 'app/components/products/new/products.new.html',
-    controller: ProductsNewController
+    controller: ProductsNewController,
+    bindings: {
+        cid: '<'
+    }
 
 };
 

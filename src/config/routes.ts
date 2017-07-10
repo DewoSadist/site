@@ -175,8 +175,14 @@ function routesConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvi
 		template: '<restaurant-new></restaurant-new>'
 	})
 	.state('profile.product-new', {
-		url: '/productnew',
-		template: '<product-new></product-new>',
+		url: '/categories/:cid/productnew',
+		template: '<products-new data-cid="$resolve.cid"></products-new>',
+		params: {cid: null},
+		resolve: {
+			cid: ($stateParams: ng.ui.IStateParamsService) => {
+				return $stateParams['cid'];
+			}
+		}
 
 	})
 	.state('profile.product-item', {
@@ -234,7 +240,7 @@ function routesConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvi
 	})
 	.state('profile.category-products', {
 		url: '/category/:id/products',
-		template: '<cat-products data-products-list="$resolve.catProducts"></cat-products>',
+		template: '<cat-products data-products-list="$resolve.catProducts" data-cat-id="$resolve.catId"></cat-products>',
 		resolve: {
 			catProducts: (ShopServices: IShopServices, $stateParams: ng.ui.IStateParamsService, $state : ng.ui.IStateService)=>{
 				if ($stateParams['id']) {
@@ -242,7 +248,11 @@ function routesConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvi
 				} else {
 					return ShopServices.getCategoryProducts($stateParams['id']) || $state.go('profile.main');
 				}
+			},
+			catId: ($stateParams: ng.ui.IStateParamsService) => {
+				return $stateParams['id'];
 			}
+
 		}
 	})
 	;

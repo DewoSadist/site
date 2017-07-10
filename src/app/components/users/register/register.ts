@@ -13,6 +13,7 @@ class RegisterController implements IUsers, IFormContainer {
     public isLoading;
     public warning; // string for alert at the top
 
+    /** @ngInject */
     constructor(public $scope,
                 public $state,
                 public $stateParams,

@@ -1,5 +1,5 @@
 <div class="component">
-  <br><br>
+  <br><br>{{$ctrl.product}}
   <div class="row">
     <div class="row-height">
       <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
@@ -64,122 +64,6 @@
               </form>
             </div>
             {{$ctrl.productOptions}}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="row-height">
-      <div class="col-xs-12">
-        <div ng-class="{'loading':$ctrl.isOptionsLoading}">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              Product options
-            </div>
-            <div class="panel-body">
-              <div class="alert alert-warning" ng-show="$ctrl.warning">{{$ctrl.warning}}</div>
-              <form ng-submit="$ctrl.saveProductOptions()">
-                <table class="table table-striped">
-                  <thead>
-                  <tr>
-                    <th class="col-xs-1">ID</th>
-                    <th class="col-xs-3">NAME</th>
-                    <th class="col-xs-1">REQ</th>
-                    <th class="col-xs-1">FREE</th>
-                    <th class="col-xs-1">ONE</th>
-                    <th class="col-xs-5">DETAILS <a href="javascript:void(0)" ng-click="$ctrl.addOption()">|+|</a></th>
-                  </tr>
-                  </thead>
-                  <tr ng-repeat="po in $ctrl.productOptions track by $index">
-                    <td>{{po.id}} <span ng-click="$ctrl.removeOption($index)"
-                                        class="glyphicon glyphicon-remove"></span></td>
-                    <td><input type="text" class="form-control" ng-model="po.name" required></td>
-                    <td>
-                      <div class="radio radio-inline">
-                        <input type="radio" id="yesReq{{$index}}"
-                               ng-model="po.isRequired"
-                               value="1"
-                               clear-errors
-                               checked>
-                        <label for="yesReq{{$index}}">
-                          <span>Yes</span>
-                        </label>
-                        <input type="radio" id="noReq{{$index}}"
-                               ng-model="po.isRequired"
-                               value="0"
-                               clear-errors>
-                        <label for="noReq{{$index}}">
-                          <span>No</span>
-                        </label>
-                      </div>
-
-                    </td>
-                    <td>
-                      <div class="radio radio-inline">
-                        <input type="radio" id="yesFree{{$index}}"
-                               ng-model="po.isFree"
-                               value="1"
-                               clear-errors
-                               checked>
-                        <label for="yesFree{{$index}}">
-                          <span>Yes</span>
-                        </label>
-                        <input type="radio" id="noFree{{$index}}"
-                               ng-model="po.isFree"
-                               value="0"
-                               clear-errors>
-                        <label for="noFree{{$index}}">
-                          <span>No</span>
-                        </label>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="radio radio-inline">
-                        <input type="radio" id="yesOne{{$index}}"
-                               ng-model="po.isOne"
-                               value="1"
-                               clear-errors
-                               checked>
-                        <label for="yesOne{{$index}}">
-                          <span>Yes</span>
-                        </label>
-                        <input type="radio" id="noOne{{$index}}"
-                               ng-model="po.isOne"
-                               value="0"
-                               clear-errors>
-                        <label for="noOne{{$index}}">
-                          <span>No</span>
-                        </label>
-                      </div>
-                    </td>
-                    <td>
-                      <table class="table table-striped">
-                        <tr>
-                          <th>ID</th>
-                          <th>NAME</th>
-                          <th>PRICE <a href="javascript:void(0)" ng-click="$ctrl.addOptionItem($index)">|+|</a></th>
-                        </tr>
-                        <tr ng-repeat="pod in po.productOptionsItems track by $index">
-                          <td>{{pod.id}} <span ng-click="$ctrl.removeOptionItem($index, po)" class="glyphicon glyphicon-remove"></span></td>
-                          <td><input type="text" class="form-control" ng-model="pod.name" required></td>
-                          <td><input type="text" class="form-control" ng-model="pod.price" required></td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                </table>
-
-                <div ng-if="$ctrl.errors.form2" class="alert alert-danger" role="alert">
-                  {{$ctrl.errors.form2}}
-                </div>
-                <button type="submit" ng-disabled="$ctrl.isOptionsLoading === true"
-                        class="btn btn-primary">
-                  <span ng-if="$ctrl.isOptionsLoading">pleas wait</span>
-                  <span ng-if="!$ctrl.isOptionsLoading">save</span>
-                </button>
-              </form>
-            </div>
           </div>
         </div>
       </div>

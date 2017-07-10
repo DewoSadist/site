@@ -1,6 +1,6 @@
 class HistoryDetailsController {
   public text: string;
-
+  /** @ngInject */
   constructor() {
     this.text = 'My brand new component!';
   }

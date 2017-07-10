@@ -1,4 +1,4 @@
 {
-	"apiUrl": "http://ec2-52-211-226-76.eu-west-1.compute.amazonaws.com/",
+	"apiUrl": "http://localhost:8080/",
 	"frontUrl": "http://localhost:3000/"
 }

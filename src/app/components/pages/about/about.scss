@@ -1,9 +1,9 @@
 .about {
   padding-top: 40px;
   &-banner {
-    height: 100vh;
+    height: 70vh;
     width: 100%;
-    @include retina-background-image('img/about-banner', jpeg, cover);
+    @include retina-background-image('img/about-banner', jpg, cover);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
