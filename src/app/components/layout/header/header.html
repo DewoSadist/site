@@ -11,14 +11,18 @@
                     <span class="icon-bar"></span>
                 </div>
             </button>
+            {{$cookies.getObject("uAddress")}}
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-state pull-left" ng-if="$ctrl.UserService.getAddress()!= null && $ctrl.state.includes('store')">
-                <a class="text-uppercase hidden-xs" href="javascript:void(0)">Preorder</a>
-                <span class="text-info hidden-xs">to</span>
-                <a href="javascript:void(0)" data-toggle="collapse" data-target="#umap" ng-click="$ctrl.loadMap();">{{$ctrl.UserService.getAddress()}}</a>
+            <div class="navbar-state pull-left hidden-xs"
+                 ng-if="$ctrl.UserService.getAddress()!= null && $ctrl.UserService.getAddress()!='' && ($ctrl.state.includes('store') || $ctrl.state.includes('cart'))">
+                <a class="text-uppercase" href="javascript:void(0)">{{$ctrl.ShopServices.getOrderStatusWeb()}}</a>
+                <span class="text-info">to</span>
+                <a href="javascript:void(0)" data-toggle="collapse" data-target="#umap" ng-click="$ctrl.loadMap();">
+                    {{$ctrl.UserService.getSelectedAddress()}}</a>
             </div>
             <!--<div class="navbar-state visible-xs visible-sm pull-left">{{$ctrl.getStateTitle()}}</div>-->
-            <div class="navbar-brand" style="cursor: pointer" ng-attr-ui-sref="{{$ctrl.isAuthorized ? 'profile.main' : 'home'}}">
+            <div class="navbar-brand" style="cursor: pointer"
+                 ng-attr-ui-sref="{{$ctrl.isAuthorized ? 'profile.main' : 'home'}}">
                 <span class="icon icon_logo"></span>
             </div>
 
@@ -36,8 +40,17 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="nav">
             <ul class="nav navbar-nav navbar_hb">
+                <li class="hidden-sm hidden-md hidden-lg">
+                    <span>
+                        <a class="text-uppercase"
+                           href="javascript:void(0)">{{$ctrl.ShopServices.getOrderStatusWeb()}}</a>
+                        <span class="text-info">to</span>
+                        <a href="javascript:void(0)" data-toggle="collapse" data-target="#umap"
+                           ng-click="$ctrl.loadMap();">{{UserService.getAddress()}}</a>
+                    </span>
+                </li>
                 <li>
-                    <span class="contacts">604 7814625 TEXT/CALL</span>
+                    <span class="contacts">+16047814625 TEXT/CALL</span>
                 </li>
                 <li ng-if="$ctrl.isAuthorized"
                     ng-class="{active: $ctrl.state.includes('profile') || $ctrl.state.includes('account')}">
@@ -61,25 +74,79 @@
             </ul>
         </div>
         <div class="collapse navbar-map-collapse" id="umap">
-            <div class="nav navbar_map">
-                <ng-map zoom="16"
-                        id="map"
-                        trigger-resize="true"
-                        map-initialized="onMapLoaded()"
-                        style="width:100%; height:100px;"
-                        center="{{$ctrl.center.lat}},{{$ctrl.center.lng}}">
+            <div ng-show="!$ctrl.editShow" class="saved-addr">
+                <ul>
+                    <li><b>Saved Addresses</b></li>
+                    <li ng-repeat="item in $ctrl.uAddress track by $index">
+                        <div class="radio radio-inline">
+                            <input type="radio"
+                                   id="ua{{$index}}"
+                                   value="true"
+                                   clear-errors
+                                   ng-checked="item.choose"
+                                   ng-click="$ctrl.selectAddressWeb(item.address)">
+                            <label for="ua{{$index}}">
+                                <span><b>{{item.address}}</b> </span>
+                            </label>
+                        </div>
+                        <span class="pull-right">
+                        <span ng-click="$ctrl.removeAddressWeb(item.address)" class="glyphicon glyphicon-remove"
+                              title="remove"></span>
+                        <span class="glyphicon glyphicon-wrench" ng-click="$ctrl.editAddressWeb(item, $index)"
+                              title="settings"></span>
+                            </span>
+                    </li>
+                </ul>
+            </div>
+            <div ng-show="!$ctrl.editShow" class="saved-addr-new">
+                <b>Add a new Address</b>
+                <input autocomplete="off"
+                       places-auto-complete
+                       size=80
+                       component-restrictions="{country:'ca'}"
+                       on-place-changed="$ctrl.placeChanged()"
+                       types="{{$ctrl.types}}"
+                       class="form-control ng-pristine ng-untouched ng-valid ng-empty"
+                       id="deliveryAddress" placeholder="Enter your delivery address"
+                       type="text">
+
+            </div>
+            <div ng-show="$ctrl.editShow" class="nav navbar_map" id="edit-address">
+                <div ng-class="{'loading': $ctrl.isLoading}">
+                    <b>Edit address</b>
+                    <ng-map zoom="16"
+                            id="map"
+                            trigger-resize="true"
+                            map-initialized="onMapLoaded()"
+                            style="width:100%; height:100px;"
+                            center="{{$ctrl.editAddress.location.lat}},{{$ctrl.editAddress.location.lng}}">
                         <marker draggable="true"
-                                position="{{$ctrl.center.lat}} ,{{$ctrl.center.lng}}"
+                                position="{{$ctrl.editAddress.location.lat}},{{$ctrl.editAddress.location.lng}}"
                                 animation="DROP"
                                 on-dragend="onDragEnd()"
                                 centered="true">
 
                         </marker>
-                </ng-map>
-                <div class="form-group">
-                    <br>
-                    <label class="control-label" for="hmap">Delivery instructions</label>
-                    <textarea id="hmap" class="form-control"></textarea>
+                    </ng-map>
+                    <div class="form-group">
+                        <br>
+                        <input type="text" class="form-control" ng-model="$ctrl.editAddress.address">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="$ctrl.editAddress.postal"
+                               placeholder="Apartment number or suite">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control"
+                                  placeholder="Delivery Instructions. Ex. Call me when you're outside!"
+                                  ng-model="$ctrl.editAddress.delivery_instructions"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <a type="button" class="btn btn-small btn-primary pull-left btn-90"
+                           ng-click="$ctrl.hideAddressEdit()">cancel</a>
+                        <a type="button" class="btn btn-small btn-primary pull-right btn-90"
+                           ng-click="$ctrl.saveAddressEdit()">save</a>
+                    </div>
                 </div>
             </div>
         </div>

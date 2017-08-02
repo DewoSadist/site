@@ -454,14 +454,21 @@ $navbar-padding-horizontal: 7px;
 }
 
 .navbar-map-collapse {
-    width: 100%;
-    right: $navbar-padding-horizontal;
+    width: 400px;
+    left: 20%;
+    border: 1px solid $color-cool-gray;
+    border-radius: 0 0 5px 5px;
     position: absolute;
     padding-right: 0;
     padding-left: 0;
     border-top: 0;
     box-shadow: none;
     background-color: $color-white;
+    @media (max-width: $screen-sm-max) {
+        width: 100%;
+        left: $navbar-padding-horizontal;
+
+    }
 
     @include clearfix;
 
@@ -498,6 +505,23 @@ $navbar-padding-horizontal: 7px;
         .navbar-fixed-bottom & {
             padding-left: 0;
             padding-right: 0;
+        }
+    }
+    ul {
+        padding: 0 20px;
+        li {
+            padding: 15px 30px 15px 0;
+            line-height: 20px;
+            position: relative;
+            transition: .2s;
+            border-bottom: 1px solid $color-cool-gray;
+        }
+    }
+    .saved-addr {
+        padding-top: 10px;
+
+        &-new {
+            padding: 20px;
         }
     }
 }

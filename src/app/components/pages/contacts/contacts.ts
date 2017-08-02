@@ -5,6 +5,7 @@ import {IUserService} from "../../../services/userService/user.service";
 class ContactsController implements IFormContainer{
     public contactData;
     public errors;
+    public success;
     public isLoading;
     public warning; // string for alert at the top
 
@@ -16,6 +17,7 @@ class ContactsController implements IFormContainer{
                 public UserService: IUserService) {
         this.contactData = {};
         this.errors = {};
+        this.success = {};
         this.isLoading = false;
     }
     /**
@@ -79,6 +81,7 @@ class ContactsController implements IFormContainer{
      * Send Login action to API and redirect to profile after success
      */
     sendAction(){
+        this.success = {};
         this.warning = null;
         if (!this.contactData.name) {
             this.errors = {
@@ -97,18 +100,23 @@ class ContactsController implements IFormContainer{
                 text: this.ErrorService.getAuthErrors().textEmptyError
             };
         } else {
-            let self = this;
+            this.errors={};
+
             let params = {
-                type: 'contact-us',
+                type: "contact-us",
                 name: this.contactData.name,
                 from: this.contactData.email,
                 number: this.contactData.number,
                 text: this.contactData.text
             };
+            console.log(params);
             this.startLoading();
             this.UserService.sendEmail(params)
                 .then((response) => {
                     this.stopLoading();
+                    this.success = {
+                        form: "Your message successfully send"
+                    }
                 })
                 .catch((error) => {
                     this.stopLoading();

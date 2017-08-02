@@ -40,18 +40,27 @@ class HomeSliderController {
 		console.log(this);
 		this.longitude = 9.191383;
 		this.latitude =  45.464211;
-		this.types = "['establishment']";
-
+		this.types = "['geocode']";
+		console.log(UserService.getAddress());
 
 		this.placeChanged = function() {
 			console.log(this);
 			console.log(this.getPlace());
 			this.place = this.getPlace();
-			this.address = this.place.vicinity;
-			console.log(this.address);
-			$cookies.putObject("uAddress", this.address);
+
+			this.address = {
+				name:this.place.vicinity,
+				address:this.place.name,
+				location: {
+							lat:this.place.geometry.location.lat(),
+							lng:this.place.geometry.location.lng()
+				},
+				choose: true,
+			};
+
+			UserService.initUserAddress(this.address);
+
 			$cookies.putObject("uPosition", this.place.geometry.location);
-			UserService.setAddress(this.address);
 			UserService.setUserLocation(this.place.geometry.location);
 			$rootScope.center = this.place.geometry.location;
 		};

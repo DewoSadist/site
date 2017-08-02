@@ -99,9 +99,9 @@
                     </div>
                 </div>
                 <!-- Address -->
-                <div class="form-group" ng-if="$ctrl.UserService.isAuthorized()">
+                <div class="form-group">
                     <legend><h2>Address</h2></legend>
-                    <p>{{$ctrl.UserService.user.address}}</p>
+                    <p>{{$ctrl.UserService.getSelectedAddress()}}</p>
                 </div>
                 <!-- Payment -->
                 <div class="form-group">
@@ -141,14 +141,14 @@
                                        required type="text"
                                        ng-model="$ctrl.userForm.name">
                             </div>
-                            <!-- Text input-->
-                            <div class="form-group ">
-                                <label class=" control-label" for="of_address">Address</label>
-                                <input id="of_address" name="textinput" placeholder="city"
-                                       class="form-control input-md"
-                                       required type="text"
-                                       ng-model="$ctrl.userForm.address">
-                            </div>
+                            <!--&lt;!&ndash; Text input&ndash;&gt;-->
+                            <!--<div class="form-group ">-->
+                                <!--<label class=" control-label" for="of_address">Address</label>-->
+                                <!--<input id="of_address" name="textinput" placeholder="city"-->
+                                       <!--class="form-control input-md"-->
+                                       <!--required type="text"-->
+                                       <!--ng-model="$ctrl.UserService.getSelectedAddress()">-->
+                            <!--</div>-->
                             <!-- Text input-->
                             <div class="form-group">
                                 <label class="control-label" for="of_email">Email</label>

@@ -146,6 +146,7 @@ export interface IFormContainer {
  */
 export interface IShopServices {
     userRestaurantsList;
+    restaurantsList;
     getAllRestaurants();
     getUserRestaurants(userId: string);
     getRestaurant(resId: string);
@@ -177,6 +178,10 @@ export interface IShopServices {
     rad(x: number);
     getDistance(p1, p2);
 
+    getOrderStatusWeb();
+    setOrderStatusWeb(status: any);
+    sortRestaurants();
+
 
 }
 
@@ -207,6 +212,9 @@ class ShopServices implements IShopServices {
                 public appConfig,
                 public $cookies) {
         this.text = 'My brand new component!';
+        if(this.$cookies.getObject("orderState") == null){
+            this.setOrderStatusWeb("Preorder");
+        }
     }
 
     /**
@@ -738,6 +746,65 @@ class ShopServices implements IShopServices {
         return d;
     }
 
+    /**
+     * @ngdoc method
+     * @name IShopServices.getOrderStatusWeb
+     * @methodOf ShopServices
+     *
+     *
+     * @description          Method to get Order Status
+     * @return {string}      orderStatus
+     *
+     */
+    getOrderStatusWeb() {
+        let data = this.$cookies.getObject("orderState");
+        return JSON.parse(data).name;
+    }
 
+    /**
+     * @ngdoc method
+     * @name IShopServices.setOrderStatusWeb
+     * @methodOf ShopServices
+     *
+     *
+     * @description          Method to set Order Status
+     */
+    setOrderStatusWeb(orderStatus: any) {
+        this.$cookies.remove("orderState");
+        this.$cookies.putObject("orderState", JSON.stringify({name:orderStatus}));
+    }
+
+    /**
+     * @ngdoc method
+     * @name IShopServices.sortRestaurants
+     * @methodOf ShopServices
+     *
+     *
+     * @description          Method to sort nearest restaurants
+     */
+    sortRestaurants(){
+        let list_;
+        this.getAllRestaurants()
+            .then((list) => {
+                let p1 = this.$cookies.getObject("uLocation");
+                if (p1 != null) {
+                    list_ = list;
+                    for (let i = list_.length - 1; i >= 0; i--) {
+                        if (list_[i].location != null) {
+                            let location = list_[i].location;
+                            let distance = this.getDistance(p1, JSON.parse(location));
+                            // console.log("distance:", distance);
+
+                            if (distance > 5000) {
+                                list_.splice(i, 1);
+                            }
+                        }
+
+                    }
+                }
+
+            });
+        this.restaurantsList = list_;
+    }
 }
 export default ShopServices;

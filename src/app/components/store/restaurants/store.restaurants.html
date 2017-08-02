@@ -1,14 +1,14 @@
 <div class="profile-cards account-list panel panel-default" ng-class="{'loading':$ctrl.isLoading}">
   <div class="panel-heading panel-heading_account panel-heading_dynamic">
-    <h6 class="profile-heading">Restaurants {{$ctrl.list && $ctrl.list.length ? '(' + $ctrl.list.length + ')' : ''}}</h6>
+    <h6 class="profile-heading">Restaurants {{$ctrl.ShopServices.restaurantsList && $ctrl.ShopServices.restaurantsList.length ? '(' + $ctrl.ShopServices.restaurantsList.length + ')' : ''}}</h6>
   </div>
   <div class="panel-body">
     <div class="page-list page-list_dynamic" ng-class="{'page-list_less-padding  visible-sm visible-md visible-lg': $ctrl.isAuthorized }">
       <div class="container">
-        <div class="alert alert-info text-center" ng-if="$ctrl.list.length === 0">For your place we didn't find nearest Restaurants</div>
+        <div class="alert alert-info text-center" ng-if="$ctrl.ShopServices.restaurantsList.length === 0">For your place we didn't find nearest Restaurants</div>
         <div class="page-list-wrap" click-outside="$ctrl.closeMenus()">
 
-          <div class="page-list-item" ng-repeat="item in $ctrl.list | limitTo:($ctrl.showAll?undefined:8)" ng-class="page-list-item_bottom">
+          <div class="page-list-item" ng-repeat="item in $ctrl.ShopServices.restaurantsList | limitTo:($ctrl.showAll?undefined:8)" ng-class="page-list-item_bottom">
             <div class="content" ng-click="$ctrl.selectItem(item)">
               <img src="img/restaurants/{{item.logo_image_url}}" class="icon icon_restaurant " >
               <!--<span class="icon icon_category icon_category-restaurant"></span>-->
@@ -16,7 +16,7 @@
             </div>
           </div>
         </div>
-        <div class="profile-button" ng-if="$ctrl.list.length > 8">
+        <div class="profile-button" ng-if="$ctrl.ShopServices.restaurantsList.length > 8">
           <button class="btn btn-primary" ng-click="$ctrl.toggleShowAll()">{{$ctrl.showAll? 'Hide' : 'Show all'}}</button>
         </div>
       </div>

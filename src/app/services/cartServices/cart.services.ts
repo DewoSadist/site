@@ -262,7 +262,11 @@ class CartServices implements ICartServices {
      * @description get all items count from shopping cart
      */
     getTotalCount() {
-        return this.cart.items.length;
+        let quantity = 0;
+        this.cart.items.forEach((item) => {
+            quantity = quantity + item.quantity;
+        });
+        return quantity;
     }
 
     /**

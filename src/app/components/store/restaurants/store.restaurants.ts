@@ -10,37 +10,14 @@ class StoreRestaurantsController {
     public showSuccess;
     public isLoading: boolean;
     public showAll: boolean;
-    public text: string;
 
     /** @ngInject */
     constructor(public $scope: ng.IScope,
                 public ShopServices: IShopServices,
                 public $state,
                 public $cookies) {
-        this.isLoading = true;
-        this.showAll = false;
-        this.ShopServices.getAllRestaurants()
-            .then((list) => {
-                let p1 = this.$cookies.getObject("uLocation");
-                if (p1 != null) {
-                    this.list = list;
-                    for (let i = this.list.length - 1; i >= 0; i--) {
-                        if (this.list[i].location != null) {
-                            let location = this.list[i].location;
-                            let distance = this.ShopServices.getDistance(p1, JSON.parse(location));
-                            // console.log("distance:", distance);
 
-                            if (distance > 5000) {
-                                this.list.splice(i, 1);
-                            }
-                        }
-
-                    }
-                }
-                this.list = list;
-                this.isLoading = false;
-            });
-        this.text = 'My brand new storeRestaurants!';
+        this.initRestaurants();
     }
 
     /**
@@ -70,6 +47,14 @@ class StoreRestaurantsController {
         this.$state.go('store.restaurant', {
             restaurantId: restaurant.id
         });
+    }
+
+    initRestaurants(){
+        this.isLoading = true;
+        this.showAll = false;
+        this.list = this.ShopServices.sortRestaurants();
+            this.isLoading = false;
+
     }
 
 }

@@ -28,7 +28,7 @@ class CartController implements IFormContainer {
         this.step = 1;
         this.userForm = {
             name: '',
-            address: '',
+            address: JSON.stringify(UserService.getSelectedAddressObj()) ,
             number: '',
             email: ''
         };
@@ -113,7 +113,7 @@ class CartController implements IFormContainer {
                 small_order_fee: this.cart.small_order_fee,
                 quantity: 0,
                 order_amount: this.cart.total,
-                status: 'preorder',
+                status: this.ShopServices.getOrderStatusWeb(),
                 user_id: this.UserService.user.user_id,
                 reorder: 0,
                 order_day: this.day,
@@ -123,7 +123,7 @@ class CartController implements IFormContainer {
                 ship_via: 'car',
                 orderDetails: [],
                 client_name: this.UserService.user.firstname,
-                client_address: this.UserService.user.address,
+                client_address: JSON.stringify(this.UserService.getSelectedAddressObj()),
                 client_email: this.UserService.user.email,
                 client_number: this.UserService.user.phone,
                 payment: this.payment
@@ -138,7 +138,7 @@ class CartController implements IFormContainer {
                 small_order_fee: this.cart.small_order_fee,
                 quantity: 0,
                 order_amount: this.cart.total,
-                status: 'preorder',
+                status: this.ShopServices.getOrderStatusWeb(),
                 user_id: 'unknown',
                 reorder: 0,
                 order_day: this.day,
@@ -148,7 +148,7 @@ class CartController implements IFormContainer {
                 ship_via: 'car',
                 orderDetails: [],
                 client_name: this.userForm.name,
-                client_address: this.userForm.address,
+                client_address: JSON.stringify(this.UserService.getSelectedAddressObj()),
                 client_email: this.userForm.email,
                 client_number: this.userForm.number,
                 payment: this.payment

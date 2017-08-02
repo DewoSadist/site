@@ -51,6 +51,9 @@
                                     <div ng-if="$ctrl.errors.form" class="alert alert-danger" role="alert">
                                         {{$ctrl.errors.form}}
                                     </div>
+                                    <div ng-if="$ctrl.success.form" class="alert alert-success" role="alert">
+                                        {{$ctrl.success.form}}
+                                    </div>
                                     <button type="submit" ng-disabled="$ctrl.isLoading === true"
                                             class="btn btn-primary">
                                         <span ng-if="$ctrl.isLoading">pleas wait</span>
