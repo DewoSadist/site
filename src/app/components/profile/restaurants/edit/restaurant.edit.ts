@@ -8,44 +8,68 @@ class RestaurantEditController implements IFormContainer {
     public warning; // string for alert at the top
     public restaurant: IRestaurant;
     public text: string;
+    public logo_image;
 
     /** @ngInject */
     constructor(public $state,
                 public $stateParams,
-                public $scope: ng.IScope,
+                public $scope,
                 public ShopServices: IShopServices,
                 public ErrorService: ErrorService) {
         this.errors = {};
         this.loginData = {};
         this.isLoading = false;
         this.text = 'My brand new component!';
+
+        $scope.onLoad = (e, reader, file, fileList, fileOjects, fileObj) =>{
+            // alert('this is handler for file reader onload event!');
+        };
+
+        $scope.errorHandler = (event, reader, file, fileList, fileObjs, object) => {
+            console.log("An error occurred while reading file: "+file.name);
+            reader.abort();
+        };
+
     }
 
     saveRestaurant() {
+        // patt['name'] = /^[a-z ,-]+$/i;
+        // patt['username'] = /^[A-z0-9_-]+$/i;
+        // patt['email'] = /^[a-z0-9]+(?:[\.-]?[a-z0-9]+)*@[a-z0-9]+([-]?[a-z0-9]+)*[\.-]?[a-z0-9]+([-]?[a-z0-9]+)*([\.-]?[a-z]{2,})*(\.[a-z]{2,5})+$/i;
+        // patt['website'] = /^http(s)?:\/\/(www\.)?[a-z0-9]+([-]?[a-z0-9]+)*[\.-]?[a-z0-9]+([-]?[a-z0-9]+)*([\.-]?[a-z]{2,})*(\.[a-z]{2,5})+$/i;
+        // patt['age'] = /^(?:([1][3-9]|[2-9][0-9]))$/i;
+        // patt['subject'] = /[a-z0-9?!:;'&_\. ,-]+/i;
+        this.errors = {};
         this.startLoading();
-        this.ShopServices.saveOrUpdateRestaurant(this.restaurant)
-            .then((response) => {
-                this.stopLoading();
-                console.log(response);
-                this.restaurant = response;
-            })
-            .catch((error) => {
-                console.log(error);
-                this.stopLoading();
-                if (error.status === 404) {
-                  this.errors = {
-                    form: this.ErrorService.getEditError().saveError
-                  };
-                } else if (error.status === 500) {
-                    this.errors = {
-                        form: this.ErrorService.getEditError().saveIncorrectValue
+        if(this.logo_image.filesize < 2000000 && this.logo_image.filetype === 'image/png' && !this.logo_image.filename.match('/^[A-z0-9_-]+$/i')){
+            this.restaurant.logo_image = this.logo_image.base64;
+            this.restaurant.logo_image_url = this.logo_image.filename;
+            console.log(this.restaurant);
+            this.ShopServices.saveOrUpdateRestaurant(this.restaurant)
+                .then((response) => {
+                    this.stopLoading();
+                    console.log(response);
+                    this.restaurant = response;
+                })
+                .catch((error) => {
+                    console.log(error);
+                    this.stopLoading();
+                    if (error.status === 404) {
+                        this.errors = {
+                            form: this.ErrorService.getEditError().saveError
+                        };
+                    } else if (error.status === 500) {
+                        this.errors = {
+                            form: this.ErrorService.getEditError().saveIncorrectValue
+                        }
+                    } else {
+                        this.errors = {
+                            form: this.ErrorService.getGeneralBadRequestError()
+                        };
                     }
-                } else {
-                  this.errors = {
-                    form: this.ErrorService.getGeneralBadRequestError()
-                  };
-                }
-            });
+                });
+
+        }
 
     }
 

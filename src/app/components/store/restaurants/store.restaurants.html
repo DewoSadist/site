@@ -10,7 +10,7 @@
 
           <div class="page-list-item" ng-repeat="item in $ctrl.ShopServices.restaurantsList | limitTo:($ctrl.showAll?undefined:8)" ng-class="page-list-item_bottom">
             <div class="content" ng-click="$ctrl.selectItem(item)">
-              <img src="img/restaurants/{{item.logo_image_url}}" class="icon icon_restaurant " >
+              <img src="http://mun.munchrocket.com/images/{{item.logo_image_url}}" class="icon icon_restaurant " >
               <!--<span class="icon icon_category icon_category-restaurant"></span>-->
               <span>{{item.title}}</span>
             </div>

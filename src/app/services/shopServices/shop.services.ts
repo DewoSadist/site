@@ -8,6 +8,7 @@ export interface IRestaurant {
     tags?: string;
     description?: string;
     logo_image_url?: string;
+    logo_image?: any;
     header_image_url?: string;
     cover_image_url?: string;
     status: string;

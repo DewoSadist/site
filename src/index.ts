@@ -22,6 +22,7 @@ import 'angular-filter';
 import 'angular-loading-bar';
 import 'ngmap';
 import 'ng-map-autocomplete'
+import 'angular-base64-upload';
 
 import 'jquery-migrate';
 
@@ -151,7 +152,8 @@ angular.module('app', [
 	'angular-loading-bar',
 	'angular-click-outside',
 	'ngMap',
-	'ngMapAutocomplete'
+	'ngMapAutocomplete',
+	'naif.base64'
 ])
 .constant('appConfig', appConfig)
 .constant('moment', moment)

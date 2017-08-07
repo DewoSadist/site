@@ -1,6 +1,7 @@
 <section class="container">
 <div class="component">
     <form ng-submit="$ctrl.saveRestaurant()" ng-class="{'loading': $ctrl.isLoading}">
+
         <h2>Restaurant | <a href="javascript:void(0);">edit</a> | <a href="javascript:void(0);" ui-sref="profile.restaurant-new">add new</a> |</h2>
         <table class="table table-striped">
             <thead>
@@ -31,7 +32,19 @@
             </tr>
             <tr>
                 <td>Logo img</td>
-                <td><input type="text" class="form-control" ng-model="$ctrl.restaurant.logo_image_url"></td>
+                <td>
+                    <!--<input type="text" class="form-control" ng-model="$ctrl.restaurant.logo_image_url">-->
+                    <input base-sixty-four-input
+                           do-not-parse-if-oversize
+                           type="file" ng-model="$ctrl.logo_image"
+                           name="file" accept="image/png" maxsize="500"
+                           onloadend="onLoad"
+                           onerror="errorHandler"
+                           >
+                    <span>{{$ctrl.logo_image.filename}}</span>
+                    <span ng-show="$ctrl.logo_image.filesize > 2000000">Files must not exceed 2MB</span>
+                    <span ng-show="$ctrl.logo_image.filetype !='image/png'">Type must be PNG</span>
+                    </td>
             </tr>
             <tr>
                 <td>Header img</td>
