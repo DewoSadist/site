@@ -38,12 +38,13 @@ class HeaderController {
 				public TemplatorService: TemplatorService,
 				public ShopServices: IShopServices,
 				public NgMap,
-				public $cookies: ng.cookies.ICookiesService) {
+				public $cookies: ng.cookies.ICookiesService,
+				public $uibModal) {
 		this.editShow = false;
 		this.isLoading = false;
 		this.uAddress = UserService.getAddress();
 		this.types = "['geocode']";
-		console.log("header---",this.ShopServices.getOrderStatusWeb());
+		console.log("header---",this.ShopServices.getOrderStatusWeb().name);
 		this.cartItemsCount = this.CartServices.getTotalCount();
 		this.state = this.$state;
 		this.isAuthorized = this.AuthService.isAuthorized();
@@ -253,6 +254,18 @@ class HeaderController {
 		this.isLoading = false;
 		this.hideAddressEdit();
 		// console.log(this.uAddress);
+	}
+
+	changeOrderStatus(){
+		this.openOrderStatusWeb();
+	}
+
+	openOrderStatusWeb() {
+		this.$uibModal.open({
+			component: 'modalOrderStatus',
+			keyboard: false,
+			windowClass: 'order-modal'
+		});
 	}
 }
 

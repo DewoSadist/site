@@ -1,3 +1,4 @@
+import moment = require("moment");
 /**
  * @interface IRestaurant
  */
@@ -182,8 +183,7 @@ export interface IShopServices {
     getOrderStatusWeb();
     setOrderStatusWeb(status: any);
     sortRestaurants();
-
-
+    isResOpen(time);
 }
 
 /**
@@ -211,10 +211,11 @@ class ShopServices implements IShopServices {
     constructor(public $q: ng.IQService,
                 public Restangular,
                 public appConfig,
-                public $cookies) {
+                public $cookies,
+                public moment) {
         this.text = 'My brand new component!';
         if(this.$cookies.getObject("orderState") == null){
-            this.setOrderStatusWeb("Preorder");
+            this.setOrderStatusWeb("ASAP");
         }
     }
 
@@ -759,7 +760,7 @@ class ShopServices implements IShopServices {
      */
     getOrderStatusWeb() {
         let data = this.$cookies.getObject("orderState");
-        return JSON.parse(data).name;
+        return JSON.parse(data);
     }
 
     /**
@@ -772,7 +773,12 @@ class ShopServices implements IShopServices {
      */
     setOrderStatusWeb(orderStatus: any) {
         this.$cookies.remove("orderState");
-        this.$cookies.putObject("orderState", JSON.stringify({name:orderStatus}));
+        if(orderStatus === 'asap') {
+            this.$cookies.putObject("orderState", JSON.stringify({name:orderStatus, value: ''}));
+        } else {
+            this.$cookies.putObject("orderState", JSON.stringify({name:'preorder', value: orderStatus}));
+
+        }
     }
 
     /**
@@ -785,6 +791,9 @@ class ShopServices implements IShopServices {
      */
     sortRestaurants(){
         let list_;
+        // get date current
+
+
         this.getAllRestaurants()
             .then((list) => {
                 let p1 = this.$cookies.getObject("uLocation");
@@ -796,9 +805,11 @@ class ShopServices implements IShopServices {
                             let distance = this.getDistance(p1, JSON.parse(location));
                             // console.log("distance:", distance);
 
-                            if (distance > 5000) {
+                            if (distance > 5000 && !this.isResOpen(list_[i].hours)) {
                                 list_.splice(i, 1);
+                                console.log("deleted");
                             }
+
                         }
 
                     }
@@ -807,5 +818,53 @@ class ShopServices implements IShopServices {
             });
         this.restaurantsList = list_;
     }
+
+    /**
+     *
+     * @param time
+     * @return {number}
+     */
+    isResOpen(hours) {
+        let now = moment();
+        let weekday = this.moment().format('dddd');
+        let open_time, close_time;
+        let OPEN = true;
+        if(hours.length>0) {
+
+        hours.forEach((item) => {
+        // console.log(weekday.toLowerCase(),item.day.toLowerCase());
+            if(item.day === 'EVERYDAY'){
+                open_time = item.open_hour;
+                close_time = item.close_hour;
+            } else if( weekday.toLowerCase() === item.day.toLowerCase()){
+                open_time = item.open_hour;
+                close_time = item.close_hour;
+            }
+        });
+        }
+
+       if(open_time && close_time) {
+
+           let dateOpen = this.moment(now).format('YYYY-MM-DD') + 'T' + open_time;
+           let dateClose = this.moment(now).format('YYYY-MM-DD') + 'T' + close_time;
+           // console.log(dateOpen, dateClose);
+
+           let diffOpenMC = this.moment().diff(dateOpen);
+           let diffCloseMC = this.moment().diff(dateClose);
+           // console.log(diffOpenMC, diffCloseMC);
+
+           let diffOpenH = this.moment.duration(diffOpenMC).asHours();
+           let diffCloseH = this.moment.duration(diffCloseMC).asHours();
+           // console.log(diffOpenH, diffCloseH);
+
+           if(Math.abs(diffOpenH)< 0.5 || Math.abs(diffCloseH) < 0.5){
+               OPEN = false;
+           }
+       }
+
+        return OPEN;
+    }
+
+
 }
 export default ShopServices;

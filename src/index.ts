@@ -77,6 +77,7 @@ import { orderItem } from "./app/components/orders/item/order.item";
 import { categoryNew } from "./app/components/profile/categories/new/category.new";
 import { catProducts } from "./app/components/profile/categories/products/cat.products";
 
+import { modalOrderStatus } from "./app/components/common/modal/status/order.status";
 
 // ------------------ Services --------------------
 import AuthService from './app/services/auth/auth.service';
@@ -211,6 +212,8 @@ angular.module('app', [
 .component('productsItem', productsItem)
 .component('productsEdit', productsEdit)
 .component('productsNew', productsNew)
+
+	.component('modalOrderStatus', modalOrderStatus)
 
 
 .config(restangularConfig)

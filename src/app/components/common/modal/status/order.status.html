@@ -1,0 +1,41 @@
+<div class="order-status">
+    <a href="javascript:void(0)" ng-click="$ctrl.closeModal()" class="modal-close"><span
+            class="icon icon_modal-close"></span></a>
+    <div class="modal-header">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h4>Select Order Time</h4>
+            </div>
+        </div>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-xs-12">
+                <div ng-repeat="day in $ctrl.week track by $index" ng-click="$ctrl.getTimes(day.value)"
+                     class="date-selector" ng-class="{'active':day.choose}">
+                    <p>{{day.label | limitTo : 3}}</p>
+                    <span>{{day.label | limitTo : 3-5}}</span>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="modal-footer">
+        <ul class="date-block">
+            <li ng-repeat="time in $ctrl.orderStatuses track by $index">
+                <div class="radio">
+                    <input type="radio" id="time{{$index}}"
+                           value="{{time.value}}"
+                           clear-errors
+                           ng-checked="time.choose"
+                           ng-click="$ctrl.updateTime($index)">
+                    <label for="time{{$index}}">
+                        <span>{{time.label}}</span>
+                    </label>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+</div>

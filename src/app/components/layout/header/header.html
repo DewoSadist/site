@@ -11,14 +11,13 @@
                     <span class="icon-bar"></span>
                 </div>
             </button>
-            {{$cookies.getObject("uAddress")}}
+
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-state pull-left hidden-xs"
-                 ng-if="$ctrl.UserService.getAddress()!= null && $ctrl.UserService.getAddress()!='' && ($ctrl.state.includes('store') || $ctrl.state.includes('cart'))">
-                <a class="text-uppercase" href="javascript:void(0)">{{$ctrl.ShopServices.getOrderStatusWeb()}}</a>
+
+            <div class="navbar-state pull-left hidden-xs" ng-if="$ctrl.UserService.getAddress()!= null && $ctrl.UserService.getAddress()!='' && ($ctrl.state.includes('store') || $ctrl.state.includes('cart'))">
+                <a class="text-uppercase" href="javascript:void(0)" ng-click="$ctrl.changeOrderStatus()">{{$ctrl.ShopServices.getOrderStatusWeb().name =='asap'?'asap':$ctrl.ShopServices.getOrderStatusWeb().value | date:"MMM d, y h:mm a"}}</a>
                 <span class="text-info">to</span>
-                <a href="javascript:void(0)" data-toggle="collapse" data-target="#umap" ng-click="$ctrl.loadMap();">
-                    {{$ctrl.UserService.getSelectedAddress()}}</a>
+                <a href="javascript:void(0)" data-toggle="collapse" data-target="#umap" ng-click="$ctrl.loadMap();">{{$ctrl.UserService.getSelectedAddress()}}</a>
             </div>
             <!--<div class="navbar-state visible-xs visible-sm pull-left">{{$ctrl.getStateTitle()}}</div>-->
             <div class="navbar-brand" style="cursor: pointer"
@@ -43,7 +42,8 @@
                 <li class="hidden-sm hidden-md hidden-lg">
                     <span>
                         <a class="text-uppercase"
-                           href="javascript:void(0)">{{$ctrl.ShopServices.getOrderStatusWeb()}}</a>
+                           href="javascript:void(0)">
+                            {{$ctrl.ShopServices.getOrderStatusWeb().name =='asap'?'asap':$ctrl.ShopServices.getOrderStatusWeb().value | date:"MMM d, y h:mm:ss a"}}</a>
                         <span class="text-info">to</span>
                         <a href="javascript:void(0)" data-toggle="collapse" data-target="#umap"
                            ng-click="$ctrl.loadMap();">{{UserService.getAddress()}}</a>

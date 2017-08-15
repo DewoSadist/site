@@ -1,4 +1,4 @@
 {
-	"apiUrl": "http://mun.munchrocket.com/",
+	"apiUrl": "http://localhost:8080/",
 	"frontUrl": "http://localhost:3000/"
 }

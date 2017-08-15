@@ -21,7 +21,8 @@ class CartController implements IFormContainer {
                 public CartServices: CartServices,
                 public UserService: UserService,
                 public ErrorService: ErrorService,
-                public ShopServices: IShopServices) {
+                public ShopServices: IShopServices,
+                public moment) {
         this.time = this.$filter('date')(new Date(), 'HH:mm:ss');
         this.day = this.$filter('date')(new Date(), 'yyyy-MM-dd');
         console.log("current date:", this.day, this.time);
@@ -113,13 +114,13 @@ class CartController implements IFormContainer {
                 small_order_fee: this.cart.small_order_fee,
                 quantity: 0,
                 order_amount: this.cart.total,
-                status: this.ShopServices.getOrderStatusWeb(),
+                status: this.ShopServices.getOrderStatusWeb().name ,
                 user_id: this.UserService.user.user_id,
                 reorder: 0,
                 order_day: this.day,
                 order_time: this.time,
-                req_day: this.day,
-                req_time: this.time,
+                req_day: this.ShopServices.getOrderStatusWeb().value?this.moment(this.ShopServices.getOrderStatusWeb().value).format('yyyy-MM-dd'):this.day,
+                req_time: this.ShopServices.getOrderStatusWeb().value?this.moment(this.ShopServices.getOrderStatusWeb().value).format('HH:MM:SS'):this.time,
                 ship_via: 'car',
                 orderDetails: [],
                 client_name: this.UserService.user.firstname,
@@ -138,13 +139,13 @@ class CartController implements IFormContainer {
                 small_order_fee: this.cart.small_order_fee,
                 quantity: 0,
                 order_amount: this.cart.total,
-                status: this.ShopServices.getOrderStatusWeb(),
+                status: this.ShopServices.getOrderStatusWeb().name + ' ' + this.ShopServices.getOrderStatusWeb().value,
                 user_id: 'unknown',
                 reorder: 0,
                 order_day: this.day,
                 order_time: this.time,
-                req_day: this.day,
-                req_time: this.time,
+                req_day: this.ShopServices.getOrderStatusWeb().value?this.moment(this.ShopServices.getOrderStatusWeb().value).format('yyyy-MM-dd'):this.day,
+                req_time: this.ShopServices.getOrderStatusWeb().value?this.moment(this.ShopServices.getOrderStatusWeb().value).format('HH:MM:SS'):this.time,
                 ship_via: 'car',
                 orderDetails: [],
                 client_name: this.userForm.name,
