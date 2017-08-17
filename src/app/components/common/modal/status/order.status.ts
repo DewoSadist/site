@@ -56,10 +56,23 @@ class modalStatusController implements IFormContainer {
             // {label: moment().add(5, 'days').format('ddd MMM Do'), value: moment().add(5, 'days').format(),choose:false},
             // {label: moment().add(6, 'days').format('ddd MMM Do'), value: moment().add(6, 'days').format(),choose:false}
         ];
+        if(this.ShopServices.getOrderStatusWeb().value.length > 0){
+            let day  = moment(this.ShopServices.getOrderStatusWeb().value).format('ddd DD');
+
+            this.week.forEach((item)=>{
+                item.choose = false;
+                console.log(item.label, day);
+            if(item.label === day) {
+                item.choose = true;
+            }
+            });
+            this.initTimes('week', this.ShopServices.getOrderStatusWeb().value);
+        } else {
+            this.initTimes('today', this.current_date);
+        }
 
         console.log(this.week);
 
-        this.initTimes('today', this.current_date);
 
     }
 
@@ -145,11 +158,13 @@ class modalStatusController implements IFormContainer {
         if(this.order_time === 'asap'){
             this.ShopServices.setOrderStatusWeb('asap');
 
-        }else {
+        } else {
             this.ShopServices.setOrderStatusWeb(this.moment(this.order_time).format())
 
         }
+        this.ShopServices.sortRestaurants();
         this.closeModal();
+
 
     }
 

@@ -20,19 +20,14 @@
                 <a href="javascript:void(0)" data-toggle="collapse" data-target="#umap" ng-click="$ctrl.loadMap();">{{$ctrl.UserService.getSelectedAddress()}}</a>
             </div>
             <!--<div class="navbar-state visible-xs visible-sm pull-left">{{$ctrl.getStateTitle()}}</div>-->
-            <div class="navbar-brand" style="cursor: pointer"
-                 ng-attr-ui-sref="{{$ctrl.isAuthorized ? 'profile.main' : 'home'}}">
+            <div class="navbar-brand" style="cursor: pointer" ng-attr-ui-sref="{{$ctrl.isAuthorized ? 'profile.main' : 'home'}}">
                 <span class="icon icon_logo"></span>
             </div>
 
             <div class="navbar-basket pull-right" data-toggle="collapse" data-target="#sidecart">
                 <!-- TODO: Enable on see theme -->
-                <span
-                        ng-click="$ctrl.CartServices.toggleShowCart()"
-                        class="icon icon_basket"
-                        data-toggle="collapse" data-target="#sidecart"
-                        ng-show="$ctrl.CartServices.getTotalCount() > 0">
-                    <span>{{ $ctrl.CartServices.getTotalCount()}}</span>
+                <span ng-click="$ctrl.CartServices.toggleShowCart()" class="icon icon_basket" data-toggle="collapse" data-target="#sidecart" ng-show="$ctrl.CartServices.getTotalCount() > 0">
+                    <span>{{ $ctrl.CartServices.getTotalCount() }}</span>
                 </span>
             </div>
         </div>
@@ -41,12 +36,11 @@
             <ul class="nav navbar-nav navbar_hb">
                 <li class="hidden-sm hidden-md hidden-lg">
                     <span>
-                        <a class="text-uppercase"
-                           href="javascript:void(0)">
+                        <a class="text-uppercase" href="javascript:void(0)" ng-click="$ctrl.changeOrderStatus()">
                             {{$ctrl.ShopServices.getOrderStatusWeb().name =='asap'?'asap':$ctrl.ShopServices.getOrderStatusWeb().value | date:"MMM d, y h:mm:ss a"}}</a>
                         <span class="text-info">to</span>
-                        <a href="javascript:void(0)" data-toggle="collapse" data-target="#umap"
-                           ng-click="$ctrl.loadMap();">{{UserService.getAddress()}}</a>
+                        <a href="javascript:void(0)" data-toggle="collapse" data-target="#umap" ng-click="$ctrl.loadMap();">{{$ctrl.UserService.getSelectedAddress()}}</a>
+                        <!--<a href="javascript:void(0)" data-toggle="collapse" data-target="#umap" ng-click="$ctrl.loadMap();">{{UserService.getAddress()}}</a>-->
                     </span>
                 </li>
                 <li>

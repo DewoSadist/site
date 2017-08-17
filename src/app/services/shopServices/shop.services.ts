@@ -825,42 +825,84 @@ class ShopServices implements IShopServices {
      * @return {number}
      */
     isResOpen(hours) {
-        let now = moment();
-        let weekday = this.moment().format('dddd');
-        let open_time, close_time;
         let OPEN = true;
-        if(hours.length>0) {
+        if(this.getOrderStatusWeb().label == 'asap') {
+            let now = moment();
+            let weekday = this.moment().format('dddd');
+            let open_time, close_time;
 
-        hours.forEach((item) => {
-        // console.log(weekday.toLowerCase(),item.day.toLowerCase());
-            if(item.day === 'EVERYDAY'){
-                open_time = item.open_hour;
-                close_time = item.close_hour;
-            } else if( weekday.toLowerCase() === item.day.toLowerCase()){
-                open_time = item.open_hour;
-                close_time = item.close_hour;
+            if(hours.length>0) {
+
+                hours.forEach((item) => {
+                    // console.log(weekday.toLowerCase(),item.day.toLowerCase());
+                    if(item.day === 'EVERYDAY'){
+                        open_time = item.open_hour;
+                        close_time = item.close_hour;
+                    } else if( weekday.toLowerCase() === item.day.toLowerCase()){
+                        open_time = item.open_hour;
+                        close_time = item.close_hour;
+                    }
+                });
             }
-        });
+
+            if(open_time && close_time) {
+
+                let dateOpen = this.moment(now).format('YYYY-MM-DD') + 'T' + open_time;
+                let dateClose = this.moment(now).format('YYYY-MM-DD') + 'T' + close_time;
+                // console.log(dateOpen, dateClose);
+
+                let diffOpenMC = this.moment().diff(dateOpen);
+                let diffCloseMC = this.moment().diff(dateClose);
+                // console.log(diffOpenMC, diffCloseMC);
+
+                let diffOpenH = this.moment.duration(diffOpenMC).asHours();
+                let diffCloseH = this.moment.duration(diffCloseMC).asHours();
+                // console.log(diffOpenH, diffCloseH);
+
+                if(Math.abs(diffOpenH)< 0.5 || Math.abs(diffCloseH) < 0.5){
+                    OPEN = false;
+                }
+            }
+        } else {
+            let preorderTime = moment(this.getOrderStatusWeb().value);
+            // console.log(preorderTime.format());
+            let weekday = preorderTime.format('dddd');
+            let open_time, close_time;
+
+            if(hours.length>0) {
+
+                hours.forEach((item) => {
+                    // console.log(weekday.toLowerCase(),item.day.toLowerCase());
+                    if(item.day === 'EVERYDAY'){
+                        open_time = item.open_hour;
+                        close_time = item.close_hour;
+                    } else if( weekday.toLowerCase() === item.day.toLowerCase()){
+                        open_time = item.open_hour;
+                        close_time = item.close_hour;
+                    }
+                });
+            }
+
+            if(open_time && close_time) {
+
+                let dateOpen = preorderTime.format('YYYY-MM-DD') + 'T' + open_time;
+                let dateClose = preorderTime.format('YYYY-MM-DD') + 'T' + close_time;
+                console.log(dateOpen, dateClose);
+
+                let diffOpenMC = this.moment(preorderTime).diff(dateOpen);
+                let diffCloseMC = this.moment(preorderTime).diff(dateClose);
+                console.log(diffOpenMC, diffCloseMC);
+
+                let diffOpenH = this.moment.duration(diffOpenMC).asHours();
+                let diffCloseH = this.moment.duration(diffCloseMC).asHours();
+                console.log(diffOpenH, diffCloseH);
+
+                if(Math.abs(diffOpenH)< 0.5 || Math.abs(diffCloseH) < 0.5){
+                    OPEN = false;
+                }
+            }
+
         }
-
-       if(open_time && close_time) {
-
-           let dateOpen = this.moment(now).format('YYYY-MM-DD') + 'T' + open_time;
-           let dateClose = this.moment(now).format('YYYY-MM-DD') + 'T' + close_time;
-           // console.log(dateOpen, dateClose);
-
-           let diffOpenMC = this.moment().diff(dateOpen);
-           let diffCloseMC = this.moment().diff(dateClose);
-           // console.log(diffOpenMC, diffCloseMC);
-
-           let diffOpenH = this.moment.duration(diffOpenMC).asHours();
-           let diffCloseH = this.moment.duration(diffCloseMC).asHours();
-           // console.log(diffOpenH, diffCloseH);
-
-           if(Math.abs(diffOpenH)< 0.5 || Math.abs(diffCloseH) < 0.5){
-               OPEN = false;
-           }
-       }
 
         return OPEN;
     }
