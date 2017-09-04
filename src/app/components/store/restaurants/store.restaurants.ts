@@ -16,7 +16,6 @@ class StoreRestaurantsController {
                 public ShopServices: IShopServices,
                 public $state,
                 public $cookies) {
-
         this.initRestaurants();
     }
 
@@ -55,6 +54,10 @@ class StoreRestaurantsController {
         this.list = this.ShopServices.sortRestaurants();
             this.isLoading = false;
 
+    }
+
+    getDistance(location){
+        return this.ShopServices.getDistanceKM(location);
     }
 
 }

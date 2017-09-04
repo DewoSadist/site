@@ -1,4 +1,5 @@
 import moment = require("moment");
+import {isNullOrUndefined} from "util";
 /**
  * @interface IRestaurant
  */
@@ -16,7 +17,7 @@ export interface IRestaurant {
     country: string;
     city: string;
     address?: string;
-    location: {lat:number, lng:number};
+    location: string;
     fax?: string;
     phone?: string;
     postal_code?: string;
@@ -29,6 +30,7 @@ export interface IRestaurant {
     service_fee: number;
     small_order_fee: number;
     is_show?: boolean;
+    partner: number;
 }
 /**
  * @interface IHour
@@ -184,6 +186,8 @@ export interface IShopServices {
     setOrderStatusWeb(status: any);
     sortRestaurants();
     isResOpen(time);
+    getDeliveryPrice(partner, delivery, distance);
+    getDistanceKM(location);
 }
 
 /**
@@ -746,6 +750,9 @@ class ShopServices implements IShopServices {
         let c = 2 * Math.atan2(Math.sqrt(a),Math.sqrt(1 - a));
         let d = R * c;
         return d;
+        // let myLatLng1 = new google.maps.LatLng(p1.lat,p1.lng);
+        // let myLatLng2 = new google.maps.LatLng(p2.lat,p2.lng);
+        // return google.maps.geometry.spherical.computeDistanceBetween(myLatLng1, myLatLng2);
     }
 
     /**
@@ -803,11 +810,13 @@ class ShopServices implements IShopServices {
                         if (list_[i].location != null) {
                             let location = list_[i].location;
                             let distance = this.getDistance(p1, JSON.parse(location));
-                            // console.log("distance:", distance);
+                            console.log("distance:", distance, this.isResOpen(list_[i].hours));
 
-                            if (distance > 5000 && !this.isResOpen(list_[i].hours)) {
+                            if ((distance > 5000 && this.isResOpen(list_[i].hours) == false) ||
+                                (distance < 5000 && this.isResOpen(list_[i].hours) == false) ||
+                                (distance > 5000 && this.isResOpen(list_[i].hours) == true)) {
                                 list_.splice(i, 1);
-                                console.log("deleted");
+                                console.log("deleted", distance);
                             }
 
                         }
@@ -906,7 +915,58 @@ class ShopServices implements IShopServices {
 
         return OPEN;
     }
+    /**
+     * @ngdoc method
+     * @name IShopServices.getDeliveryPrice
+     * @methodOf ShopServices
+     *
+     * @description
+     * calculate delivery price
+     *
+     * @return  {String}  delivery value
+     */
+    getDeliveryPrice(partner, delivery, distance) {
+        let price = 0;
 
+        if(partner == 1) {
+            if(distance <= 5){
+                price = delivery;
+            } else {
+                let extraDistance = distance - 5;
+                price = delivery + extraDistance;
+            }
+        } else if (partner == 0) {
+            if(distance <= 5){
+                price = 6.99;
+            } else {
+                let extraDistance = distance - 5;
+                price = 6.99 + extraDistance;
+            }
+        }
+        return price;
+    }
+    /**
+     * @ngdoc method
+     * @name IShopServices.getDistance
+     * @methodOf ShopServices
+     *
+     * @description
+     * calculate delivery price
+     *
+     * @return  {String}  delivery value
+     */
+    getDistanceKM(location){
+        console.log(location);
+        let p1 = this.$cookies.getObject("uLocation");
+        console.log(p1);
+        let distance = 0;
+        if(!isNullOrUndefined(p1)){
+            distance = this.getDistance(p1, JSON.parse(location))/1000;
+        } else {
+            distance = -1;
+        }
+        return distance;
+    }
 
 }
 export default ShopServices;

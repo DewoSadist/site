@@ -41,10 +41,7 @@ class RestaurantEditController implements IFormContainer {
         // patt['subject'] = /[a-z0-9?!:;'&_\. ,-]+/i;
         this.errors = {};
         this.startLoading();
-        if(this.logo_image.filesize < 2000000 && this.logo_image.filetype === 'image/png' && !this.logo_image.filename.match('/^[A-z0-9_-]+$/i')){
-            this.restaurant.logo_image = this.logo_image.base64;
-            this.restaurant.logo_image_url = this.logo_image.filename;
-            console.log(this.restaurant);
+        if(this.restaurant.logo_image_url && this.restaurant.logo_image_url.length>1){
             this.ShopServices.saveOrUpdateRestaurant(this.restaurant)
                 .then((response) => {
                     this.stopLoading();
@@ -68,8 +65,42 @@ class RestaurantEditController implements IFormContainer {
                         };
                     }
                 });
+        } else {
+            if(this.logo_image.filesize < 2000000 && this.logo_image.filetype === 'image/png' && !this.logo_image.filename.match('/^[A-z0-9_-]+$/i')){
+                this.restaurant.logo_image = this.logo_image.base64;
+                this.restaurant.logo_image_url = this.logo_image.filename;
+                console.log(this.restaurant);
+                this.ShopServices.saveOrUpdateRestaurant(this.restaurant)
+                    .then((response) => {
+                        this.stopLoading();
+                        console.log(response);
+                        this.restaurant = response;
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                        this.stopLoading();
+                        if (error.status === 404) {
+                            this.errors = {
+                                form: this.ErrorService.getEditError().saveError
+                            };
+                        } else if (error.status === 500) {
+                            this.errors = {
+                                form: this.ErrorService.getEditError().saveIncorrectValue
+                            }
+                        } else {
+                            this.errors = {
+                                form: this.ErrorService.getGeneralBadRequestError()
+                            };
+                        }
+                    });
 
+            } else {
+                this.errors = {
+                    form: this.ErrorService.getEditError().saveIncorrectValue
+                }
+            }
         }
+
 
     }
 

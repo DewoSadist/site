@@ -8,6 +8,7 @@ class RestaurantNewController implements IFormContainer {
     public warning; // string for alert at the top
     public restaurant: IRestaurant;
 
+    /** @ngInject */
     constructor(public $state,
                 public $stateParams,
                 public $scope: ng.IScope,
@@ -27,7 +28,7 @@ class RestaurantNewController implements IFormContainer {
             country: "",
             city: "",
             address: "",
-            location: {lat:0,lng:0},
+            location: '{"lat":0,"lng":0}',
             fax: "",
             phone: "",
             postal_code: "",
@@ -44,7 +45,8 @@ class RestaurantNewController implements IFormContainer {
             tax: 0,
             delivery: 0,
             service_fee: 0,
-            small_order_fee: 0
+            small_order_fee: 0,
+            partner: 0
 
             };
     }

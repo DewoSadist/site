@@ -1,4 +1,4 @@
-import {IRestaurant} from "../shopServices/shop.services";
+import {IRestaurant, default as ShopServices} from "../shopServices/shop.services";
 /**
  * @interface ICartItem
  */
@@ -60,7 +60,7 @@ class CartServices implements ICartServices {
     public showCart: boolean;
 
     /** @ngInject */
-    constructor(public $cookies: ng.cookies.ICookiesService) {
+    constructor(public $cookies: ng.cookies.ICookiesService, public  ShopServices: ShopServices) {
         this.showCart = false;
         this.cart = $cookies.getObject("cart");
         console.log(this.cart);
@@ -103,8 +103,9 @@ class CartServices implements ICartServices {
      */
     getDeliveryTax(){
         if(this.cart.restaurant != null && this.cart.restaurant.delivery){
-            let delivery = (this.getSubTotalPrice() * this.cart.restaurant.delivery)/100;
-            this.cart.delivery = Math.round(delivery * 100)/ 100;
+            this.cart.delivery = this.ShopServices.getDeliveryPrice(this.cart.restaurant.partner,this.cart.restaurant.delivery,this.ShopServices.getDistanceKM(this.cart.restaurant.location));
+            // let delivery = (this.getSubTotalPrice() * this.cart.restaurant.delivery)/100;
+            // this.cart.delivery = Math.round(delivery * 100)/ 100;
         } else {
             this.cart.delivery = 0;
 
@@ -204,6 +205,7 @@ class CartServices implements ICartServices {
         console.log("Added to cart:", this.cart, this.getTotalCount());
         // calculating total price.
         this.getTotalPrice();
+        this.cart.delivery = this.ShopServices.getDeliveryPrice(this.cart.restaurant.partner,this.cart.restaurant.delivery,this.ShopServices.getDistanceKM(this.cart.restaurant.location));
     }
 
     /**

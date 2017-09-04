@@ -1,29 +1,4 @@
-.modal {
-  &-content {
-    max-width: 340px;
-    max-height: 390px;
-    margin: 0 auto;
-    border-radius: 0;
-  }
-  &-footer {
-    text-align: left;
-    max-height: 248px;
-    overflow-y: inherit;
-    overflow-x: hidden;
-    @media(max-width: $screen-xs-max) {
-      max-height: 180px;
-    }
-    ul{
-      li {
-        padding: 5px;
-        &:hover {
-          background: #dfe9f5;
-        }
-      }
-    }
-  }
 
-}
 .order-status{
   margin-top: 5px;
   .date-selector {
@@ -69,6 +44,32 @@
     padding: 0;
   }
 
+  .modal {
+    &-content {
+      max-width: 340px;
+      max-height: 390px;
+      margin: 0 auto;
+      border-radius: 0;
+    }
+    &-footer {
+      text-align: left;
+      max-height: 248px;
+      overflow-y: inherit;
+      overflow-x: hidden;
+      @media(max-width: $screen-xs-max) {
+        max-height: 180px;
+      }
+      ul{
+        li {
+          padding: 5px;
+          &:hover {
+            background: #dfe9f5;
+          }
+        }
+      }
+    }
+
+  }
 }
 
 

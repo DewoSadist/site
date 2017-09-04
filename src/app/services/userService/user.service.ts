@@ -334,7 +334,7 @@ class UserService implements IUserService {
      */
     getAddress() {
         let address = this.$cookies.getObject("uAddress");
-        if (address == null || address == 'undefined' || address == '') {
+        if (isNullOrUndefined(address)|| address == '') {
             if(this.userAddress != null && this.userAddress != 'undefined' && this.userAddress != '')
             if(typeof this.userAddress === 'string'){
                 address = JSON.parse(this.userAddress);
@@ -373,15 +373,18 @@ class UserService implements IUserService {
             })
         } else {
             let address = this.$cookies.getObject("uAddress");
-            if (address != null || address != 'undefined') {
+            if (!isNullOrUndefined(address)) {
                 if(typeof address === 'string'){
                     address = JSON.parse(address);
                 }
-                address.forEach((item) => {
-                    if (item.choose == true) {
-                        name = item.address;
-                    }
-                })
+                if(address){
+                    address.forEach((item) => {
+                        if (item.choose == true) {
+                            name = item.address;
+                        }
+                    })
+                }
+
             }
         }
         return name;
