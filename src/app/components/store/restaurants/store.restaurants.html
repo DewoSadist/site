@@ -1,4 +1,5 @@
 <div class="profile-cards account-list panel panel-default" ng-class="{'loading':$ctrl.isLoading}">
+    <restaurants-filter></restaurants-filter>
     <div class="panel-heading panel-heading_account panel-heading_dynamic">
         <h6 class="profile-heading">Restaurants {{$ctrl.ShopServices.restaurantsList &&
             $ctrl.ShopServices.restaurantsList.length ? '(' + $ctrl.ShopServices.restaurantsList.length + ')' :

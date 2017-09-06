@@ -41,6 +41,7 @@ import { storeRestaurants } from './app/components/store/restaurants/store.resta
 import { storeRestaurant} from './app/components/store/restaurants/restaurant/store.restaurant';
 import { productsCollection } from './app/components/products/collection/products.collection';
 import { productsFilter } from './app/components/products/filter/products.filter';
+import { restaurantsFilter } from './app/components/store/restaurants/filter/restaurants.filter'
 import { productsInfo } from './app/components/products/info/products.info';
 import { productsItem } from './app/components/products/item/products.item';
 import { productsEdit } from './app/components/products/edit/products.edit';
@@ -183,6 +184,7 @@ angular.module('app', [
 .component('storeRestaurant', storeRestaurant)
 .component('productsCollection',productsCollection)
 .component('productsFilter', productsFilter)
+.component('restaurantsFilter', restaurantsFilter)
 .component('productsInfo', productsInfo)
 .component('about', about)
 .component('contacts', contacts)

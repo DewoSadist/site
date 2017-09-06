@@ -49,10 +49,11 @@ class StoreRestaurantsController {
     }
 
     initRestaurants(){
+        console.log('init restaurants');
         this.isLoading = true;
         this.showAll = false;
         this.list = this.ShopServices.sortRestaurants();
-            this.isLoading = false;
+        this.isLoading = false;
 
     }
 

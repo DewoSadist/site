@@ -1,0 +1,25 @@
+.rfilter {
+  padding: 20px 24px 0;
+  .content{
+    overflow: hidden;
+    width: 100%;
+
+    .result {
+      white-space: normal;
+      display: inline-block;
+      vertical-align: top;
+    }
+    .item {
+      margin-top: 12px;
+      margin-bottom: 60px;
+      width: 83px;
+      height: 83px;
+      position: relative;
+      transition: .2s;
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+
+
+}

@@ -152,6 +152,7 @@ export interface IShopServices {
     userRestaurantsList;
     restaurantsList;
     getAllRestaurants();
+    getAllRestaurantsNoSave();
     getUserRestaurants(userId: string);
     getRestaurant(resId: string);
     addRestaurant(resObj: any);
@@ -185,6 +186,7 @@ export interface IShopServices {
     getOrderStatusWeb();
     setOrderStatusWeb(status: any);
     sortRestaurants();
+    storeSortRestaurants();
     isResOpen(time);
     getDeliveryPrice(partner, delivery, distance);
     getDistanceKM(location);
@@ -210,6 +212,9 @@ class ShopServices implements IShopServices {
 
     public text: string;
     public imgCategories = [];
+
+    private tempResList;
+
 
     /** @ngInject */
     constructor(public $q: ng.IQService,
@@ -240,6 +245,18 @@ class ShopServices implements IShopServices {
             .then((list) => {
                 this.restaurantsList = list;
                 deferred.resolve(this.restaurantsList);
+            })
+            .catch((error) => {
+                deferred.reject(error);
+            });
+        return deferred.promise;
+    }
+
+    getAllRestaurantsNoSave() {
+        let deferred = this.$q.defer();
+        this.Restangular.one('restaurants').customGET()
+            .then((list) => {
+                deferred.resolve(list);
             })
             .catch((error) => {
                 deferred.reject(error);
@@ -799,18 +816,16 @@ class ShopServices implements IShopServices {
     sortRestaurants(){
         let list_;
         // get date current
-
-
         this.getAllRestaurants()
             .then((list) => {
                 let p1 = this.$cookies.getObject("uLocation");
+                list_ = list;
                 if (p1 != null) {
-                    list_ = list;
                     for (let i = list_.length - 1; i >= 0; i--) {
                         if (list_[i].location != null) {
                             let location = list_[i].location;
                             let distance = this.getDistance(p1, JSON.parse(location));
-                            console.log("distance:", distance, this.isResOpen(list_[i].hours));
+                            // console.log("distance:", distance, this.isResOpen(list_[i].hours));
 
                             if ((distance > 5000 && this.isResOpen(list_[i].hours) == false) ||
                                 (distance < 5000 && this.isResOpen(list_[i].hours) == false) ||
@@ -823,9 +838,37 @@ class ShopServices implements IShopServices {
 
                     }
                 }
-
+                this.restaurantsList = list_;
             });
-        this.restaurantsList = list_;
+    }
+    storeSortRestaurants(){
+        let list_;
+        // get date current
+        this.getAllRestaurantsNoSave()
+            .then((list) => {
+                let p1 = this.$cookies.getObject("uLocation");
+                list_ = list;
+                if (p1 != null) {
+                    for (let i = list_.length - 1; i >= 0; i--) {
+                        if (list_[i].location != null) {
+                            let location = list_[i].location;
+                            let distance = this.getDistance(p1, JSON.parse(location));
+                            // console.log("distance:", distance, this.isResOpen(list_[i].hours));
+
+                            if ((distance > 5000 && this.isResOpen(list_[i].hours) == false) ||
+                                (distance < 5000 && this.isResOpen(list_[i].hours) == false) ||
+                                (distance > 5000 && this.isResOpen(list_[i].hours) == true)) {
+                                list_.splice(i, 1);
+                                console.log("deleted", distance);
+                            }
+
+                        }
+
+                    }
+                }
+                this.tempResList = list_;
+            });
+        return this.tempResList
     }
 
     /**
@@ -896,15 +939,15 @@ class ShopServices implements IShopServices {
 
                 let dateOpen = preorderTime.format('YYYY-MM-DD') + 'T' + open_time;
                 let dateClose = preorderTime.format('YYYY-MM-DD') + 'T' + close_time;
-                console.log(dateOpen, dateClose);
+                // console.log(dateOpen, dateClose);
 
                 let diffOpenMC = this.moment(preorderTime).diff(dateOpen);
                 let diffCloseMC = this.moment(preorderTime).diff(dateClose);
-                console.log(diffOpenMC, diffCloseMC);
+                // console.log(diffOpenMC, diffCloseMC);
 
                 let diffOpenH = this.moment.duration(diffOpenMC).asHours();
                 let diffCloseH = this.moment.duration(diffCloseMC).asHours();
-                console.log(diffOpenH, diffCloseH);
+                // console.log(diffOpenH, diffCloseH);
 
                 if(Math.abs(diffOpenH)< 0.5 || Math.abs(diffCloseH) < 0.5){
                     OPEN = false;
@@ -956,9 +999,9 @@ class ShopServices implements IShopServices {
      * @return  {String}  delivery value
      */
     getDistanceKM(location){
-        console.log(location);
+        // console.log(location);
         let p1 = this.$cookies.getObject("uLocation");
-        console.log(p1);
+        // console.log(p1);
         let distance = 0;
         if(!isNullOrUndefined(p1)){
             distance = this.getDistance(p1, JSON.parse(location))/1000;
