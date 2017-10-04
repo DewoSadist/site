@@ -48,7 +48,9 @@
         <div class="panel-heading panel-heading_help-steps">
             <ul class="help-steps" ng-class="{'item_current':$ctrl.step === $ctrl.stepOptions.RECEIVED}">
                 <li class="item">
-                    <span class="step" ng-class="{'step_success':$ctrl.step === $ctrl.stepOptions.IN_PROGRESS || $ctrl.step === $ctrl.stepOptions.ON_THE_WAY || $ctrl.step === $ctrl.stepOptions.DELIVERED }">
+                    <span class="step" ng-class="{'step_success':
+                    $ctrl.step === $ctrl.stepOptions.RECEIVED
+                     || $ctrl.step === $ctrl.stepOptions.IN_PROGRESS || $ctrl.step === $ctrl.stepOptions.ON_THE_WAY || $ctrl.step === $ctrl.stepOptions.DELIVERED }">
                         <span class="icon icon_restore-check"></span>
                     </span>
                     <span class="text">

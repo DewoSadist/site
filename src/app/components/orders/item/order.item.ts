@@ -31,6 +31,7 @@ class OrderItemController {
       ON_THE_WAY: 2,
       DELIVERED: 3
     };
+    this.order.status = 'received';
 
     switch (this.order.status) {
       case 'received': {

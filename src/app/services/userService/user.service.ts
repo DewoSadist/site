@@ -414,15 +414,22 @@ class UserService implements IUserService {
             })
         } else {
             let address = this.$cookies.getObject("uAddress");
-            if (address != null || address != 'undefined') {
+            if (address != null && address != 'undefined' && address.length > 0) {
                 if(typeof address === 'string'){
                     address = JSON.parse(address);
-                }
-                address.forEach((item) => {
+                    address.forEach((item) => {
+                    if (item.choose == true) {
+                            obj = item;
+                        }
+                    });
+                } else {
+                    address.forEach((item) => {
                     if (item.choose == true) {
                         obj = item;
                     }
-                })
+                });
+                }
+                
             }
         }
         return obj;

@@ -36,6 +36,7 @@ class CartController implements IFormContainer {
         this.payment = 'by_cash';
         this.isSend = false;
         this.cart = this.CartServices.getCardItems();
+        
     }
 
     /**
@@ -119,8 +120,8 @@ class CartController implements IFormContainer {
                 reorder: 0,
                 order_day: this.day,
                 order_time: this.time,
-                req_day: this.ShopServices.getOrderStatusWeb().value?this.moment(this.ShopServices.getOrderStatusWeb().value).format('YYYY-MM-DD'):this.day,
-                req_time: this.ShopServices.getOrderStatusWeb().value?this.moment(this.ShopServices.getOrderStatusWeb().value).format('HH:MM:SS'):this.time,
+                req_day: this.ShopServices.getOrderStatusWeb().name!='asap'?this.moment(this.ShopServices.getOrderStatusWeb().value).format('YYYY-MM-DD'):this.day,
+                req_time: this.ShopServices.getOrderStatusWeb().name!='asap'?this.moment(this.ShopServices.getOrderStatusWeb().value).format('HH:mm:SS'):this.time,
                 ship_via: 'car',
                 orderDetails: [],
                 client_name: this.UserService.user.firstname,
@@ -145,7 +146,7 @@ class CartController implements IFormContainer {
                 order_day: this.day,
                 order_time: this.time,
                 req_day: this.ShopServices.getOrderStatusWeb().name!='asap'?this.moment(this.ShopServices.getOrderStatusWeb().value).format('YYYY-MM-DD'):this.day,
-                req_time: this.ShopServices.getOrderStatusWeb().name!='asap'?this.moment(this.ShopServices.getOrderStatusWeb().value).format('HH:MM:SS'):this.time,
+                req_time: this.ShopServices.getOrderStatusWeb().name!='asap'?this.moment(this.ShopServices.getOrderStatusWeb().value).format('HH:mm:SS'):this.time,
                 ship_via: 'car',
                 orderDetails: [],
                 client_name: this.userForm.name,

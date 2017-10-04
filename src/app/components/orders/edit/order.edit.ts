@@ -7,6 +7,8 @@ class OrderEditController implements IFormContainer {
     public warning; // string for alert at the top
     public order: IOrder;
     public text: string;
+    public statuses;
+    public selectedStatusName;
 
     /** @ngInject */
     constructor(public $state,
@@ -18,6 +20,50 @@ class OrderEditController implements IFormContainer {
         this.loginData = {};
         this.isLoading = false;
         this.text = 'My brand new component!';
+
+        
+            this.statuses = [
+                { 
+                    name: 'As Soon As Possible',
+                    value: 'asap'
+                },
+                {
+                    name: 'Preorder',
+                    value: 'preorder'
+                },
+                {
+                    name: 'Received',
+                    value: 'received'
+                },
+                {
+                    name: 'In Progress',
+                    value: 'inprogress'
+                },
+                {
+                    name: 'On the way',
+                    value: 'ontheway'
+                },
+                {
+                    name: 'Delivered',
+                    value: 'delivered'
+                },
+                {
+                    name: 'Canceled',
+                    value: 'canceled'
+                }
+            ];
+
+            this.statuses.forEach((item) => {
+                if (this.order.status == item.value){
+                    this.selectedStatusName = item.name;
+                }
+
+            });
+    }
+
+    selectStatus(status) {
+        this.order.status = status.value;
+        this.selectedStatusName = status.name;
     }
 
     saveOrder() {

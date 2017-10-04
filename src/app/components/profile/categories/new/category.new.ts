@@ -13,7 +13,7 @@ class CategoryNewController implements IFormContainer {
     public restaurants: Array<IRestaurant>;
     public selectedRestaurantName;
     public imgCategoriesSelected;
-    public imgCategories;
+    public imgCategories;    
 
     /** @ngInject */
     constructor(public $state,

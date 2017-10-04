@@ -1,23 +1,36 @@
+<nav class="navbar navbar-default navbar-static-top hidden-sm hidden-md hidden-lg" 
+ng-if="$ctrl.UserService.getAddress()!= null && 
+$ctrl.UserService.getAddress()!='' && 
+($ctrl.state.includes('store') || $ctrl.state.includes('cart')) && 
+$ctrl.isMobile()">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-state pull-left">
+            <a class="text-uppercase" href="javascript:void(0)" ng-click="$ctrl.changeOrderStatus()"><b>{{$ctrl.ShopServices.getOrderStatusWeb().name =='asap'?'asap':$ctrl.ShopServices.getOrderStatusWeb().value | date:"MMM d, y h:mm a"}}</b></a>
+            <span class="text-info">to</span>
+            <a href="javascript:void(0)" data-toggle="collapse" data-target="#umap" ng-click="$ctrl.loadMap();$ctrl.hideAddressEdit();"><b>{{$ctrl.UserService.getSelectedAddress()}}</b></a>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+</nav>
 <nav class="navbar navbar-fixed-top navbar-inverse">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav"
-                    aria-expanded="false">
-                <!-- div class="navbar-label">Menu</div-->
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav" aria-expanded="false" ng-click="$ctrl.hideAddressEdit()">
+            <!-- div class="navbar-label">Menu</div-->
                 <div class="icon-bar-wrap">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </div>
             </button>
-
             <!-- Brand and toggle get grouped for better mobile display -->
 
-            <div class="navbar-state pull-left hidden-xs" ng-if="$ctrl.UserService.getAddress()!= null && $ctrl.UserService.getAddress()!='' && ($ctrl.state.includes('store') || $ctrl.state.includes('cart'))">
-                <a class="text-uppercase" href="javascript:void(0)" ng-click="$ctrl.changeOrderStatus()">{{$ctrl.ShopServices.getOrderStatusWeb().name =='asap'?'asap':$ctrl.ShopServices.getOrderStatusWeb().value | date:"MMM d, y h:mm a"}}</a>
-                <span class="text-info">to</span>
-                <a href="javascript:void(0)" data-toggle="collapse" data-target="#umap" ng-click="$ctrl.loadMap();">{{$ctrl.UserService.getSelectedAddress()}}</a>
+            <div class="navbar-state pull-left" ng-if="$ctrl.UserService.getAddress()!= null && $ctrl.UserService.getAddress()!='' && ($ctrl.state.includes('store') || $ctrl.state.includes('cart')) && !$ctrl.isMobile()">
+                <a href="javascript:void(0)" ng-click="$ctrl.changeOrderStatus()">{{$ctrl.ShopServices.getOrderStatusWeb().name =='asap'?'asap':$ctrl.ShopServices.getOrderStatusWeb().value | date:"MMM d, y h:mm a"}}</a>
+                <span class="text-white">to</span>
+                <a href="javascript:void(0)" data-toggle="collapse" data-target="#umap" ng-click="$ctrl.loadMap();$ctrl.hideAddressEdit();">{{$ctrl.UserService.getSelectedAddress()}}</a>
             </div>
             <!--<div class="navbar-state visible-xs visible-sm pull-left">{{$ctrl.getStateTitle()}}</div>-->
             <div class="navbar-brand" style="cursor: pointer" ng-attr-ui-sref="{{$ctrl.UserService.getSelectedAddress().length > 0 ? 'store.restaurants':'home'}}">
@@ -26,7 +39,7 @@
 
             <div class="navbar-basket pull-right" data-toggle="collapse" data-target="#sidecart">
                 <!-- TODO: Enable on see theme -->
-                <span ng-click="$ctrl.CartServices.toggleShowCart()" class="icon icon_basket" data-toggle="collapse" data-target="#sidecart" ng-show="$ctrl.CartServices.getTotalCount() > 0">
+                <span ng-click="$ctrl.CartServices.toggleShowCart();$ctrl.hideAddressEdit();" class="icon icon_basket" data-toggle="collapse" data-target="#sidecart" ng-show="$ctrl.CartServices.getTotalCount() > 0">
                     <span>{{ $ctrl.CartServices.getTotalCount() }}</span>
                 </span>
             </div>
@@ -37,15 +50,15 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="nav">
             <ul class="nav navbar-nav navbar_hb">
-                <li class="hidden-sm hidden-md hidden-lg">
+                <!--li class="hidden-sm hidden-md hidden-lg">
                     <span>
                         <a class="text-uppercase" href="javascript:void(0)" ng-click="$ctrl.changeOrderStatus()">
                             {{$ctrl.ShopServices.getOrderStatusWeb().name =='asap'?'asap':$ctrl.ShopServices.getOrderStatusWeb().value | date:"MMM d, y h:mm:ss a"}}</a>
                         <span class="text-info">to</span>
                         <a href="javascript:void(0)" data-toggle="collapse" data-target="#umap" ng-click="$ctrl.loadMap();">{{$ctrl.UserService.getSelectedAddress()}}</a>
-                        <!--<a href="javascript:void(0)" data-toggle="collapse" data-target="#umap" ng-click="$ctrl.loadMap();">{{UserService.getAddress()}}</a>-->
+                        <a href="javascript:void(0)" data-toggle="collapse" data-target="#umap" ng-click="$ctrl.loadMap();">{{UserService.getAddress()}}</a>
                     </span>
-                </li>
+                </li-->
                 <li>
                     <span class="contacts">+16047814625 TEXT/CALL</span>
                 </li>
@@ -53,7 +66,8 @@
                     ng-class="{active: $ctrl.state.includes('profile') || $ctrl.state.includes('account')}">
                     <a ui-sref="profile.main">My Profile</a>
                 </li>
-                <li ng-class="{active: $ctrl.state.includes('store')}">
+                <li ng-if="$ctrl.UserService.getSelectedAddress()"
+                    ng-class="{active: $ctrl.state.includes('store')}">
                     <a ui-sref="store.restaurants">Restaurants</a>
                 </li>
                 <li ng-class="{active: $ctrl.state.includes('about')}">
@@ -71,7 +85,11 @@
             </ul>
         </div>
         <div class="collapse navbar-map-collapse" id="umap">
+        <span class="pull-right">
+            <a href="javascript:void(0);" class="glyphicon glyphicon-remove" ng-click="$ctrl.hideAddressEdit()"></a>
+        </span>
             <div ng-show="!$ctrl.editShow" class="saved-addr">
+
                 <ul>
                     <li><b>Saved Addresses</b></li>
                     <li ng-repeat="item in $ctrl.uAddress track by $index">

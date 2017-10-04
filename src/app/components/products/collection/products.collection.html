@@ -1,8 +1,11 @@
 <div class="page-list-wrap">
-  <div class="page-list-item" ng-repeat="product in $ctrl.products" ng-class="{'page-list-item_bottom': (($index == $ctrl.products.length - 1) && ($ctrl.products.length % 2 == 1)) ||  (($index == $ctrl.showCount - 1) && ($ctrl.showCount % 2 == 1)) }">
-    <div class="content" ng-click="$ctrl.openProductModal(product)">
-      <!--<span class="icon icon_category icon_category-{{item.shortName}}"></span>-->
-      <span>{{product.title}}</span>
-    </div>
-  </div>
+  	<div class="page-list-item" ng-repeat="product in $ctrl.products" ng-class="{'page-list-item_bottom': (($index == $ctrl.products.length - 1) && ($ctrl.products.length % 2 == 1)) }">
+	    <div class="content" ng-click="$ctrl.openProductModal(product)">
+	      	<span><b>{{product.title}}</b></span>
+			<span class="text-info">&#160;&#160;&#160;${{product.price}}</span>
+	    </div>
+	    <div class="description">
+			<span>{{product.description}}</span>  
+	    </div>
+	</div>
 </div>

@@ -31,6 +31,7 @@ class HomeSliderController {
 				public $scope,
 				public $rootScope,
 				public NgMap,
+				public $state,
 				public $cookies: ng.cookies.ICookiesService) {
 		this.switchInterval = 3000;
 		this.switchInterval = 0;
@@ -65,6 +66,7 @@ class HomeSliderController {
 			$cookies.putObject("uPosition", this.place.geometry.location);
 			UserService.setUserLocation(this.place.geometry.location);
 			$rootScope.center = this.place.geometry.location;
+			$state.go('store.restaurants');
 		};
 
 		this.NgMap.getMap("map").then((map) => {

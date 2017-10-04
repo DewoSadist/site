@@ -35,8 +35,21 @@
         <td><input type="text" class="form-control" ng-model="$ctrl.order.order_amount" required></td>
       </tr>
       <tr>
-        <td>Status</td>
-        <td><input type="text" class="form-control" ng-model="$ctrl.order.status" required></td>
+        <td>Status(received,inprogress,ontheway,delivered)</td>
+        <td><!--input type="text" class="form-control" ng-model="$ctrl.order.status" required-->
+        <div class="dropdown">
+            <button class="btn dropdown-toggle align-tab btn-default" type="button" id="resselect"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
+                {{$ctrl.selectedStatusName}}
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li ng-repeat="status in $ctrl.statuses" role="presentation"
+                    ng-class="{active: status.value == $ctrl.order.status}">
+                    <a href="javascript:void(0);" ng-click="$ctrl.selectStatus(status)">{{status.name}}</a>
+                </li>
+            </ul>
+        </div></td>
       </tr>
       <tr>
         <td>Reorder times</td>

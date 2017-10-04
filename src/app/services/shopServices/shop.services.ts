@@ -224,7 +224,7 @@ class ShopServices implements IShopServices {
                 public moment) {
         this.text = 'My brand new component!';
         if(this.$cookies.getObject("orderState") == null){
-            this.setOrderStatusWeb("ASAP");
+            this.setOrderStatusWeb("asap");
         }
     }
 

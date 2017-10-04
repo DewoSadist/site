@@ -10,7 +10,8 @@
             <div class="store">
                 {{$ctrl.cart.items? $ctrl.cart.restaurant.title:'Add item to get started'}}
             </div>
-            <a class="btn btn-primary" ui-sref="cart">
+            <div class="store alert alert-danger" ng-if="!$ctrl.UserService.getSelectedAddress()">Please add delivery address on main page</div>
+            <a class="btn btn-primary" ui-sref="cart" ng-if="$ctrl.UserService.getSelectedAddress()">
                 <span>Checkout</span><span>{{$ctrl.CartServices.getSubTotalPrice() | currency}}</span>
             </a>
         </div>

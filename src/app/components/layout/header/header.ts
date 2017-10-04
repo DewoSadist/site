@@ -96,6 +96,7 @@ class HeaderController {
 			$cookies.putObject("uPosition", this.place.geometry.location);
 			UserService.setUserLocation(this.place.geometry.location);
 			$rootScope.center = this.place.geometry.location;
+			$('.collapse').collapse('hide');
 
 		};
 
@@ -228,6 +229,7 @@ class HeaderController {
 	 */
 	hideAddressEdit(){
 		this.editShow = false;
+		$('.collapse').collapse('hide');
 	}
 	/**
 	 * @ngdoc method
@@ -267,6 +269,10 @@ class HeaderController {
 			windowClass: 'order-modal'
 		});
 	}
+
+  private isMobile() {
+    return document.documentElement.clientWidth < 768;
+  }
 }
 
 export const header = {

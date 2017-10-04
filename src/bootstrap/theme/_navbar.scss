@@ -2,7 +2,7 @@ $navbar-font-size: 14px;
 $navbar-padding-horizontal: 7px;
 
 .navbar-toggle {
-    color: $color-white;
+    color: gray;
     float: left;
     margin-left: 16px;
     min-height: $navbar-height;
@@ -77,11 +77,14 @@ $navbar-padding-horizontal: 7px;
     font-size: $font-size-small;
     a {
         position: relative;
-        color: $color-white;
+        color: gray;
 
         &:hover,
         &:focus {
             color: $color-battleship-gray;
+        }
+        @media (min-width: $screen-sm-min) {
+          color: $color-white;  
         }
     }
 
@@ -210,6 +213,7 @@ $navbar-padding-horizontal: 7px;
 
     &-default {
         z-index: 1001;
+        border-bottom: 1px solid $color-battleship-gray;
 
         .dropdown {
             .image {
