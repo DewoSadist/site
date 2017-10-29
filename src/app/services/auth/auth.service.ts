@@ -347,6 +347,38 @@ class AuthService {
         this.authorized = value;
     }
 
+    /**
+     * Validates the password and confirm password matching
+     * @param password {string} - Password value
+     * @param confirmPassword {string} - Confirm password value
+     * @return {Object} - Validation output as object if errors are found
+     */
+    validatePasswords(password: string, confirmPassword: string) {
+        var errors = {};
+        let passwordIsValid = password && password.length > 0;
+        let passwordIsLong = passwordIsValid && password.length >= this.minPasswordSize;
+        let passwordRepeatIsValid = confirmPassword && confirmPassword.length > 0 && (password === confirmPassword);
+        if (!passwordIsValid) {
+            errors['password'] = this.ErrorService.getAuthErrors().passwordEmptyError;
+        } else if (!passwordIsLong) {
+            errors['password'] = this.ErrorService.getAuthErrors().passwordShortError;
+        }
+
+        // no need to show any confirmPassword field error, if password field is not valid
+        if (passwordIsValid && passwordIsLong && !passwordRepeatIsValid) {
+            errors['confirmPassword'] = this.ErrorService.getAuthErrors().passwordNotMatchError;
+        }
+        return errors;
+    }
+
+    /**
+     * Sends a register request to API and stores response data in cookies
+     * @param data - Request body with registration data
+     * @return {IPromise<any>} - Request promise
+     */
+    register(data) {
+        return this.Restangular.all('/users/create').post(data);
+    }
 }
 
 export default AuthService;

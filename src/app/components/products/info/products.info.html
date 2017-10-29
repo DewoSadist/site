@@ -4,7 +4,7 @@
     <div class="modal-header">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="price-block">ADD ITEM - {{$ctrl.product.price | currency}}</div>
+                <div class="price-block">ADD ITEM - ${{$ctrl.product.price.toFixed(2)}}</div>
                 <h4>{{$ctrl.product.title}}</h4>
                 <div class="description-block">{{$ctrl.product.description}}</div>
             </div>
@@ -12,7 +12,7 @@
     </div>
     <form ng-submit="$ctrl.addItemToCart()" ng-class="{'loading': $ctrl.isLoading}">
         <div class="modal-body">
-            <div class="row">
+            <div class="row">{{$ctrl.productOptions}}
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="form-group"
                          ng-repeat="option in $ctrl.productOptions">
@@ -30,7 +30,7 @@
                                                clear-errors>
                                         <label for="checkbox{{item.id}}" >
                                             <span>{{item.name}}</span>
-                                            <span>{{item.price | currency}}</span>
+                                            <span ng-if="option.isFree === 0">{{item.price | currency}}</span>
                                         </label>
                                     </div>
                                 </div>
@@ -48,7 +48,7 @@
                                                clear-errors>
                                         <label for="radio{{item.id}}">
                                             <span>{{item.name}}</span>
-                                            <span>{{item.price | currency}}</span>
+                                            <span ng-if="option.isFree === 0">{{item.price | currency}}</span>
                                         </label>
                                     </div>
                                 </div>

@@ -1,0 +1,116 @@
+<section class="courier-banner hidden-xs">
+    <div class="courier-banner">
+        <div class="slide slide_register">
+            <div class="container">
+                <div class="slide-wrap" style="margin-top: 5%;">
+                    <div class="slide-content">
+                        <h1 class="text-white" style="font-size: 6rem;">
+                            Rewarding. <br>Flexible. <br>Fun.
+                        </h1>
+                        <p class="text-white subtitle subtitle_home" style="font-size: 3rem;">
+                            Flying with MunchRocket is that good!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="courier">
+    <div class="container">
+        <div class="page-content">
+            <br/>
+            <courier-slider></courier-slider>
+            <br/>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 text-center">
+                    <h1>1. Sign up online</h1>
+                    <p>We will quickly process your info and perform all the neccessary checks. Once we are done you
+                        will hear from us!</p>
+                    <br/>
+                    <h1>2. Learn the basics</h1>
+                    <p>There are few things you need to know, but it is all quick and easy. And we are always there to
+                        help.</p>
+                    <br/>
+                    <h1>3. Deliver and earn cash</h1>
+                    <p>Once on the road, get ready to know the city really well, deliver smiles, and make some good
+                        cash!</p>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <h2 class="text-center">Sign up today!</h2>
+                    <div class="alert alert-warning" ng-show="$ctrl.warning">{{$ctrl.warning}}</div>
+                    <form ng-submit="$ctrl.sendAction()">
+                        <div class="form-group" ng-class="{'has-error': $ctrl.errors.storeNameError}">
+                            <!--<label class="control-label" for="sName">Store name</label>-->
+                            <input clear-errors autocomplete="off" id="sName" class="form-control"
+                                   placeholder="Store Name"
+                                   ui-mask-placeholder=""
+                                   ui-mask-placeholder-char=""
+                                   clear-on-blur="false"
+                                   type="text"
+                                   ng-model="$ctrl.contactData.storeName"
+                                   auto-focus="true">
+                            <small class="error" ng-show="$ctrl.errors.storeNameError"> {{$ctrl.errors.storeNameError}}
+                            </small>
+                        </div>
+                        <div class="form-group" ng-class="{'has-error': $ctrl.errors.storeAddressError}">
+                            <!--<label class="control-label" for="sAddress">Store address</label>-->
+                            <input clear-errors autocomplete="off" id="sAddress" class="form-control"
+                                   placeholder="Address"
+                                   ui-mask-placeholder="" ui-mask-placeholder-char="" clear-on-blur="false"
+                                   type="text" ng-model="$ctrl.contactData.storeAddress" auto-focus="true">
+                            <small class="error" ng-show="$ctrl.errors.storeAddressError">
+                                {{$ctrl.errors.storeAddressError}}
+                            </small>
+                        </div>
+                        <div class="form-group" ng-class="{'has-error': $ctrl.errors.numberEmptyError}">
+                            <!--<label class="control-label" for="sPhone">Phone</label>-->
+                            <input clear-errors autocomplete="off" id="sPhone" class="form-control"
+                                   placeholder="Mobile Phone"
+                                   ui-mask-placeholder="" ui-mask-placeholder-char="" clear-on-blur="false"
+                                   type="text" ng-model="$ctrl.contactData.number" auto-focus="true">
+                            <small class="error" ng-show="$ctrl.errors.numberEmptyError">
+                                {{$ctrl.errors.numberEmptyError}}
+                            </small>
+                        </div>
+                        <div class="form-group" ng-class="{'has-error': $ctrl.errors.storeFullNameError}">
+                            <!--<label class="control-label" for="sFullName">Full Name</label>-->
+                            <input clear-errors autocomplete="off" id="sFullName" class="form-control"
+                                   placeholder="Full Name"
+                                   ui-mask-placeholder="" ui-mask-placeholder-char="" clear-on-blur="false"
+                                   type="text" ng-model="$ctrl.contactData.storeFullName" auto-focus="true">
+                            <small class="error" ng-show="$ctrl.errors.storeFullNameError">
+                                {{$ctrl.errors.storeFullNameError}}
+                            </small>
+                        </div>
+                        <div class="form-group" ng-class="{'has-error': $ctrl.errors.emailEmptyError}">
+                            <!--<label class="control-label" for="sEmail">Email</label>-->
+                            <input clear-errors autocomplete="off" id="sEmail" class="form-control"
+                                   placeholder="Contact Email"
+                                   ui-mask-placeholder="" ui-mask-placeholder-char="" clear-on-blur="false"
+                                   type="email" ng-model="$ctrl.contactData.email" auto-focus="true">
+                            <small class="error" ng-show="$ctrl.errors.emailEmptyError">
+                                {{$ctrl.errors.emailEmptyError}}
+                            </small>
+                        </div>
+                        <div ng-if="$ctrl.errors.form" class="alert alert-danger" role="alert">
+                            {{$ctrl.errors.form}}
+                        </div>
+                        <div ng-if="$ctrl.success.form" class="alert alert-success" role="alert">
+                            {{$ctrl.success.form}}
+                        </div>
+                        <button type="submit" ng-disabled="$ctrl.isLoading === true"
+                                class="btn btn-primary">
+                            <span ng-if="$ctrl.isLoading">pleas wait</span>
+                            <span ng-if="!$ctrl.isLoading">Get started</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+        </div>
+    </div>
+</section>

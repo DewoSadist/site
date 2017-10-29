@@ -17,7 +17,7 @@ export interface IUserObject {
     firstname?: string,
     secondname?: string,
     lastname?: string,
-    user_id: string
+    user_id?: string
 }
 export interface ILocation {
     lat: string,

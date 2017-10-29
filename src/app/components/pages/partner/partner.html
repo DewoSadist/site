@@ -1,0 +1,149 @@
+<section class="partner-banner hidden-xs">
+    <div class="partner-banner">
+        <div class="slide slide_register">
+            <div class="container">
+                <div class="slide-wrap" style="margin-top: 10%;">
+                    <div class="slide-content">
+                        <h1 class="text-white" style="font-size: 6rem;">
+                            Power Up Your Business
+                        </h1>
+                        <p class="text-white subtitle subtitle_home" style="font-size: 3rem;">
+                            Get more orders with MunchRocket
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="partner">
+    <div class="container">
+        <div class="page-content">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h1>Reach more customers</h1>
+                            <p>You can’t hide from customers when your awesome menu is on our website!</p>
+                            <br/>
+
+                            <h1>Start right away</h1>
+                            <p>No need for any additional software and hardware for your restaurant to start working
+                                with us</p>
+                            <br/>
+
+                            <h1>Done with tremendous care</h1>
+                            <p>Five Star service for your customers before delivery, during, and after. Frankly, we
+                                really care!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="macbook"></div>
+                </div>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+                    <div class="panel panel-default users-panel text-center">
+                        <div class="panel-heading">
+                            <h2>Our delivery ﬂeet for your needs!</h2>
+                        </div>
+                        <div class="panel-body">
+                            <p>You can always rely on us when you get a phone order from your regular customer,
+                            a catering event, or a special request. Just give us a call, and we will be on the way!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 text-center">
+                    <h1>1. Sign up now</h1>
+                    <p>Fill out the form online with your contact and store information.</p>
+                    <br/>
+                    <h1>2. We will get back</h1>
+                    <p>Our team will be right back to collect all the info to get you listed on our site.</p>
+                    <br/>
+                    <h1>3. Recieve Orders!</h1>
+                    <p>Once listed, get ready for more customer orders from MunchRocket!</p>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <h2 class="text-center">Start delivering this week</h2>
+                    <div class="alert alert-warning" ng-show="$ctrl.warning">{{$ctrl.warning}}</div>
+                    <form ng-submit="$ctrl.sendAction()">
+                        <div class="form-group" ng-class="{'has-error': $ctrl.errors.storeNameError}">
+                            <!--<label class="control-label" for="sName">Store name</label>-->
+                            <input clear-errors autocomplete="off" id="sName" class="form-control"
+                                   placeholder="Store Name"
+                                   ui-mask-placeholder=""
+                                   ui-mask-placeholder-char=""
+                                   clear-on-blur="false"
+                                   type="text"
+                                   ng-model="$ctrl.contactData.storeName"
+                                   auto-focus="true">
+                            <small class="error" ng-show="$ctrl.errors.storeNameError"> {{$ctrl.errors.storeNameError}}
+                            </small>
+                        </div>
+                        <div class="form-group" ng-class="{'has-error': $ctrl.errors.storeAddressError}">
+                            <!--<label class="control-label" for="sAddress">Store address</label>-->
+                            <input clear-errors autocomplete="off" id="sAddress" class="form-control"
+                                   placeholder="Address"
+                                   ui-mask-placeholder="" ui-mask-placeholder-char="" clear-on-blur="false"
+                                   type="text" ng-model="$ctrl.contactData.storeAddress" auto-focus="true">
+                            <small class="error" ng-show="$ctrl.errors.storeAddressError">
+                                {{$ctrl.errors.storeAddressError}}
+                            </small>
+                        </div>
+                        <div class="form-group" ng-class="{'has-error': $ctrl.errors.numberEmptyError}">
+                            <!--<label class="control-label" for="sPhone">Phone</label>-->
+                            <input clear-errors autocomplete="off" id="sPhone" class="form-control"
+                                   placeholder="Mobile Phone"
+                                   ui-mask-placeholder="" ui-mask-placeholder-char="" clear-on-blur="false"
+                                   type="text" ng-model="$ctrl.contactData.number" auto-focus="true">
+                            <small class="error" ng-show="$ctrl.errors.numberEmptyError">
+                                {{$ctrl.errors.numberEmptyError}}
+                            </small>
+                        </div>
+                        <div class="form-group" ng-class="{'has-error': $ctrl.errors.storeFullNameError}">
+                            <!--<label class="control-label" for="sFullName">Full Name</label>-->
+                            <input clear-errors autocomplete="off" id="sFullName" class="form-control"
+                                   placeholder="Full Name"
+                                   ui-mask-placeholder="" ui-mask-placeholder-char="" clear-on-blur="false"
+                                   type="text" ng-model="$ctrl.contactData.storeFullName" auto-focus="true">
+                            <small class="error" ng-show="$ctrl.errors.storeFullNameError">
+                                {{$ctrl.errors.storeFullNameError}}
+                            </small>
+                        </div>
+                        <div class="form-group" ng-class="{'has-error': $ctrl.errors.emailEmptyError}">
+                            <!--<label class="control-label" for="sEmail">Email</label>-->
+                            <input clear-errors autocomplete="off" id="sEmail" class="form-control"
+                                   placeholder="Contact Email"
+                                   ui-mask-placeholder="" ui-mask-placeholder-char="" clear-on-blur="false"
+                                   type="email" ng-model="$ctrl.contactData.email" auto-focus="true">
+                            <small class="error" ng-show="$ctrl.errors.emailEmptyError">
+                                {{$ctrl.errors.emailEmptyError}}
+                            </small>
+                        </div>
+                        <div ng-if="$ctrl.errors.form" class="alert alert-danger" role="alert">
+                            {{$ctrl.errors.form}}
+                        </div>
+                        <div ng-if="$ctrl.success.form" class="alert alert-success" role="alert">
+                            {{$ctrl.success.form}}
+                        </div>
+                        <button type="submit" ng-disabled="$ctrl.isLoading === true"
+                                class="btn btn-primary">
+                            <span ng-if="$ctrl.isLoading">pleas wait</span>
+                            <span ng-if="!$ctrl.isLoading">Get started</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+        </div>
+    </div>
+</section>

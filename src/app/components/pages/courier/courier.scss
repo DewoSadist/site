@@ -1,0 +1,11 @@
+.courier {
+    padding-top: 40px;
+    &-banner {
+        height: 60vh;
+        width: 100%;
+        @include retina-background-image('img/courier-banner', png, cover);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+}

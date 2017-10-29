@@ -3,9 +3,8 @@
         <div class="info">
             <div class="row">
                 <div class="col-xs-12 col-sm-9 col-md-7">
-                    <h1 class="title">Sign in</h1>
-                    <div class="subtitle">New to MunchRocket? <a ui-sref="users.register" href="javascript:void(0);">Create an
-                        account</a></div>
+                    <h1 class="title">Registration</h1>
+                    <div class="subtitle">Please, fill the required fields</div>
                 </div>
             </div>
         </div>
@@ -19,44 +18,106 @@
                     <div class="panel panel-default users-panel">
                         <div class="panel-body">
                             <div class="alert alert-warning" ng-show="$ctrl.warning">{{$ctrl.warning}}</div>
-                            <form ng-submit="$ctrl.loginAction()">
+                            <form ng-submit="$ctrl.registerAction()">
+                                <div class="form-group" ng-class="{'has-error': $ctrl.errors.input}">
+                                    <label class="control-label" for="registerFirstName">First name</label>
+                                    <input clear-errors autocomplete="off" id="registerFirstName" class="form-control"
+                                           ui-mask-placeholder="" ui-mask-placeholder-char="" clear-on-blur="false"
+                                           type="text" ng-model="$ctrl.registerData.firstname" auto-focus="true" required>
+                                    <small class="error" ng-show="$ctrl.errors.input"> {{$ctrl.errors.input}}</small>
+                                </div>
+                                <div class="form-group" ng-class="{'has-error': $ctrl.errors.input}">
+                                    <label class="control-label" for="registerSecondName">Second name</label>
+                                    <input clear-errors autocomplete="off" id="registerSecondName" class="form-control"
+                                           ui-mask-placeholder="" ui-mask-placeholder-char="" clear-on-blur="false"
+                                           type="text" ng-model="$ctrl.registerData.secondname" auto-focus="true" required>
+                                    <small class="error" ng-show="$ctrl.errors.input"> {{$ctrl.errors.input}}</small>
+                                </div>
+                                <div class="form-group" ng-class="{'has-error': $ctrl.errors.input}">
+                                    <label class="control-label" for="registerLastName">Last name</label>
+                                    <input clear-errors autocomplete="off" id="registerLastName" class="form-control"
+                                           ui-mask-placeholder="" ui-mask-placeholder-char="" clear-on-blur="false"
+                                           type="text" ng-model="$ctrl.registerData.lastname" auto-focus="true" required>
+                                    <small class="error" ng-show="$ctrl.errors.input"> {{$ctrl.errors.input}}</small>
+                                </div>
+                                <div class="form-group" ng-class="{'has-error': $ctrl.errors.input}">
+                                    <label class="control-label" for="registerPhone">Phone</label>
+                                    <input clear-errors autocomplete="off" id="registerPhone" class="form-control"
+                                           ui-mask-placeholder="" ui-mask-placeholder-char="" clear-on-blur="false"
+                                           type="text" ng-model="$ctrl.registerData.phone" auto-focus="true" required>
+                                    <small class="error" ng-show="$ctrl.errors.input"> {{$ctrl.errors.input}}</small>
+                                </div>
+                                <div class="form-group" ng-class="{'has-error': $ctrl.errors.input}">
+                                    <label class="control-label" for="registerLocation">Address</label>
+                                    <input autocomplete="off"
+                                           places-auto-complete
+                                           size=80
+                                           component-restrictions="{country:'ca'}"
+                                           on-place-changed="$ctrl.placeChanged()"
+                                           types="{{$ctrl.types}}"
+                                           class="form-control ng-pristine ng-untouched ng-valid ng-empty"
+                                           id="registerLocation" placeholder="Enter address"
+                                           type="text"
+                                           required>
+                                </div>
                                 <div class="form-group" ng-class="{'has-error': $ctrl.errors.input}">
                                     <label class="control-label" for="loginEmail">Email</label>
                                     <input clear-errors autocomplete="off" id="loginEmail" class="form-control"
                                            ui-mask-placeholder="" ui-mask-placeholder-char="" clear-on-blur="false"
-                                           type="email" ng-model="$ctrl.loginData.email" auto-focus="true">
+                                           type="email" ng-model="$ctrl.registerData.email" auto-focus="true" required>
                                     <small class="error" ng-show="$ctrl.errors.input"> {{$ctrl.errors.input}}</small>
                                 </div>
-                                <div class="form-group"
-                                     ng-class="{'has-error': $ctrl.errors.password && $ctrl.errors.password.length}">
-                                    <label class="control-label" for="loginPassword">Password</label>
+                                <div class="form-group" ng-class="{'has-error': $ctrl.errors.passwordShort || $ctrl.errors.passwordInvalid}">
+                                    <label class="control-label" for="registerPassword">Set the password from the cabinet</label>
                                     <div class="input-group no-border">
-                                        <input clear-errors id="loginPassword" autocomplete="off" class="form-control"
-                                               ng-model="$ctrl.loginData.password"
-                                               type="{{$ctrl.loginData.isPasswordShown === true? 'text' : 'password'}}">
-                                        <a href="javascript:void(0);" class="input-group-addon password-btn"
-                                           ng-class="{'password-btn_show':$ctrl.loginData.isPasswordShown === true}"
-                                           ng-click="$ctrl.togglePasswordShow()" placeholder="Your password">
+                                        <input autocomplete="off" auto-focus="true" clear-errors id="registerPassword" class="form-control" placeholder="Your password" ng-change="$ctrl.validatePassword()" ng-model="$ctrl.registerData.password" type="{{$ctrl.registerData.isPasswordShown ? 'text' : 'password'}}">
+                                        <div class="input-group-addon password-btn"
+                                             ng-class="{'password-btn_show':$ctrl.registerData.isPasswordShown}" ng-click="$ctrl.togglePasswordShow()">
                                             <span class="icon icon_password-show"></span>
-                                        </a>
+                                        </div>
                                     </div>
-                                    <small class="error" ng-show="$ctrl.errors.password"> {{$ctrl.errors.password}}
-                                    </small>
+                                    <ul class="password-info">
+                                        <li ng-class="{'success': !$ctrl.passwordErrors.passwordShort,'error':$ctrl.errors.passwordShort}" >
+                                            <span class="status"></span>
+                                            <span class="text">
+                                        Password must be longer than 8 characters
+                                    </span>
+                                        </li>
+                                        <li ng-class="{'success': !$ctrl.passwordErrors.passwordInvalid,'error':$ctrl.errors.passwordInvalid}" >
+                                            <span class="status"></span>
+                                            <span class="text">
+                                        Contain at least 1 number, 1 uppercase and lowercase letter
+                                    </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="form-group" ng-class="{'has-error': $ctrl.errors.confirmPassword && $ctrl.errors.confirmPassword.length}">
+                                    <label class="control-label" for="registerConfirmPassword">Confirm password</label>
+                                    <div class="input-group no-border">
+                                        <input autocomplete="off" clear-errors id="registerConfirmPassword" class="form-control" placeholder="Confirm password" type="{{$ctrl.registerData.isConfirmShown?'text':'password'}}" ng-model="$ctrl.registerData.confirmPassword">
+                                        <div class="input-group-addon password-btn" ng-class="{'password-btn_show':$ctrl.registerData.isConfirmShown}" ng-click="$ctrl.toggleConfirmPasswordShow()">
+                                            <span class="icon icon_password-show"></span>
+                                        </div>
+                                    </div>
+                                    <small class="error" ng-show="$ctrl.errors.confirmPassword"> {{$ctrl.errors.confirmPassword}}</small>
                                 </div>
                                 <div ng-if="$ctrl.errors.form" class="alert alert-danger" role="alert">
                                     {{$ctrl.errors.form}}
                                 </div>
+                                <div ng-if="$ctrl.success" class="alert alert-success" role="alert">
+                                    {{$ctrl.success}}
+                                </div>
                                 <button type="submit" ng-disabled="$ctrl.isLoading === true" class="btn btn-primary">
                                     <span ng-if="$ctrl.isLoading">pleas wait</span>
-                                    <span ng-if="!$ctrl.isLoading">Sign in</span>
+                                    <span ng-if="!$ctrl.isLoading">Register</span>
                                 </button>
-                                <div class="users-links">
-                                    <a ui-sref="users.restore" href="javascript:void(0);">I forgot password</a>
-                                    <a href="javascript:void(0);" class="disabled">I forgot login</a>
-                                </div>
                             </form>
                         </div>
                     </div>
+                    <br/>
+                    <p class="bottom-text">Do you have Munchrocket account?</p>
+                    <a class="btn btn-ghost" ui-sref="users.login" href="javascript:void(0)">Sign in</a>
+                    <br/>
                 </div>
             </div>
         </div>

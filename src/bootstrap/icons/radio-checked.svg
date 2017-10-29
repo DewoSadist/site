@@ -1,0 +1,49 @@
+<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
+ <title>checkbox@1,5x</title>
+ <desc>Created with Sketch.</desc>
+ <defs>
+  <rect rx="2" height="16" width="16" y="0" x="0.998282" id="path-1"/>
+ </defs>
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g fill-rule="evenodd" fill="none" id="UI-Kit">
+   <g id="Select">
+    <g id="desktop/m/on-white/checkbox/ckecked">
+     <g id="Group-5">
+      <g id="checkbox">
+       <g id="Path-200-Copy-27">
+        <mask transform="translate(0,4) translate(65,393) translate(-66,-397) " id="mask-2">
+         <use id="svg_1" xlink:href="#path-1"/>
+        </mask>
+        <use x="-1" y="0" xlink:href="#path-1" fill="#FF0000" id="Mask"/>
+        <polygon id="svg_2" points="7.135364532470703,11.08636474609375 7.925048828125,11.7802734375 8.578666687011719,10.9569091796875 16.783214569091797,0.62176513671875 15.216785430908203,-0.62176513671875 7.63348388671875,8.9093017578125 4.660087585449219,6.248809814453125 3.3399124145507812,7.751190185546875 " mask="url(#mask-2)" fill="#FFFFFF"/>
+       </g>
+      </g>
+     </g>
+    </g>
+   </g>
+  </g>
+  <g stroke="null" fill-rule="evenodd" fill="none" id="svg_12">
+   <g stroke="null" id="svg_11">
+    <g stroke="null" id="svg_10">
+     <g stroke="null" id="svg_9">
+      <g stroke="null" id="svg_8">
+       <g stroke="null" id="svg_7">
+        <mask stroke="null" fill="#ffffff" transform="translate(0,-0.03125) translate(0.03125,0) translate(0,-0.03125) translate(0,-0.03125) translate(0.03125,0) translate(0.03125,0) translate(0,-0.5564243793487549) translate(0.5624992847442627,0) translate(0,-0.03125) translate(0,-0.03125) translate(0.03125,0) translate(0.03125,0) translate(0,-0.6808161735534668) translate(0.6875007152557373,0) translate(0,-2.1343774795532227) translate(2.031249523162842,0) translate(0,0.03125) translate(0,0.03125) translate(0,0.03125) translate(0,0.03125) translate(0,0.03125) translate(0,0.03125) translate(0,0.03125) translate(0.03125,0) translate(0.03125,0) translate(0.03125,0) translate(0.03125,0) translate(0.03125,0) translate(0.03125,0) translate(0.03125,0) translate(0,-0.03125) translate(0,-0.03125) translate(0,-0.03125) translate(0,-0.03125) translate(0,-0.03125) translate(0,-0.03125) translate(0,-0.03125) translate(0,-0.03125) translate(0,-0.03125) translate(0,-0.03125) translate(0,0.20115137100219727) translate(-0.2031252384185791,0) translate(0,-0.12503862380981445) translate(-0.06262350082397461,0) translate(4.65625,-4.5) translate(0,4) translate(65,393) translate(-66,-397) translate(-0.001718282699584961,16) scale(0.4060893952846527) translate(0.001718282699584961,-16) translate(11.307628631591797,28.010976791381836) scale(1.3071733713150024) translate(-11.307628631591797,-28.010976791381836) translate(25.43537712097168,4.80689811706543) scale(1.2420051097869873) translate(-25.43537712097168,-4.80689811706543) translate(20.479286193847656,3.870272636413574) scale(1.0310630798339844) translate(-20.479286193847656,-3.870272636413574) translate(3.0773675441741943,20.375438690185547) scale(1.0712099075317383) translate(-3.0773675441741943,-20.375438690185547) translate(2.894251585006714,19.16844940185547) scale(0.6318246126174927) translate(-2.894251585006714,-19.16844940185547) translate(8.99576473236084,25.699113845825195) scale(0.8219473361968994) translate(-8.99576473236084,-25.699113845825195) translate(12.927727699279785,29.3005313873291) scale(0.803070068359375) translate(-12.927727699279785,-29.3005313873291) " id="svg_4">
+         <use stroke="null" fill="#ffffff" id="svg_3" xlink:href="#path-1"/>
+        </mask>
+        <use stroke="null" transform="matrix(0.3036910627593977,0,0,0.3036910627593977,-0.4956149240618801,11.641115835747577) " x="18.892484" y="-19.987358" xlink:href="#path-1" fill="#ffffff" id="svg_5"/>
+        <polygon stroke="null" id="svg_6" points="7.712501525878906,8.937963485717773 7.952321529388428,9.148697853088379 8.150818824768066,8.898648262023926 10.64246654510498,5.7599592208862305 10.166755676269531,5.382309436798096 7.863775730133057,8.276810646057129 6.960782051086426,7.468842506408691 6.559856414794922,7.925101280212402 " mask="url(#mask-2)" fill="#ffffff"/>
+       </g>
+      </g>
+     </g>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>

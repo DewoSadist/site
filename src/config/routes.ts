@@ -92,6 +92,14 @@ function routesConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvi
 		url: '/terms',
 		template: '<terms></terms>'
 	})
+	.state('partner', {
+		url: '/partner',
+		template: '<partner></partner>'
+	})
+	.state('courier', {
+		url: '/courier',
+		template: '<courier></courier>'
+	})
 
 	// ----------------------------------- USER STATES ---------------------------------------
 

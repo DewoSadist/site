@@ -1,0 +1,64 @@
+<section class="courier-slider">
+    <div uib-carousel
+         template-url="app/components/pages/courier/slider/uib-carousel.html"
+         class="carousel_home"
+         active="$ctrl.activeSlide"
+         interval="$ctrl.switchInterval"
+         no-wrap="$ctrl.noWrapSlides">
+
+        <div uib-slide index="0">
+            <div class="slide">
+                <div class="container">
+                    <div class="slide-wrap">
+                        <div class="slide-content text-center">
+                            <div class="photo">
+                                <img src="app/components/pages/courier/img/face.png" width="150" height="150">
+                            </div>
+                            <h1 class="title_home">“I am my own boss!”</h1>
+                            <h2>Sam S., Rocket Courier</h2>
+                            <p class="subtitle subtitle_home">
+                                Order the tastiest meals from best restaurants in town
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div uib-slide index="1">
+            <div class="slide">
+                <div class="container">
+                    <div class="slide-wrap">
+                        <div class="slide-content text-center">
+                            <div class="photo">
+                                <img src="{{$ctrl.getImgUrl()}}/face.png" width="100" height="100">
+                            </div>
+                            <h1 class="title_home">“I am my own boss!”</h1>
+                            <h2>Sam S., Rocket Courier</h2>
+                            <p class="subtitle subtitle_home">
+                                Order the tastiest meals from best restaurants in town
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div uib-slide index="2">
+            <div class="slide">
+                <div class="container">
+                    <div class="slide-wrap">
+                        <div class="slide-content text-center">
+                            <div class="photo">
+                                <img src="app/components/pages/courier/img/face.png" width="100" height="100">
+                            </div>
+                            <h1 class="title_home">“I am my own boss!”</h1>
+                            <h2>Sam S., Rocket Courier</h2>
+                            <p class="subtitle subtitle_home">
+                                Order the tastiest meals from best restaurants in town
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

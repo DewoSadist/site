@@ -53,6 +53,9 @@ import { cart } from './app/components/cart/cart';
 import { about } from './app/components/pages/about/about';
 import { contacts } from  './app/components/pages/contacts/contacts';
 import { terms } from "./app/components/pages/terms/terms";
+import { partner } from './app/components/pages/partner/partner';
+import { courier } from './app/components/pages/courier/courier';
+import { courierSlider } from './app/components/pages/courier/slider/courier.slider'
 
 
 import { users } from './app/components/users/users';
@@ -189,6 +192,9 @@ angular.module('app', [
 .component('about', about)
 .component('contacts', contacts)
 .component('terms', terms)
+.component('partner', partner)
+.component('courier', courier)
+.component('courierSlider', courierSlider)
 
 .component('users', users)
 .component('login', login)

@@ -1,0 +1,29 @@
+.partner {
+  padding-top: 40px;
+  &-banner {
+    height: 60vh;
+    width: 100%;
+    @include retina-background-image('img/partner-banner', png, cover);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+}
+.macbook {
+  width: 600px;
+  height: 350px;
+  background: url("img/macbook-iphone.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto;
+
+  @media (max-width: $screen-xs-max)  {
+    width: 300px;
+    height: 150px;
+  }
+  @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    width: 450px;
+    height: 250px;
+  }
+}

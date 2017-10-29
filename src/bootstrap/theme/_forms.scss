@@ -120,7 +120,7 @@ label {
 .radio input[type="radio"],
 .radio-inline input[type="radio"] {
     &:checked + label:before {
-        @include icon-url(checkbox-checked);
+        @include icon-url(radio-checked);
     }
 }
 
