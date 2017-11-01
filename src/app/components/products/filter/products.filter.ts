@@ -20,7 +20,7 @@ class ProductsFilterController {
   public isProductsLoading: boolean;
 
   /** @ngInject */
-  constructor(public $scope) {
+  constructor(public $scope, public $location, public $anchorScroll, public $element) {
     this.scrollableItemWidth = 150;
     this.scrollableShiftWidth = this.scrollableItemWidth * 2;
     this.scrollableShift = 0;
@@ -34,6 +34,12 @@ class ProductsFilterController {
         this.initScrollable();
       });
     });
+
+    angular.element(window).bind("scroll", function() {
+      // console.log('this=',angular.element);
+      // window.getSelection()
+    });
+
     this.text = 'My brand new component!';
     this.selectItem(this.categories[0]);
   }
@@ -144,6 +150,14 @@ class ProductsFilterController {
     });
     selected.isActive = true;
     this.selected = selected;
+    // $('#cat'+selected.id).scrollTop();
+    // window.scrollTo(0, $('#cat'+selected.id).offsetTop - 100);
+    this.$location.hash(selected.id);
+    this.$anchorScroll();
+    let hash = location.hash.match(/#(\w+)/)[1];
+    console.log(hash);
+
+
     this.toggleCategories(false);
     this.filterProducts();
   }
@@ -197,15 +211,15 @@ class ProductsFilterController {
    */
   filterProducts() {
     if (this.productsList) {
-      if (this.selected && this.selected.id != 'all') {
-        this.products = this.productsList.filter((item) => {
-          return item.cat_id == this.selected.id;
-        })
-      } else {
+      // if (this.selected && this.selected.id != 'all') {
+      //   this.products = this.productsList.filter((item) => {
+      //     return item.cat_id == this.selected.id;
+      //   });
+      // } else {
         this.products = this.productsList.map((item) => {
           return item;
-        })
-      }
+        });
+      // }
     }
     this.isProductsLoading = false;
   }
@@ -249,7 +263,7 @@ class ProductsFilterController {
   categoryProductsCount(category) {
     this.productsCount = this.productsList.filter((item) => {
       return item.cat_id == category.id;
-    })
+    });
     return this.productsCount.length;
   }
 }

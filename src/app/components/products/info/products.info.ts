@@ -47,12 +47,20 @@ class ProductsInfoController implements IFormContainer {
 
     public resolve;
     public order;
+    public issues;
+    public selectedIssue;
 
     /** @ngInject */
     constructor(public $scope,
                 public ShopServices: IShopServices,
                 public CartServices: ICartServices,
                 public ErrorService: ErrorService) {
+        this.issues = [
+            { title: 'Go with merchant recommendation' },
+            { title: 'Refund this item' },
+            { title: 'Contact me' },
+            { title: 'Cancel the en tire order' }
+            ];
         this.additional = "";
 
         this.errors = {};
@@ -73,7 +81,18 @@ class ProductsInfoController implements IFormContainer {
                 });
 
     }
-
+    /**
+     * @ngdoc method
+     * @name selectIssue
+     * @methodOf ProductsInfoController
+     * @private
+     *
+     * @description
+     * select issue value
+     */
+    selectIssue(issue) {
+        this.selectedIssue = issue.title;
+    }
     /**
      * @ngdoc method
      * @name validateForm
@@ -90,8 +109,11 @@ class ProductsInfoController implements IFormContainer {
     }
 
     addItemToCart() {
-        if(this.additional == "" && this.additional.length === 0){
-            this.additional = "Go with merchant recommendation";
+        // if(this.additional == "" && this.additional.length === 0){
+        //     this.additional = "Go with merchant recommendation";
+        // }
+        if(this.selectedIssue){
+            this.additional = this.additional + ' Issue for apply: ' + this.selectedIssue;
         }
         this.startLoadingAdd();
         console.log("productOptions:", this.productOptions);

@@ -1,16 +1,67 @@
 <div class="component">
     <div class="container">
+        <h2>Products list</h2>
         <div ng-class="{'loading': $ctrl.isLoading}">
-            <h5 ng-repeat="product in $ctrl.productsList">
-                <a href="javascript:void(0)" ui-sref="profile.product-item({id:{{product.id}}})">
-                    {{product.title}}</a>
-                <span ng-click="$ctrl.delete(product)" title="delete product">X</span>
-            </h5>
+            <table class="table table-striped">
+                <tr ng-repeat="product in $ctrl.productsList">
+                    <td>{{product.title}}</td>
+                    <td>${{product.price.toFixed(2)}}</td>
+                    <td><span ng-click="$ctrl.delete(product)" title="delete product">X</span></td>
+                </tr>
+            </table>
+            <!--<h5 ng-repeat="product in $ctrl.productsList">-->
+                <!--<a href="javascript:void(0)" ui-sref="profile.product-item({id:{{product.id}}})">-->
+                    <!--{{product.title}} ${{product.price.toFixed(2)}}</a>-->
+                <!--<span ng-click="$ctrl.delete(product)" title="delete product">X</span>-->
+            <!--</h5>-->
         </div>
-        <br>
-        <br>
-        <div class="text-center">
-            <a href="javascript:void(0)" class="btn btn-success" ui-sref="profile.product-new({cid:$ctrl.catId})">Add new Product</a>
-        </div>
+
+        <!--<br>-->
+        <!--<br>-->
+        <!--<div class="text-center">-->
+            <!--<a href="javascript:void(0)" class="btn btn-success" ui-sref="profile.product-new({cid:$ctrl.catId})">Add new Product</a>-->
+        <!--</div>-->
+    </div>
+    <hr>
+    <div class="container">
+        <h2>Add new Product</h2>
+        <form ng-submit="$ctrl.saveProduct()">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th class="col-xs-3">NAME</th>
+                    <th class="col-xs-9">VALUE</th>
+                </tr>
+                </thead>
+                <tr>
+                    <td>title</td>
+                    <td><input type="text" class="form-control" ng-model="$ctrl.product.title" required></td>
+                </tr>
+                <tr>
+                    <td>price</td>
+                    <td><input type="text" class="form-control" ng-model="$ctrl.product.price" required></td>
+                </tr>
+                <tr>
+                    <td>description</td>
+                    <td><textarea type="text" class="form-control" ng-model="$ctrl.product.description" required></textarea></td>
+                </tr>
+                <tr>
+                    <td>tags</td>
+                    <td><input type="text" class="form-control" ng-model="$ctrl.product.tags" required></td>
+                </tr>
+                <tr>
+                    <td>discount</td>
+                    <td><input type="text" class="form-control" ng-model="$ctrl.product.discount" required></td>
+                </tr>
+            </table>
+            <div ng-if="$ctrl.errors.form" class="alert alert-danger" role="alert">
+                {{$ctrl.errors.form}}
+            </div>
+            <button type="submit" ng-disabled="$ctrl.isLoading === true"
+                    class="btn btn-primary">
+                <span ng-if="$ctrl.isLoading">pleas wait</span>
+                <span ng-if="!$ctrl.isLoading">save</span>
+            </button>
+        </form>
     </div>
 </div>

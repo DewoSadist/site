@@ -12,7 +12,7 @@
     </div>
     <form ng-submit="$ctrl.addItemToCart()" ng-class="{'loading': $ctrl.isLoading}">
         <div class="modal-body">
-            <div class="row">{{$ctrl.productOptions}}
+            <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="form-group"
                          ng-repeat="option in $ctrl.productOptions">
@@ -64,6 +64,22 @@
                                   ng-model="$ctrl.additional"
                                   clear-errors>
                         </textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">If issue arises</label>
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle align-tab btn-default" type="button" id="resselect"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                {{$ctrl.selectedIssue}}
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li ng-repeat="issue in $ctrl.issues" role="presentation"
+                                    ng-class="{active: $ctrl.selectedIssue === issue.title}">
+                                    <a href="javascript:void(0);" ng-click="$ctrl.selectIssue(issue)">{{issue.title}}</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                     <div ng-if="$ctrl.errors.form" class="">
                         <div class="alert alert-danger" role="alert">{{$ctrl.errors.form}}</div>

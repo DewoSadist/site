@@ -89,6 +89,7 @@ export interface IProductCategory {
     name: string;
     res_id: number;
     tags: string;
+    description: string;
 }
 
 /**

@@ -26,7 +26,8 @@ class CategoryNewController implements IFormContainer {
         this.category = {
             name: null,
             res_id: 0,
-            tags: null
+            tags: null,
+            description: null
         };
         this.selectedRestaurantName = 'Choose Restaurant';
         this.imgCategoriesSelected = 'Choose Category';

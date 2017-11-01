@@ -36,7 +36,8 @@ export const productsCollection = {
     controller: ProductsCollectionController,
     bindings: {
         products: '<',
-        restaurant: '<'
+        restaurant: '<',
+        categories: '<'
     }
 };
 

@@ -1,8 +1,9 @@
 import ErrorService from "../../../../services/errorService/error.service";
-import {IShopServices} from "../../../../services/shopServices/shop.services";
+import {IShopServices, IProduct} from "../../../../services/shopServices/shop.services";
 class CatProductsController {
     public resolve;
     public productsList;
+    public product :IProduct;
     public catId;
     public errors;
     public isLoading;
@@ -16,8 +17,50 @@ class CatProductsController {
                 public ShopServices: IShopServices,
                 public ErrorService: ErrorService) {
         this.isLoading = false;
+        this.product = {
+            title: '',
+            img_url: '#',
+            price: 0,
+            description: '',
+            tags: '',
+            discount: '',
+            cat_id: this.catId
+        };
     }
+    saveProduct() {
+        this.errors = {};
+        this.startLoading();
+        this.ShopServices.saveOrUpdateProduct(this.product)
+            .then((response) => {
+                this.stopLoading();
+                console.log(response);
+                this.product = response;
 
+                // this.$state.go('profile.product-item', {id: this.product.id});
+            })
+            .then((response)=>{
+                this.productsList.push(response);
+            })
+            .catch((error) => {
+                console.log(error);
+                this.stopLoading();
+                if (error.status === 404) {
+                    this.errors = {
+                        form: this.ErrorService.getEditError().saveError
+                    };
+                } else if (error.status === 500) {
+                    this.errors = {
+                        form: this.ErrorService.getEditError().saveIncorrectValue
+                    }
+                } else {
+                    this.errors = {
+                        form: this.ErrorService.getGeneralBadRequestError()
+                    };
+                }
+            });
+
+
+    }
     delete(product) {
         this.ShopServices.delProduct(product.id)
             .then((response) => {

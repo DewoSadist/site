@@ -14,6 +14,7 @@
                         <div class="content">
                             <!--<span class="icon icon_category icon_food_category-{{category.tags}}"></span>-->
                             <span>{{category.name}} ({{$ctrl.categoryProductsCount(category)}})</span>
+                            <small class="text-info" style="padding: 0 2px;">{{category.description}}</small>
                         </div>
                     </div>
                 </div>
@@ -53,6 +54,7 @@
                                 <div class="content">
                                     <!--<span class="icon icon_category icon_food_category-{{category.tags}}"></span>-->
                                     <span>{{category.name}} ({{$ctrl.categoryProductsCount(category)}})</span>
+                                    <small class="text-info" style="padding: 0 2px;">{{category.description}}</small>
                                 </div>
                             </div>
                         </div>
@@ -62,11 +64,11 @@
         </div>
     </section>
 </section>
-<section class="home-payments" ng-class="{'loading':$ctrl.isProductsLoading}">
+<section class="home-payments" ng-class="{'loading': $ctrl.isProductsLoading}">
     <div class="page-list page-list_dynamic page-list_no-padding content-block">
         <div class="container">
-            <products-collection data-products="$ctrl.products" data-restaurant="$ctrl.restaurant"></products-collection>
-            </div>
-            <!--<a ui-sref="payments.main" class="btn btn-primary payments-button">All Products</a>-->
+            <products-collection data-products="$ctrl.products" data-restaurant="$ctrl.restaurant" data-categories="$ctrl.categories" ></products-collection>
+        </div>
+        <!--<a ui-sref="payments.main" class="btn btn-primary payments-button">All Products</a>-->
     </div>
 </section>

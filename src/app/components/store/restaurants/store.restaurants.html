@@ -15,7 +15,7 @@
                 <div class="page-list-wrap" click-outside="$ctrl.closeMenus()">
 
                     <div class="page-list-item"
-                         ng-repeat="item in $ctrl.ShopServices.restaurantsList | limitTo:($ctrl.showAll?undefined:8)"
+                         ng-repeat="item in $ctrl.ShopServices.restaurantsList"
                          ng-class="page-list-item_bottom">
                         <div class="content" ng-click="$ctrl.selectItem(item)">
                             <img src="http://mun.munchrocket.com/images/{{item.logo_image_url}}"
@@ -30,10 +30,10 @@
 
                     </div>
                 </div>
-                <div class="profile-button" ng-if="$ctrl.ShopServices.restaurantsList.length > 8">
-                    <button class="btn btn-primary" ng-click="$ctrl.toggleShowAll()">{{$ctrl.showAll? 'Hide' : 'Show all'}}
-                    </button>
-                </div>
+                <!--<div class="profile-button" ng-if="$ctrl.ShopServices.restaurantsList.length > 8">-->
+                    <!--<button class="btn btn-primary" ng-click="$ctrl.toggleShowAll()">{{$ctrl.showAll? 'Hide' : 'Show all'}}-->
+                    <!--</button>-->
+                <!--</div>-->
             </div>
         </div>
     </div>
